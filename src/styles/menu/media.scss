@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+@media screen and (max-width: $navbar-menu-media) {
+	.navbar-menu-section_touch {
+		display: block;
+	}
+	.navbar-menu-touch-hide {
+		display: none;
+	}
+	.navbar-menu-touch-full {
+		flex-grow: 1;
+	}
+}

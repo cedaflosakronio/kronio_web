@@ -1,0 +1,13 @@
+.navbar-menu-no-transition {
+	.navbar-menu-dropdown-container,
+	.navbar-menu-background-alt,
+	.navbar-menu-background,
+	.navbar-menu-arrow,
+	.navbar-menu-dropdown-section {
+		transition: none;
+	}
+}
+
+.navbar-menu-has-dropdown {
+	cursor: default;
+}

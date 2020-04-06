@@ -1,0 +1,158 @@
+// Import Bulma's core
+@import '~bulma/sass/utilities/_all';
+
+// Set your colors
+$black: #7a7979;
+$dark: #494747;
+
+$primary: #8969eb;
+$primary-invert: findColorInvert($primary);
+$primary-light: findLightColor($primary);
+$primary-dark: findDarkColor($primary);
+
+$main: $primary;
+$main-invert: $primary-invert;
+$main-light: $primary-light;
+$main-dark: $primary-dark;
+
+$main-light-one: #6086fb;
+$main-light-one-invert: findColorInvert($main-light-one);
+$main-light-one-light: findLightColor($main-light-one);
+$main-light-one-dark: findDarkColor($main-light-one);
+
+$main-light-two: #83a1fc;
+$main-light-two-invert: findColorInvert($main-light-two);
+$main-light-two-light: findLightColor($main-light-two);
+$main-light-two-dark: findDarkColor($main-light-two);
+
+$main-dark-one: #3259ce;
+$main-dark-one-invert: findColorInvert($main-dark-one);
+$main-dark-one-light: finddarkColor($main-dark-one);
+$main-dark-one-dark: findDarkColor($main-dark-one);
+
+$main-dark-two: #2745a0;
+$main-dark-two-invert: findColorInvert($main-dark-two);
+$main-dark-two-light: finddarkColor($main-dark-two);
+$main-dark-two-dark: findDarkColor($main-dark-two);
+
+$link: $main-light-one;
+$link-invert: $main-light-one-invert;
+$link-light: $main-light-one-light;
+$link-dark: $main-light-one-dark;
+
+$info: $main-dark-one;
+$info-invert: $main-dark-one-invert;
+$info-light: $main-dark-one-light;
+$info-dark: $main-dark-one-dark;
+
+$success: #58cc80;
+$success-invert: $white;
+$success-light: findLightColor($success);
+$success-dark: findDarkColor($success);
+
+$warning: #ffe066;
+$warning-invert: $black;
+$warning-light: findLightColor($warning);
+$warning-dark: findDarkColor($warning);
+
+$danger: #fa5588;
+$danger-invert: findColorInvert($danger);
+$danger-light: findLightColor($danger);
+$danger-dark: findDarkColor($danger);
+
+$colors: mergeColorMaps(
+	(
+		'white': (
+			$white,
+			$black,
+		),
+		'black': (
+			$black,
+			$white,
+		),
+		'light': (
+			$light,
+			$light-invert,
+		),
+		'dark': (
+			$dark,
+			$dark-invert,
+		),
+		'primary': (
+			$primary,
+			$primary-invert,
+			$primary-light,
+			$primary-dark,
+		),
+		'main': (
+			$main,
+			$main-invert,
+			$main-light,
+			$main-dark,
+		),
+		'main-light-one': (
+			$main-light-one,
+			$main-light-one-invert,
+			$main-light-one-light,
+			$main-light-one-dark,
+		),
+		'main-light-two': (
+			$main-light-two,
+			$main-light-two-invert,
+			$main-light-two-light,
+			$main-light-two-dark,
+		),
+		'main-dark-one': (
+			$main-dark-one,
+			$main-dark-one-invert,
+			$main-dark-one-light,
+			$main-dark-one-dark,
+		),
+		'main-dark-two': (
+			$main-dark-two,
+			$main-dark-two-invert,
+			$main-dark-two-light,
+			$main-dark-two-dark,
+		),
+		'link': (
+			$link,
+			$link-invert,
+			$link-light,
+			$link-dark,
+		),
+		'info': (
+			$info,
+			$info-invert,
+			$info-light,
+			$info-dark,
+		),
+		'success': (
+			$success,
+			$success-invert,
+			$success-light,
+			$success-dark,
+		),
+		'warning': (
+			$warning,
+			$warning-invert,
+			$warning-light,
+			$warning-dark,
+		),
+		'danger': (
+			$danger,
+			$danger-invert,
+			$danger-light,
+			$danger-dark,
+		),
+	),
+	$custom-colors
+);
+
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+// Import Bulma and Buefy styles
+@import '~bulma';
+@import '~buefy/src/scss/buefy';
