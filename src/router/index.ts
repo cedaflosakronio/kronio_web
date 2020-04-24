@@ -17,6 +17,14 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/registerAdminperson',
+		name: 'RegisterAdminPerson',
+		component: () => import(/* webpackChunkName: "register_admin_person" */ '@/pages/Register/RegisterAdminPerson.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),

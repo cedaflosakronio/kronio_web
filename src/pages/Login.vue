@@ -30,7 +30,7 @@
 											<div class="column"></div>
 											<div class="column is-8">
 												<section class="margin-button">
-													<b-field>
+													<div class="field">
 														<p class="control has-icons-left has-icons-right">
 															<b-input class="input-style"
 																v-model="login_form.username"
@@ -41,9 +41,9 @@
 																<i class="fas fa-user"></i>
 															</span>
 														</p>
-													</b-field>
+													</div>
 
-													<b-field>
+													<div class="field">
 														<p class="control has-icons-left has-icons-right">
 															<b-input class="input-style"
 																v-model="login_form.password"
@@ -55,19 +55,19 @@
 																<i class="fas fa-lock"></i>
 															</span>
 														</p>
-													</b-field>
-													<b-flied>
+													</div>
+													<div class="field">
 														<label class="checkbox is-pulled-right input-style-remember">
 															<input type="checkbox">
 															Recuérdame
 														</label>
-													</b-flied>
-													<b-field>
+													</div>
+													<div class="field">
 														<b-button @click="login()" type="is-primary" expanded class="btn-login body">Ingresar</b-button>
-													</b-field>
-													<b-flied>
+													</div>
+													<div class="field">
 														<a class="forgot-pass is-pulled-right" href="#">¿Olvidó contraseña?</a>
-													</b-flied>
+													</div>
 												</section>
 											</div>
 											<div class="column"></div>
@@ -83,7 +83,7 @@
 												<section>
 													<p class="title is-5 has-text-centered input-style margin-label-register">¿Nuevo en Kronio?</p>
 													<b-field>
-														<b-button @click="login()" type="is-primary" expanded class="btn-login">Regístrate</b-button>
+														<b-button @click="register()" type="is-primary" expanded class="btn-login">Regístrate</b-button>
 													</b-field>
 												</section>
 											</div>
@@ -141,6 +141,10 @@ export default class Login extends PageBase {
 				position: 'is-bottom',
 			});
 		}
+	}
+
+	public async register(){
+		this.$router.push('/registerAdminperson');
 	}
 }
 </script>

@@ -77,3 +77,27 @@ export class LoginForm implements ILoginForm {
 	public username: string;
 	public password: string;
 }
+
+export interface IRegisterAdminPerson {
+	names?: string;
+	lastnames?: string;
+	email?: string;
+	password?: string;
+	password_verified?: string;
+}
+
+export class RegisterAdminPersonForm implements IRegisterAdminPerson {
+	constructor(data: IRegisterAdminPerson){
+		this.names = data.names ? data.names: '';
+		this.lastnames = data.lastnames ? data.lastnames : '';
+		this.email = data.email ? data.email : '';
+		this.password = data.password ? data.password : '';
+		this.password_verified = data.password_verified ? data.password_verified : '';
+	}
+
+	public names: string;
+	public lastnames: string;
+	public email: string;
+	public password: string;
+	public password_verified: string;
+}
