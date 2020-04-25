@@ -19,7 +19,31 @@ const routes: RouteConfig[] = [
 	{
 		path: '/registerAdminperson',
 		name: 'RegisterAdminPerson',
-		component: () => import(/* webpackChunkName: "register_admin_person" */ '@/pages/Register/RegisterAdminPerson.vue'),
+		component: () => import('@/pages/Register/RegisterAdminPerson.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerAdminpersonmore',
+		name: 'RegisterAdminPerson2',
+		component: () => import('@/pages/Register/RegisterAdminPerson2.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerAdminenterprise',
+		name: 'RegisterAdminEnterprise',
+		component: () => import('@/pages/Register/RegisterAdminEnterprise.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerAdminenterprisemore',
+		name: 'RegisterAdminEnterprise2',
+		component: () => import('@/pages/Register/RegisterAdminEnterprise2.vue'),
 		meta: {
 			free_page: true,
 		},

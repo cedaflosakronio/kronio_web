@@ -101,3 +101,72 @@ export class RegisterAdminPersonForm implements IRegisterAdminPerson {
 	public password: string;
 	public password_verified: string;
 }
+
+export interface IRegisterAdminPerson2 {
+	id?: string;
+	address?: string;
+	prefix?: string;
+	phone?: string;
+	birthday?: Date;
+}
+
+export class RegisterAdminPerson2Form implements IRegisterAdminPerson2 {
+	constructor(data: IRegisterAdminPerson2){
+		this.id = data.id ? data.id: '';
+		this.address = data.address ? data.address : '';
+		this.prefix = data.prefix ? data.prefix : '';
+		this.phone = data.phone ? data.phone : '';
+		this.birthday = data.birthday ? data.birthday : new Date();
+	}
+
+	public id: string;
+	public address: string;
+	public prefix: string;
+	public phone: string;
+	public birthday: Date;
+}
+
+export interface IRegisterAdminEnterprise {
+	name_enterprise?: string;
+	id_enterprise?: string;
+	type_enterprise?: string;
+	size_enterprise?: number;
+}
+
+export class RegisterAdminEnterpriseForm implements IRegisterAdminEnterprise {
+	constructor(data: IRegisterAdminEnterprise){
+		this.name_enterprise = data.name_enterprise ? data.name_enterprise : '';
+		this.id_enterprise = data.id_enterprise ? data.id_enterprise : '';
+		this.type_enterprise = data.type_enterprise ? data.type_enterprise : '';
+		this.size_enterprise = data.size_enterprise ? data.size_enterprise : 0;
+	}
+
+	public name_enterprise: string;
+	public id_enterprise: string;
+	public type_enterprise: string;
+	public size_enterprise: number;
+}
+
+export interface IRegisterAdminEnterprise2 {
+	address?: string;
+	prefix?: string;
+	phone?: string;
+	city?: string;
+	country?: string;
+}
+
+export class RegisterAdminEnterprise2Form implements IRegisterAdminEnterprise2 {
+	constructor(data: IRegisterAdminEnterprise2){
+		this.address = data.address ? data.address : '';
+		this.prefix = data.prefix ? data.prefix : '';
+		this.phone = data.phone ? data.phone : '';
+		this.city = data.city ? data.city : '';
+		this.country = data.country ? data.country : '';
+	}
+
+	public address: string;
+	public prefix: string;
+	public phone: string;
+	public city: string;
+	public country: string;
+}
