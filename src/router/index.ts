@@ -49,6 +49,30 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/registerinvitationEmployee',
+		name: 'WellcomeInvitation',
+		component: () => import('@/pages/InvitationEmployee/wellcomeinvitation.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerEmployeePerson',
+		name: 'RegisterEmployeePerson',
+		component: () => import('@/pages/InvitationEmployee/employeePersonal.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerEmployeePersonmore',
+		name: 'RegisterEmployeePerson2',
+		component: () => import('@/pages/InvitationEmployee/employeePerson2.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),

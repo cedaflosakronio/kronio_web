@@ -170,3 +170,51 @@ export class RegisterAdminEnterprise2Form implements IRegisterAdminEnterprise2 {
 	public city: string;
 	public country: string;
 }
+
+export interface IRegisterEmployeePersonForm {
+	names?: string;
+	lastnames?: string;
+	email?: string;
+	password?: string;
+	password_verified?: string;
+}
+
+export class RegisterEmployeePersonForm implements IRegisterEmployeePersonForm {
+	constructor(data: IRegisterEmployeePersonForm){
+		this.names = data.names ? data.names: '';
+		this.lastnames = data.lastnames ? data.lastnames : '';
+		this.email = data.email ? data.email : '';
+		this.password = data.password ? data.password : '';
+		this.password_verified = data.password_verified ? data.password_verified : '';
+	}
+
+	public names: string;
+	public lastnames: string;
+	public email: string;
+	public password: string;
+	public password_verified: string;
+}
+
+export interface IRegisterEmployeePerson2 {
+	id?: string;
+	address?: string;
+	prefix?: string;
+	phone?: string;
+	birthday?: Date;
+}
+
+export class RegisterEmployeePerson2Form implements IRegisterEmployeePerson2 {
+	constructor(data: IRegisterEmployeePerson2){
+		this.id = data.id ? data.id: '';
+		this.address = data.address ? data.address : '';
+		this.prefix = data.prefix ? data.prefix : '';
+		this.phone = data.phone ? data.phone : '';
+		this.birthday = data.birthday ? data.birthday : new Date();
+	}
+
+	public id: string;
+	public address: string;
+	public prefix: string;
+	public phone: string;
+	public birthday: Date;
+}
