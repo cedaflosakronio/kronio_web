@@ -66,7 +66,7 @@
 														<b-button @click="login()" type="is-primary" expanded class="btn-login body">Ingresar</b-button>
 													</div>
 													<div class="field">
-														<a class="forgot-pass is-pulled-right" href="#">¿Olvidó contraseña?</a>
+														<a class="forgot-pass is-pulled-right" href="/forgotpassmain">¿Olvidó contraseña?</a>
 													</div>
 												</section>
 											</div>

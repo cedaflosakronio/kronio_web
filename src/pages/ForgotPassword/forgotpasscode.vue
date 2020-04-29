@@ -6,80 +6,74 @@
 					<LogoSVG />
 				</a>
 			</template>
-            <template slot="end">
-                <div class="navbar-item">
-                    <a class="color-login" href="/login">Iniciar Sesión</a>
-                </div>
-            </template>
 		</b-navbar>
-        <div class="columns margin-top-register">
-			<div class="column is-3"></div>
-            <div class="column is-3 is-mobile is-vcentered margin-top-form">
+        <div class="columns is-mobile is-centered margin-top-register">
+            <div class="column is-3  margin-top-form">
                 <div class="box margin-top-form">
-					<article class="media">
+					<article class="media icon-padding">
 						<div class="media-content">
 							<div class="content">
 								<div class="columns">
 									<div class="column is-full">
 										<p class="subtitle is-3 title-register has-text-primary has-text-centered">
-											Datos Personales
+											Ingrese el código
+										</p>
+									</div>
+								</div>
+								<div class="columns is-mobile is-centered">
+									<div class="column is-8">
+										<p class="has-text-centered text-info">
+											Verifique el código que enviamos a tu número celular
 										</p>
 									</div>
 								</div>
 								<div class="columns is-centered">
 									<div class="column is-full">
 										<section class="margin-button">
-											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
-														v-model="register_form.email_phone"
-														@keyup.enter.native="continuar()"
-														placeholder="Nombres">
-													</b-input>
-												</p>
-											</div>
+											<div class="field_code">
 
-											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
-														v-model="register_form.lastnames"
+													<b-input
+														v-model="code_form.code1"
+														maxlength="1"
 														@keyup.enter.native="continuar()"
-														placeholder="Apellidos">
+														placeholder=".">
 													</b-input>
-												</p>
-											</div>
-											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
-														v-model="register_form.email"
+													<b-input
+														v-model="code_form.code2"
+														maxlength="1"
 														@keyup.enter.native="continuar()"
-														placeholder="Email">
+														placeholder=".">
 													</b-input>
-												</p>
-											</div>
-											<div class="field">
-												<p class="control has-icons-left has-icons-right password-input">
-													<b-input class="form-fields"
-														v-model="register_form.password"
+													<b-input
+														v-model="code_form.code3"
+														maxlength="1"
 														@keyup.enter.native="continuar()"
-														type="password"
-														placeholder="Contraseña">
+														placeholder=".">
 													</b-input>
-												</p>
-												<p class="is-pulled-right is-paddingless is-marginless password-label">Mínimo 6 caracteres</p>
-											</div>
-											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
-														v-model="register_form.password_verified"
+													<b-input
+														v-model="code_form.code4"
+														maxlength="1"
 														@keyup.enter.native="continuar()"
-														type="password"
-														placeholder="Confirmar contraseña">
+														placeholder=".">
 													</b-input>
-												</p>
+													<b-input
+														v-model="code_form.code5"
+														maxlength="1"
+														@keyup.enter.native="continuar()"
+														placeholder=".">
+													</b-input>
+													<b-input
+														v-model="code_form.code6"
+														maxlength="1"
+														@keyup.enter.native="continuar()"
+														placeholder=".">
+													</b-input>
 											</div>
 											<div class="field has-text-centered">
 												<b-button @click="continuar()" type="is-primary" expanded class="btn-register body">Continuar</b-button>
+											</div>
+											<div class="field">
+												<a class="repeat-code is-pulled-right" href="#">Volver a enviar código</a>
 											</div>
 										</section>
 									</div>
@@ -89,9 +83,6 @@
 					</article>
                 </div>
             </div>
-            <div class="column is-6">
-				<img class="is-pulled-right" src="../../assets/adm1_1.png" />
-			</div>
 		</div>
 	</div>
 </template>
@@ -100,20 +91,20 @@
 import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import LogoSVG from '@/components/LogoSVG.vue';
-import { RegisterAdminPersonForm } from '@/store/types';
+import { ForgotPassCodeForm } from '@/store/types';
 
 @Component({
 	components: { LogoSVG },
 })
-export default class RegisterAdminPerson extends PageBase {
-	public register_form: RegisterAdminPersonForm = new RegisterAdminPersonForm({});
+export default class ForgotPassCode extends PageBase {
+	public code_form: ForgotPassCodeForm = new ForgotPassCodeForm({});
 
 	public async created() {
 		await super.created();
 	}
 	
 	public async continuar(){
-		this.$router.push('/registerAdminenterprise');
+		this.$router.push('/forgotpassnew');
 	}
 
 }
@@ -123,6 +114,29 @@ export default class RegisterAdminPerson extends PageBase {
 body{
 	font-family: Poppins !important;
 	font-style: normal !important;
+}
+
+.control {
+	display: inline-block;
+	width: 14% !important;
+	margin-left: 1% !important;
+	margin-right: 1% !important;
+}
+
+.control .help.counter{
+	display: none !important;
+}
+
+.input{
+	width: 100% !important;
+	border-top: 0px !important;
+	border-left: 0px !important;
+	border-right: 0px !important;
+	border-bottom: solid 2px #000000 !important;
+	box-shadow: none !important;
+	color: #7A7979 !important;
+	font-size: 25px !important;
+	font-weight: bold !important;
 }
 .login{
 	.navbar {
@@ -161,6 +175,14 @@ body{
 		}
 	}
 
+	.field_code{
+		margin-left: 5% !important;
+	}
+
+	.text-info{
+		color: rgba(122, 121, 121, 0.5);
+	}
+
     .color-login{
         color: #ffffff !important;
     }
@@ -171,7 +193,12 @@ body{
 
 	.margin-top-form{
 		margin-top: 6%;
-		height: calc(65vh - 4rem);
+		height: calc(55vh - 4rem);
+	}
+
+	.repeat-code{
+		color: #335EEA;
+		margin-right: 10% !important;
 	}
 
 	.title-register{
@@ -183,7 +210,7 @@ body{
 		padding-bottom: 10% !important;
 		width: 80%;
 		display: block;
-		margin-top: 5%;
+		margin-top: 12%;
 		margin-left: 10% !important;
 		// margin-right: 5% !important;
 		background: #335EEA;
@@ -191,6 +218,7 @@ body{
 	}
 
 	.form-fields{
+		margin-top: 5%;
 		margin-left: 10% !important;
 		margin-right: 10% !important;
 	}
@@ -200,15 +228,8 @@ body{
 		padding-top: 8% !important;
 	}
 
-	.password-input{
-		margin-bottom: 0% !important;
-	}
-
-	.password-label{
-		margin-bottom: 2% !important;
-		margin-right: 10% !important;
-		color: #7A7979;
-		font-size: 15px;
+	.icon-padding{
+		padding-top: 5% !important;
 	}
 }
 </style>

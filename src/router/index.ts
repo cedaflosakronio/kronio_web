@@ -73,6 +73,38 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/forgotpassmain',
+		name: 'ForgotPassMain',
+		component: () => import('@/pages/ForgotPassword/forgotpass.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/forgotpasscode',
+		name: 'ForgotPassCode',
+		component: () => import('@/pages/ForgotPassword/forgotpasscode.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/forgotpassnew',
+		name: 'ForgotPassNew',
+		component: () => import('@/pages/ForgotPassword/forgotpassnew.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/forgotpasslogin',
+		name: 'ForgotPassLogin',
+		component: () => import('@/pages/ForgotPassword/forgotpasslogin.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),

@@ -6,23 +6,17 @@
 					<LogoSVG />
 				</a>
 			</template>
-            <template slot="end">
-                <div class="navbar-item">
-                    <a class="color-login" href="/login">Iniciar Sesión</a>
-                </div>
-            </template>
 		</b-navbar>
-        <div class="columns margin-top-register">
-			<div class="column is-3"></div>
-            <div class="column is-3 is-mobile is-vcentered margin-top-form">
+        <div class="columns is-mobile is-centered margin-top-register">
+            <div class="column is-3  margin-top-form">
                 <div class="box margin-top-form">
-					<article class="media">
+					<article class="media icon-padding">
 						<div class="media-content">
 							<div class="content">
 								<div class="columns">
 									<div class="column is-full">
 										<p class="subtitle is-3 title-register has-text-primary has-text-centered">
-											Datos Personales
+											Recuperar contraseña
 										</p>
 									</div>
 								</div>
@@ -30,52 +24,15 @@
 									<div class="column is-full">
 										<section class="margin-button">
 											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
+												<p class="control has-icons-left has-icons-right form-fields">
+													<b-input
 														v-model="register_form.email_phone"
 														@keyup.enter.native="continuar()"
-														placeholder="Nombres">
+														placeholder="Email/teléfono">
 													</b-input>
-												</p>
-											</div>
-
-											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
-														v-model="register_form.lastnames"
-														@keyup.enter.native="continuar()"
-														placeholder="Apellidos">
-													</b-input>
-												</p>
-											</div>
-											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
-														v-model="register_form.email"
-														@keyup.enter.native="continuar()"
-														placeholder="Email">
-													</b-input>
-												</p>
-											</div>
-											<div class="field">
-												<p class="control has-icons-left has-icons-right password-input">
-													<b-input class="form-fields"
-														v-model="register_form.password"
-														@keyup.enter.native="continuar()"
-														type="password"
-														placeholder="Contraseña">
-													</b-input>
-												</p>
-												<p class="is-pulled-right is-paddingless is-marginless password-label">Mínimo 6 caracteres</p>
-											</div>
-											<div class="field">
-												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
-														v-model="register_form.password_verified"
-														@keyup.enter.native="continuar()"
-														type="password"
-														placeholder="Confirmar contraseña">
-													</b-input>
+													<span class="icon is-small is-left icon-padding">
+														<i class="fas fa-user"></i>
+													</span>
 												</p>
 											</div>
 											<div class="field has-text-centered">
@@ -89,9 +46,6 @@
 					</article>
                 </div>
             </div>
-            <div class="column is-6">
-				<img class="is-pulled-right" src="../../assets/adm1_1.png" />
-			</div>
 		</div>
 	</div>
 </template>
@@ -100,20 +54,20 @@
 import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import LogoSVG from '@/components/LogoSVG.vue';
-import { RegisterAdminPersonForm } from '@/store/types';
+import { ForgotPassMainForm } from '@/store/types';
 
 @Component({
 	components: { LogoSVG },
 })
-export default class RegisterAdminPerson extends PageBase {
-	public register_form: RegisterAdminPersonForm = new RegisterAdminPersonForm({});
+export default class ForgotPassMain extends PageBase {
+	public register_form: ForgotPassMainForm = new ForgotPassMainForm({});
 
 	public async created() {
 		await super.created();
 	}
 	
 	public async continuar(){
-		this.$router.push('/registerAdminenterprise');
+		this.$router.push('/forgotpasscode');
 	}
 
 }
@@ -171,7 +125,7 @@ body{
 
 	.margin-top-form{
 		margin-top: 6%;
-		height: calc(65vh - 4rem);
+		height: calc(48vh - 4rem);
 	}
 
 	.title-register{
@@ -183,7 +137,7 @@ body{
 		padding-bottom: 10% !important;
 		width: 80%;
 		display: block;
-		margin-top: 5%;
+		margin-top: 12%;
 		margin-left: 10% !important;
 		// margin-right: 5% !important;
 		background: #335EEA;
@@ -191,6 +145,7 @@ body{
 	}
 
 	.form-fields{
+		margin-top: 5%;
 		margin-left: 10% !important;
 		margin-right: 10% !important;
 	}
@@ -200,15 +155,8 @@ body{
 		padding-top: 8% !important;
 	}
 
-	.password-input{
-		margin-bottom: 0% !important;
-	}
-
-	.password-label{
-		margin-bottom: 2% !important;
-		margin-right: 10% !important;
-		color: #7A7979;
-		font-size: 15px;
+	.icon-padding{
+		padding-top: 5% !important;
 	}
 }
 </style>
