@@ -7,9 +7,9 @@
 				</a>
 			</template>
 		</b-navbar>
-        <div class="columns is-mobile is-centered margin-top-register">
-            <div class="column is-3  margin-top-form">
-                <div class="box margin-top-form">
+		<div class="columns is-mobile is-centered margin-top-register">
+			<div class="column is-3  margin-top-form">
+				<div class="box margin-top-form">
 					<article class="media icon-padding">
 						<div class="media-content">
 							<div class="content">
@@ -31,49 +31,62 @@
 									<div class="column is-full">
 										<section class="margin-button">
 											<div class="field_code">
-
-													<b-input
-														v-model="code_form.code1"
-														maxlength="1"
-														@keyup.enter.native="continuar()"
-														placeholder=".">
-													</b-input>
-													<b-input
-														v-model="code_form.code2"
-														maxlength="1"
-														@keyup.enter.native="continuar()"
-														placeholder=".">
-													</b-input>
-													<b-input
-														v-model="code_form.code3"
-														maxlength="1"
-														@keyup.enter.native="continuar()"
-														placeholder=".">
-													</b-input>
-													<b-input
-														v-model="code_form.code4"
-														maxlength="1"
-														@keyup.enter.native="continuar()"
-														placeholder=".">
-													</b-input>
-													<b-input
-														v-model="code_form.code5"
-														maxlength="1"
-														@keyup.enter.native="continuar()"
-														placeholder=".">
-													</b-input>
-													<b-input
-														v-model="code_form.code6"
-														maxlength="1"
-														@keyup.enter.native="continuar()"
-														placeholder=".">
-													</b-input>
+												<b-input
+													v-model="code_form.code1"
+													maxlength="1"
+													@keyup.enter.native="continuar()"
+													placeholder="."
+												>
+												</b-input>
+												<b-input
+													v-model="code_form.code2"
+													maxlength="1"
+													@keyup.enter.native="continuar()"
+													placeholder="."
+												>
+												</b-input>
+												<b-input
+													v-model="code_form.code3"
+													maxlength="1"
+													@keyup.enter.native="continuar()"
+													placeholder="."
+												>
+												</b-input>
+												<b-input
+													v-model="code_form.code4"
+													maxlength="1"
+													@keyup.enter.native="continuar()"
+													placeholder="."
+												>
+												</b-input>
+												<b-input
+													v-model="code_form.code5"
+													maxlength="1"
+													@keyup.enter.native="continuar()"
+													placeholder="."
+												>
+												</b-input>
+												<b-input
+													v-model="code_form.code6"
+													maxlength="1"
+													@keyup.enter.native="continuar()"
+													placeholder="."
+												>
+												</b-input>
 											</div>
 											<div class="field has-text-centered">
-												<b-button @click="continuar()" type="is-primary" expanded class="btn-register body">Continuar</b-button>
+												<b-button
+													@click="continuar()"
+													type="is-primary"
+													expanded
+													class="btn-register body"
+													>Continuar</b-button
+												>
 											</div>
 											<div class="field">
-												<a class="repeat-code is-pulled-right" href="#">Volver a enviar código</a>
+												<a class="repeat-code is-pulled-right" href="#"
+													>Volver a enviar código</a
+												>
 											</div>
 										</section>
 									</div>
@@ -81,8 +94,8 @@
 							</div>
 						</div>
 					</article>
-                </div>
-            </div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -102,16 +115,15 @@ export default class ForgotPassCode extends PageBase {
 	public async created() {
 		await super.created();
 	}
-	
-	public async continuar(){
+
+	public async continuar() {
 		this.$router.push('/forgotpassnew');
 	}
-
 }
 </script>
 
 <style lang="scss">
-body{
+body {
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
@@ -123,22 +135,22 @@ body{
 	margin-right: 1% !important;
 }
 
-.control .help.counter{
+.control .help.counter {
 	display: none !important;
 }
 
-.input{
+.input {
 	width: 100% !important;
 	border-top: 0px !important;
 	border-left: 0px !important;
 	border-right: 0px !important;
 	border-bottom: solid 2px #000000 !important;
 	box-shadow: none !important;
-	color: #7A7979 !important;
+	color: #7a7979 !important;
 	font-size: 25px !important;
 	font-weight: bold !important;
 }
-.login{
+.login {
 	.navbar {
 		background: #8969eb;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -175,37 +187,37 @@ body{
 		}
 	}
 
-	.field_code{
+	.field_code {
 		margin-left: 5% !important;
 	}
 
-	.text-info{
+	.text-info {
 		color: rgba(122, 121, 121, 0.5);
 	}
 
-    .color-login{
-        color: #ffffff !important;
-    }
+	.color-login {
+		color: #ffffff !important;
+	}
 
-	.margin-top-register{
+	.margin-top-register {
 		margin-top: 2%;
 	}
 
-	.margin-top-form{
+	.margin-top-form {
 		margin-top: 6%;
 		height: calc(55vh - 4rem);
 	}
 
-	.repeat-code{
-		color: #335EEA;
+	.repeat-code {
+		color: #335eea;
 		margin-right: 10% !important;
 	}
 
-	.title-register{
+	.title-register {
 		padding-top: 8%;
 	}
 
-	.btn-register{
+	.btn-register {
 		padding-top: 5% !important;
 		padding-bottom: 10% !important;
 		width: 80%;
@@ -213,22 +225,22 @@ body{
 		margin-top: 12%;
 		margin-left: 10% !important;
 		// margin-right: 5% !important;
-		background: #335EEA;
+		background: #335eea;
 		border-radius: 3px;
 	}
 
-	.form-fields{
+	.form-fields {
 		margin-top: 5%;
 		margin-left: 10% !important;
 		margin-right: 10% !important;
 	}
 
-	.input{
+	.input {
 		padding-bottom: 8% !important;
 		padding-top: 8% !important;
 	}
 
-	.icon-padding{
+	.icon-padding {
 		padding-top: 5% !important;
 	}
 }

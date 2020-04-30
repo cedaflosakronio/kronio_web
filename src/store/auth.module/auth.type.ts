@@ -87,8 +87,8 @@ export interface IRegisterAdminPerson {
 }
 
 export class RegisterAdminPersonForm implements IRegisterAdminPerson {
-	constructor(data: IRegisterAdminPerson){
-		this.names = data.names ? data.names: '';
+	constructor(data: IRegisterAdminPerson) {
+		this.names = data.names ? data.names : '';
 		this.lastnames = data.lastnames ? data.lastnames : '';
 		this.email = data.email ? data.email : '';
 		this.password = data.password ? data.password : '';
@@ -111,8 +111,8 @@ export interface IRegisterAdminPerson2 {
 }
 
 export class RegisterAdminPerson2Form implements IRegisterAdminPerson2 {
-	constructor(data: IRegisterAdminPerson2){
-		this.id = data.id ? data.id: '';
+	constructor(data: IRegisterAdminPerson2) {
+		this.id = data.id ? data.id : '';
 		this.address = data.address ? data.address : '';
 		this.prefix = data.prefix ? data.prefix : '';
 		this.phone = data.phone ? data.phone : '';
@@ -134,7 +134,7 @@ export interface IRegisterAdminEnterprise {
 }
 
 export class RegisterAdminEnterpriseForm implements IRegisterAdminEnterprise {
-	constructor(data: IRegisterAdminEnterprise){
+	constructor(data: IRegisterAdminEnterprise) {
 		this.name_enterprise = data.name_enterprise ? data.name_enterprise : '';
 		this.id_enterprise = data.id_enterprise ? data.id_enterprise : '';
 		this.type_enterprise = data.type_enterprise ? data.type_enterprise : '';
@@ -156,7 +156,7 @@ export interface IRegisterAdminEnterprise2 {
 }
 
 export class RegisterAdminEnterprise2Form implements IRegisterAdminEnterprise2 {
-	constructor(data: IRegisterAdminEnterprise2){
+	constructor(data: IRegisterAdminEnterprise2) {
 		this.address = data.address ? data.address : '';
 		this.prefix = data.prefix ? data.prefix : '';
 		this.phone = data.phone ? data.phone : '';
@@ -180,8 +180,8 @@ export interface IRegisterEmployeePersonForm {
 }
 
 export class RegisterEmployeePersonForm implements IRegisterEmployeePersonForm {
-	constructor(data: IRegisterEmployeePersonForm){
-		this.names = data.names ? data.names: '';
+	constructor(data: IRegisterEmployeePersonForm) {
+		this.names = data.names ? data.names : '';
 		this.lastnames = data.lastnames ? data.lastnames : '';
 		this.email = data.email ? data.email : '';
 		this.password = data.password ? data.password : '';
@@ -204,8 +204,8 @@ export interface IRegisterEmployeePerson2 {
 }
 
 export class RegisterEmployeePerson2Form implements IRegisterEmployeePerson2 {
-	constructor(data: IRegisterEmployeePerson2){
-		this.id = data.id ? data.id: '';
+	constructor(data: IRegisterEmployeePerson2) {
+		this.id = data.id ? data.id : '';
 		this.address = data.address ? data.address : '';
 		this.prefix = data.prefix ? data.prefix : '';
 		this.phone = data.phone ? data.phone : '';
@@ -220,11 +220,11 @@ export class RegisterEmployeePerson2Form implements IRegisterEmployeePerson2 {
 }
 
 export class IForgotPassMain {
-	email_phone?: string
+	email_phone?: string;
 }
 
-export class ForgotPassMainForm implements IForgotPassMain{
-	constructor(data: IForgotPassMain){
+export class ForgotPassMainForm implements IForgotPassMain {
+	constructor(data: IForgotPassMain) {
 		this.email_phone = data.email_phone ? data.email_phone : '';
 	}
 
@@ -241,7 +241,7 @@ export class IForgotPassCode {
 }
 
 export class ForgotPassCodeForm implements IForgotPassCode {
-	constructor(data: IForgotPassCode){
+	constructor(data: IForgotPassCode) {
 		this.code1 = data.code1 ? data.code1 : '';
 		this.code2 = data.code2 ? data.code2 : '';
 		this.code3 = data.code3 ? data.code3 : '';
@@ -263,8 +263,8 @@ export class IForgotPassNew {
 	repeat_password?: string;
 }
 
-export class ForgotPassNewForm implements IForgotPassNew{
-	constructor(data: IForgotPassNew){
+export class ForgotPassNewForm implements IForgotPassNew {
+	constructor(data: IForgotPassNew) {
 		this.password = data.password ? data.password : '';
 		this.repeat_password = data.repeat_password ? data.repeat_password : '';
 	}

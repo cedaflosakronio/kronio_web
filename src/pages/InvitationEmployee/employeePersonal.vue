@@ -6,16 +6,16 @@
 					<LogoSVG />
 				</a>
 			</template>
-            <template slot="end">
-                <div class="navbar-item">
-                    <a class="color-login" href="/login">Iniciar Sesión</a>
-                </div>
-            </template>
+			<template slot="end">
+				<div class="navbar-item">
+					<a class="color-login" href="/login">Iniciar Sesión</a>
+				</div>
+			</template>
 		</b-navbar>
-        <div class="columns margin-top-register">
+		<div class="columns margin-top-register">
 			<div class="column is-3"></div>
-            <div class="column is-3 is-mobile is-vcentered margin-top-form">
-                <div class="box margin-top-form">
+			<div class="column is-3 is-mobile is-vcentered margin-top-form">
+				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
 							<div class="content">
@@ -31,55 +31,73 @@
 										<section class="margin-button">
 											<div class="field">
 												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
+													<b-input
+														class="form-fields"
 														v-model="register_form.names"
 														@keyup.enter.native="continuar()"
-														placeholder="Nombres">
+														placeholder="Nombres"
+													>
 													</b-input>
 												</p>
 											</div>
 
 											<div class="field">
 												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
+													<b-input
+														class="form-fields"
 														v-model="register_form.lastnames"
 														@keyup.enter.native="continuar()"
-														placeholder="Apellidos">
+														placeholder="Apellidos"
+													>
 													</b-input>
 												</p>
 											</div>
 											<div class="field">
 												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
+													<b-input
+														class="form-fields"
 														v-model="register_form.email"
 														@keyup.enter.native="continuar()"
-														placeholder="Email">
+														placeholder="Email"
+													>
 													</b-input>
 												</p>
 											</div>
 											<div class="field">
 												<p class="control has-icons-left has-icons-right password-input">
-													<b-input class="form-fields"
+													<b-input
+														class="form-fields"
 														v-model="register_form.password"
 														@keyup.enter.native="continuar()"
 														type="password"
-														placeholder="Contraseña">
+														placeholder="Contraseña"
+													>
 													</b-input>
 												</p>
-												<p class="is-pulled-right is-paddingless is-marginless password-label">Mínimo 6 caracteres</p>
+												<p class="is-pulled-right is-paddingless is-marginless password-label">
+													Mínimo 6 caracteres
+												</p>
 											</div>
 											<div class="field">
 												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
+													<b-input
+														class="form-fields"
 														v-model="register_form.password_verified"
 														@keyup.enter.native="continuar()"
 														type="password"
-														placeholder="Confirmar contraseña">
+														placeholder="Confirmar contraseña"
+													>
 													</b-input>
 												</p>
 											</div>
 											<div class="field has-text-centered">
-												<b-button @click="continuar()" type="is-primary" expanded class="btn-register body">Continuar</b-button>
+												<b-button
+													@click="continuar()"
+													type="is-primary"
+													expanded
+													class="btn-register body"
+													>Continuar</b-button
+												>
 											</div>
 										</section>
 									</div>
@@ -87,9 +105,9 @@
 							</div>
 						</div>
 					</article>
-                </div>
-            </div>
-            <div class="column is-5">
+				</div>
+			</div>
+			<div class="column is-5">
 				<img class="is-pulled-right imagen-empleado" src="../../assets/empleado3.png" />
 			</div>
 			<div class="column is-1"></div>
@@ -112,20 +130,19 @@ export default class RegisterEmployeePerson extends PageBase {
 	public async created() {
 		await super.created();
 	}
-	
-	public async continuar(){
+
+	public async continuar() {
 		this.$router.push('/registerEmployeePersonmore');
 	}
-
 }
 </script>
 
 <style lang="scss">
-body{
+body {
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
-.login{
+.login {
 	.navbar {
 		background: #8969eb;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -162,24 +179,24 @@ body{
 		}
 	}
 
-    .color-login{
-        color: #ffffff !important;
-    }
+	.color-login {
+		color: #ffffff !important;
+	}
 
-	.margin-top-register{
+	.margin-top-register {
 		margin-top: 2%;
 	}
 
-	.margin-top-form{
+	.margin-top-form {
 		margin-top: 6%;
 		height: calc(65vh - 4rem);
 	}
 
-	.title-register{
+	.title-register {
 		padding-top: 8%;
 	}
 
-	.btn-register{
+	.btn-register {
 		padding-top: 5% !important;
 		padding-bottom: 10% !important;
 		width: 80%;
@@ -187,32 +204,32 @@ body{
 		margin-top: 5%;
 		margin-left: 10% !important;
 		// margin-right: 5% !important;
-		background: #335EEA;
+		background: #335eea;
 		border-radius: 3px;
 	}
 
-	.form-fields{
+	.form-fields {
 		margin-left: 10% !important;
 		margin-right: 10% !important;
 	}
 
-	.input{
+	.input {
 		padding-bottom: 8% !important;
 		padding-top: 8% !important;
 	}
 
-	.password-input{
+	.password-input {
 		margin-bottom: 0% !important;
 	}
 
-	.password-label{
+	.password-label {
 		margin-bottom: 2% !important;
 		margin-right: 10% !important;
-		color: #7A7979;
+		color: #7a7979;
 		font-size: 15px;
 	}
 
-	.imagen-empleado{
+	.imagen-empleado {
 		margin-top: 15% !important;
 	}
 }

@@ -6,16 +6,16 @@
 					<LogoSVG />
 				</a>
 			</template>
-            <template slot="end">
-                <div class="navbar-item">
-                    <a class="color-login" href="/login">Iniciar Sesión</a>
-                </div>
-            </template>
+			<template slot="end">
+				<div class="navbar-item">
+					<a class="color-login" href="/login">Iniciar Sesión</a>
+				</div>
+			</template>
 		</b-navbar>
-        <div class="columns margin-top-register">
+		<div class="columns margin-top-register">
 			<div class="column is-3"></div>
-            <div class="column is-3 is-mobile is-vcentered margin-top-form">
-                <div class="box margin-top-form">
+			<div class="column is-3 is-mobile is-vcentered margin-top-form">
+				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
 							<div class="content">
@@ -31,67 +31,73 @@
 										<section class="margin-button">
 											<div class="field">
 												<p class="control has-icons-left has-icons-right">
-													<b-input class="form-fields"
+													<b-input
+														class="form-fields"
 														v-model="register_form.address"
 														@keyup.enter.native="continuar()"
-														placeholder="Dirección">
+														placeholder="Dirección"
+													>
 													</b-input>
 												</p>
 											</div>
-										
-												<div class="columns line-phone">
-													<div class="column is-2">
-														<b-select class=""
-															v-model="register_form.prefix">
-															<option disabled="disabled" hidden value=0 selected>Prefijo</option>
-															<option
-																v-for="option in data"
-																:value="option"
-																:key="option">
-																{{ option }}
-															</option>
-														</b-select>
-													</div>
+
+											<div class="columns line-phone">
+												<div class="column is-2">
+													<b-select class="" v-model="register_form.prefix">
+														<option disabled="disabled" hidden value="0" selected
+															>Prefijo</option
+														>
+														<option v-for="option in data" :value="option" :key="option">
+															{{ option }}
+														</option>
+													</b-select>
+												</div>
 												<div class="column is-10">
 													<p class="control input-phone has-icons-left has-icons-right">
-														<b-input class="form-field-phone"
+														<b-input
+															class="form-field-phone"
 															v-model="register_form.phone"
 															@keyup.enter.native="continuar()"
-															placeholder="Telefono">
+															placeholder="Telefono"
+														>
 														</b-input>
 													</p>
 												</div>
-												
 											</div>
 											<div class="field">
-												<b-select class="form-fields form-select is-large"
-													v-model="register_form.country">
-													<option disabled="disabled" hidden value=0 selected>Pais</option>
-													<option
-														v-for="option in data"
-														:value="option"
-														:key="option">
+												<b-select
+													class="form-fields form-select is-large"
+													v-model="register_form.country"
+												>
+													<option disabled="disabled" hidden value="0" selected>Pais</option>
+													<option v-for="option in data" :value="option" :key="option">
 														{{ option }}
 													</option>
 												</b-select>
 											</div>
-											
 
 											<div class="field">
-												<b-select class="form-fields form-select is-large"
-												v-model="register_form.city">
-												<option disabled="disabled" hidden value=0 selected>Ciudad</option>
-												<option
-													v-for="option in data"
-													:value="option"
-													:key="option">
-													{{ option }}
-												</option>
-											</b-select>
+												<b-select
+													class="form-fields form-select is-large"
+													v-model="register_form.city"
+												>
+													<option disabled="disabled" hidden value="0" selected
+														>Ciudad</option
+													>
+													<option v-for="option in data" :value="option" :key="option">
+														{{ option }}
+													</option>
+												</b-select>
 											</div>
 
 											<div class="field has-text-centered">
-												<b-button @click="continuar()" type="is-primary" expanded class="btn-register body">Continuar</b-button>
+												<b-button
+													@click="continuar()"
+													type="is-primary"
+													expanded
+													class="btn-register body"
+													>Continuar</b-button
+												>
 											</div>
 										</section>
 									</div>
@@ -99,9 +105,9 @@
 							</div>
 						</div>
 					</article>
-                </div>
-            </div>
-            <div class="column is-6">
+				</div>
+			</div>
+			<div class="column is-6">
 				<img class="is-pulled-right" src="../../assets/adm1_3.png" />
 			</div>
 		</div>
@@ -123,22 +129,21 @@ export default class RegisterAdminEnterprise2 extends PageBase {
 	public async created() {
 		await super.created();
 	}
-	
-	public async continuar(){
+
+	public async continuar() {
 		this.$router.push('/registerAdminpersonmore');
 	}
 
-	public data = [1,2,3,4,5,6,7,8,9,10];
-
+	public data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 }
 </script>
 
 <style lang="scss">
-body{
+body {
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
-.select{
+.select {
 	width: 100% !important;
 	height: 3.5em !important;
 
@@ -151,17 +156,17 @@ body{
 	}
 }
 
-.login{
-	.line-phone{
+.login {
+	.line-phone {
 		margin-left: 7%;
 		margin-right: 7%;
 	}
 
-	.form-field-phone{
+	.form-field-phone {
 		padding-top: 4%;
 		padding-bottom: 4%;
 	}
-	.message-float{
+	.message-float {
 		position: absolute;
 		z-index: 1000;
 		margin-top: 5%;
@@ -204,24 +209,24 @@ body{
 		}
 	}
 
-    .color-login{
-        color: #ffffff !important;
-    }
+	.color-login {
+		color: #ffffff !important;
+	}
 
-	.margin-top-register{
+	.margin-top-register {
 		margin-top: 2%;
 	}
 
-	.margin-top-form{
+	.margin-top-form {
 		margin-top: 8%;
 		height: calc(65vh - 4rem);
 	}
 
-	.title-register{
+	.title-register {
 		padding-top: 8%;
 	}
 
-	.btn-register{
+	.btn-register {
 		padding-top: 5% !important;
 		padding-bottom: 10% !important;
 		width: 80%;
@@ -229,28 +234,28 @@ body{
 		margin-top: 5%;
 		margin-left: 10% !important;
 		// margin-right: 5% !important;
-		background: #335EEA;
+		background: #335eea;
 		border-radius: 3px;
 	}
 
-	.form-fields{
+	.form-fields {
 		margin-left: 10% !important;
 		margin-right: 10% !important;
 	}
 
-	.input{
+	.input {
 		padding-bottom: 8% !important;
 		padding-top: 8% !important;
 	}
 
-	.password-input{
+	.password-input {
 		margin-bottom: 0% !important;
 	}
 
-	.password-label{
+	.password-label {
 		margin-bottom: 2% !important;
 		margin-right: 10% !important;
-		color: #7A7979;
+		color: #7a7979;
 		font-size: 15px;
 	}
 }
