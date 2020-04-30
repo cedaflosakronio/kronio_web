@@ -17,6 +17,94 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/registerAdminperson',
+		name: 'RegisterAdminPerson',
+		component: () => import('@/pages/Register/RegisterAdminPerson.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerAdminpersonmore',
+		name: 'RegisterAdminPerson2',
+		component: () => import('@/pages/Register/RegisterAdminPerson2.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerAdminenterprise',
+		name: 'RegisterAdminEnterprise',
+		component: () => import('@/pages/Register/RegisterAdminEnterprise.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerAdminenterprisemore',
+		name: 'RegisterAdminEnterprise2',
+		component: () => import('@/pages/Register/RegisterAdminEnterprise2.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerinvitationEmployee',
+		name: 'WellcomeInvitation',
+		component: () => import('@/pages/InvitationEmployee/wellcomeinvitation.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerEmployeePerson',
+		name: 'RegisterEmployeePerson',
+		component: () => import('@/pages/InvitationEmployee/employeePersonal.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/registerEmployeePersonmore',
+		name: 'RegisterEmployeePerson2',
+		component: () => import('@/pages/InvitationEmployee/employeePerson2.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/forgotpassmain',
+		name: 'ForgotPassMain',
+		component: () => import('@/pages/ForgotPassword/forgotpass.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/forgotpasscode',
+		name: 'ForgotPassCode',
+		component: () => import('@/pages/ForgotPassword/forgotpasscode.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/forgotpassnew',
+		name: 'ForgotPassNew',
+		component: () => import('@/pages/ForgotPassword/forgotpassnew.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
+		path: '/forgotpasslogin',
+		name: 'ForgotPassLogin',
+		component: () => import('@/pages/ForgotPassword/forgotpasslogin.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),

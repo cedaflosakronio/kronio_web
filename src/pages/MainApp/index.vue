@@ -34,50 +34,50 @@ export default class MainApp extends PageBase {
 	private isLoading: boolean = true;
 
 	private menu_start: INavBarTitle[] = [
-		{
-			title: 'Prueba 1',
-			children: [
-				{
-					title: 'Prueba 1.1',
-					description: 'Este es un mensaje de prueba',
-					icon: 'user-plus',
-					is_only_desktop: true,
-					listeners: {
-						click: () => {
-							console.log('Hola');
-						},
-					},
-				},
-				{
-					title: 'Prueba 1.2',
-					description: 'Este es un mensaje de prueba',
-					path: { name: 'Error' },
-					icon: 'users',
-				},
-			],
-		},
-		{
-			title: 'Prueba 2',
-			children: [
-				{
-					title: 'Prueba 2.1',
-					description: 'Este es un mensaje de prueba',
-					icon: 'user-minus',
-					is_only_desktop: true,
-					listeners: {
-						click: () => {
-							console.log('Hola');
-						},
-					},
-				},
-				{
-					title: 'Prueba 2.2',
-					description: 'Este es un mensaje de prueba',
-					path: { name: 'Error' },
-					icon: 'cogs',
-				},
-			],
-		},
+		// {
+		// 	title: 'Prueba 1',
+		// 	children: [
+		// 		{
+		// 			title: 'Prueba 1.1',
+		// 			description: 'Este es un mensaje de prueba',
+		// 			icon: 'user-plus',
+		// 			is_only_desktop: true,
+		// 			listeners: {
+		// 				click: () => {
+		// 					console.log('Hola');
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			title: 'Prueba 1.2',
+		// 			description: 'Este es un mensaje de prueba',
+		// 			path: { name: 'Error' },
+		// 			icon: 'users',
+		// 		},
+		// 	],
+		// },
+		// {
+		// 	title: 'Prueba 2',
+		// 	children: [
+		// 		{
+		// 			title: 'Prueba 2.1',
+		// 			description: 'Este es un mensaje de prueba',
+		// 			icon: 'user-minus',
+		// 			is_only_desktop: true,
+		// 			listeners: {
+		// 				click: () => {
+		// 					console.log('Hola');
+		// 				},
+		// 			},
+		// 		},
+		// 		{
+		// 			title: 'Prueba 2.2',
+		// 			description: 'Este es un mensaje de prueba',
+		// 			path: { name: 'Error' },
+		// 			icon: 'cogs',
+		// 		},
+		// 	],
+		// },
 	];
 
 	private menu_end: INavBarTitle[] = [
