@@ -127,19 +127,14 @@ export default class MainApp extends PageBase {
 
 	public async created() {
 		await super.created();
-		const timer = setInterval(() => {
-			if (this.auth_data) {
-				this.isLoading = false;
-				clearInterval(timer);
-				this.redirect();
-			}
-		}, 100);
 	}
 
 	public redirect() {
+		/*
 		if (this.auth_data && this.auth_data.profile && this.auth_data.profile.type_profile !== 0) {
 			this.$router.push('/error');
 		}
+		*/
 	}
 }
 </script>
