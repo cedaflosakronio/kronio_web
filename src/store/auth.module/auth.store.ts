@@ -1,7 +1,7 @@
 import { createModule, action } from 'vuex-class-component';
 import axios from 'axios';
 import config from '../config.store';
-import { Token, UserData } from '../types';
+import { Token, UserData } from '../types/authObject';
 
 
 const AuthUrl = {
@@ -32,5 +32,17 @@ export default class AuthStore extends VuexModule {
 				'Content-Type': 'application/json',
 			};
 		}
+	}
+
+	get hasUser(): boolean {
+		return this.user ? true : false;
+	}
+
+	get hasToken(): boolean {
+		return (this.token) ? true : false;
+	}
+
+	get fullName() {
+		return this.user && `${this.user.firstname} ${this.user.lastname}`;
 	}
 }
