@@ -1,7 +1,7 @@
-import { createModule, action } from 'vuex-class-component';
+import { createModule, action, mutation } from 'vuex-class-component';
 import axios from 'axios';
 import config from '../config.store';
-import { Token, UserData } from '../types/authObject';
+import { Token, UserData, LoginTelForm } from '../types/authObject';
 
 
 const AuthUrl = {
@@ -44,5 +44,32 @@ export default class AuthStore extends VuexModule {
 
 	get fullName() {
 		return this.user && `${this.user.firstname} ${this.user.lastname}`;
+	}
+
+	@mutation setUser(data: any) {
+		if (data.user) {
+			this.token = new Token(data);
+			this.user = new UserData(data.user);
+		} else if (data.id) {
+			this.user = new UserData(data);
+		}
+		localStorage.setItem('jwt', data.token);
+
+	}
+
+	@action
+	public async login_tel_pass(loginData: LoginTelForm): Promise<boolean> {
+		return new Promise<boolean>((resolve, reject) => {
+			axios
+				.post(AuthUrl.login_telephone_password, loginData)
+				.then(response => {
+					this.setUser(response.data);
+					resolve(true);
+				})
+				.catch(e => {
+					console.log(' Descripción de error: \n' + e);
+					reject(false);
+				});
+		});
 	}
 }
