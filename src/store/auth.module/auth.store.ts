@@ -46,6 +46,12 @@ export default class AuthStore extends VuexModule {
 		return this.user && `${this.user.firstname} ${this.user.lastname}`;
 	}
 
+	@mutation loadToken() {
+		const accessToken = localStorage.getItem('USER-ACCESS-TOKEN');
+		const expiresIn = +localStorage.getItem('USER-EXPIRE-TOKEN');
+		if (accessToken && expiresIn) this.token = new Token({ accessToken, expiresIn });
+	}
+
 	@mutation setUser(data: any) {
 		if (data.user) {
 			this.token = new Token(data);
@@ -53,9 +59,10 @@ export default class AuthStore extends VuexModule {
 		} else if (data.id) {
 			this.user = new UserData(data);
 		}
-		localStorage.setItem('jwt', data.token);
-
+		localStorage.setItem('USER-EXPIRE-TOKEN', data.token.expiresIn);
+		localStorage.setItem('USER-ACCESS-TOKEN', data.token.accessToken);
 	}
+
 
 	@action
 	public async login_tel_pass(loginData: LoginTelForm): Promise<boolean> {
