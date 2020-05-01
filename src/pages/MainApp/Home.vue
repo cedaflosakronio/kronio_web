@@ -1,5 +1,31 @@
 <template>
 	<div class="home">
+		<div class="btn-main-absolute">
+			<button class="button is-fullwidth btn-absolute">
+				<span class="icon">
+					<img src="../../assets/main_btn/start.png" alt="">
+				</span>
+				<span>Inicio</span>
+			</button>
+			<button class="button is-fullwidth btn-absolute">
+				<span class="icon">
+					<img src="../../assets/main_btn/history.png" alt="">
+				</span>
+				<span>Historial</span>
+			</button>
+			<button class="button is-fullwidth btn-absolute">
+				<span class="icon">
+					<img src="../../assets/main_btn/team.png" alt="">
+				</span>
+				<span>Equipo</span>
+			</button>
+			<button class="button is-fullwidth btn-absolute">
+				<span class="icon">
+					<img src="../../assets/main_btn/task.png" alt="">
+				</span>
+				<span>Tareas</span>
+			</button>
+		</div>
 		<div class="columns is-mobile is-multiline is-centered">
 			<p class="text-hello">¡Hola, Patricia Guillermo! Esto es lo nuevo en KRONIO</p>
 			<div class="column is-3">
@@ -49,10 +75,7 @@
 					</header>
 					<div class="card-content">
 						<div class="content">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
-						<a href="#">@bulmaio</a>. <a href="#">#css</a> <a href="#">#responsive</a>
-						<br>
-						<time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+							<vc-calendar id="calendario" is-expanded locale="es"/>
 						</div>
 					</div>
 				</div>
@@ -72,6 +95,11 @@
 			</div>
 		</div>
 		<button class="btn-float-kronio"><img class="imgBtnKronio" src="../../assets/iconK.png" alt=""></button>
+		<div>
+			<button class="btn-float-Pencil"><img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt=""></button>
+			<button class="btn-float-User"><img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt=""></button>
+			<button class="btn-float-Ask"><img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt=""></button>
+		</div>
 	</div>
 </template>
 
@@ -112,15 +140,19 @@ export default class LogoSVG extends Vue {}
 	}
 
 	#employees, #notifications {
-		height: calc(75vh - 3rem);
+		height: calc(77.5vh - 3rem);
 	}
 
 	#calendar, #post {
-		height: calc(37.5vh - 3rem);
+		height: calc(39vh - 3rem);
+	}
+
+	.vc-relative {
+		height: calc(29vh - 3rem);
 	}
 
 	#employees .card-content{
-		height: calc(65vh - 3rem);
+		height: calc(67vh - 3rem);
 	}
 
 	.text-info-Empty{
@@ -144,7 +176,7 @@ export default class LogoSVG extends Vue {}
 		position: absolute;
 		bottom: 0;
 		right: 0;
-		margin-right: 5%;
+		margin-right: 4%;
 		margin-bottom: 2%;
 		border-radius: 50%;
 		border: 0px;
@@ -157,6 +189,84 @@ export default class LogoSVG extends Vue {}
 
 	.imgBtnKronio{
 		padding-left: 5px;
+	}
+	.btn-float-User{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin-right: calc(7.5vw - 3rem);
+		margin-bottom: 12%;
+		border-radius: 50%;
+		border: 0px;
+		background: #ffffff;
+		box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
+		padding: 20px 20px 20px 20px;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.imgBtnUser{
+		padding-left: 1px;
+		width: 80%;
+	}
+
+	.btn-float-Pencil{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin-right: calc(7.5vw - 3rem);
+		margin-bottom: 16%;
+		border-radius: 50%;
+		border: 0px;
+		background: #ffffff;
+		box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
+		padding: 18px 23px 18px 23px;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.imgBtnPencil{
+		padding-left: 1px;
+	}
+
+	.btn-float-Ask{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin-right: calc(7.2vw - 3rem);
+		margin-bottom: 8%;
+		border-radius: 50%;
+		border: 0px;
+		background: #ffffff;
+		box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
+		padding: 20px 30px 20px 30px;
+		text-align: center;
+		cursor: pointer;
+	}
+
+	.imgBtnAsk{
+		padding-left: 21x;
+	}
+
+	.btn-main-absolute{
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-top: 5%;
+		margin-left: 0% !important;
+		width: 9%;
+		text-align: left;
+	}
+
+	.btn-absolute{
+		text-align: left !important;
+		padding-left: 12% !important;
+		justify-content: start !important;
+		margin-top: 2%;
+		margin-bottom: 2%;
+		background: #F2F5FF;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
 	}
 
 </style>
