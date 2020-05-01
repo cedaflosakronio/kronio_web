@@ -63,12 +63,31 @@ export default class AuthStore extends VuexModule {
 		localStorage.setItem('USER-ACCESS-TOKEN', data.token.accessToken);
 	}
 
+	@action async getUser() {
+		return new Promise((resolve, reject) => {
+			axios.get(AuthUrl.get_user, { headers: this.headers })
+				.then(response => {
+					if (response.data.id) {
+						this.setUser(response.data);
+						resolve();
+					} else {
+						console.log(response.data);
+						reject();
+					}
+				})
+				.catch(e => {
+					// tslint:disable-next-line: no-console
+					console.log(' Descripción de error: \n' + e);
+					reject();
+				});
+		});
+	}
 
 	@action
 	public async login_tel_pass(loginData: LoginTelForm): Promise<boolean> {
 		return new Promise<boolean>((resolve, reject) => {
 			axios
-				.post(AuthUrl.login_telephone_password, loginData)
+				.post(AuthUrl.login_telephone_password, loginData, { headers: this.headers })
 				.then(response => {
 					this.setUser(response.data);
 					resolve(true);
