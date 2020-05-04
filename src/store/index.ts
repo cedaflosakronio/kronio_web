@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import { extractVuexModule, createProxy } from 'vuex-class-component';
 
 import AuthStore from './auth.module/auth.store';
-import GeneralProfile from './profile.module/profile.general';
+import GeneralProfile from './core.module/core.profile';
 
 Vue.use(Vuex);
 
