@@ -3,32 +3,18 @@ import Vuex from 'vuex';
 import { extractVuexModule, createProxy } from 'vuex-class-component';
 
 import AuthStore from './auth.module/auth.store';
+import GeneralProfile from './profile.module/profile.general';
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
-	state: {
-		months: [
-			'Enero',
-			'Febrero',
-			'Marzo',
-			'Abril',
-			'Mayo',
-			'Junio',
-			'Julio',
-			'Agosto',
-			'Septiembre',
-			'Octubre',
-			'Noviembre',
-			'Diciembre',
-		],
-		days: ['D', 'L', 'M', 'Mi', 'J', 'V', 'S'],
-	},
 	modules: {
 		...extractVuexModule(AuthStore),
+		...extractVuexModule(GeneralProfile),
 	},
 });
 
 export const vxm = {
 	auth: createProxy(store, AuthStore),
+	profile_general: createProxy(store, GeneralProfile),
 };
