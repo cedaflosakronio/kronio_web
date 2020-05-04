@@ -2,7 +2,7 @@ import { createModule, mutation, action } from 'vuex-class-component';
 import axios from 'axios';
 import config from '../config.store';
 import { vxm } from '@/store';
-import { ProfileData } from '../types/coreProfileObjects';
+import { ProfileData, CreateProfileBossForm, CreateProfileEmployeeForm } from '../types/coreProfileObjects';
 
 const CoreUrl = {
 	profile: config.Kronio + 'public/profile',
@@ -45,4 +45,61 @@ export default class CoreProfileStore extends VuexModule {
 			this.employeesProfileList.push(new ProfileData(e));
 		});
 	}
+
+	get currentProfile() {
+		if (Array.isArray(this.profiles) && this.profiles.length > 0) {
+			return this.profiles[0];
+		} else {
+			return null;
+		}
+	}
+
+	get hasProfile() {
+		return this.currentProfile ? true : false;
+	}
+
+	@action async create_profile_boss(createProfileBossForm: CreateProfileBossForm) {
+		await axios
+			.post(
+				CoreUrl.create_profile_boss,
+				createProfileBossForm,
+				{ headers: vxm.auth.headers },
+			)
+			.then(response => {
+				const data = response.data;
+				if (data.id) {
+					this.set_profile_id(data);
+				} else {
+					// tslint:disable-next-line: no-console
+					console.log('create_profile_boss', data);
+				}
+			})
+			.catch(e => {
+				// tslint:disable-next-line: no-console
+				console.log(' Descripción de error: \n' + e);
+			});
+	}
+
+	@action async create_profile_employee(createProfileEmployeeForm: CreateProfileEmployeeForm) {
+		await axios
+			.post(
+				CoreUrl.create_profile_boss,
+				createProfileEmployeeForm,
+				{ headers: vxm.auth.headers },
+			)
+			.then(response => {
+				const data = response.data;
+				if (data.id) {
+					this.set_profile_id(data);
+				} else {
+					// tslint:disable-next-line: no-console
+					console.log(data);
+				}
+			})
+			.catch(e => {
+				// tslint:disable-next-line: no-console
+				console.log(' Descripción de error: \n' + e);
+			});
+	}
+
 }
