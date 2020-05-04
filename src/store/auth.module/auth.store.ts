@@ -52,6 +52,13 @@ export default class AuthStore extends VuexModule {
 		if (accessToken && expiresIn) this.token = new Token({ accessToken, expiresIn });
 	}
 
+	@mutation logout() {
+		this.token = null;
+		this.user = null;
+		localStorage.removeItem('USER-ACCESS-TOKEN');
+		localStorage.removeItem('USER-EXPIRE-TOKEN');
+	}
+
 	@mutation setUser(data: any) {
 		if (data.user) {
 			this.token = new Token(data);
@@ -63,7 +70,19 @@ export default class AuthStore extends VuexModule {
 		localStorage.setItem('USER-ACCESS-TOKEN', data.token.accessToken);
 	}
 
+	@action async isLoggedIn(): Promise<boolean> {
+		if (this.hasToken) {
+			if (this.hasUser) {
+				return true;
+			} else {
+				await this.getUser();
+			}
+		}
+		return this.user ? true : false;
+	}
+
 	@action async getUser() {
+		this.logout();
 		return new Promise((resolve, reject) => {
 			axios.get(AuthUrl.get_user, { headers: this.headers })
 				.then(response => {
