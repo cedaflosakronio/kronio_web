@@ -1,23 +1,37 @@
-import { IsNotEmpty, Length, ValidateIf, IsPhoneNumber, Matches, IsNumberString, IsEmail } from 'class-validator';
+import { IsNotEmpty, IsPhoneNumber, Matches, IsEmail } from 'class-validator';
 import { BaseValidate, Error } from '@/utils/Validate';
 import deepCopy from '@/utils/deep_copy.utils';
 
-export class LoginTelForm extends BaseValidate {
-	constructor(data: { telephone?: string; password?: string }) {
+export class LoginBase extends BaseValidate {
+	constructor(data: { username?: string; password?: string }) {
 		super();
-		this.telephone = data.telephone;
+		this.username = data.username;
 		this.password = data.password;
 	}
-
-	@IsPhoneNumber('EC', { message: 'formatEC' })
-	@Matches(/^(\+593)/, { message: 'formatnumberEC' })
-	@IsNotEmpty({ message: 'empty' })
-	telephone?: string;
-
+	username?: string;
 	@IsNotEmpty({ message: 'empty' })
 	password?: string;
 }
 
+export class LoginTelForm extends LoginBase {
+	constructor(data: LoginBase) {
+		super(data);
+		this.username = data.username;
+	}
+	@IsPhoneNumber('EC', { message: 'formatEC' })
+	@Matches(/^(\+593)/, { message: 'formatnumberEC' })
+	@IsNotEmpty({ message: 'empty' })
+	username?: string;
+}
+export class LoginEmailForm extends LoginBase {
+	constructor(data: LoginBase) {
+		super(data);
+		this.username = data.username;
+	}
+	@IsEmail({}, { message: 'formatemail' })
+	@IsNotEmpty({ message: 'empty' })
+	username?: string;
+}
 export class SignInDataPersonal extends BaseValidate {
 	constructor(data: {
 		nombre?: string;

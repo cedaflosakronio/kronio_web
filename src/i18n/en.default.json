@@ -4,7 +4,8 @@
 		"snackbarFront": {
 			"formatnumberEC": "Número Telefónico debe comenzar con +593",
 			"formatEC": "No es un numero válido para Ecuador",
-			"empty": "No pueden existir campos vacíos"
+			"empty": "No pueden existir campos vacíos",
+			"formatemail": "No es un correo válido"
 		}
     },
     "registropersonaldata": {
