@@ -59,47 +59,53 @@ export default class CoreProfileStore extends VuexModule {
 	}
 
 	@action async create_profile_boss(createProfileBossForm: CreateProfileBossForm) {
-		await axios
-			.post(
-				CoreUrl.create_profile_boss,
-				createProfileBossForm,
-				{ headers: vxm.auth.headers },
-			)
-			.then(response => {
-				const data = response.data;
-				if (data.id) {
-					this.set_profile_id(data);
-				} else {
-					// tslint:disable-next-line: no-console
-					console.log('create_profile_boss', data);
-				}
-			})
-			.catch(e => {
-				// tslint:disable-next-line: no-console
-				console.log(' Descripción de error: \n' + e);
-			});
+		return new Promise<boolean>((resolve, reject) => {
+			axios
+				.post(
+					CoreUrl.create_profile_boss,
+					createProfileBossForm,
+					{ headers: vxm.auth.headers },
+				)
+				.then(response => {
+					const data = response.data;
+					if (data.id) {
+						this.set_profile_id(data);
+						resolve();
+					} else {
+						console.log('create_profile_boss', data);
+						reject();
+					}
+				})
+				.catch(e => {
+					console.log(' Descripción de error: \n' + e);
+					reject();
+				});
+		});
 	}
 
 	@action async create_profile_employee(createProfileEmployeeForm: CreateProfileEmployeeForm) {
-		await axios
-			.post(
-				CoreUrl.create_profile_boss,
-				createProfileEmployeeForm,
-				{ headers: vxm.auth.headers },
-			)
-			.then(response => {
-				const data = response.data;
-				if (data.id) {
-					this.set_profile_id(data);
-				} else {
-					// tslint:disable-next-line: no-console
-					console.log(data);
-				}
-			})
-			.catch(e => {
-				// tslint:disable-next-line: no-console
-				console.log(' Descripción de error: \n' + e);
-			});
+		return new Promise<boolean>((resolve, reject) => {
+			axios
+				.post(
+					CoreUrl.create_profile_boss,
+					createProfileEmployeeForm,
+					{ headers: vxm.auth.headers },
+				)
+				.then(response => {
+					const data = response.data;
+					if (data.id) {
+						resolve();
+						this.set_profile_id(data);
+					} else {
+						console.log(data);
+						reject();
+					}
+				})
+				.catch(e => {
+					console.log(' Descripción de error: \n' + e);
+					reject();
+				});
+		});
 	}
 
 }
