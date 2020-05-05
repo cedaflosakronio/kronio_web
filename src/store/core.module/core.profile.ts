@@ -2,7 +2,8 @@ import { createModule, mutation, action } from 'vuex-class-component';
 import axios from 'axios';
 import config from '../config.store';
 import { vxm } from '@/store';
-import { ProfileData, CreateProfileBossForm, CreateProfileEmployeeForm } from '../types/coreProfileObjects';
+import { ProfileData, CreateProfileBossForm, CreateProfileEmployeeForm, EmployeelistPage } from '../types/coreProfileObjects';
+import { EnterpriseData } from '../types/enterpriseObjects';
 
 const CoreUrl = {
 	profile: config.Kronio + 'public/profile',
@@ -22,6 +23,7 @@ const VuexModule = createModule({
 export default class CoreProfileStore extends VuexModule {
 	public profiles: ProfileData[] = [];
 	public employee_email: string = null;
+	public enterpriseSubscription: EnterpriseData[] = [];
 	public employeesProfileList: ProfileData[] = [];
 
 	@mutation set_profile_id(data) {
@@ -34,6 +36,15 @@ export default class CoreProfileStore extends VuexModule {
 		}
 		data.forEach(e => {
 			this.profiles.push(new ProfileData(e));
+		});
+	}
+
+	@mutation set_enterprise_with_subscription(data) {
+		if (Array.isArray(this.enterpriseSubscription) && this.enterpriseSubscription.length > 0) {
+			this.enterpriseSubscription = [];
+		}
+		data.forEach(e => {
+			this.enterpriseSubscription.push(new EnterpriseData(e));
 		});
 	}
 
@@ -58,6 +69,22 @@ export default class CoreProfileStore extends VuexModule {
 		return this.currentProfile ? true : false;
 	}
 
+	get currentEnterpriseSubs() {
+		if (Array.isArray(this.enterpriseSubscription) && this.enterpriseSubscription.length > 0) {
+			return this.enterpriseSubscription[0];
+		} else {
+			return null;
+		}
+	}
+
+	get employeeListPage(): EmployeelistPage[] {
+		const employee_array: EmployeelistPage[] = [];
+		this.employeesProfileList.forEach(e => {
+			employee_array.push(new EmployeelistPage(e));
+		});
+		return employee_array;
+	}
+
 	@action async create_profile_boss(createProfileBossForm: CreateProfileBossForm) {
 		return new Promise<boolean>((resolve, reject) => {
 			axios
@@ -73,6 +100,31 @@ export default class CoreProfileStore extends VuexModule {
 						resolve();
 					} else {
 						console.log('create_profile_boss', data);
+						reject();
+					}
+				})
+				.catch(e => {
+					console.log(' Descripción de error: \n' + e);
+					reject();
+				});
+		});
+	}
+
+	@action async get_enterprise_with_subscription() {
+		return new Promise<boolean>((resolve, reject) => {
+			axios
+				.get(
+					CoreUrl.enterprise,
+					{ headers: vxm.auth.headers })
+				.then(response => {
+					const data = response.data;
+					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {
+						if (data[0].id) {
+							this.set_enterprise_with_subscription(data);
+							resolve();
+						}
+					} else {
+						console.log(data);
 						reject();
 					}
 				})
