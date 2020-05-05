@@ -108,4 +108,29 @@ export default class CoreProfileStore extends VuexModule {
 		});
 	}
 
+	@action async get_employees_profiles() {
+		return new Promise((resolve, reject) => {
+			axios
+				.get(
+					`${CoreUrl.employee_profiles}/${this.currentProfile.enterprise}/`,
+					{ headers: vxm.auth.headers },
+				)
+				.then(response => {
+					const data = response.data;
+					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {
+						if (data[0].id) {
+							this.set_employee_profile_list(data);
+							resolve();
+						}
+					} else {
+						console.log(data);
+						reject();
+					}
+				})
+				.catch(e => {
+					console.log(' Descripción de error: \n' + e);
+					reject();
+				});
+		});
+	}
 }
