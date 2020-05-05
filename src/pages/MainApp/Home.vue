@@ -5,25 +5,25 @@
 				<span class="icon">
 					<img src="../../assets/main_btn/start.png" alt="">
 				</span>
-				<span>Inicio</span>
+				<span class="label-main-btn">Inicio</span>
 			</button>
 			<button class="button is-fullwidth btn-absolute">
 				<span class="icon">
 					<img src="../../assets/main_btn/history.png" alt="">
 				</span>
-				<span>Historial</span>
+				<span class="label-main-btn">Historial</span>
 			</button>
 			<button class="button is-fullwidth btn-absolute">
 				<span class="icon">
 					<img src="../../assets/main_btn/team.png" alt="">
 				</span>
-				<span>Equipo</span>
+				<span class="label-main-btn">Equipo</span>
 			</button>
 			<button class="button is-fullwidth btn-absolute">
 				<span class="icon">
 					<img src="../../assets/main_btn/task.png" alt="">
 				</span>
-				<span>Tareas</span>
+				<span class="label-main-btn">Tareas</span>
 			</button>
 		</div>
 		<div class="columns is-mobile is-multiline is-centered">
@@ -72,8 +72,9 @@
 						<p class="card-header-title">
 						Calendario
 						</p>
+						<button class="btn-more-calendar">...</button>
 					</header>
-					<div class="card-content">
+					<div class="card-content calendar-context">
 						<div class="content">
 							<vc-calendar id="calendario" is-expanded locale="es"/>
 						</div>
@@ -94,11 +95,21 @@
 				</div>
 			</div>
 		</div>
-		<button class="btn-float-kronio"><img class="imgBtnKronio" src="../../assets/iconK.png" alt=""></button>
-		<div>
-			<button class="btn-float-Pencil"><img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt=""></button>
-			<button class="btn-float-User"><img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt=""></button>
-			<button class="btn-float-Ask"><img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt=""></button>
+		
+		<button class="btn-float-kronio" @click="showOptions()"><img class="imgBtnKronio" src="../../assets/iconK.png" alt=""></button>
+		<div v-if="!isHidden" class="more-option-kronio">
+			<button class="btn-float-Pencil" title="Crear una publicación"><img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt=""></button>
+			<button class="btn-float-User" title="Añadir empleado"><img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt=""></button>
+			<button class="btn-float-Ask" title="Ayuda"><img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt=""></button>
+		</div>
+		<div class="modal">
+			<div class="modal-background"></div>
+			<div class="modal-content">
+				<p class="image is-4by3">
+				<img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+				</p>
+			</div>
+			<button class="modal-close is-large" aria-label="close"></button>
 		</div>
 	</div>
 </template>
@@ -110,7 +121,18 @@ import ErrorSection from '@/components/ErrorSection.vue';
 @Component({
 	components: { ErrorSection },
 })
-export default class LogoSVG extends Vue {}
+export default class LogoSVG extends Vue {
+	public isHidden:boolean = true;
+
+	public showOptions(){
+		if(this.isHidden){
+			this.isHidden = false;
+		}
+		else{
+			this.isHidden = true;
+		}
+	}
+}
 </script>
 
 <style lang="scss">
@@ -119,6 +141,11 @@ export default class LogoSVG extends Vue {}
 		border-top-left-radius: 12px !important;
     	border-top-right-radius: 12px !important;
 	}
+
+	.calendar-context {
+    	padding: 0px !important; 
+	}
+
 	.card-header-title{
 		display: block !important;
 		color: #ffffff !important;
@@ -143,12 +170,45 @@ export default class LogoSVG extends Vue {}
 		height: calc(77.5vh - 3rem);
 	}
 
-	#calendar, #post {
-		height: calc(39vh - 3rem);
+	#post .card-content {
+		height: calc(43vh - 3rem);
+	}
+
+	#post  {
+		margin-top: 5% !important;
+		height: calc(43vh - 3rem);
+	}
+
+	#calendar {
+		height: calc(37.2vh - 3rem);
+		border: 0px !important;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+
+	.vc-border{
+		border: 0px !important;
+	}
+
+	.vc-weeks{
+		padding: 0px !important;
+	}
+
+	.vc-text-gray-800 {
+    	color: #8969eb !important;
+	}
+
+	.vc-grid-container .vc-weeks > .vc-grid-cell {
+    	border: 0.5px solid rgba(122, 121, 121, 0.3) !important;
 	}
 
 	.vc-relative {
-		height: calc(29vh - 3rem);
+		height: calc(32vh - 3rem);
+		border: 0px !important;
+	}
+
+	#calendar  .card-content {
+		height: calc(42vh - 3rem);
 	}
 
 	#employees .card-content{
@@ -187,9 +247,13 @@ export default class LogoSVG extends Vue {}
 		cursor: pointer;
 	}
 
+
 	.imgBtnKronio{
 		padding-left: 5px;
 	}
+
+	
+	
 	.btn-float-User{
 		position: absolute;
 		bottom: 0;
@@ -254,13 +318,32 @@ export default class LogoSVG extends Vue {}
 		left: 0;
 		margin-top: 5%;
 		margin-left: 0% !important;
-		width: 9%;
+		width: 3%;
 		text-align: left;
 	}
 
+	.btn-main-absolute:hover{
+		width: 9% !important;
+
+		.label-main-btn{
+			display: inline;
+		}
+
+		.btn-absolute{
+			text-align: left !important;
+			padding-left: 12% !important;
+			justify-content: start !important;
+			margin-top: 2%;
+			margin-bottom: 2%;
+			background: #F2F5FF;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+	}
+
 	.btn-absolute{
-		text-align: left !important;
-		padding-left: 12% !important;
+		text-align: center !important;
+		padding-left: 40% !important;
 		justify-content: start !important;
 		margin-top: 2%;
 		margin-bottom: 2%;
@@ -269,4 +352,20 @@ export default class LogoSVG extends Vue {}
 		border-bottom-right-radius: 4px;
 	}
 
+	.label-main-btn{
+		display: none;
+	}
+
+	.btn-more-calendar{
+		background: transparent !important;
+		border-radius: 50%;
+		padding-top: 0px !important;
+		padding-bottom: 1% !important;
+		color: #ffffff !important;
+		border: 1px solid !important;
+		margin-top: 2% !important;
+		margin-bottom: 2% !important;
+		margin-right: 5% !important;
+		cursor: pointer;
+	}
 </style>

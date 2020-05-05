@@ -92,7 +92,7 @@ export default class MainApp extends PageBase {
 			],
 		},
 		{
-			icon: 'cogs',
+			icon: 'user',
 			is_only_desktop: true,
 			children: [
 				{
@@ -104,22 +104,6 @@ export default class MainApp extends PageBase {
 					title: 'Configuraciones',
 					icon: 'cog',
 					description: 'Puede configurar un poco y dejar KiteBlue mucho más comodo para usted',
-				},
-			],
-		},
-		{
-			icon: 'question-circle',
-			is_only_desktop: true,
-			children: [
-				{
-					title: 'Información',
-					icon: 'info',
-					description: 'Puede ver la información que necesita para conocer mejor KiteBlue',
-				},
-				{
-					title: 'Soporte',
-					icon: 'laugh-beam',
-					description: 'Nos interesa saber como se siente y que necesita, contactenos',
 				},
 			],
 		},
