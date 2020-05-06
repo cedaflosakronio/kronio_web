@@ -31,14 +31,92 @@
 			<div class="column is-3">
 				<div class="card" id="employees">
 					<header class="card-header background-header">
-						<p class="card-header-title">
+						<a class="filter-employees"><img src="../../assets/filter.png" alt=""></a>
+						<p class="card-header-title-inline">
 						Empleados
 						</p>
 					</header>
-					<div class="card-content">
+					<div class="card-content remove-padding-aside">
 						<div class="content">
-							<img src="../../assets/employeesEmpty.png" alt="" class="imgEmployeesEmpty">
-							<p class="text-info-Empty">¡Invita a tu equipo de trabajo para poder empezar!</p>
+							<!-- <img src="../../assets/employeesEmpty.png" alt="" class="imgEmployeesEmpty">
+							<p class="text-info-Empty">¡Invita a tu equipo de trabajo para poder empezar!</p> -->
+							<div class="row-employee">
+								<div class="columns is-centered">
+									<div class="column is-2">
+										<img class="is-pulled-right" src="../../assets/employees/employee1.png" alt="">
+										<div class="status-active"></div>
+									</div>
+									<div class="column is-8">
+										<p class="is-pulled-left employee-name">María Belen Zavala Luque</p>
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<div class="columns is-centered">
+									<div class="column is-2">
+										<img class="is-pulled-right" src="../../assets/employees/employee2.png" alt="">
+										<div class="status-active"></div>
+									</div>
+									<div class="column is-8">
+										<p class="is-pulled-left employee-name">María Cristina Espinoza Molestina </p>
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<div class="columns is-centered">
+									<div class="column is-2">
+										<img class="is-pulled-right" src="../../assets/employees/employee6.png" alt="">
+										<div class="status-suspended"></div>
+									</div>
+									<div class="column is-8">
+										<p class="is-pulled-left employee-name">Renato Daniel Ruiz Díaz</p>
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<div class="columns is-centered">
+									<div class="column is-2">
+										<img class="is-pulled-right" src="../../assets/employees/employee4.png" alt="">
+										<div class="status-active"></div>
+									</div>
+									<div class="column is-8">
+										<p class="is-pulled-left employee-name">Freddy David Vera Quito</p>
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<div class="columns is-centered">
+									<div class="column is-2">
+										<img class="is-pulled-right" src="../../assets/employees/employee5.png" alt="">
+										<div class="status-suspended"></div>
+									</div>
+									<div class="column is-8">
+										<p class="is-pulled-left employee-name">María José Alvarado Villacreces</p>
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<div class="columns is-centered">
+									<div class="column is-2">
+										<img class="is-pulled-right" src="../../assets/employees/employee6.png" alt="">
+										<div class="status-active"></div>
+									</div>
+									<div class="column is-8">
+										<p class="is-pulled-left employee-name">Sol Gina Torres Fernandez</p>
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<div class="columns is-centered">
+									<div class="column is-2">
+										<img class="is-pulled-right" src="../../assets/employees/employee6.png" alt="">
+										<div class="status-active"></div>
+									</div>
+									<div class="column is-8">
+										<p class="is-pulled-left employee-name">Joshua Israel Linch Yang </p>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<footer class="card-footer">
@@ -58,10 +136,85 @@
 						Notificaciones
 						</p>
 					</header>
-					<div class="card-content">
+					<div class="card-content remove-padding-aside">
 						<div class="content">
-							<img src="../../assets/notificationsEmpty.png" alt="" class="imgEmployeesEmpty">
-							<p class="text-info-Empty">No tienes aprobaciones, ni notificaciones pendientes.</p>
+							<!-- <img src="../../assets/notificationsEmpty.png" alt="" class="imgEmployeesEmpty">
+							<p class="text-info-Empty">No tienes aprobaciones, ni notificaciones pendientes.</p> -->
+							<div class="row-employee">
+								<p class="title-notification"> HOY </p>
+								<div class="columns is-centered">
+									<div class="column is-3">
+										<p>23 mar</p>
+									</div>
+									<div class="column is-6">
+										<p class="notification-label">Vacaciones de Danna  </p>
+									</div>
+									<div class="column is-3">
+										<img src="../../assets/umbrella.png" alt="">
+									</div>
+								</div>
+								<div class="columns is-centered">
+									<div class="column is-3">
+										<p>23 mar</p>
+									</div>
+									<div class="column is-6">
+										<p class="notification-label">Vacaciones de Danna  </p>
+									</div>
+									<div class="column is-3">
+										<img src="../../assets/umbrella.png" alt="">
+									</div>
+								</div>
+								<div class="columns is-centered">
+									<div class="column is-3">
+										<p>23 mar</p>
+									</div>
+									<div class="column is-6">
+										<p class="notification-label">Vacaciones de Danna  </p>
+									</div>
+									<div class="column is-3">
+										<img src="../../assets/umbrella.png" alt="">
+									</div>
+								</div>
+								<div class="columns is-centered">
+									<div class="column is-3">
+										<p>23 mar</p>
+									</div>
+									<div class="column is-6">
+										<p class="notification-label">Vacaciones de Danna  </p>
+									</div>
+									<div class="column is-3">
+										<img src="../../assets/umbrella.png" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<p class="title-notification"> ESTA SEMANA </p>
+								<div class="columns is-centered">
+									<div class="column is-3">
+										<p>23 mar</p>
+									</div>
+									<div class="column is-6">
+										<p class="notification-label">Cumpleaños de Xavier  </p>
+									</div>
+									<div class="column is-3">
+										<img src="../../assets/pastel.png" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<p class="title-notification"> ESTA MES </p>
+								<div class="columns is-centered">
+									<div class="column is-3">
+										<p>23 mar</p>
+									</div>
+									<div class="column is-6">
+										<p class="notification-label">Vencimiento periodo de prueba Joselin   </p>
+									</div>
+									<div class="column is-3">
+										<img src="../../assets/alert.png" alt="">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -86,10 +239,36 @@
 						Publicaciones
 						</p>
 					</header>
-					<div class="card-content">
+					<div class="card-content remove-padding-aside">
 						<div class="content">
-							<img src="../../assets/postEmpty.png" alt="" class="imgPostEmpty">
-							<p class="text-info-Empty">No tienes publicaciones creadas.</p>
+							<!-- <img src="../../assets/postEmpty.png" alt="" class="imgPostEmpty">
+							<p class="text-info-Empty">No tienes publicaciones creadas.</p> -->
+							<div class="row-employee">
+								<p class="title-post"> COMUNICADO </p>
+								<div class="columns is-centered">
+									<div class="column is-12">
+										<div class="item-post"></div>
+										<p class="post-label">Título del comunicado Descripción de la información del comunicado</p>
+									</div>
+								</div>
+							</div>
+							<div class="row-employee">
+								<p class="title-post"> EVENTO </p>
+								<div class="columns is-centered">
+									<div class="column is-12">
+										<div class="item-post"></div>
+										<p class="post-label">Título del comunicado Descripción de la información del comunicado</p>
+										<div class="columns">
+											<div class="column is-half">
+												<p class="is-pulled-right"> 25/03/2020 </p>
+											</div>
+											<div class="column is-half">
+												<p class="is-pulled-left"> 00:00 </p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -102,17 +281,11 @@
 			<button class="btn-float-User" title="Añadir empleado"><img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt=""></button>
 			<button class="btn-float-Ask" title="Ayuda"><img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt=""></button>
 		</div>
-		<div class="modal">
-			<div class="modal-background"></div>
-			<div class="modal-content">
-				<p class="image is-4by3">
-				<img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
-				</p>
-			</div>
-			<button class="modal-close is-large" aria-label="close"></button>
-		</div>
+
 	</div>
+	
 </template>
+
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
@@ -123,6 +296,11 @@ import ErrorSection from '@/components/ErrorSection.vue';
 })
 export default class LogoSVG extends Vue {
 	public isHidden:boolean = true;
+	public showModal:boolean = false;
+
+	public async created() {
+		console.log('hola jp');
+	}
 
 	public showOptions(){
 		if(this.isHidden){
@@ -132,7 +310,31 @@ export default class LogoSVG extends Vue {
 			this.isHidden = true;
 		}
 	}
+
 }
+
+Vue.component('modal', {
+	template: 
+  	`
+	<div>
+		<div class="modal is-active">
+		<div class="modal-background"></div>
+		<div class="modal-content">
+			<div class="box">
+			<p>{{mensaje}}</p>
+			</div>
+		</div>
+		<button class="modal-close" @click="$emit('close')"></button> 
+		</div>
+	</div>
+	`,
+  
+	data(){
+		return{
+			mensaje: 'Lorem lorem lorem',
+		}
+	},
+});
 </script>
 
 <style lang="scss">
@@ -151,6 +353,16 @@ export default class LogoSVG extends Vue {
 		color: #ffffff !important;
 		
 	}
+
+	.card-header-title-inline{
+		display: inline !important;
+		color: #ffffff !important;
+		padding-top: 2%;
+		padding-bottom: 2%;
+		font-weight: bold;
+		padding-left: 10%;
+	}
+
 	.card{
 		box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1) !important;
 		border-radius: 15px !important;
@@ -367,5 +579,81 @@ export default class LogoSVG extends Vue {
 		margin-bottom: 2% !important;
 		margin-right: 5% !important;
 		cursor: pointer;
+	}
+
+	.row-employee{
+		padding-top: 2%;
+		padding-bottom: 3%;
+		border-bottom: 0.3px solid rgba(122, 121, 121, 0.5);
+	}
+
+	.remove-padding-aside{
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+
+	.employee-name{
+		font-size: 15px;
+	}
+
+	.status-active{
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		margin-top: 3%;
+		margin-bottom: 2%;
+		margin-left: 11%;
+		background: #57D72A;
+	}
+
+	.status-suspended{
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		margin-top: 3%;
+		margin-bottom: 2%;
+		margin-bottom: 10%;
+		margin-left: 11%;
+		background: #FFDD2C;
+	}
+
+	.filter-employees{
+		margin-left: 10%;
+		padding-top: 2%;
+		margin-right: 15%;
+	}
+
+	.title-notification{
+		color: #A46CEC;
+	}
+
+	.title-post, post-label{
+		color: #7A7979;
+	}
+
+	.post-label{
+		padding-top: 1%;
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+
+	.notification-label{
+		font-weight: normal;
+		font-size: 17px;
+		line-height: 19px;
+		color: #7A7979;
+	}
+
+	.item-post{
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		border: 1px solid #8969EB;
+		border-radius: 50%;
+		background: transparent;
+		margin-left: 10%;
+		margin-top: 2%;
 	}
 </style>
