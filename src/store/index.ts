@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
 
 export const vxm = {
 	auth: createProxy(store, AuthStore),
-	profile_general: createProxy(store, GeneralProfile),
+	core_profile: createProxy(store, GeneralProfile),
 	enterprise: createProxy(store, EnterpriseStore),
 	navigation_props: createProxy(store, navigationProps),
 };
