@@ -7,7 +7,7 @@ dependencies:
   class-validator: 0.11.1
   core-js: 3.6.4
   jwt-decode: 2.2.0
-  moment: 2.24.0
+  moment: 2.25.3
   register-service-worker: 1.7.1
   v-calendar: 1.0.2_vue@2.6.11
   vue: 2.6.11
@@ -8229,6 +8229,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+  /moment/2.25.3:
+    dev: false
+    resolution:
+      integrity: sha512-PuYv0PHxZvzc15Sp8ybUCoQ+xpyPWvjOuK72a5ovzp2LI32rJXOiIfyoFoYvG3s6EwwrdkMyWuRiEHSZRLJNdg==
   /move-concurrently/1.0.1:
     dependencies:
       aproba: 1.2.0
@@ -12906,7 +12910,7 @@ specifiers:
   geckodriver: ^1.19.1
   jwt-decode: ^2.2.0
   lint-staged: ^9.5.0
-  moment: ^2.24.0
+  moment: ^2.25.3
   node-sass: ^4.13.1
   prettier: ^1.19.1
   register-service-worker: ^1.7.1
