@@ -9,9 +9,7 @@ export default abstract class PageBase extends Vue {
 	}
 
 	private async loadPage() {
-		/*
-		if (await this.auth.isLogged()) {
-			this.auth_data = this.auth.auth_data;
+		if (await this.store.auth.isLoggedIn()) {
 			if (this.$route.meta.free_page) {
 				this.$router.push('/app');
 			}
@@ -20,15 +18,10 @@ export default abstract class PageBase extends Vue {
 				this.$router.push('/login');
 			}
 		}
-		*/
-		this.$router.push('/login');
 	}
 
 	public logout() {
-		/*
-		this.auth.logout().then(() => {
-			this.$router.push('/login');
-		});
-		*/
+		this.store.auth.logout();
+		this.$router.push('/login');
 	}
 }
