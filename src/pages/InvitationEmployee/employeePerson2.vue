@@ -48,10 +48,10 @@
 												</p>
 											</div>
 											<div class="columns line-phone">
-												<div class="column is-2">
-													<b-select class=""
-														v-model="register_form.prefix">
-														<option disabled="disabled" hidden value=0 selected>Prefijo</option>
+												<div class="column is-4">
+													<b-select class="select-prefix"
+														v-model="register_form.prefix"
+														placeholder="Prefijo">
 														<option
 															v-for="option in data"
 															:value="option"
@@ -60,7 +60,7 @@
 														</option>
 													</b-select>
 												</div>
-												<div class="column is-10">
+												<div class="column is-8">
 													<p class="control input-phone has-icons-left has-icons-right">
 														<b-input class="form-field-phone"
 															v-model="register_form.phone"
@@ -129,17 +129,28 @@ body{
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
+
 .select{
 	width: 100% !important;
-	height: 3.5em !important;
+	height: 2.5em !important;
 
 	select {
 		width: 100% !important;
 		padding-left: 12% !important;
-		padding-bottom: 3% !important;
-		padding-top: 3% !important;
-		height: 3.5em !important;
+		padding-right: 3% !important;
+		padding-bottom: 0% !important;
+		padding-top: 0% !important;
+		height: 2.5em !important;
 	}
+}
+
+
+.select .is-empty select {
+    color: hsla(0,0%,48%,.7);
+}
+
+.select-prefix{
+	margin-top: 9% !important;
 }
 
 .login{
@@ -205,7 +216,7 @@ body{
 
 	.margin-top-form{
 		margin-top: 8%;
-		height: calc(65vh - 4rem);
+		height: calc(58vh - 4rem);
 	}
 
 	.title-register{
