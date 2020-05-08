@@ -7,9 +7,9 @@
 				</a>
 			</template>
 		</b-navbar>
-        <div class="columns is-mobile is-centered margin-top-register">
-            <div class="column is-3  margin-top-form">
-                <div class="box margin-top-form">
+		<div class="columns is-mobile is-centered margin-top-register">
+			<div class="column is-3  margin-top-form">
+				<div class="box margin-top-form">
 					<article class="media icon-padding">
 						<div class="media-content">
 							<div class="content">
@@ -28,7 +28,8 @@
 													<b-input
 														v-model="register_form.email_phone"
 														@keyup.enter.native="continuar()"
-														placeholder="Email/teléfono">
+														placeholder="Email/teléfono"
+													>
 													</b-input>
 													<span class="icon is-small is-left icon-padding">
 														<i class="fas fa-user"></i>
@@ -36,7 +37,13 @@
 												</p>
 											</div>
 											<div class="field has-text-centered">
-												<b-button @click="continuar()" type="is-primary" expanded class="btn-register body">Continuar</b-button>
+												<b-button
+													@click="continuar()"
+													type="is-primary"
+													expanded
+													class="btn-register body"
+													>Continuar</b-button
+												>
 											</div>
 										</section>
 									</div>
@@ -44,8 +51,8 @@
 							</div>
 						</div>
 					</article>
-                </div>
-            </div>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -65,20 +72,19 @@ export default class ForgotPassMain extends PageBase {
 	public async created() {
 		await super.created();
 	}
-	
-	public async continuar(){
+
+	public async continuar() {
 		this.$router.push('/forgotpasscode');
 	}
-
 }
 </script>
 
 <style lang="scss">
-body{
+body {
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
-.login{
+.login {
 	.navbar {
 		background: #8969eb;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -115,24 +121,24 @@ body{
 		}
 	}
 
-    .color-login{
-        color: #ffffff !important;
-    }
+	.color-login {
+		color: #ffffff !important;
+	}
 
-	.margin-top-register{
+	.margin-top-register {
 		margin-top: 2%;
 	}
 
-	.margin-top-form{
+	.margin-top-form {
 		margin-top: 6%;
 		height: calc(48vh - 4rem);
 	}
 
-	.title-register{
+	.title-register {
 		padding-top: 8%;
 	}
 
-	.btn-register{
+	.btn-register {
 		padding-top: 5% !important;
 		padding-bottom: 10% !important;
 		width: 80%;
@@ -140,22 +146,22 @@ body{
 		margin-top: 12%;
 		margin-left: 10% !important;
 		// margin-right: 5% !important;
-		background: #335EEA;
+		background: #335eea;
 		border-radius: 3px;
 	}
 
-	.form-fields{
+	.form-fields {
 		margin-top: 5%;
 		margin-left: 10% !important;
 		margin-right: 10% !important;
 	}
 
-	.input{
+	.input {
 		padding-bottom: 8% !important;
 		padding-top: 8% !important;
 	}
 
-	.icon-padding{
+	.icon-padding {
 		padding-top: 5% !important;
 	}
 }

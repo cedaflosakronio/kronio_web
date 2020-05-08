@@ -9,16 +9,16 @@ import './styles/index.scss';
 import VCalendar from 'v-calendar';
 
 Vue.use(VCalendar, {
-	componentPrefix: 'vc',  // Use <vc-calendar /> instead of <v-calendar />
+	componentPrefix: 'vc', // Use <vc-calendar /> instead of <v-calendar />
 	highlight: {
 		color: 'purple',
 		fillMode: 'light',
 		contentClass: 'italic', // Class provided by TailwindCSS
 	},
 	locales: {
-		'es': {
-		  	firstDayOfWeek: 1,
-		  	masks: {
+		es: {
+			firstDayOfWeek: 1,
+			masks: {
 				L: 'YYYY-MM-DD',
 				weekdays: 'W',
 			},
@@ -29,7 +29,6 @@ Vue.use(VCalendar, {
 Vue.use(Buefy, { defaultIconPack: 'fas' });
 
 Vue.config.productionTip = false;
-
 
 const unsync = sync(store, router);
 
