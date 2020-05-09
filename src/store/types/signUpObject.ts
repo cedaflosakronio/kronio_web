@@ -1,8 +1,8 @@
-import { IsNotEmpty, IsPhoneNumber, Matches, IsEmail, Length, ValidateIf } from 'class-validator';
+import { IsNotEmpty, IsPhoneNumber, Matches, IsEmail, Length, ValidateIf, IsIn } from 'class-validator';
 import { BaseValidate, Error } from '@/utils/Validate';
 import deepCopy from '@/utils/deep_copy.utils';
 
-export class SignInUserBase extends BaseValidate {
+export class SignUpUserBase extends BaseValidate {
 	constructor(data: {
 		name: string;
 		lastname: string;
@@ -95,17 +95,85 @@ export class SignInUserBase extends BaseValidate {
 	birthday: string;
 }
 
-export class SignInEmployee extends SignInUserBase {
-	constructor(data: SignInUserBase) {
+export class SignUpEmployee extends SignUpUserBase {
+	constructor(data: SignUpUserBase) {
 		super(data);
 	}
 }
-export class SignInAdmin extends SignInUserBase {
-	constructor(data: SignInUserBase) {
+export class SignUpAdmin extends SignUpUserBase {
+	constructor(data: SignUpUserBase) {
 		super(data);
 		this.email = data.email;
 	}
 	@IsEmail({}, { message: 'formatemail' })
 	@IsNotEmpty({ message: 'empty' })
 	email?: string;
+}
+
+export class SignUpCompanyBase extends BaseValidate {
+	constructor(data: {
+		name: string;
+		identifier: string;
+		type: string;
+		size: string;
+
+		address: string;
+		telephone: string;
+		city: string;
+		country: string;
+	}) {
+		super();
+
+		this.name = data.name;
+		this.identifier = data.identifier;
+		this.type = data.type;
+		this.size = data.size;
+
+		this.address = data.address;
+		this.telephone = data.telephone;
+		this.city = data.city;
+		this.country = data.country;
+	}
+
+	@Matches(/^[A-Za-z-ZñÑáéíóúÁÉÍÓÚ\s]+$/, { message: 'formatname' })
+	@IsNotEmpty({ message: 'empty' })
+	@ValidateIf(o => o.page_number === 1)
+	name: string;
+
+	@Matches(/^[0-9]+$/, { message: 'formatidentifier' })
+	@Length(13, 13, { message: 'lengthidentifier' })
+	@ValidateIf(o => o.page_number === 2)
+	@IsNotEmpty({ message: 'empty' })
+	identifier: string;
+
+	@Matches(/^[A-Za-z-ZñÑáéíóúÁÉÍÓÚ\s]+$/, { message: 'formattype' })
+	@IsNotEmpty({ message: 'empty' })
+	@ValidateIf(o => o.page_number === 1)
+	type: string;
+
+	@IsIn([10, 50, 100, 250], { message: 'rangesize' })
+	@IsNotEmpty({ message: 'empty' })
+	@ValidateIf(o => o.page_number === 1)
+	size: string;
+
+	@Length(6, 250, { message: 'lengthaddress' })
+	@ValidateIf(o => o.page_number === 2)
+	@IsNotEmpty({ message: 'empty' })
+	address: string;
+
+	@IsPhoneNumber('EC', { message: 'formatnumber' })
+	@Matches(/^(\+593)/, { message: 'initnumber' })
+	@ValidateIf(o => o.page_number === 2)
+	@IsNotEmpty({ message: 'empty' })
+	telephone: string;
+
+	@Matches(/^[A-Za-z-ZñÑáéíóúÁÉÍÓÚ\s]+$/, { message: 'formatcity' })
+	@ValidateIf(o => o.page_number === 2)
+	@IsNotEmpty({ message: 'empty' })
+	city: string;
+
+	@Matches(/^[A-Za-z-ZñÑáéíóúÁÉÍÓÚ\s]+$/, { message: 'formatcountry' })
+	@ValidateIf(o => o.page_number === 2)
+	@IsNotEmpty({ message: 'empty' })
+	country: string;
 }
