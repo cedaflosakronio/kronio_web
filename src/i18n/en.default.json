@@ -8,7 +8,7 @@
 			"formatemail": "No es un correo válido"
 		}
 	},
-	"signinuser": {
+	"signupuser": {
 		"snackbarFront": {
 			"empty": "No pueden existir campos vacíos",
 			"formatname": "Nombres solo permite letras",
@@ -24,7 +24,7 @@
 			"equalpassword": "Contraseñas no coinciden"
 		}
 	},
-	"signincompany": {
+	"signupcompany": {
 		"snackbarFront": {
 			"empty": "No pueden existir campos vacíos",
 			"formatname": "Nombres solo permite letras",
@@ -49,6 +49,24 @@
 			"formatpassword": "Contraseña debe contener una letra mayúscula, una letra minúscula y un número",
 			"lengthpassword": "Contraseña permite entre 6 y 20 caracteres ",
 			"equalpassword": "Contraseñas no coinciden"
+		}
+	},
+	"createemployee": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatemail": "No es un correo válido",
+			"formatname": "Nombres solo permite letras",
+			"formatlastname": "Apellidos solo permite letras"
+		}
+	},
+	"vacationrequest": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos"
+		}
+	},
+	"postponedvacation": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos"
 		}
 	}
 }
