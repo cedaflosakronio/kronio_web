@@ -50,5 +50,23 @@
 			"lengthpassword": "Contraseña permite entre 6 y 20 caracteres ",
 			"equalpassword": "Contraseñas no coinciden"
 		}
+	},
+	"createemployee": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatemail": "No es un correo válido",
+			"formatname": "Nombres solo permite letras",
+			"formatlastname": "Apellidos solo permite letras"
+		}
+	},
+	"vacationrequest": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos"
+		}
+	},
+	"postponedvacation": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos"
+		}
 	}
 }
