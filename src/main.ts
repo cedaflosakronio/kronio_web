@@ -7,6 +7,7 @@ import { store } from './store';
 import Buefy from 'buefy';
 import './styles/index.scss';
 import VCalendar from 'v-calendar';
+import vmodal from 'vue-js-modal';
 
 Vue.use(VCalendar, {
 	componentPrefix: 'vc', // Use <vc-calendar /> instead of <v-calendar />
@@ -23,6 +24,14 @@ Vue.use(VCalendar, {
 				weekdays: 'W',
 			},
 		},
+	},
+});
+
+Vue.use(vmodal, {
+	dialog: true,
+	dynamic: true,
+	dynamicDefaults: {
+		foo: 'foo',
 	},
 });
 

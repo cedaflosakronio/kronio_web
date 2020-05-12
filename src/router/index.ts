@@ -112,7 +112,7 @@ const routes: RouteConfig[] = [
 			{
 				path: '',
 				name: 'Home',
-				component: () => import(/* webpackChunkName: "home" */ '@/pages/MainApp/Home.vue'),
+				component: () => import(/* webpackChunkName: "home" */ '@/pages/MainApp/Home.vue')
 			},
 			{
 				path: '/error',
