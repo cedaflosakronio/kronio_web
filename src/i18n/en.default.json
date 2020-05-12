@@ -21,7 +21,8 @@
 			"formatnumber": "No es un número telefónico válido para Ecuador",
 			"formatpassword": "Contraseña debe contener una letra mayúscula, una letra minúscula y un número",
 			"lengthpassword": "Contraseña permite entre 6 y 20 caracteres ",
-			"equalpassword": "Contraseñas no coinciden"
+			"equalpassword": "Contraseñas no coinciden",
+			"formatdate": "No es una fecha válida"
 		}
 	},
 	"signupcompany": {
@@ -61,12 +62,21 @@
 	},
 	"vacationrequest": {
 		"snackbarFront": {
-			"empty": "No pueden existir campos vacíos"
+			"empty": "No pueden existir campos vacíos",
+			"formatdate": "No es una fecha válida"
 		}
 	},
 	"postponedvacation": {
 		"snackbarFront": {
 			"empty": "No pueden existir campos vacíos"
+		}
+	},
+	"createpublication": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatdate": "No es una fecha válida",
+			"formatsendemail": "Enviar notificación solo permite condición",
+			"formatallowcomment": "Permitir comentarios solo permite condición"
 		}
 	}
 }

@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsPhoneNumber, Matches, IsEmail, Length, ValidateIf, IsIn } from 'class-validator';
+import { IsNotEmpty, IsPhoneNumber, Matches, IsEmail, Length, ValidateIf, IsIn, IsDate } from 'class-validator';
 import { BaseValidate, Error } from '@/utils/Validate';
 import deepCopy from '@/utils/deep_copy.utils';
 
@@ -13,7 +13,7 @@ export class SignUpUserBase extends BaseValidate {
 		identifier: string;
 		address: string;
 		telephone: string;
-		birthday: string;
+		birthday: Date;
 	}) {
 		super();
 
@@ -90,9 +90,10 @@ export class SignUpUserBase extends BaseValidate {
 	@IsNotEmpty({ message: 'empty' })
 	telephone: string;
 
+	@IsDate({ message: 'formatdate' })
 	@ValidateIf(o => o.page_number === 2)
 	@IsNotEmpty({ message: 'empty' })
-	birthday: string;
+	birthday: Date;
 }
 
 export class SignUpEmployee extends SignUpUserBase {
