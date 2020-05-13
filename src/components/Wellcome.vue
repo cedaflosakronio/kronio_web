@@ -1,5 +1,5 @@
 <template>
-	<modal name="wellcome-admin">
+	<modal name="wellcome-admin" classes="modal-bg">
 		<div class="example-modal-content">
 			<img class="img-modal-wellcome" src="../assets/modal_new.png" alt="" />
 			<p class="modal-title">
@@ -25,9 +25,8 @@ export default class WellcomeAdmin extends Vue {}
 	background: rgba(227, 231, 233, 0.7) !important;
 }
 
-.vm--modal {
+.modal-bg {
 	background-color: #8969eb !important;
-	border-radius: 8px !important	;
 }
 
 .modal-title {

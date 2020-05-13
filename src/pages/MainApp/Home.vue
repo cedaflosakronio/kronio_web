@@ -170,7 +170,7 @@
 							<p class="text-info-Empty">No tienes aprobaciones, ni notificaciones pendientes.</p> -->
 							<div class="row-employee">
 								<p class="title-notification">HOY</p>
-								<div class="columns is-centered">
+								<div class="columns is-centered" @click="$modal.show('md-holidays')">
 									<div class="column is-3">
 										<p>23 mar</p>
 									</div>
@@ -181,7 +181,7 @@
 										<img src="../../assets/umbrella.png" alt="" />
 									</div>
 								</div>
-								<div class="columns is-centered">
+								<div class="columns is-centered" @click="$modal.show('md-holidays')">
 									<div class="column is-3">
 										<p>23 mar</p>
 									</div>
@@ -192,7 +192,7 @@
 										<img src="../../assets/umbrella.png" alt="" />
 									</div>
 								</div>
-								<div class="columns is-centered">
+								<div class="columns is-centered" @click="$modal.show('md-holidays')">
 									<div class="column is-3">
 										<p>23 mar</p>
 									</div>
@@ -203,7 +203,7 @@
 										<img src="../../assets/umbrella.png" alt="" />
 									</div>
 								</div>
-								<div class="columns is-centered">
+								<div class="columns is-centered" @click="$modal.show('md-holidays')">
 									<div class="column is-3">
 										<p>23 mar</p>
 									</div>
@@ -308,6 +308,7 @@
 		</div>
 		<WellcomeAdmin />
 		<MdNewEmployee />
+		<MdHolidays />
 
 		<button class="button" @click="$modal.show('wellcome-admin')">
 			Modal de Bienvenida
@@ -335,9 +336,10 @@ import { Vue, Component } from 'vue-property-decorator';
 import ErrorSection from '@/components/ErrorSection.vue';
 import MdNewEmployee from '@/components/md-new-employee.vue';
 import WellcomeAdmin from '@/components/Wellcome.vue';
+import MdHolidays from '@/components/md-holidays.vue';
 
 @Component({
-	components: { ErrorSection, WellcomeAdmin, MdNewEmployee },
+	components: { ErrorSection, WellcomeAdmin, MdNewEmployee, MdHolidays },
 })
 export default class LogoSVG extends Vue {}
 </script>
@@ -658,5 +660,9 @@ post-label {
 	background: transparent;
 	margin-left: 10%;
 	margin-top: 2%;
+}
+
+.modal-bg {
+	background-color: #8969eb !important;
 }
 </style>

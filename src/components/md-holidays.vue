@@ -1,52 +1,52 @@
 <template>
-	<modal name="add-employee" width="30%" height="60%">
+	<modal name="md-holidays" width="30%" height="60%">
 		<div class="example-modal-content">
-			<img class="img-modal" src="../assets/add_employee.png" alt="" />
+			<img class="img-modal" src="../assets/modal_holidays.png" alt="" />
 			<span @click="hide()" class="close-btn"><i class="fas fa-times"></i></span>
 			<p class="title-employee">
-				Crear empleado
+				Solicitud de vacaciones
 			</p>
 			<p class="subtitle-employee">
-				Rellena la información personal del empleado para poder crearlo
+				Danna ha solicitado vaciones en las siguientes fechas:
 			</p>
-
-			<div class="columns is-centered">
-				<div class="column is-9 border-form">
-					<div class="field">
-						<label class="label is-pulled-left label-form">Correo Electrónico</label>
-						<div class="control">
-							<input
-								class="input no-border-form"
-								v-model="email"
-								placeholder="Ingrese correo electrónico"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="columns is-centered">
 				<div class="column is-4 border-form">
 					<div class="field">
-						<label class="label is-pulled-left label-form">Nombres</label>
-						<div class="control">
-							<input class="input no-border-form" v-model="name" placeholder="Ingrese nombres" />
-						</div>
+						<label class="label label-form">Fecha de inicio</label>
+						<b-datepicker
+							class="form-fields"
+							v-model="birthday"
+							placeholder="Fecha de inicio"
+							icon="calendar-today"
+							editable
+						>
+						</b-datepicker>
 					</div>
 				</div>
 				<div class="column is-1"></div>
 				<div class="column is-4 border-form">
 					<div class="field">
-						<label class="label is-pulled-left label-form">Apellidos</label>
-						<div class="control">
-							<input class="input no-border-form" v-model="lastname" placeholder="Ingrese apellidos" />
-						</div>
+						<label class="label label-form">Fecha de fin</label>
+						<b-datepicker
+							class="form-fields"
+							v-model="birthday"
+							placeholder="Fecha de fin"
+							icon="calendar-today"
+							editable
+						>
+						</b-datepicker>
 					</div>
 				</div>
 			</div>
 
 			<div class="columns is-centered">
 				<div class="column is-10">
-					<button class="button btn-wellcome is-fullwidth">Enviar invitación</button>
+					<button class="button btn-wellcome is-fullwidth">Aprobar</button>
+				</div>
+			</div>
+			<div class="columns is-centered">
+				<div class="column is-10">
+					<button class="button btn-cancel is-fullwidth">Posponer</button>
 				</div>
 			</div>
 		</div>
@@ -57,9 +57,9 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
-export default class MdNewEmployee extends Vue {
+export default class MdHolidays extends Vue {
 	public hide() {
-		this.$modal.hide('add-employee');
+		this.$modal.hide('md-holidays');
 	}
 }
 </script>
@@ -113,6 +113,11 @@ export default class MdNewEmployee extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+}
+
+.btn-cancel {
+	font-size: 25px;
+	color: #335eea;
 }
 
 .close-btn {
