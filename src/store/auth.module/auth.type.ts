@@ -49,16 +49,16 @@ export class RegisterAdminPerson2Form implements IRegisterAdminPerson2 {
 	constructor(data: IRegisterAdminPerson2) {
 		this.id = data.id ? data.id : '';
 		this.address = data.address ? data.address : '';
-		this.prefix = data.prefix ? data.prefix : '';
+		this.prefix = data.prefix;
 		this.phone = data.phone ? data.phone : '';
-		this.birthday = data.birthday ? data.birthday : new Date();
+		this.birthday = data.birthday;
 	}
 
 	public id: string;
 	public address: string;
-	public prefix: string;
+	public prefix?: string;
 	public phone: string;
-	public birthday: Date;
+	public birthday?: Date;
 }
 
 export interface IRegisterAdminEnterprise {
@@ -73,13 +73,13 @@ export class RegisterAdminEnterpriseForm implements IRegisterAdminEnterprise {
 		this.name_enterprise = data.name_enterprise ? data.name_enterprise : '';
 		this.id_enterprise = data.id_enterprise ? data.id_enterprise : '';
 		this.type_enterprise = data.type_enterprise ? data.type_enterprise : '';
-		this.size_enterprise = data.size_enterprise ? data.size_enterprise : 0;
+		this.size_enterprise = data.size_enterprise;
 	}
 
 	public name_enterprise: string;
 	public id_enterprise: string;
 	public type_enterprise: string;
-	public size_enterprise: number;
+	public size_enterprise?: number;
 }
 
 export interface IRegisterAdminEnterprise2 {
@@ -93,17 +93,17 @@ export interface IRegisterAdminEnterprise2 {
 export class RegisterAdminEnterprise2Form implements IRegisterAdminEnterprise2 {
 	constructor(data: IRegisterAdminEnterprise2) {
 		this.address = data.address ? data.address : '';
-		this.prefix = data.prefix ? data.prefix : '';
-		this.phone = data.phone ? data.phone : '';
-		this.city = data.city ? data.city : '';
-		this.country = data.country ? data.country : '';
+		this.prefix = data.prefix;
+		this.phone = data.phone;
+		this.city = data.city;
+		this.country = data.country;
 	}
 
 	public address: string;
-	public prefix: string;
-	public phone: string;
-	public city: string;
-	public country: string;
+	public prefix?: string;
+	public phone?: string;
+	public city?: string;
+	public country?: string;
 }
 
 export interface IRegisterEmployeePersonForm {
@@ -142,16 +142,16 @@ export class RegisterEmployeePerson2Form implements IRegisterEmployeePerson2 {
 	constructor(data: IRegisterEmployeePerson2) {
 		this.id = data.id ? data.id : '';
 		this.address = data.address ? data.address : '';
-		this.prefix = data.prefix ? data.prefix : '';
+		this.prefix = data.prefix;
 		this.phone = data.phone ? data.phone : '';
-		this.birthday = data.birthday ? data.birthday : new Date();
+		this.birthday = data.birthday;
 	}
 
 	public id: string;
 	public address: string;
-	public prefix: string;
+	public prefix?: string;
 	public phone: string;
-	public birthday: Date;
+	public birthday?: Date;
 }
 
 export class IForgotPassMain {

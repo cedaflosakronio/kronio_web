@@ -105,6 +105,14 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/configAdmin',
+		name: 'configAdmin',
+		component: () => import('@/pages/ConfigAdmin/configAdmin.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),

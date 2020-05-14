@@ -42,17 +42,18 @@
 											</div>
 
 											<div class="columns line-phone">
-												<div class="column is-2">
-													<b-select class="" v-model="register_form.prefix">
-														<option disabled="disabled" hidden value="0" selected
-															>Prefijo</option
-														>
+												<div class="column is-4">
+													<b-select
+														class="select-prefix"
+														v-model="register_form.prefix"
+														placeholder="Prefijo"
+													>
 														<option v-for="option in data" :value="option" :key="option">
 															{{ option }}
 														</option>
 													</b-select>
 												</div>
-												<div class="column is-10">
+												<div class="column is-8">
 													<p class="control input-phone has-icons-left has-icons-right">
 														<b-input
 															class="form-field-phone"
@@ -68,8 +69,8 @@
 												<b-select
 													class="form-fields form-select is-large"
 													v-model="register_form.country"
+													placeholder="Pais"
 												>
-													<option disabled="disabled" hidden value="0" selected>Pais</option>
 													<option v-for="option in data" :value="option" :key="option">
 														{{ option }}
 													</option>
@@ -80,10 +81,8 @@
 												<b-select
 													class="form-fields form-select is-large"
 													v-model="register_form.city"
+													placeholder="Ciudad"
 												>
-													<option disabled="disabled" hidden value="0" selected
-														>Ciudad</option
-													>
 													<option v-for="option in data" :value="option" :key="option">
 														{{ option }}
 													</option>
@@ -145,14 +144,33 @@ body {
 }
 .select {
 	width: 100% !important;
-	height: 3.5em !important;
+	height: 2.5em !important;
 
 	select {
 		width: 100% !important;
 		padding-left: 12% !important;
-		padding-bottom: 3% !important;
-		padding-top: 3% !important;
-		height: 3.5em !important;
+		padding-right: 3% !important;
+		padding-bottom: 0% !important;
+		padding-top: 0% !important;
+		height: 2.5em !important;
+	}
+}
+
+.select-prefix {
+	margin-top: 9% !important;
+}
+
+@media screen and (max-width: 1772px) {
+	.select-prefix {
+		font-size: 13px;
+		padding-top: 6%;
+	}
+}
+
+@media screen and (max-width: 1596px) {
+	.select-prefix {
+		font-size: 10px;
+		padding-top: 10%;
 	}
 }
 
@@ -219,7 +237,7 @@ body {
 
 	.margin-top-form {
 		margin-top: 8%;
-		height: calc(65vh - 4rem);
+		height: calc(57vh - 4rem);
 	}
 
 	.title-register {

@@ -71,10 +71,8 @@
 											<b-select
 												class="form-fields form-select is-large"
 												v-model="register_form.size_enterprise"
+												placeholder="Tamaño del equipo"
 											>
-												<option disabled="disabled" hidden value="0" selected
-													>Tamaño del Equipo</option
-												>
 												<option v-for="option in data" :value="option" :key="option">
 													{{ option }}
 												</option>
