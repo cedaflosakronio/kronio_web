@@ -9,10 +9,11 @@ dependencies:
   jwt-decode: 2.2.0
   moment: 2.25.3
   register-service-worker: 1.7.1
-  v-calendar: 1.0.2_vue@2.6.11
+  v-calendar: 1.0.6_vue@2.6.11
   vue: 2.6.11
   vue-chartjs: 3.5.0_chart.js@2.9.3
   vue-class-component: 7.2.3_vue@2.6.11
+  vue-js-modal: 2.0.0-rc.3_vue@2.6.11
   vue-property-decorator: 8.4.1_vue@2.6.11
   vue-router: 3.1.6
   vuex: 3.1.3_vue@2.6.11
@@ -10288,6 +10289,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+  /resize-observer-polyfill/1.5.1:
+    dev: false
+    resolution:
+      integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
   /resolve-cwd/2.0.0:
     dependencies:
       resolve-from: 3.0.0
@@ -12016,7 +12021,7 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
-  /v-calendar/1.0.2_vue@2.6.11:
+  /v-calendar/1.0.6_vue@2.6.11:
     dependencies:
       date-fns: 2.11.1
       lodash: 4.17.15
@@ -12026,7 +12031,7 @@ packages:
     peerDependencies:
       vue: ^2.5.18
     resolution:
-      integrity: sha512-uaAJCs7uVne5otOYqUV6W/2eJkE7m8jgpgmTYuCYkSd4DmSLxECZCaQ5Dj3uyQ/jmSEKuJ6HSQurxnk1KSK7qg==
+      integrity: sha512-tdbxBS1cF4qeXedBBMYYqyt/G0hUke3xLkpoxstTG1NZKYz+KPLAVPBZOxbedLyjn9WpfoEsC9mktvyYDrcp/A==
   /v8-compile-cache/2.1.0:
     dev: true
     resolution:
@@ -12129,6 +12134,15 @@ packages:
       vue-template-compiler: ^2.x
     resolution:
       integrity: sha512-xWDxde91pDqYBGDlODENZ3ezPgw+IQFoVDtf+5Awlg466w3KvMSqWzs8PxcTeTr+wmAHi0j+a+Lm3R7aUJa1jA==
+  /vue-js-modal/2.0.0-rc.3_vue@2.6.11:
+    dependencies:
+      resize-observer-polyfill: 1.5.1
+      vue: 2.6.11
+    dev: false
+    peerDependencies:
+      vue: ^2.2.6
+    resolution:
+      integrity: sha512-Q9L9FsIUMuzCKSuB41D8LxV+Yc2q+zWHzzUdWaQ2KeHPS+78+X6AAnBztVoophbjt8UXHO7rQSRgER1MMw5qsw==
   /vue-loader/15.9.1_753bd6b87ab656979eccec912ab27ae1:
     dependencies:
       '@vue/component-compiler-utils': 3.1.1
@@ -12916,10 +12930,11 @@ specifiers:
   register-service-worker: ^1.7.1
   sass-loader: ^8.0.2
   typescript: ~3.8.3
-  v-calendar: ^1.0.2
+  v-calendar: ^1.0.6
   vue: ^2.6.11
   vue-chartjs: ^3.5.0
   vue-class-component: ^7.2.3
+  vue-js-modal: ^2.0.0-rc.3
   vue-property-decorator: ^8.4.1
   vue-router: ^3.1.6
   vue-template-compiler: ^2.6.11

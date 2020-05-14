@@ -3,8 +3,7 @@
 .navbar {
 	display: flex;
 	width: calc(100vw);
-	background-color: $navbar-menu-background-color;
-	box-shadow: $navbar-menu-box-shadow;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
 	height: 3.25rem;
 	perspective: 2000px;
 	&,
@@ -63,7 +62,7 @@
 	button,
 	a,
 	.router-link {
-		font-family: 'Bariol' !important;
+		font-family: 'Poppins' !important;
 	}
 
 	.content {
@@ -71,12 +70,6 @@
 		.menu-item-dropdown {
 			width: 400px;
 		}
-	}
-
-	.navbar-menu-image {
-		display: inline-block;
-		margin-left: 0.5rem;
-		padding-top: 0.75rem;
 	}
 
 	.dropdown-wrap__content {

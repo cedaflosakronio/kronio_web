@@ -9,6 +9,8 @@ export default abstract class PageBase extends Vue {
 	}
 
 	private async loadPage() {
+		// Para evitar la autenticación en el desarrollo
+		return;
 		if (await this.store.auth.isLoggedIn()) {
 			if (this.$route.meta.free_page) {
 				this.$router.push('/app');
