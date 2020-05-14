@@ -1,53 +1,25 @@
 <template>
-	<modal name="md-holidays" width="30%" height="60%">
+	<modal name="md-postponed-holidays" width="25%" height="43%">
 		<div class="example-modal-content">
 			<img class="img-modal" src="../assets/modal_holidays.png" alt="" />
 			<span @click="hide()" class="close-btn"><i class="fas fa-times"></i></span>
 			<p class="title-employee">
-				Solicitud de vacaciones
-			</p>
-			<p class="subtitle-employee">
-				Danna ha solicitado vaciones en las siguientes fechas:
+				Vacaciones postergadas
 			</p>
 			<div class="columns is-centered">
-				<div class="column is-4 border-form">
+				<div class="column is-9 border-form">
 					<div class="field">
-						<label class="label label-form">Fecha de inicio</label>
-						<b-datepicker
-							class="form-fields"
-							v-model="birthday"
-							placeholder="Fecha de inicio"
-							icon="calendar-today"
-							editable
-						>
-						</b-datepicker>
-					</div>
-				</div>
-				<div class="column is-1"></div>
-				<div class="column is-4 border-form">
-					<div class="field">
-						<label class="label label-form">Fecha de fin</label>
-						<b-datepicker
-							class="form-fields"
-							v-model="birthday"
-							placeholder="Fecha de fin"
-							popover-direction="left"
-							icon="calendar-today"
-							editable
-						>
-						</b-datepicker>
+						<textarea
+							class="textarea no-border-form has-text-centered"
+							placeholder="Describa las razones o solicita una nueva sugerencia de fechas."
+						></textarea>
 					</div>
 				</div>
 			</div>
 
 			<div class="columns is-centered">
 				<div class="column is-10">
-					<button class="button btn-wellcome is-fullwidth">Aprobar</button>
-				</div>
-			</div>
-			<div class="columns is-centered">
-				<div class="column is-10">
-					<button class="button btn-cancel is-fullwidth">Posponer</button>
+					<button class="button btn-wellcome is-fullwidth">Enviar</button>
 				</div>
 			</div>
 		</div>
@@ -58,9 +30,9 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
-export default class MdHolidays extends Vue {
+export default class MdPostponedHolidays extends Vue {
 	public hide() {
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-postponed-holidays');
 	}
 }
 </script>

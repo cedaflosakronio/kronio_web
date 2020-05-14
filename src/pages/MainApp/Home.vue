@@ -31,7 +31,24 @@
 			<div class="column is-3">
 				<div class="card" id="employees">
 					<header class="card-header background-header">
-						<a class="filter-employees"><img src="../../assets/filter.png" alt=""/></a>
+						<b-dropdown v-model="selectedOptions" multiple aria-role="list" class="filter-employees">
+							<button class="button is-primary" type="button" slot="trigger">
+								<img src="../../assets/filter.png" alt="" />
+								<b-icon icon="menu-down"></b-icon>
+							</button>
+
+							<b-dropdown-item value="option1" aria-role="listitem">
+								<b-checkbox><span>Todos</span></b-checkbox>
+							</b-dropdown-item>
+
+							<b-dropdown-item value="option2" aria-role="listitem">
+								<b-checkbox><span>Presentes</span></b-checkbox>
+							</b-dropdown-item>
+
+							<b-dropdown-item value="option3" aria-role="listitem">
+								<b-checkbox><span>Ausentes</span></b-checkbox>
+							</b-dropdown-item>
+						</b-dropdown>
 						<p class="card-header-title-inline">
 							Empleados
 						</p>
@@ -203,12 +220,12 @@
 										<img src="../../assets/umbrella.png" alt="" />
 									</div>
 								</div>
-								<div class="columns is-centered" @click="$modal.show('md-holidays')">
+								<div class="columns is-centered" @click="$modal.show('md-postponed-holidays')">
 									<div class="column is-3">
 										<p>23 mar</p>
 									</div>
 									<div class="column is-6">
-										<p class="notification-label">Vacaciones de Danna</p>
+										<p class="notification-label">Vacaciones postergadas de Danna</p>
 									</div>
 									<div class="column is-3">
 										<img src="../../assets/umbrella.png" alt="" />
@@ -309,6 +326,7 @@
 		<WellcomeAdmin />
 		<MdNewEmployee />
 		<MdHolidays />
+		<MdPostponedHolidays />
 
 		<button class="button" @click="$modal.show('wellcome-admin')">
 			Modal de Bienvenida
@@ -337,11 +355,22 @@ import ErrorSection from '@/components/ErrorSection.vue';
 import MdNewEmployee from '@/components/md-new-employee.vue';
 import WellcomeAdmin from '@/components/Wellcome.vue';
 import MdHolidays from '@/components/md-holidays.vue';
+import MdPostponedHolidays from '@/components/md-postponed-holidays.vue';
 
 @Component({
-	components: { ErrorSection, WellcomeAdmin, MdNewEmployee, MdHolidays },
+	components: { ErrorSection, WellcomeAdmin, MdNewEmployee, MdHolidays, MdPostponedHolidays },
 })
-export default class LogoSVG extends Vue {}
+export default class LogoSVG extends Vue {
+	public isHidden: boolean = true;
+
+	public showOptions() {
+		if (!this.isHidden) {
+			this.isHidden = true;
+		} else {
+			this.isHidden = false;
+		}
+	}
+}
 </script>
 
 <style lang="scss">
@@ -349,6 +378,7 @@ export default class LogoSVG extends Vue {}
 	background: #8969eb;
 	border-top-left-radius: 12px !important;
 	border-top-right-radius: 12px !important;
+	padding-top: 4%;
 }
 
 .calendar-context {
@@ -358,15 +388,17 @@ export default class LogoSVG extends Vue {}
 .card-header-title {
 	display: block !important;
 	color: #ffffff !important;
+	font-size: 18px;
 }
 
 .card-header-title-inline {
 	display: inline !important;
 	color: #ffffff !important;
-	padding-top: 2%;
+	padding-top: 1%;
 	padding-bottom: 2%;
 	font-weight: bold;
 	padding-left: 10%;
+	font-size: 18px;
 }
 
 .card {
@@ -431,7 +463,7 @@ export default class LogoSVG extends Vue {}
 }
 
 #employees .card-content {
-	height: calc(67vh - 3rem);
+	height: calc(65vh - 3rem);
 }
 
 .text-info-Empty {
@@ -513,19 +545,19 @@ export default class LogoSVG extends Vue {}
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	margin-right: calc(7.2vw - 3rem);
+	margin-right: calc(7.4vw - 3rem);
 	margin-bottom: 8%;
 	border-radius: 50%;
 	border: 0px;
 	background: #ffffff;
 	box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
-	padding: 20px 30px 20px 30px;
+	padding: 20px 29px 20px 30px;
 	text-align: center;
 	cursor: pointer;
 }
 
 .imgBtnAsk {
-	padding-left: 21x;
+	padding-left: 2px;
 }
 
 .btn-main-absolute {
@@ -625,8 +657,9 @@ export default class LogoSVG extends Vue {}
 
 .filter-employees {
 	margin-left: 10%;
-	padding-top: 2%;
-	margin-right: 15%;
+	padding-top: 0%;
+	margin-right: 4%;
+	padding-bottom: 3%;
 }
 
 .title-notification {
@@ -664,5 +697,29 @@ post-label {
 
 .modal-bg {
 	background-color: #8969eb !important;
+}
+
+.dropdown-menu {
+	display: none;
+	left: -66px;
+	min-width: 12rem;
+	padding-top: 0px;
+	position: absolute;
+	top: 103%;
+	z-index: 20;
+}
+
+.dropdown-menu:after {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 54%;
+	width: 0;
+	height: 0;
+	border: 18px solid transparent;
+	border-bottom-color: #ffffff;
+	border-top: 0;
+	margin-left: -27px;
+	margin-top: -24px;
 }
 </style>
