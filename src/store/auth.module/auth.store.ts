@@ -3,7 +3,6 @@ import axios from 'axios';
 import config from '../config.store';
 import { Token, UserData, LoginTelForm } from '../types/authObject';
 
-
 const AuthUrl = {
 	login_telephone_password: config.TaquionAuth + 'public/login/telephone/password',
 	get_user: config.TaquionAuth + 'public/auth/user',
@@ -39,7 +38,7 @@ export default class AuthStore extends VuexModule {
 	}
 
 	get hasToken(): boolean {
-		return (this.token) ? true : false;
+		return this.token ? true : false;
 	}
 
 	get fullName() {
@@ -84,7 +83,8 @@ export default class AuthStore extends VuexModule {
 	@action async getUser() {
 		this.logout();
 		return new Promise((resolve, reject) => {
-			axios.get(AuthUrl.get_user, { headers: this.headers })
+			axios
+				.get(AuthUrl.get_user, { headers: this.headers })
 				.then(response => {
 					if (response.data.id) {
 						this.setUser(response.data);

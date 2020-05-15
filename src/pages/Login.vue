@@ -150,23 +150,8 @@ export default class Login extends PageBase {
 	}
 
 	public async login() {
-		/*
-		await this.auth.login(this.login_form);
-		this.auth_data = this.auth.auth_data;
-		if (await this.auth.isLogged()) {
-			this.$buefy.toast.open({
-				message: `Bienvenido ${this.auth_data.profile ? this.auth_data.profile.str : ''}`,
-				type: 'is-success',
-			});
-			this.$router.push('/app');
-		} else {
-			this.$buefy.toast.open({
-				message: 'Ha ocurrido un error, confirme su usuario y contraseña y vuelva a intentar',
-				type: 'is-danger',
-				position: 'is-bottom',
-			});
-		}
-		*/
+
+		this.$router.push('/app');
 	}
 
 	public async register() {

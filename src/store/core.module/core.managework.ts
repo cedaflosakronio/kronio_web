@@ -37,9 +37,9 @@ export default class CoreManageWorkStore extends VuexModule {
 			if (description.length > 5) description = description.slice(0, 5);
 			const fullName: string = `${description}${code}`;
 			let time: string = '';
-			time = (el.points[0].time) ?
-				el.points[0].time.slice(0, 5) + 'h' :
-				`${el.points[0].time_begin_local} - ${el.points[0].time_end_local}`;
+			time = el.points[0].time
+				? el.points[0].time.slice(0, 5) + 'h'
+				: `${el.points[0].time_begin_local} - ${el.points[0].time_end_local}`;
 			const profiles_array: ProfileData[] = [];
 			el.profiles.forEach(profile => {
 				profiles_array.push(new ProfileData(profile));
@@ -95,7 +95,7 @@ export default class CoreManageWorkStore extends VuexModule {
 		addRemoveEmployeeToWorkManager: AddRemoveEmployeeToWorkManager;
 		type: 'ADD' | 'REMOVE';
 	}): Promise<boolean> {
-		return new Promise((resolve, reject) => {
+		return new Promise(resolve => {
 			const { addRemoveEmployeeToWorkManager, type } = info;
 			const url_type = type === 'ADD' ? 'add_employee' : 'remove_employee';
 			const url = `${CoreManageWorkUrl.manage_work}/${vxm.core_profile.currentProfile.enterprise}/${this.selected_manage_work}/${url_type}`;
@@ -103,8 +103,7 @@ export default class CoreManageWorkStore extends VuexModule {
 				.post(url, addRemoveEmployeeToWorkManager, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
-					(typeof data === 'boolean') ? resolve(data)
-						: (console.log(data), resolve(false));
+					typeof data === 'boolean' ? resolve(data) : (console.log(data), resolve(false));
 				})
 				.catch(e => {
 					console.log(' Descripción de error: \n' + e);
@@ -116,14 +115,13 @@ export default class CoreManageWorkStore extends VuexModule {
 	@action async get_all_manage_work() {
 		return new Promise((resolve, reject) => {
 			axios
-				.get(
-					`${CoreManageWorkUrl.manage_work}/${vxm.core_profile.currentProfile.enterprise}/`,
-					{ headers: vxm.auth.headers },
-				)
+				.get(`${CoreManageWorkUrl.manage_work}/${vxm.core_profile.currentProfile.enterprise}/`, {
+					headers: vxm.auth.headers,
+				})
 				.then(response => {
 					const data = response.data;
 					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {
-						(data[0].id) && (this.set_all_manage_work(data), reject());
+						data[0].id && (this.set_all_manage_work(data), reject());
 					} else {
 						console.log(data);
 						resolve();
