@@ -31,9 +31,16 @@
 						:href="item.href"
 						:to="item.path"
 					>
-						<span>
-							<i v-if="item.icon" :class="['fas', 'fa-' + item.icon, 'icon-pr']"></i>
+						<span :class="item.text_class">
+							<i
+								v-if="item.icon && item.icon_position === 'left'"
+								:class="[item.icon_class ? item.icon_class : 'fas', 'fa-' + item.icon, 'icon-pr']"
+							></i>
 							{{ item.title }}
+							<i
+								v-if="item.icon && item.icon_position === 'right'"
+								:class="[item.icon_class ? item.icon_class : 'fas', 'fa-' + item.icon, 'icon-pl']"
+							></i>
 						</span>
 					</component>
 				</li>
@@ -59,9 +66,19 @@
 						:href="item.href"
 						:to="item.path"
 					>
-						<span>
-							<i v-if="item.icon" :class="['fas', 'fa-' + item.icon, 'icon-pr']"></i>
+						<span :class="item.text_class">
+							<i
+								v-if="item.icon && item.icon_position === 'left'"
+								:class="[item.icon_class ? item.icon_class : 'fas', 'fa-' + item.icon, 'icon-pr']"
+							></i>
 							{{ item.title }}
+							<i
+								v-if="item.icon && item.icon_position === 'right'"
+								:class="[item.icon_class ? item.icon_class : 'fas', 'fa-' + item.icon, 'icon-pl']"
+							></i>
+							<figure v-if="item.image" class="image is-32x32 navbar-menu-image">
+								<img class="is-rounded" :src="item.image" />
+							</figure>
 						</span>
 					</component>
 				</li>
@@ -110,9 +127,24 @@
 								class="card-header"
 								role="button"
 							>
-								<p class="card-header-title">
-									<i v-if="section.icon" :class="['fas', 'fa-' + section.icon, 'icon-pr']"></i>
+								<p class="card-header-title" :class="section.text_class">
+									<i
+										v-if="section.icon && section.icon_position === 'left'"
+										:class="[
+											section.icon_class ? section.icon_class : 'fas',
+											'fa-' + section.icon,
+											'icon-pr',
+										]"
+									></i>
 									{{ section.title }}
+									<i
+										v-if="section.icon && section.icon_position === 'right'"
+										:class="[
+											section.icon_class ? section.icon_class : 'fas',
+											'fa-' + section.icon,
+											'icon-pl',
+										]"
+									></i>
 								</p>
 								<a class="card-header-icon">
 									<b-icon :icon="props.open ? 'angle-up' : 'angle-down'"> </b-icon>
@@ -134,7 +166,14 @@
 										}"
 									>
 										<div v-if="item.title" class="content-top">
-											<i v-if="item.icon" :class="['fas', 'fa-' + item.icon, 'icon-pr']"></i>
+											<i
+												v-if="item.icon"
+												:class="[
+													item.icon_class ? item.icon_class : 'fas',
+													'fa-' + item.icon,
+													'icon-pr',
+												]"
+											></i>
 											{{ item.title }}
 										</div>
 										<div v-if="item.description" class="content-bottom">
@@ -144,9 +183,24 @@
 								</component>
 							</div>
 							<div v-else class="card-header" role="button">
-								<p class="card-header-title">
-									<i v-if="section.icon" :class="['fas', 'fa-' + section.icon, 'icon-pr']"></i>
+								<p class="card-header-title" :class="section.text_class">
+									<i
+										v-if="section.icon && section.icon_position === 'left'"
+										:class="[
+											section.icon_class ? section.icon_class : 'fas',
+											'fa-' + section.icon,
+											'icon-pr',
+										]"
+									></i>
 									{{ section.title }}
+									<i
+										v-if="section.icon && section.icon_position === 'right'"
+										:class="[
+											section.icon_class ? section.icon_class : 'fas',
+											'fa-' + section.icon,
+											'icon-pl',
+										]"
+									></i>
 								</p>
 							</div>
 						</component>
@@ -183,7 +237,9 @@
 										ref="items"
 									>
 										<span v-if="item.icon">
-											<i :class="['fas', 'fa-' + item.icon]"></i>
+											<i
+												:class="[item.icon_class ? item.icon_class : 'fas', 'fa-' + item.icon]"
+											></i>
 										</span>
 										<div
 											:class="{
@@ -255,21 +311,33 @@ export default class NavBar extends Vue {
 	}
 
 	get menu_start_content() {
-		return (this.get_menu_items(this.menu_start) as INavBarTitle[]).map(item => {
-			if (item.children) {
-				item.children = item.children.filter(e => e.is_only_desktop || !e.is_only_touch);
-			}
-			return item;
-		});
+		if (this.menu_start.length) {
+			return (this.get_menu_items(this.menu_start) as INavBarTitle[])
+				.filter(e => e.is_only_desktop || !e.is_only_touch)
+				.map(item => {
+					if (item.children) {
+						item.children = item.children.filter(e => e.is_only_desktop || !e.is_only_touch);
+					}
+					return item;
+				});
+		} else {
+			return [];
+		}
 	}
 
 	get menu_end_content() {
-		return (this.get_menu_items(this.menu_end) as INavBarTitle[]).map(item => {
-			if (item.children) {
-				item.children = item.children.filter(e => e.is_only_desktop || !e.is_only_touch);
-			}
-			return item;
-		});
+		if (this.menu_end.length) {
+			return (this.get_menu_items(this.menu_end) as INavBarTitle[])
+				.filter(e => e.is_only_desktop || !e.is_only_touch)
+				.map(item => {
+					if (item.children) {
+						item.children = item.children.filter(e => e.is_only_desktop || !e.is_only_touch);
+					}
+					return item;
+				});
+		} else {
+			return [];
+		}
 	}
 
 	get menu_dropdown_content() {
@@ -298,41 +366,51 @@ export default class NavBar extends Vue {
 	public get_menu_items(item: (INavBarTitle | INavBarItem)[] | undefined): (INavBarTitle | INavBarItem)[] {
 		let item_res: (INavBarTitle | INavBarItem)[] = [];
 		if (item) {
-			item_res = item.map(e => {
-				let el: INavBarTitle | INavBarItem = {
-					...e,
-					id: `id-${Math.random()
-						.toFixed(6)
-						.substring(2)}`,
-				};
-				if (!e.title) {
-					e.title = 'title';
-				}
-				if ((e as INavBarTitle).children) {
-					el = {
-						...el,
-						children: this.get_menu_items((e as INavBarTitle).children) as INavBarItem[],
-						dropdown: `${e.title.toLowerCase()}-${Math.random()
-							.toFixed(4)
+			if (item.length) {
+				item_res = item.map(e => {
+					let el: INavBarTitle | INavBarItem = {
+						...e,
+						id: `id-${Math.random()
+							.toFixed(6)
 							.substring(2)}`,
-						element: 'button',
 					};
-				} else {
-					if (e.path) {
+					if (el.icon) {
+						(el as INavBarTitle).icon_position = (el as INavBarTitle).icon_position
+							? (el as INavBarTitle).icon_position
+							: 'left';
+					}
+					if (!el.title) {
+						el.title = '';
+					}
+					if (!(el as INavBarTitle).text_class) {
+						(el as INavBarTitle).text_class = '';
+					}
+					if ((el as INavBarTitle).children) {
 						el = {
 							...el,
-							element: 'router-link',
+							children: this.get_menu_items((e as INavBarTitle).children) as INavBarItem[],
+							dropdown: `${el.title.toLowerCase()}-${Math.random()
+								.toFixed(4)
+								.substring(2)}`,
+							element: 'button',
 						};
 					} else {
-						el = {
-							...el,
-							element: 'a',
-						};
+						if (e.path) {
+							el = {
+								...el,
+								element: 'router-link',
+							};
+						} else {
+							el = {
+								...el,
+								element: 'a',
+							};
+						}
 					}
-				}
-				this.save_events(el);
-				return el;
-			});
+					this.save_events(el);
+					return el;
+				});
+			}
 		}
 		return item_res;
 	}
@@ -344,9 +422,15 @@ export default class NavBar extends Vue {
 	}
 
 	get hasDropdownEls(): Element[] {
-		const links = this.$refs.links || [];
+		let links: (Vue | Element)[] = [];
 
-		return (links as (Vue | Element)[]).filter((link: Vue | Element) => {
+		if (this.$refs.links) {
+			if ((this.$refs.links as (Vue | Element)[]).length) {
+				links = this.$refs.links as (Vue | Element)[];
+			}
+		}
+
+		return links.filter(link => {
 			if (link instanceof Vue) {
 				link = (link as Vue).$el;
 			}
@@ -355,9 +439,15 @@ export default class NavBar extends Vue {
 	}
 
 	get sectionEls() {
-		const sections = this.$refs.sections || [];
+		let sections: Element[] = [];
 
-		return (sections as Element[]).map(el => ({
+		if (this.$refs.sections) {
+			if ((this.$refs.sections as Element[]).length) {
+				sections = this.$refs.sections as Element[];
+			}
+		}
+
+		return sections.map(el => ({
 			el,
 			name: el.getAttribute('data-dropdown'),
 			content: el.children[0],
@@ -387,34 +477,51 @@ export default class NavBar extends Vue {
 	}
 
 	private registerItemEvents() {
-		const items: Element[] = [
-			...(this.$refs.items as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-			...(this.$refs.links as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-			...(this.$refs.sections_touch as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-			...(this.$refs.items_touch as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-		];
+		let items: Element[] = [];
 
-		items.forEach(item => {
+		if (this.$refs.items) {
+			items = (this.$refs.items as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		let links: Element[] = [];
+
+		if (this.$refs.links) {
+			links = (this.$refs.links as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		let sections_touch: Element[] = [];
+
+		if (this.$refs.sections_touch) {
+			sections_touch = (this.$refs.sections_touch as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		let items_touch: Element[] = [];
+
+		if (this.$refs.items_touch) {
+			items_touch = (this.$refs.items_touch as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		[...items, ...links, ...sections_touch, ...items_touch].forEach(item => {
 			if (this.events_items[item.id]) {
 				Object.entries(this.events_items[item.id]).map(([event, emit]) => {
 					item.addEventListener(event, emit);
@@ -424,34 +531,51 @@ export default class NavBar extends Vue {
 	}
 
 	private unregisterItemEvents() {
-		const items: Element[] = [
-			...(this.$refs.items as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-			...(this.$refs.links as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-			...(this.$refs.sections_touch as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-			...(this.$refs.items_touch as (Vue | Element)[]).map(e => {
-				if (e instanceof Vue) {
-					e = (e as Vue).$el;
-				}
-				return e as Element;
-			}),
-		];
+		let items: Element[] = [];
 
-		items.forEach(item => {
+		if (this.$refs.items) {
+			items = (this.$refs.items as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		let links: Element[] = [];
+
+		if (this.$refs.links) {
+			links = (this.$refs.links as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		let sections_touch: Element[] = [];
+
+		if (this.$refs.sections_touch) {
+			sections_touch = (this.$refs.sections_touch as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		let items_touch: Element[] = [];
+
+		if (this.$refs.items_touch) {
+			items_touch = (this.$refs.items_touch as (Vue | Element)[]).map(e => {
+				if (e instanceof Vue) {
+					e = (e as Vue).$el;
+				}
+				return e as Element;
+			});
+		}
+
+		[...items, ...links, ...sections_touch, ...items_touch].forEach(item => {
 			if (this.events_items[item.id]) {
 				Object.entries(this.events_items[item.id]).map(([event, emit]) => {
 					item.removeEventListener(event, emit);

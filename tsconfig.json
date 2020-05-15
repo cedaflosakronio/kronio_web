@@ -2,10 +2,11 @@
 	"compilerOptions": {
 		"target": "esnext",
 		"module": "esnext",
-		"strict": true,
 		"jsx": "preserve",
 		"importHelpers": true,
 		"moduleResolution": "node",
+		"strictNullChecks": false,
+		"strictPropertyInitialization": false,
 		"experimentalDecorators": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,

@@ -62,13 +62,14 @@
 	will-change: transform, opacity;
 	transition-property: transform, opacity;
 	transition-duration: 0.25s;
+	margin-right: 1rem;
 
 	.section_touch:nth-of-type(2) {
 		margin-top: 2rem;
 	}
 
 	.section_touch {
-		font-family: 'Bariol' !important;
+		font-family: 'Poppins' !important;
 
 		.card-header-title {
 			font-weight: normal !important;

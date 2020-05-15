@@ -1,0 +1,82 @@
+{
+	"app.name": "Kronio",
+	"login": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"initnumber": "Número Telefónico debe comenzar con +593",
+			"formatnumber": "No es un número telefónico válido para Ecuador",
+			"formatemail": "No es un correo válido"
+		}
+	},
+	"signupuser": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatname": "Nombres solo permite letras",
+			"formatlastname": "Apellidos solo permite letras",
+			"formatemail": "No es un correo válido",
+			"formatidentifier": "Identificación solo permite números",
+			"lengthidentifier": "Identificación permite entre 10 y 10 caracteres",
+			"lengthaddress": "Dirección permite entre 6 y 250 caracteres",
+			"initnumber": "Número Telefónico debe comenzar con +593",
+			"formatnumber": "No es un número telefónico válido para Ecuador",
+			"formatpassword": "Contraseña debe contener una letra mayúscula, una letra minúscula y un número",
+			"lengthpassword": "Contraseña permite entre 6 y 20 caracteres ",
+			"equalpassword": "Contraseñas no coinciden",
+			"formatdate": "No es una fecha válida"
+		}
+	},
+	"signupcompany": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatname": "Nombres solo permite letras",
+			"formatidentifier": "Identificación solo permite números",
+			"lengthidentifier": "Identificación permite entre 13 y 13 caracteres",
+			"formattype": "Tipo de Empresa solo permite letras",
+			"rangesize": "Tamaño del equipo solo permite rango de números",
+			"lengthaddress": "Dirección permite entre 6 y 250 caracteres",
+			"initnumber": "Número Telefónico debe comenzar con +593",
+			"formatnumber": "No es un número telefónico válido para Ecuador",
+			"formatcity": "Ciudad solo permite letras",
+			"formatcountry": "País solo permite letras"
+		}
+	},
+	"resetpassword": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"initnumber": "Número Telefónico debe comenzar con +593",
+			"formatnumber": "No es un número telefónico válido para Ecuador",
+			"formatemail": "No es un correo válido",
+			"lengthcode": "Dirección permite entre 5 y 5 números",
+			"formatpassword": "Contraseña debe contener una letra mayúscula, una letra minúscula y un número",
+			"lengthpassword": "Contraseña permite entre 6 y 20 caracteres ",
+			"equalpassword": "Contraseñas no coinciden"
+		}
+	},
+	"createemployee": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatemail": "No es un correo válido",
+			"formatname": "Nombres solo permite letras",
+			"formatlastname": "Apellidos solo permite letras"
+		}
+	},
+	"vacationrequest": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatdate": "No es una fecha válida"
+		}
+	},
+	"postponedvacation": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos"
+		}
+	},
+	"createpublication": {
+		"snackbarFront": {
+			"empty": "No pueden existir campos vacíos",
+			"formatdate": "No es una fecha válida",
+			"formatsendemail": "Enviar notificación solo permite condición",
+			"formatallowcomment": "Permitir comentarios solo permite condición"
+		}
+	}
+}

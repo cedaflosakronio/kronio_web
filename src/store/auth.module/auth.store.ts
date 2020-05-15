@@ -1,8 +1,8 @@
-import { createModule, action } from 'vuex-class-component';
+import { createModule, action, mutation } from 'vuex-class-component';
 import axios from 'axios';
 import config from '../config.store';
+import { Token, UserData, LoginTelForm } from '../types/authObject';
 
-import { IAuth, ILoginForm } from './auth.type';
 
 const AuthUrl = {
 	login_telephone_password: config.TaquionAuth + 'public/login/telephone/password',
@@ -18,13 +18,13 @@ const VuexModule = createModule({
 });
 
 export default class AuthStore extends VuexModule {
-	public auth_data: IAuth = {};
-	public temporal_login: boolean = false;
+	public token: Token = null;
+	public user: UserData = null;
 
 	get headers() {
-		if (this.auth_data.jwt) {
+		if (this.token) {
 			return {
-				Authorization: `JWT ${this.auth_data.jwt}`,
+				Authorization: 'Bearer ' + this.token.accessToken,
 				'Content-Type': 'application/json',
 			};
 		} else {
@@ -34,72 +34,87 @@ export default class AuthStore extends VuexModule {
 		}
 	}
 
-	get isLoggedIn(): boolean {
-		return !!(this.auth_data.jwt && this.auth_data.user);
+	get hasUser(): boolean {
+		return this.user ? true : false;
 	}
 
-	get isLoggedApp(): boolean {
-		return !!localStorage.getItem('jwt');
+	get hasToken(): boolean {
+		return (this.token) ? true : false;
 	}
 
-	@action
-	public async isLogged(): Promise<boolean> {
-		if (this.isLoggedApp) {
-			if (!this.isLoggedIn) {
-				const jwt = localStorage.getItem('jwt');
-				if (jwt) {
-					this.auth_data.jwt = jwt;
-					await this.getUser();
-				}
+	get fullName() {
+		return this.user && `${this.user.firstname} ${this.user.lastname}`;
+	}
+
+	@mutation loadToken() {
+		const accessToken = localStorage.getItem('USER-ACCESS-TOKEN');
+		const expiresIn = +localStorage.getItem('USER-EXPIRE-TOKEN');
+		if (accessToken && expiresIn) this.token = new Token({ accessToken, expiresIn });
+	}
+
+	@mutation logout() {
+		this.token = null;
+		this.user = null;
+		localStorage.removeItem('USER-ACCESS-TOKEN');
+		localStorage.removeItem('USER-EXPIRE-TOKEN');
+	}
+
+	@mutation setUser(data: any) {
+		if (data.user) {
+			this.token = new Token(data);
+			this.user = new UserData(data.user);
+		} else if (data.id) {
+			this.user = new UserData(data);
+		}
+		localStorage.setItem('USER-EXPIRE-TOKEN', data.token.expiresIn);
+		localStorage.setItem('USER-ACCESS-TOKEN', data.token.accessToken);
+	}
+
+	@action async isLoggedIn(): Promise<boolean> {
+		if (this.hasToken) {
+			if (this.hasUser) {
+				return true;
+			} else {
+				await this.getUser();
 			}
 		}
-		return this.temporal_login;
-		// Usar variable temporal
-		return this.auth_data.user ? true : false;
+		return this.user ? true : false;
+	}
+
+	@action async getUser() {
+		this.logout();
+		return new Promise((resolve, reject) => {
+			axios.get(AuthUrl.get_user, { headers: this.headers })
+				.then(response => {
+					if (response.data.id) {
+						this.setUser(response.data);
+						resolve();
+					} else {
+						console.log(response.data);
+						reject();
+					}
+				})
+				.catch(e => {
+					// tslint:disable-next-line: no-console
+					console.log(' Descripción de error: \n' + e);
+					reject();
+				});
+		});
 	}
 
 	@action
-	public async getUser(): Promise<boolean> {
-		return await axios
-			.get(AuthUrl.get_user, { headers: this.headers })
-			.then(response => {
-				this.auth_data.user = response.data.user;
-				this.auth_data.profile = response.data.profile;
-				this.auth_data.profiles = response.data.all_profile;
-				return true;
-			})
-			.catch(() => {
-				return false;
-			});
-	}
-
-	@action
-	public async logout() {
-		this.auth_data = {};
-		localStorage.removeItem('jwt');
-		// Usar variable temporal
-		this.temporal_login = false;
-	}
-
-	@action
-	public async login(loginData: ILoginForm): Promise<boolean> {
-		this.temporal_login = true;
-		return this.temporal_login;
-		// Usar variable temporal
-		return await axios
-			.post(AuthUrl.login_telephone_password, loginData)
-			.then(response => {
-				this.auth_data.jwt = response.data.token;
-				this.auth_data.user = response.data.user;
-				this.auth_data.profile = response.data.profile;
-				this.auth_data.profiles = response.data.all_profile;
-				if (this.auth_data.jwt) {
-					localStorage.setItem('jwt', this.auth_data.jwt);
-				}
-				return true;
-			})
-			.catch(() => {
-				return false;
-			});
+	public async login_tel_pass(loginData: LoginTelForm): Promise<boolean> {
+		return new Promise<boolean>((resolve, reject) => {
+			axios
+				.post(AuthUrl.login_telephone_password, loginData, { headers: this.headers })
+				.then(response => {
+					this.setUser(response.data);
+					resolve(true);
+				})
+				.catch(e => {
+					console.log(' Descripción de error: \n' + e);
+					reject(false);
+				});
+		});
 	}
 }

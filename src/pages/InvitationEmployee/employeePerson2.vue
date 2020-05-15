@@ -140,7 +140,6 @@ body {
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
-
 .select {
 	width: 100% !important;
 	height: 2.5em !important;

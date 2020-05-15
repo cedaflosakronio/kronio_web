@@ -150,6 +150,7 @@ export default class Login extends PageBase {
 	}
 
 	public async login() {
+		/*
 		await this.auth.login(this.login_form);
 		this.auth_data = this.auth.auth_data;
 		if (await this.auth.isLogged()) {
@@ -165,6 +166,7 @@ export default class Login extends PageBase {
 				position: 'is-bottom',
 			});
 		}
+		*/
 	}
 
 	public async register() {
