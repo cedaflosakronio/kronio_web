@@ -1,5 +1,5 @@
 import { createModule } from 'vuex-class-component';
-import { LoginTelForm, LoginEmailForm } from '../types/authObject';
+import { LoginTelForm, LoginEmailForm } from '../auth.module/authObject';
 
 const VuexModule = createModule({
 	strict: false,
