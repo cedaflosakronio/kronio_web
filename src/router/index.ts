@@ -121,6 +121,14 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/main-calendar',
+		name: 'MainCalendar',
+		component: () => import('@/pages/calendar/main-calendar.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),

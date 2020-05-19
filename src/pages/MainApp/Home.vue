@@ -270,7 +270,7 @@
 						<p class="card-header-title">
 							Calendario
 						</p>
-						<button class="btn-more-calendar">...</button>
+						<button @click="mainCalendar()" class="btn-more-calendar">...</button>
 					</header>
 					<div class="card-content calendar-context">
 						<div class="content">
@@ -369,6 +369,10 @@ export default class LogoSVG extends Vue {
 		} else {
 			this.isHidden = false;
 		}
+	}
+
+	public async mainCalendar() {
+		this.$router.push('/main-calendar');
 	}
 }
 </script>

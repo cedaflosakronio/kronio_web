@@ -68,7 +68,7 @@
 								</div>
 								<div v-if="showNewOptions" class="columns is-centered">
 									<div class="column is-4 margin-box">
-										<div class="box">
+										<div @click="$modal.show('md-new-publication')" class="box">
 											<article class="media">
 												<div class="media-content">
 													<div class="content">
@@ -99,7 +99,7 @@
 										</div>
 									</div>
 									<div class="column is-4 margin-box">
-										<div class="box">
+										<div @click="$modal.show('md-new-publication')" class="box">
 											<article class="media">
 												<div class="media-content">
 													<div class="content">
@@ -154,10 +154,15 @@
 																<div class="columns is-centered">
 																	<div class="column is-11 border-form">
 																		<div class="field">
-																			<label class="label label-form is-pulled-left"
+																			<label
+																				class="label label-form is-pulled-left"
 																				>Ubicación del evento</label
 																			>
-																			<input class="input no-border-form" type="text" placeholder="¿Dónde se celebrará el evento?" />
+																			<input
+																				class="input no-border-form"
+																				type="text"
+																				placeholder="¿Dónde se celebrará el evento?"
+																			/>
 																		</div>
 																	</div>
 																</div>
@@ -182,6 +187,7 @@
 				</div>
 			</div>
 		</div>
+		<MdNewPublication />
 	</div>
 </template>
 
@@ -191,10 +197,10 @@ import { Component } from 'vue-property-decorator';
 import NavBar from '@/components/NavBar.vue';
 import LogoSVG from '@/components/LogoSVG.vue';
 import { INavBarTitle } from '@/utils/types.utils';
-import ConfigEnterprise from '@/components/config-enterprise.vue';
+import MdNewPublication from '@/components/md-new-publication.vue';
 
 @Component({
-	components: { NavBar, LogoSVG, ConfigEnterprise },
+	components: { NavBar, LogoSVG, MdNewPublication },
 })
 export default class NewPublications extends PageBase {
 	public showNewOptions: boolean = false;
