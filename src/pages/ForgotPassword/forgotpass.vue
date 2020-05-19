@@ -61,7 +61,7 @@
 import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import LogoSVG from '@/components/LogoSVG.vue';
-import { ForgotPassMainForm } from '@/store/types';
+import { ForgotPassMainForm } from '@/store/auth.module/forgotpass.type';
 
 @Component({
 	components: { LogoSVG },

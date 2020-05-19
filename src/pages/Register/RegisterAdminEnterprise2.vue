@@ -117,7 +117,7 @@
 import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import LogoSVG from '@/components/LogoSVG.vue';
-import { RegisterAdminEnterprise2Form } from '@/store/types';
+import { RegisterAdminEnterprise2Form } from '@/store/auth.module/signup.type';
 
 @Component({
 	components: { LogoSVG },
