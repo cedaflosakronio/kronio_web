@@ -129,6 +129,14 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/calendar-politica-privacidad',
+		name: 'CalendarPoliticaPrivacidad',
+		component: () => import('@/pages/calendar/calendar-politica-privacidad.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),
