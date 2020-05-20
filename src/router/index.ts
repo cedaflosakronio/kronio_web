@@ -145,6 +145,14 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/calendar-ausencia',
+		name: 'CalendarAusencia',
+		component: () => import('@/pages/calendar/calendar-ausencia.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),
