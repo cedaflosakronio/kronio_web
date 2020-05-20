@@ -1,48 +1,51 @@
 <template>
-	<modal name="md-import-holiday" width="25%" height="45%">
+	<modal name="md-import-holiday" width="25%" :height="heigth + '%'">
 		<div class="example-modal-content">
-			<img class="img-modal" src="../assets/modal_holidays.png" alt="" />
-			<span @click="hide()" class="close-btn"><i class="fas fa-times"></i></span>
-			<p class="title-employee">
-				Importar festivos
-			</p>
-			<p class="subtitle-employee">
-				Importa tus festivos locales de nuestra base de datos
-			</p>
+			<img class="img-modal" src="../assets/modal_holidays.png" alt />
+			<span @click="hide()" class="close-btn">
+				<i class="fas fa-times"></i>
+			</span>
+			<p class="title-employee">Importar festivos</p>
+			<p class="subtitle-employee">Importa tus festivos locales de nuestra base de datos</p>
 			<div class="columns is-centered">
-				<!-- <div class="column is-4 border-form">
+				<div class="column is-4 border-form">
 					<div class="field">
-						<label class="label label-form">Fecha de inicio</label>
-						<b-datepicker
-							class="form-fields"
-							v-model="birthday"
-							placeholder="Fecha de inicio"
-							icon="calendar-today"
-							editable
-						>
-						</b-datepicker>
+						<b-field class="label-lol" label="País">
+							<b-select placeholder>
+								<option v-for="option in paises" :value="option.value" :key="option.id">{{
+									option.value
+								}}</option>
+							</b-select>
+						</b-field>
 					</div>
 				</div>
 				<div class="column is-1"></div>
 				<div class="column is-4 border-form">
 					<div class="field">
-						<label class="label label-form">Fecha de fin</label>
-						<b-datepicker
-							class="form-fields"
-							v-model="birthday"
-							placeholder="Fecha de fin"
-							popover-direction="left"
-							icon="calendar-today"
-							editable
-						>
-						</b-datepicker>
+						<b-field class="label-lol" label="Año">
+							<b-select placeholder>
+								<option v-for="option in anios" :value="option.value" :key="option.id">{{
+									option.value
+								}}</option>
+							</b-select>
+						</b-field>
 					</div>
-				</div> -->
+				</div>
+			</div>
+			<div>
+				<div class="columns is-centered" v-for="option in imports" :key="option.id">
+					<div class="column is-one-fifth checkbox">
+						<b-checkbox v-model="option.select">{{ option.select }}</b-checkbox>
+					</div>
+					<div class="column">
+						<p class="festivos-import">{{ option.value }}</p>
+					</div>
+				</div>
 			</div>
 
 			<div class="columns is-centered">
 				<div class="column is-10">
-					<button class="button btn-wellcome is-fullwidth">Importar</button>
+					<button class="button btn-wellcome is-fullwidth" @click="importarDatos()">Importar</button>
 				</div>
 			</div>
 		</div>
@@ -54,6 +57,62 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class MdHolidays extends Vue {
+	public checkbox: false;
+	private heightModalBase: number = 35;
+	public heigth: number = this.heightModalBase;
+	public anios = [
+		{
+			id: 0,
+			value: 2012,
+		},
+		{
+			id: 1,
+			value: 2013,
+		},
+		{
+			id: 2,
+			value: 2020,
+		},
+	];
+
+	public paises = [
+		{
+			id: 0,
+			value: 'Ecuador',
+		},
+		{
+			id: 1,
+			value: 'Argentina',
+		},
+		{
+			id: 2,
+			value: 'Chile',
+		},
+	];
+
+	public imports = [];
+
+	public importarDatos() {
+		this.imports = [
+			{
+				id: 0,
+				value: 'Día de Año Nuevo—1 de ene. de 2020',
+				select: false,
+			},
+			{
+				id: 1,
+				value: 'Día de Año Nuevo—1 de ene. de 2020',
+				select: false,
+			},
+			{
+				id: 2,
+				value: 'Día de Año Nuevo—1 de ene. de 2020',
+				select: false,
+			},
+		];
+		this.heigth = 50;
+	}
+
 	public hide() {
 		this.$modal.hide('md-holidays');
 	}
@@ -67,6 +126,28 @@ export default class MdHolidays extends Vue {
 	line-height: 30px;
 	text-align: center;
 	color: #7a7979;
+}
+
+.checkbox {
+	margin-left: 10%;
+}
+
+.festivos-import {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 22px;
+	text-align: left;
+	color: rgba(122, 121, 121, 0.5);
+}
+
+.control {
+	box-sizing: border-box;
+	clear: both;
+	font-size: 1rem;
+	position: relative;
+	text-align: center;
 }
 
 .subtitle-employee {
@@ -132,5 +213,19 @@ export default class MdHolidays extends Vue {
 	margin-right: 10%;
 	font-size: 30px;
 	cursor: pointer;
+}
+.fa-times:before {
+	content: '\f00d';
+	color: #7a7979;
+}
+.label:not(:last-child) {
+	margin-bottom: 0.5em;
+	font-family: Poppins !important;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: center;
+	color: rgba(122, 121, 121, 0.5);
 }
 </style>

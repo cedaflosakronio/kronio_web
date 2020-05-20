@@ -17,16 +17,16 @@
 					<div class="box-sombra"></div>
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<span @click="exit()" class="close-btn"><i class="fas fa-arrow-circle-left"></i></span>
+							<span @click="exit()" class="close-btn">
+								<i class="fas fa-arrow-circle-left"></i>
+							</span>
 							<p class="title-publications is-fullwidth">Políticas de vaciones de Nombredelaempresa</p>
 						</header>
 						<div class="card-content">
 							<div class="content">
 								<div class="columns">
 									<div class="column is-half container-text">
-										<p class="titulo">
-											Empleados
-										</p>
+										<p class="titulo">Empleados</p>
 										<p class="subtitulo">
 											Estos son los empleados que trabajan en xxxxxxxxxxxxxx (ec).
 										</p>
@@ -51,7 +51,11 @@
 													>
 												</div>
 												<div class="column field has-text-centered">
-													<b-button type="is-primary" expanded class="btn-anadir boton"
+													<b-button
+														type="is-primary"
+														expanded
+														@click="$modal.show('md-add-holiday')"
+														class="btn-anadir boton"
 														>Añadir festivos</b-button
 													>
 												</div>
@@ -66,6 +70,7 @@
 			</div>
 		</div>
 		<MdImportHoliday />
+		<MdAddHoliday />
 	</div>
 </template>
 
@@ -76,9 +81,10 @@ import NavBar from '@/components/NavBar.vue';
 import LogoSVG from '@/components/LogoSVG.vue';
 import { INavBarTitle } from '@/utils/types.utils';
 import MdImportHoliday from '@/components/md-import-holidays.vue';
+import MdAddHoliday from '@/components/md-add-holiday.vue';
 
 @Component({
-	components: { NavBar, LogoSVG, MdImportHoliday },
+	components: { NavBar, LogoSVG, MdImportHoliday, MdAddHoliday },
 })
 export default class NewPublications extends PageBase {
 	public showNewOptions: boolean = false;
