@@ -153,7 +153,6 @@ export default class ConfigEnterprise extends Vue {
 }
 
 .enterprise {
-
 	.img-user-enterprise {
 		margin-top: 2%;
 	}
