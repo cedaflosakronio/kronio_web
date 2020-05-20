@@ -114,7 +114,7 @@ export default class ConfigAdmin extends PageBase {
 		this.$router.push('/app');
 	}
 
-	public async showTab(item: number, event: any) {
+	public async showTab(item: number) {
 		if (item == 1) {
 			this.profile = true;
 			this.enterprise = false;

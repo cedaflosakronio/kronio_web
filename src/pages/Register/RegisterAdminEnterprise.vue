@@ -18,8 +18,8 @@
 			</p>
 		</div>
 		<div class="columns margin-top-register">
-			<div class="column is-3"></div>
-			<div class="column is-3 is-mobile is-vcentered margin-top-form">
+			<div class="column is-1"></div>
+			<div class="column is-5 is-centered">
 				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
@@ -201,8 +201,28 @@ body {
 	}
 
 	.margin-top-form {
-		margin-top: 10%;
+		margin-top: 12%;
+		width: 70%;
+		margin-left: 10%;
 		height: calc(60vh - 4rem);
+
+		@media screen and (max-width: 1400px) {
+			width: 75%;
+			margin-top: 15%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 1080px) {
+			width: 70%;
+			margin-top: 3%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(70vh - 4rem);
+		}
 	}
 
 	.title-register {

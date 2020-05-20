@@ -92,7 +92,7 @@
 										<div class="columns is-centered">
 											<div class="column"></div>
 											<div class="column is-8">
-												<section>
+												<section class="margin-button">
 													<p
 														class="title is-5 has-text-centered input-style margin-label-register"
 													>
@@ -150,7 +150,6 @@ export default class Login extends PageBase {
 	}
 
 	public async login() {
-
 		this.$router.push('/app');
 	}
 
@@ -224,6 +223,14 @@ body {
 
 	.body {
 		margin-top: 6%;
+
+		@media screen and (max-width: 768px) {
+			margin-top: 7%;
+		}
+
+		@media screen and (max-width: 600px) {
+			margin-top: 15%;
+		}
 	}
 
 	.margin-text-end {
@@ -232,6 +239,10 @@ body {
 
 	.height-login {
 		height: calc(60vh - 4rem);
+
+		@media screen and (max-width: 768px) {
+			height: calc(60vh - 4rem);
+		}
 	}
 
 	.titles-login {
@@ -271,6 +282,13 @@ body {
 
 	.forgot-pass {
 		color: #335eea;
+	}
+
+	.margin-button {
+		@media screen and (max-width: 768px) {
+			margin-left: 5%;
+			margin-right: 5%;
+		}
 	}
 }
 </style>

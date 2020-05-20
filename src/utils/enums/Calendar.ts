@@ -16,7 +16,7 @@ export enum TYPE_REPEAT {
 	ANNUALLY = 4,
 }
 
-export enum DAY_MONTH{
+export enum DAY_MONTH {
 	Last = 'last',
 	One = '1',
 	Two = '2',
@@ -50,14 +50,3 @@ export enum DAY_MONTH{
 	Thirty = '30',
 	ThirtyOne = '31',
 }
-
-
-
-
-
-
-
-
-
-
-
