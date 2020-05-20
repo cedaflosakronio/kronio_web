@@ -19,13 +19,17 @@
 			</div>
 			<div class="columns">
 				<div class="column is-full">
-					<button class="button btn-dia">Medio día</button>
-					<button class="button btn-dia">Un día</button>
+					<button class="button btn-dia" :class="{ 'btn-active': !mDay }" @click="changeDay('mDia')">
+						Medio día
+					</button>
+					<button class="button btn-dia" :class="{ 'btn-active': !day }" @click="changeDay('dia')">
+						Un día
+					</button>
 				</div>
 			</div>
-			<div class="columns">
-				<div class="column is-full">
-					<div class="field tarjeta">
+			<div class="columns is-centered">
+				<div class="column" :class="{ 'container-medio-dia-fecha': mDay }">
+					<div class="field tarjeta" :class="{ 'tarjeta-medio-dia-fecha': mDay }">
 						<p class="label-left-descripcion">Fecha</p>
 						<b-datepicker
 							class="form-fields fecha"
@@ -34,6 +38,18 @@
 							icon="calendar-today"
 							editable
 						></b-datepicker>
+					</div>
+				</div>
+				<div class="column" v-if="mDay" :class="{ 'container-medio-dia-jornada': mDay }">
+					<div class="field">
+						<b-radio v-model="radio" size="is-small" native-value="primera"
+							>Primera mitad de jornada</b-radio
+						>
+					</div>
+					<div class="field">
+						<b-radio v-model="radio" size="is-small" native-value="segunda"
+							>Segunda mitad de jornada</b-radio
+						>
 					</div>
 				</div>
 			</div>
@@ -52,8 +68,20 @@ import { Vue, Component } from 'vue-property-decorator';
 
 @Component
 export default class MdHolidays extends Vue {
+	public mDay: boolean = true;
+	public day: boolean = false;
+	public radio: string = 'primera';
 	public hide() {
 		this.$modal.hide('md-holidays');
+	}
+	changeDay(type: string) {
+		if (type === 'dia') {
+			this.day = true;
+			this.mDay = false;
+		} else {
+			this.day = false;
+			this.mDay = true;
+		}
 	}
 }
 </script>
@@ -113,6 +141,7 @@ export default class MdHolidays extends Vue {
 	padding: 5%;
 	margin-left: 10%;
 	margin-right: 10%;
+	//width: 100%;
 }
 .tarjeta-container {
 	width: 90%;
@@ -170,5 +199,28 @@ export default class MdHolidays extends Vue {
 }
 .fecha {
 	color: #335eea;
+}
+.btn-active {
+	background-color: #ffffff;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: center;
+	color: rgba(122, 121, 121, 0.5);
+}
+.container-medio-dia-fecha {
+	width: 50%;
+	text-align: left;
+	margin-left: 5%;
+}
+.container-medio-dia-jornada {
+	width: 50%;
+	text-align: left;
+	margin-right: 10%;
+}
+.tarjeta-medio-dia-fecha {
+	width: 90%;
 }
 </style>
