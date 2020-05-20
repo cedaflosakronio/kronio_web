@@ -137,6 +137,14 @@ const routes: RouteConfig[] = [
 		},
 	},
 	{
+		path: '/calendar-dias-festivos',
+		name: 'CalendarDiasFestivos',
+		component: () => import('@/pages/calendar/calendar-dias-festivos.vue'),
+		meta: {
+			free_page: true,
+		},
+	},
+	{
 		path: '/app',
 		name: 'MainApp',
 		component: () => import(/* webpackChunkName: "index_app" */ '@/pages/MainApp/index.vue'),
