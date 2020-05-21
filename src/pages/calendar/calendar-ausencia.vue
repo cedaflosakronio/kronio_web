@@ -33,7 +33,10 @@
 													Crea o edita tipos de ausencia. Los empleados podrán seleccionarlos
 													cuando pidan ausencias.
 												</p>
-												<button class="button btn-ausencia" @click="console.log('lol')">
+												<button
+													class="button btn-ausencia"
+													@click="$modal.show('md-ausencia-vacaciones')"
+												>
 													Nuevo tipo de ausencia
 												</button>
 											</div>
@@ -272,8 +275,7 @@
 				</div>
 			</div>
 		</div>
-		<MdImportHoliday />
-		<MdAddHoliday />
+		<MdAusenciaVacaciones />
 	</div>
 </template>
 
@@ -283,11 +285,10 @@ import { Component } from 'vue-property-decorator';
 import NavBar from '@/components/NavBar.vue';
 import LogoSVG from '@/components/LogoSVG.vue';
 import { INavBarTitle } from '@/utils/types.utils';
-import MdImportHoliday from '@/components/md-import-holidays.vue';
-import MdAddHoliday from '@/components/md-add-holiday.vue';
+import MdAusenciaVacaciones from '@/components/md-ausencia-vacaciones.vue';
 
 @Component({
-	components: { NavBar, LogoSVG, MdImportHoliday, MdAddHoliday },
+	components: { NavBar, LogoSVG, MdAusenciaVacaciones },
 })
 export default class NewPublications extends PageBase {
 	public showNewOptions: boolean = false;

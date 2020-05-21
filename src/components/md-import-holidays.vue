@@ -10,7 +10,7 @@
 			<div class="columns is-centered">
 				<div class="column is-4 border-form">
 					<div class="field">
-						<b-field class="label-lol" label="País">
+						<b-field label="País">
 							<b-select placeholder>
 								<option v-for="option in paises" :value="option.value" :key="option.id">{{
 									option.value
@@ -22,7 +22,7 @@
 				<div class="column is-1"></div>
 				<div class="column is-4 border-form">
 					<div class="field">
-						<b-field class="label-lol" label="Año">
+						<b-field label="Año">
 							<b-select placeholder>
 								<option v-for="option in anios" :value="option.value" :key="option.id">{{
 									option.value
