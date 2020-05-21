@@ -13,7 +13,7 @@
 			</template>
 		</b-navbar>
 		<div class="message-float">
-			<p class="subtitle is-3 title-register has-text-primary has-text-centered">
+			<p class="subtitle is-3 title-register-success has-text-primary has-text-centered">
 				Confirmación de correo exitosa
 			</p>
 		</div>
@@ -153,8 +153,15 @@ body {
 		position: absolute;
 		z-index: 1000;
 		margin-top: 5%;
-		margin-left: 35%;
+		margin-left: 45%;
 		margin-right: auto;
+		@media screen and (max-width: 768px) {
+			margin-left: 22%;
+		}
+
+		@media screen and (max-width: 600px) {
+			margin-left: 18%;
+		}
 	}
 	.navbar {
 		background: #8969eb;
@@ -204,7 +211,7 @@ body {
 		margin-top: 12%;
 		width: 70%;
 		margin-left: 10%;
-		height: calc(60vh - 4rem);
+		height: calc(65vh - 4rem);
 
 		@media screen and (max-width: 1400px) {
 			width: 75%;
@@ -221,12 +228,42 @@ body {
 		@media screen and (max-width: 768px) {
 			width: 90%;
 			margin-top: 3%;
-			height: calc(70vh - 4rem);
+			height: calc(75vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(60vh - 4rem);
 		}
 	}
 
 	.title-register {
 		padding-top: 8%;
+	}
+
+	.title-register-success {
+		padding-top: 8%;
+
+		@media screen and (max-width: 1183px) {
+			font-size: 30px;
+		}
+
+		@media screen and (max-width: 1081px) {
+			font-size: 25px;
+		}
+
+		@media screen and (max-width: 903px) {
+			font-size: 20px;
+		}
+
+		@media screen and (max-width: 768px) {
+			font-size: 30px;
+		}
+
+		@media screen and (max-width: 600px) {
+			font-size: 20px;
+		}
 	}
 
 	.btn-register {
