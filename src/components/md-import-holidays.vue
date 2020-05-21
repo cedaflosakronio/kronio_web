@@ -32,10 +32,10 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div :class="scrollable ? 'scroll' : ''">
 				<div class="columns is-centered" v-for="option in imports" :key="option.id">
 					<div class="column is-one-fifth checkbox">
-						<b-checkbox v-model="option.select">{{ option.select }}</b-checkbox>
+						<b-checkbox v-model="option.select"></b-checkbox>
 					</div>
 					<div class="column">
 						<p class="festivos-import">{{ option.value }}</p>
@@ -58,7 +58,8 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component
 export default class MdHolidays extends Vue {
 	public checkbox: false;
-	private heightModalBase: number = 35;
+	private heightModalBase: number = 60;
+	private scrollable: boolean = false;
 	public heigth: number = this.heightModalBase;
 	public anios = [
 		{
@@ -105,12 +106,23 @@ export default class MdHolidays extends Vue {
 				select: false,
 			},
 			{
-				id: 2,
+				id: 3,
+				value: 'Día de Año Nuevo—1 de ene. de 2020',
+				select: false,
+			},
+			{
+				id: 4,
+				value: 'Día de Año Nuevo—1 de ene. de 2020',
+				select: false,
+			},
+			{
+				id: 5,
 				value: 'Día de Año Nuevo—1 de ene. de 2020',
 				select: false,
 			},
 		];
 		this.heigth = 50;
+		this.scrollable = true;
 	}
 
 	public hide() {
@@ -227,5 +239,15 @@ export default class MdHolidays extends Vue {
 	line-height: 18px;
 	text-align: center;
 	color: rgba(122, 121, 121, 0.5);
+}
+.scroll {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+.altura-normal {
+	height: 40%;
+}
+.altura-cambiada {
+	height: 60%;
 }
 </style>
