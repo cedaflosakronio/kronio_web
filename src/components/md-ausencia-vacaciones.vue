@@ -45,9 +45,9 @@
 						<p class="label-left-descripcion">{{ option.label }}</p>
 						<b-field>
 							<b-select placeholder="seleccione" size="is-small" expanded>
-								<option v-for="dato in option.value" :value="dato.value" :key="dato.id">
-									{{ dato.value }}
-								</option>
+								<option v-for="dato in option.value" :value="dato.value" :key="dato.id">{{
+									dato.value
+								}}</option>
 							</b-select>
 						</b-field>
 					</div>
@@ -606,6 +606,11 @@ export default class MdHolidays extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.select:not(.is-multiple):not(.is-loading)::after {
+	border-color: #7a7979;
+	right: 1.125em;
+	z-index: 4;
+}
 .img-modal {
 	padding-top: 5%;
 }
@@ -681,5 +686,9 @@ export default class MdHolidays extends Vue {
 }
 .select-row {
 	margin: 1%;
+}
+.fa-times:before {
+	content: '\f00d';
+	color: #7a7979;
 }
 </style>

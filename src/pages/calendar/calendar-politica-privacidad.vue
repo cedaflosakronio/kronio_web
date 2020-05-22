@@ -17,19 +17,17 @@
 					<div class="box-sombra"></div>
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<span @click="exit()" class="close-btn"><i class="fas fa-arrow-circle-left"></i></span>
+							<span @click="exit()" class="close-btn">
+								<i class="fas fa-arrow-circle-left"></i>
+							</span>
 							<p class="title-publications is-fullwidth">Políticas de vaciones de Nombredelaempresa</p>
 						</header>
 						<div class="card-content">
 							<div class="content">
 								<div class="columns">
 									<div class="column is-half container-text">
-										<p class="titulo">
-											Información básica
-										</p>
-										<p class="subtitulo">
-											Nombre y descripción de esta política de vacaciones.
-										</p>
+										<p class="titulo">Información básica</p>
+										<p class="subtitulo">Nombre y descripción de esta política de vacaciones.</p>
 									</div>
 									<div class="column is-half">
 										<div class="tarjeta-container">
@@ -55,6 +53,11 @@
 													/>
 												</div>
 											</div>
+											<div class="column is-full btn-container" v-if="save">
+												<b-button expanded class="btn-guardar" @click="alerta"
+													>Guardar</b-button
+												>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -64,9 +67,7 @@
 								<div class="columns">
 									<div class="column is-half">
 										<div class="container-text">
-											<p class="titulo">
-												Días de vacaciones
-											</p>
+											<p class="titulo">Días de vacaciones</p>
 											<p class="subtitulo">
 												Gestiona desde aquí el total de días de vacaciones que tus empleados
 												tendrán disponibles y la cantidad de días que pasarán de un año a otro.
@@ -90,32 +91,57 @@
 													</div>
 												</div>
 												<div class="column">
-													<div class="field tarjeta">
+													<div class="tarjeta-select">
 														<p class="label-left-descripcion">Tipo</p>
-														<div class="control">
-															<!-- <input class="input input-value" type="text" value="Días laborables" placeholder="Ingrese nombre"> -->
-															<b-select class="form-fields form-select is-large">
+														<b-field>
+															<b-select placeholder="seleccione" size="is-small" expanded>
 																<option
-																	v-for="option in data"
-																	:value="option"
-																	:key="option"
+																	v-for="dato in tipos"
+																	:value="dato.value"
+																	:key="dato.id"
+																	>{{ dato.value }}</option
 																>
-																	{{ option }}
-																</option>
 															</b-select>
-														</div>
+														</b-field>
 													</div>
 												</div>
 											</div>
-											<div class="field tarjeta">
-												<p class="label-left-descripcion">Días acumulables</p>
-												<div class="control">
-													<!-- <input class="input input-value" type="text" value="shalalala" placeholder="Ingrese nombre"> -->
-													<b-select class="form-fields form-select is-large">
-														<option v-for="option in data" :value="option" :key="option">
-															{{ option }}
-														</option>
-													</b-select>
+											<div class="columns">
+												<div class="column">
+													<div class="tarjeta-select">
+														<p class="label-left-descripcion">Días acumulables</p>
+														<b-field>
+															<b-select
+																placeholder="seleccione"
+																size="is-small"
+																expanded
+																v-model="dia"
+																@change.native="diaAcumulableSeleccion()"
+															>
+																<option
+																	v-for="dato in diasAcumulables"
+																	:value="dato.id"
+																	:key="dato.id"
+																	>{{ dato.value }}</option
+																>
+															</b-select>
+														</b-field>
+													</div>
+												</div>
+												<div class="column" v-if="mostrarExpiracion">
+													<div class="tarjeta-select">
+														<p class="label-left-descripcion">Expiran a</p>
+														<b-field>
+															<b-select placeholder="seleccione" size="is-small" expanded>
+																<option
+																	v-for="dato in expiracion"
+																	:value="dato.value"
+																	:key="dato.id"
+																	>{{ dato.value }}</option
+																>
+															</b-select>
+														</b-field>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -143,9 +169,81 @@ import MdNewPublication from '@/components/md-new-publication.vue';
 	components: { NavBar, LogoSVG, MdNewPublication },
 })
 export default class NewPublications extends PageBase {
+	private save: boolean = false;
 	public showNewOptions: boolean = false;
 	private menu_start: INavBarTitle[] = [];
 	public data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	private dia = 1;
+	private tipos = [
+		{
+			id: 0,
+			value: 'Días laborables',
+		},
+		{
+			id: 1,
+			value: 'Días calendarios',
+		},
+	];
+	private diasAcumulables = [
+		{
+			id: 0,
+			value: 'Sí',
+		},
+		{
+			id: 1,
+			value: 'No',
+		},
+	];
+	private expiracion = [
+		{
+			id: 0,
+			value: 'Final de enero',
+		},
+		{
+			id: 1,
+			value: 'Final de febrero',
+		},
+		{
+			id: 2,
+			value: 'Final de marzo',
+		},
+		{
+			id: 3,
+			value: 'Final de abril',
+		},
+		{
+			id: 4,
+			value: 'Final de mayo',
+		},
+		{
+			id: 5,
+			value: 'Final de junio',
+		},
+		{
+			id: 6,
+			value: 'Final de julio',
+		},
+		{
+			id: 7,
+			value: 'Final de agosto',
+		},
+		{
+			id: 8,
+			value: 'Final de septiembre',
+		},
+		{
+			id: 9,
+			value: 'Final de octubre',
+		},
+		{
+			id: 10,
+			value: 'Final de noviembre',
+		},
+		{
+			id: 11,
+			value: 'Final de diciembre',
+		},
+	];
 	private menu_end: INavBarTitle[] = [
 		{
 			icon: 'bell',
@@ -174,12 +272,36 @@ export default class NewPublications extends PageBase {
 			],
 		},
 	];
+	private mostrarExpiracion: boolean = false;
+	diaAcumulableSeleccion() {
+		this.mostrarExpiracion = this.diasAcumulables[this.dia].id == 0;
+		this.save = this.diasAcumulables[this.dia].id == 0;
+	}
 	public async created() {
 		await super.created();
 	}
 
 	public async exit() {
 		this.$router.push('/app');
+	}
+
+	alerta() {
+		this.$buefy.snackbar.open({
+			message:
+				'<div class="columns"><div class="column is-three-quarters"><p class="mensaje">Datos guardados.</p></div><div class="column"><button :click="deshacer()" type="is-text" style="background-color: transparent; border: 0;color: #7D9CFF;font-family: Poppins;font-style: normal;font-weight: normal;font-size: 12px;line-height: 18px;">Deshacer</button></div></div>',
+			type: 'is-white',
+			position: 'is-bottom-left',
+			actionText: 'X',
+			queue: false,
+			onAction: () => {
+				console.log('Accion cerrrar');
+			},
+			indefinite: true,
+		});
+	}
+
+	public deshacer() {
+		console.log('Deshacer');
 	}
 
 	public async show() {
@@ -194,6 +316,52 @@ export default class NewPublications extends PageBase {
 
 <style lang="scss">
 .app {
+	#id {
+		margin: 0;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 18px;
+		color: #7d9cff;
+		background-color: transparent;
+		border-color: transparent;
+	}
+	.mensaje {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 18px;
+		color: #ffffff;
+	}
+	.notices .snackbar .action.is-dark .button {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 18px;
+		color: #7d9cff;
+	}
+	.select:not(.is-multiple):not(.is-loading)::after {
+		border-color: #7a7979;
+		right: 1.125em;
+		z-index: 4;
+	}
+	.btn-container {
+		height: 24%;
+		margin: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.btn-guardar {
+		background: #335eea;
+		border-radius: 4px;
+		height: 100%;
+		color: #ffffff;
+	}
+
 	.body {
 		margin-top: 4rem;
 		height: calc(120vh - 4rem);
@@ -296,7 +464,6 @@ export default class NewPublications extends PageBase {
 	}
 
 	.label-left-descripcion {
-		margin-right: 30%;
 		font-family: Poppins;
 		font-style: normal;
 		font-weight: 500;
@@ -348,8 +515,18 @@ export default class NewPublications extends PageBase {
 		padding: 5%;
 	}
 
+	.tarjeta-select {
+		border: 0.6px solid rgba(122, 121, 121, 0.5);
+		box-sizing: border-box;
+		border-radius: 3px;
+		width: 100%;
+		padding-left: 6%;
+		padding-top: 5%;
+		padding-bottom: 5%;
+	}
+
 	.tarjeta-container {
-		width: 90%;
+		width: 65%;
 		height: 100%;
 		background: #ffffff;
 		box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);

@@ -34,7 +34,6 @@
 						<b-datepicker
 							class="form-fields fecha"
 							v-model="birthday"
-							placeholder="Fecha"
 							icon="calendar-today"
 							editable
 						></b-datepicker>
@@ -199,6 +198,7 @@ export default class MdHolidays extends Vue {
 }
 .fecha {
 	color: #335eea;
+	padding-left: 0 !important;
 }
 .btn-active {
 	background-color: #ffffff;
