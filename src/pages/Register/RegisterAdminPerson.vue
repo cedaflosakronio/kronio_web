@@ -198,22 +198,28 @@ body {
 		margin-left: 10%;
 		height: calc(80vh - 4rem);
 
-		@media screen and (max-width: 1400px) {
+		@media screen and (max-width: 1440px) {
 			width: 75%;
 			margin-top: 15%;
-			height: calc(61vh - 4rem);
+			height: calc(65vh - 4rem);
 		}
 
-		@media screen and (max-width: 1080px) {
-			width: 70%;
-			margin-top: 3%;
-			height: calc(61vh - 4rem);
+		@media screen and (max-width: 1024px) {
+			width: 80%;
+			margin-top: 12%;
+			height: calc(62vh - 4rem);
 		}
 
 		@media screen and (max-width: 768px) {
 			width: 90%;
-			margin-top: 3%;
-			height: calc(70vh - 4rem);
+			margin-top: 12%;
+			height: calc(98vh - 4rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 90%;
+			margin-top: 12%;
+			height: calc(68vh - 4rem);
 		}
 	}
 

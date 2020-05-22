@@ -14,7 +14,7 @@
 		</b-navbar>
 		<div class="columns margin-top-register">
 			<div class="column is-1"></div>
-			<div class="column is-5 is-mobile is-vcentered margin-top-form">
+			<div class="column is-5 is-mobile is-vcentered">
 				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
@@ -158,19 +158,23 @@ body {
 
 .select-prefix {
 	margin-top: 9% !important;
-}
-
-@media screen and (max-width: 1772px) {
-	.select-prefix {
-		font-size: 13px;
-		padding-top: 6%;
+	@media screen and (max-width: 1772px) {
+		font-size: 16px;
+		padding-top: 1%;
 	}
-}
 
-@media screen and (max-width: 1596px) {
-	.select-prefix {
-		font-size: 10px;
-		padding-top: 10%;
+	@media screen and (max-width: 1440px) {
+		font-size: 16px;
+	}
+
+	@media screen and (max-width: 1596px) {
+		margin-top: 7% !important;
+	}
+
+	@media screen and (max-width: 768px) {
+		margin-top: 0% !important;
+		width: 97%;
+		padding-left: 1%;
 	}
 }
 
@@ -183,6 +187,24 @@ body {
 	.form-field-phone {
 		padding-top: 4%;
 		padding-bottom: 4%;
+		@media screen and (max-width: 1596px) {
+			padding-top: 4%;
+			padding-bottom: 4%;
+		}
+
+		@media screen and (max-width: 768px) {
+			padding-top: 0%;
+			padding-bottom: 0%;
+			padding-left: 3%;
+			padding-right: 1%;
+		}
+
+		@media screen and (max-width: 700px) {
+			padding-top: 0%;
+			padding-bottom: 0%;
+			padding-left: 0%;
+			padding-right: 0%;
+		}
 	}
 	.message-float {
 		position: absolute;
@@ -236,8 +258,34 @@ body {
 	}
 
 	.margin-top-form {
-		margin-top: 8%;
-		height: calc(57vh - 4rem);
+		margin-top: 12%;
+		width: 70%;
+		margin-left: 10%;
+		height: calc(80vh - 4rem);
+
+		@media screen and (max-width: 1440px) {
+			width: 75%;
+			margin-top: 15%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 1080px) {
+			width: 70%;
+			margin-top: 3%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(90vh - 4rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(70vh - 4rem);
+		}
 	}
 
 	.title-register {
@@ -282,6 +330,9 @@ body {
 	}
 	.no-padding-left {
 		padding-left: 0px !important;
+		@media screen and (max-width: 700px) {
+			padding-left: 15px !important;
+		}
 	}
 }
 </style>
