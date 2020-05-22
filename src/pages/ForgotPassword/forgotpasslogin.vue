@@ -8,7 +8,7 @@
 			</template>
 		</b-navbar>
 		<div class="columns is-mobile is-centered margin-top-register">
-			<div class="column is-3  margin-top-form">
+			<div class="column is-5">
 				<div class="box margin-top-form">
 					<article class="media icon-padding">
 						<div class="media-content">
@@ -146,6 +146,38 @@ body {
 	.margin-top-form {
 		margin-top: 6%;
 		height: calc(55vh - 4rem);
+		width: 70%;
+
+		@media screen and (max-width: 1440px) {
+			width: 70%;
+			margin-top: 15%;
+			height: calc(35vh - 4rem);
+		}
+
+		@media screen and (max-width: 1024px) {
+			width: 75%;
+			margin-top: 12%;
+			height: calc(50vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 15%;
+			height: calc(50vh - 4rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 100%;
+			margin-top: 20%;
+			height: calc(50vh - 4rem);
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		.columns.is-mobile > .column.is-5 {
+			flex: none;
+			width: 87.66667% !important;
+		}
 	}
 
 	.title-register {
