@@ -1,6 +1,6 @@
 <template>
 	<div class="app">
-		<NavBar :menu_start="menu_start" :menu_end="menu_end">
+		<!-- <NavBar :menu_start="menu_start" :menu_end="menu_end">
 			<template slot="navbar-brand">
 				<LogoSVG />
 			</template>
@@ -10,7 +10,7 @@
 					<i class="fas fa-sign-out-alt icon-pl"></i>
 				</a>
 			</template>
-		</NavBar>
+		</NavBar> -->
 		<div class="body">
 			<div class="columns is-centered">
 				<div class="column is-10">
@@ -337,7 +337,8 @@ export default class NewPublications extends PageBase {
 	}
 
 	public async exit() {
-		this.$router.push('/app');
+		this.$emit('ausencia', false);
+		//this.$router.push('/app');
 	}
 
 	public async show() {
@@ -350,7 +351,7 @@ export default class NewPublications extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app {
 	.body {
 		margin-top: 4rem;
@@ -441,7 +442,6 @@ export default class NewPublications extends PageBase {
 		top: 68px;
 		background: #eff2fc;
 		transform: matrix(1, 0, 0, -1, 0, 0);
-		border-top: 8px solid;
 		border-radius: 22px;
 	}
 

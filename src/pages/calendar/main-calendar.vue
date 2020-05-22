@@ -5,23 +5,47 @@
 				<LogoSVG />
 			</template>
 			<template slot="navbar-end">
-				<a class="navbar-item" @click="logout()">
+				<a class="navbar-item" @click="exit()">
 					Salir
 					<i class="fas fa-sign-out-alt icon-pl"></i>
 				</a>
 			</template>
 		</NavBar>
-		<div class="body">
+		<div class="body" v-if="!show">
 			<div class="columns is-centered">
-				<div class="column is-10">
+				<div class="column is-10 content-general">
 					<div class="card box-height">
-						<header class="card-header tabs-header">
-							<span @click="exit()" class="close-btn">
-								<i class="far fa-times-circle"></i>
-							</span>
-							<p class="label-calendar">Calendario</p>
+						<header class="tabs-header">
+							<div class="columns">
+								<div class="column">
+									<span @click="volver()" class="close-btn">
+										<i class="fas fa-arrow-circle-left"></i>
+									</span>
+								</div>
+								<div class="column is-four-fifths">
+									<p class="title-publications">Calendario</p>
+								</div>
+								<div class="column">
+									<b-dropdown aria-role="list" class="button-options">
+										<span class="button-options" slot="trigger">
+											<b-icon icon="plus"></b-icon>
+										</span>
+
+										<b-dropdown-item aria-role="listitem" @click="politicas()"
+											>Política de vacaciones</b-dropdown-item
+										>
+										<b-dropdown-item aria-role="listitem" @click="festivos()"
+											>Días festivos</b-dropdown-item
+										>
+										<b-dropdown-item aria-role="listitem" @click="ausencias()"
+											>Tipos de ausencia</b-dropdown-item
+										>
+									</b-dropdown>
+								</div>
+							</div>
 						</header>
-						<div class="card-content">
+
+						<div class="card-content contenido">
 							<div class="content">
 								<vc-calendar
 									id="calendario"
@@ -38,6 +62,11 @@
 				</div>
 			</div>
 		</div>
+		<transition name="fade">
+			<Politicas v-if="show && politica" @politica="changePolitica" />
+			<Ausencias v-if="show && ausencia" @ausencia="changeAusencia" />
+			<Festivos v-if="show && festivo" @festivo="changeFestivo" />
+		</transition>
 	</div>
 </template>
 
@@ -46,11 +75,19 @@ import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import NavBar from '@/components/NavBar.vue';
 import LogoSVG from '@/components/LogoSVG.vue';
+import Politicas from './calendar-politica-privacidad.vue';
+import Festivos from './calendar-dias-festivos.vue';
+import Ausencias from './calendar-ausencia.vue';
 import { INavBarTitle } from '@/utils/types.utils';
 @Component({
-	components: { NavBar, LogoSVG },
+	components: { NavBar, LogoSVG, Politicas, Ausencias, Festivos },
 })
 export default class MainCalendar extends PageBase {
+	variable = '';
+	show = false;
+	festivo = false;
+	ausencia = false;
+	politica = false;
 	private menu_start: INavBarTitle[] = [];
 	public screens: {
 		tablet: '576px';
@@ -117,8 +154,37 @@ export default class MainCalendar extends PageBase {
 	public async exit() {
 		this.$router.push('/app');
 	}
+
+	public politicas() {
+		this.show = !this.show;
+		this.politica = true;
+	}
+	public festivos() {
+		this.show = !this.show;
+		this.festivo = true;
+	}
+	public ausencias() {
+		this.show = !this.show;
+		this.ausencia = true;
+	}
+
+	public changePolitica(value: boolean): void {
+		this.politica = value;
+		this.show = false;
+	}
+	public changeAusencia(value: boolean): void {
+		this.ausencia = value;
+		this.show = false;
+	}
+	public changeFestivo(value: boolean): void {
+		this.festivo = value;
+		this.show = false;
+	}
+	public volver() {
+		this.$router.back();
+	}
 	clicado() {
-		console.log('click');
+		console.log(this.variable);
 		return this.fechaMinima;
 	}
 }
@@ -126,6 +192,14 @@ export default class MainCalendar extends PageBase {
 
 <style lang="scss">
 .app {
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity 0.5s;
+	}
+	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		opacity: 0;
+	}
+
 	//Mejoras para el calendario
 	.vc-day-box-center-center[data-v-47ef1cd6] {
 		display: flex;
@@ -191,6 +265,12 @@ export default class MainCalendar extends PageBase {
 		color: #a46cec;
 	}
 
+	.vc-weeks[data-v-d137fa42] {
+		flex-shrink: 1;
+		flex-grow: 1;
+		padding: 0;
+	}
+
 	//Otras variables
 	.body {
 		margin-top: 4rem;
@@ -198,7 +278,71 @@ export default class MainCalendar extends PageBase {
 	}
 
 	.box-height {
-		height: 95vh; //calc(80vh - 3rem);
+		height: calc(90vh - 3rem);
+	}
+	//Header
+	.tabs-header {
+		background: #f2f5ff;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		box-shadow: #335eea;
+	}
+
+	.close-btn {
+		font-size: 46px;
+		color: #8969eb;
+		cursor: pointer;
+		text-align: left;
+	}
+
+	.title-publications {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 30px;
+		color: #8969eb;
+		margin-left: auto;
+		padding-top: 1%;
+		text-align: center;
+	}
+
+	.button-options {
+		background-color: transparent;
+		margin: auto;
+		padding-top: 14%;
+		font-size: 30px;
+		color: #8969eb;
+	}
+
+	.dropdown-content {
+		background-color: white;
+		border-radius: 4px;
+		box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+		padding-bottom: 0.5rem;
+		padding-top: 0.5rem;
+		background: #ffffff;
+		box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		transform: rotate(-360);
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 21px;
+		color: rgba(122, 121, 121, 0.5);
+		transform: translateX(-72%);
+	}
+
+	//Caja superior
+	.content-general {
+		border-top-left-radius: 80px;
+		border-top-right-radius: 80px;
+		padding-top: 2%;
+	}
+
+	//Contenido
+	.contenido {
+		padding: 0;
+		margin: 0;
 	}
 
 	/* .content ul {

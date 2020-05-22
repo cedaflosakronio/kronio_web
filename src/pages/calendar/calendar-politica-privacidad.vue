@@ -1,16 +1,5 @@
 <template>
 	<div class="app">
-		<NavBar :menu_start="menu_start" :menu_end="menu_end">
-			<template slot="navbar-brand">
-				<LogoSVG />
-			</template>
-			<template slot="navbar-end">
-				<a class="navbar-item" @click="logout()">
-					Salir
-					<i class="fas fa-sign-out-alt icon-pl"></i>
-				</a>
-			</template>
-		</NavBar>
 		<div class="body">
 			<div class="columns is-centered">
 				<div class="column is-10">
@@ -281,8 +270,14 @@ export default class NewPublications extends PageBase {
 		await super.created();
 	}
 
+	public message(): string {
+		// this.name will be typed
+		return 'Hello, ' + this.$props;
+	}
+
 	public async exit() {
-		this.$router.push('/app');
+		this.$emit('politica', false);
+		//this.$router.push('/app');
 	}
 
 	alerta() {
@@ -314,7 +309,7 @@ export default class NewPublications extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app {
 	#id {
 		margin: 0;
@@ -384,7 +379,7 @@ export default class NewPublications extends PageBase {
 		top: 68px;
 		background: #eff2fc;
 		transform: matrix(1, 0, 0, -1, 0, 0);
-		border-top: 8px solid;
+		//border-top: 8px solid;
 		border-radius: 22px;
 	}
 
