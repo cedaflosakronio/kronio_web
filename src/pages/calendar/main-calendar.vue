@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<div class="cal">
 		<NavBar :menu_start="menu_start" :menu_end="menu_end">
 			<template slot="navbar-brand">
 				<LogoSVG />
@@ -156,7 +156,8 @@ export default class MainCalendar extends PageBase {
 	}
 
 	public async destroyed() {
-		console.log('me fui a la verga');
+		const el = document.body;
+		el.classList.remove('cal');
 	}
 
 	public politicas() {
@@ -186,18 +187,18 @@ export default class MainCalendar extends PageBase {
 	}
 	public volver() {
 		//this.$emit('hiddenCalendar',false);
+		this.show = false;
 		this.$destroy();
 		this.$router.back();
 	}
 	clicado() {
-		console.log(this.variable);
 		return this.fechaMinima;
 	}
 }
 </script>
 
 <style lang="scss">
-.app {
+.cal {
 	.fade-enter-active,
 	.fade-leave-active {
 		transition: opacity 0.5s;
