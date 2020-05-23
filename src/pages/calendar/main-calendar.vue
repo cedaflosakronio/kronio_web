@@ -155,6 +155,10 @@ export default class MainCalendar extends PageBase {
 		this.$router.push('/app');
 	}
 
+	public async destroyed() {
+		console.log('me fui a la verga');
+	}
+
 	public politicas() {
 		this.show = !this.show;
 		this.politica = true;
@@ -181,6 +185,8 @@ export default class MainCalendar extends PageBase {
 		this.show = false;
 	}
 	public volver() {
+		//this.$emit('hiddenCalendar',false);
+		this.$destroy();
 		this.$router.back();
 	}
 	clicado() {

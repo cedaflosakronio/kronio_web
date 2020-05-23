@@ -1,15 +1,14 @@
 <template>
 	<div class="login">
 		<div class="columns is-vcentered is-mobile is-centered margin-top-logo">
-			<div class="column is-half">
+			<div class="column is-3">
 				<a class="" href="https://kronio.io">
 					<img class="" src="../../assets/logo_color.png" />
 				</a>
 			</div>
 		</div>
-		<div class="columns">
-			<div class="column is-4"></div>
-			<div class="column is-4 is-mobile is-vcentered margin-top-form">
+		<div class="columns is-centered">
+			<div class="column is-5 is-mobile is-vcentered">
 				<div class="box margin-top-form">
 					<article class="media padding-top-media">
 						<div class="media-content">
@@ -56,7 +55,6 @@
 					</article>
 				</div>
 			</div>
-			<div class="column is-4"></div>
 		</div>
 	</div>
 </template>
@@ -100,7 +98,33 @@ body {
 
 	.margin-top-form {
 		margin-top: 0%;
+		width: 85%;
+		margin-left: 10%;
 		height: calc(60vh - 4rem);
+
+		@media screen and (max-width: 1440px) {
+			width: 75%;
+			margin-top: 15%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 1080px) {
+			width: 70%;
+			margin-top: 3%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(90vh - 4rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(70vh - 4rem);
+		}
 	}
 
 	.btn-register {
