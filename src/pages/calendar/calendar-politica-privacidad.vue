@@ -88,6 +88,7 @@
 																	v-for="dato in tipos"
 																	:value="dato.value"
 																	:key="dato.id"
+																	class="option-expiran"
 																	>{{ dato.value }}</option
 																>
 															</b-select>
@@ -111,6 +112,7 @@
 																	v-for="dato in diasAcumulables"
 																	:value="dato.id"
 																	:key="dato.id"
+																	class="option-expiran-dia"
 																	>{{ dato.value }}</option
 																>
 															</b-select>
@@ -118,14 +120,23 @@
 													</div>
 												</div>
 												<div class="column" v-if="mostrarExpiracion">
+													<!-- :class="selectExpiran?'option-expiran':'option-expiran-close'" -->
 													<div class="tarjeta-select">
 														<p class="label-left-descripcion">Expiran a</p>
 														<b-field>
-															<b-select placeholder="seleccione" size="is-small" expanded>
+															<b-select
+																placeholder="seleccione"
+																size="is-small"
+																@click.native="lol"
+																id="expiracion"
+																@blur="lel"
+																expanded
+															>
 																<option
 																	v-for="dato in expiracion"
 																	:value="dato.value"
 																	:key="dato.id"
+																	class="option-expiran"
 																	>{{ dato.value }}</option
 																>
 															</b-select>
@@ -158,6 +169,7 @@ import MdNewPublication from '@/components/md-new-publication.vue';
 	components: { NavBar, LogoSVG, MdNewPublication },
 })
 export default class NewPublications extends PageBase {
+	private selectExpiran: boolean = false;
 	private save: boolean = false;
 	public showNewOptions: boolean = false;
 	private menu_start: INavBarTitle[] = [];
@@ -266,6 +278,15 @@ export default class NewPublications extends PageBase {
 		this.mostrarExpiracion = this.diasAcumulables[this.dia].id == 0;
 		this.save = this.diasAcumulables[this.dia].id == 0;
 	}
+	public lol() {
+		this.selectExpiran = !this.selectExpiran;
+		/* const el = document.getElementById('expiracion');
+		console.log('lol', el.remove); */
+	}
+	public lel() {
+		//this.selectExpiran = false;
+		console.log('chambio', this.selectExpiran);
+	}
 	public async created() {
 		await super.created();
 	}
@@ -311,6 +332,18 @@ export default class NewPublications extends PageBase {
 
 <style lang="scss" scoped>
 .app {
+	.option-expiran {
+		background: #e5e5e5;
+		border-radius: 4px;
+	}
+	.option-expiran-close {
+		position: relative;
+		left: 0;
+	}
+	.option-expiran-dia {
+		background: #e5e5e5;
+		border-radius: 4px;
+	}
 	#id {
 		margin: 0;
 		font-family: Poppins;
