@@ -1,4 +1,4 @@
-import { IsNotEmpty, Length, IsPhoneNumber, Matches, IsNumberString, IsEmail } from 'class-validator';
+import { IsNotEmpty, Length, IsPhoneNumber, Matches, IsNumberString, IsEmail, Validate } from 'class-validator';
 import { BaseValidate } from '@/utils/Validate';
 
 export class LoginBase extends BaseValidate {
@@ -89,4 +89,101 @@ export class UserData extends BaseValidate {
 	statusTelephone?: string;
 	lastLogin?: {};
 	data?: {};
+}
+
+export class RegisterEmailForm extends BaseValidate {
+	constructor(data: { email?: string; lastname?: string; firstname?: string; password?: string }) {
+		super();
+		this.email = data.email;
+		this.lastname = data.lastname;
+		this.firstname = data.firstname;
+		this.password = data.password;
+	}
+
+	@IsNotEmpty({ message: 'emailempty' })
+	@IsEmail({}, { message: 'formatemail' })
+	email?: string;
+
+	@IsNotEmpty({ message: 'lastnamesempty' })
+	lastname?: string;
+
+	@IsNotEmpty({ message: 'namesempty' })
+	firstname?: string;
+
+	@IsNotEmpty({ message: 'passwordempty' })
+	@Length(5, 50, { message: 'lengthpassword' })
+	password?: string;
+}
+
+export class RegisterPhoneForm extends BaseValidate {
+	constructor(data: { telephone?: string; lastname?: string; firstname?: string; password?: string }) {
+		super();
+		this.telephone = data.telephone;
+		this.lastname = data.lastname;
+		this.firstname = data.firstname;
+		this.password = data.password;
+	}
+
+	@IsNotEmpty({ message: 'email_empty' })
+	telephone?: string;
+
+	@IsNotEmpty({ message: 'lastname_empty' })
+	lastname?: string;
+
+	@IsNotEmpty({ message: 'firstname_empty' })
+	firstname?: string;
+
+	@IsNotEmpty({ message: 'password_empty' })
+	@Length(5, 50, { message: 'length_password' })
+	password?: string;
+}
+
+export class PhoneCodeForm extends BaseValidate {
+	constructor(data: { telephone?: string; code?: string }) {
+		super();
+		this.telephone = data.telephone;
+		this.code = data.code;
+	}
+
+	@IsNotEmpty({ message: 'emailempty' })
+	telephone?: string;
+
+	@IsNotEmpty({ message: 'codeempty' })
+	code?: string;
+}
+
+export class UserForm extends BaseValidate {
+	constructor(data: { numid?: string; firstname?: string; lastname?: string; data?: {} }) {
+		super();
+		this.numid = data.numid;
+		this.firstname = data.firstname;
+		this.lastname = data.lastname;
+		this.data = data.data;
+	}
+
+	@IsNotEmpty({ message: 'numid_empty' })
+	numid?: string;
+
+	@IsNotEmpty({ message: 'firstname_empty' })
+	firstname?: string;
+
+	@IsNotEmpty({ message: 'lastname_empty' })
+	lastname?: string;
+
+	@IsNotEmpty({ message: 'data_empty' })
+	data?: {};
+}
+
+export class ChangePasswordForm extends BaseValidate {
+	constructor(data: { oldPassword?: string; newPassword?: string }) {
+		super();
+		this.oldPassword = data.oldPassword;
+		this.newPassword = data.newPassword;
+	}
+
+	@IsNotEmpty({ message: 'oldpassword_empty' })
+	oldPassword?: string;
+
+	@IsNotEmpty({ message: 'newPassword_empty' })
+	newPassword?: string;
 }

@@ -7,7 +7,7 @@ const config =
 		  }
 		: {
 			Kronio: 'http://192.34.60.171:9000/',
-			TaquionAuth: 'http://192.34.60.171:9001/',
+			TaquionAuth: 'http://134.122.0.176:9000/',
 			TaquionEnterprise: 'http://192.34.60.171:9002/',
 		  };
 

@@ -33,7 +33,7 @@
 												<p class="control has-icons-left has-icons-right">
 													<b-input
 														class="form-fields"
-														v-model="register_form.email_phone"
+														v-model="register_form.firstname"
 														@keyup.enter.native="continuar()"
 														placeholder="Nombres"
 													>
@@ -45,7 +45,7 @@
 												<p class="control has-icons-left has-icons-right">
 													<b-input
 														class="form-fields"
-														v-model="register_form.lastnames"
+														v-model="register_form.lastname"
 														@keyup.enter.native="continuar()"
 														placeholder="Apellidos"
 													>
@@ -59,6 +59,7 @@
 														v-model="register_form.email"
 														@keyup.enter.native="continuar()"
 														placeholder="Email"
+														type="email"
 													>
 													</b-input>
 												</p>
@@ -82,7 +83,7 @@
 												<p class="control has-icons-left has-icons-right">
 													<b-input
 														class="form-fields"
-														v-model="register_form.password_verified"
+														v-model="password_verified"
 														@keyup.enter.native="continuar()"
 														type="password"
 														placeholder="Confirmar contraseña"
@@ -119,19 +120,24 @@ import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import LogoSVG from '@/components/LogoSVG.vue';
 import { RegisterAdminPersonForm } from '@/store/types';
+import { RegisterEmailForm } from '@/store/types/authObject';
 
 @Component({
 	components: { LogoSVG },
 })
 export default class RegisterAdminPerson extends PageBase {
-	public register_form: RegisterAdminPersonForm = new RegisterAdminPersonForm({});
-
+	public register_form: RegisterEmailForm = new RegisterEmailForm({});
+	private password_verified: string = '';
 	public async created() {
 		await super.created();
 	}
 
 	public async continuar() {
-		this.$router.push('/registerAdminenterprise');
+		if (!this.register_form.validate() && this.register_form.password === this.password_verified) {
+			const responseData = await this.store.auth.register_email(this.register_form);
+		} else {
+			console.log('Error', this.register_form.message_error);
+		}
 	}
 }
 </script>
