@@ -107,7 +107,7 @@
 		</div>
 		<div class="columns is-centered label-enterprise">
 			<div class="columns is-2">
-				<p class="info-general">Personaliza tu espacio</p>
+				<p class="info-general-espacio">Personaliza tu espacio</p>
 			</div>
 		</div>
 		<div class="columns is-centered">
@@ -155,6 +155,12 @@ export default class ConfigEnterprise extends Vue {
 .enterprise {
 	.img-user-enterprise {
 		margin-top: 2%;
+		@media screen and (max-width: 768px) {
+			margin-top: 21%;
+		}
+		@media screen and (max-width: 600px) {
+			margin-top: 0%;
+		}
 	}
 
 	.label-enterprise {
@@ -169,6 +175,22 @@ export default class ConfigEnterprise extends Vue {
 		color: #7a7979;
 		margin-top: 10%;
 		margin-bottom: 40%;
+		@media screen and (max-width: 768px) {
+			margin-bottom: 10%;
+		}
+	}
+
+	.info-general-espacio {
+		font-weight: normal;
+		font-size: 20px;
+		line-height: 24px;
+		text-align: center;
+		color: #7a7979;
+		margin-top: 10%;
+		margin-bottom: 40%;
+		@media screen and (max-width: 768px) {
+			margin-bottom: 10%;
+		}
 	}
 
 	.border-form {
@@ -211,18 +233,34 @@ export default class ConfigEnterprise extends Vue {
 		padding-right: 35% !important;
 		margin-top: 5%;
 		margin-bottom: 10%;
+		@media screen and (max-width: 1024px) {
+			padding-right: 10% !important;
+			text-align: left;
+		}
+		@media screen and (max-width: 768px) {
+			text-align: center;
+		}
 	}
 
 	.btn-upload {
 		background: #335eea;
 		border-radius: 4px;
 		color: #ffffff;
+		@media screen and (max-width: 1024px) {
+			font-size: 1rem;
+		}
+		@media screen and (max-width: 768px) {
+			width: 32%;
+		}
 	}
 
 	.btn-delete {
 		margin-left: 5%;
 		padding-left: 12% !important;
 		padding-right: 12% !important;
+		@media screen and (max-width: 1024px) {
+			font-size: 1rem;
+		}
 	}
 }
 </style>
