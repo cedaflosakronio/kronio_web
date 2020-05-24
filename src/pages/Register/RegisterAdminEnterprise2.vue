@@ -137,7 +137,7 @@ export default class RegisterAdminEnterprise2 extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
 	font-family: Poppins !important;
 	font-style: normal !important;

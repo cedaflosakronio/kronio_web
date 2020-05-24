@@ -1,5 +1,5 @@
 <template>
-	<div class="login">
+	<div class="wellcomeinvitation">
 		<div class="columns is-vcentered is-mobile is-centered margin-top-logo">
 			<div class="column is-3">
 				<a class="" href="https://kronio.io">
@@ -78,7 +78,7 @@ export default class WellcomeInvitation extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
 	font-family: Poppins !important;
 	font-style: normal !important;
@@ -87,9 +87,12 @@ body {
 .margin-top-logo {
 	margin-top: 10%;
 }
-.login {
+.wellcomeinvitation {
 	.padding-top-media {
 		padding: 10% 8% 8% 5%;
+		@media screen and (max-width: 768px) {
+			padding: 10% 8% 5% 5%;
+		}
 	}
 
 	.color-login {
@@ -100,41 +103,60 @@ body {
 		margin-top: 0%;
 		width: 85%;
 		margin-left: 10%;
-		height: calc(60vh - 4rem);
+		height: calc(70vh - 4rem);
 
 		@media screen and (max-width: 1440px) {
 			width: 75%;
 			margin-top: 15%;
-			height: calc(61vh - 4rem);
+			margin-left: 13%;
+			height: calc(57vh - 4rem);
 		}
 
-		@media screen and (max-width: 1080px) {
-			width: 70%;
+		@media screen and (max-width: 1024px) {
+			width: 100%;
 			margin-top: 3%;
-			height: calc(61vh - 4rem);
+			margin-left: 0%;
+			height: calc(70vh - 4rem);
 		}
 
 		@media screen and (max-width: 768px) {
 			width: 90%;
 			margin-top: 3%;
-			height: calc(90vh - 4rem);
+			margin-left: 5%;
+			height: calc(70vh - 4rem);
 		}
 
 		@media screen and (max-width: 600px) {
 			width: 90%;
 			margin-top: 3%;
-			height: calc(70vh - 4rem);
+			height: calc(75vh - 4rem);
 		}
 	}
 
 	.btn-register {
 		width: 40%;
 		display: block;
-		//margin-right: 25% !important;
-		margin-left: 30% !important;
+		margin-right: auto !important;
+		margin-left: auto !important;
 		background: #335eea;
 		border-radius: 3px;
 		font-size: 20px;
+
+		@media screen and (max-width: 1440px) {
+			width: 50%;
+		}
+
+		@media screen and (max-width: 1080px) {
+			width: 50%;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 50%;
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 100%;
+		}
 	}
 
 	.color-p-name {

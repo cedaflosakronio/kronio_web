@@ -1,5 +1,5 @@
 <template>
-	<div class="login">
+	<div class="employeepersonal">
 		<b-navbar class="is-fixed-top is-paddingless">
 			<template slot="brand">
 				<a class="navbar-item link" href="https://kronio.io">
@@ -12,9 +12,9 @@
 				</div>
 			</template>
 		</b-navbar>
-		<div class="columns margin-top-register">
-			<div class="column is-3"></div>
-			<div class="column is-3 is-mobile is-vcentered margin-top-form">
+		<div class="columns margin-top-register is-centered">
+			<div class="column is-1"></div>
+			<div class="column is-5 is-mobile is-vcentered">
 				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
@@ -137,12 +137,12 @@ export default class RegisterEmployeePerson extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
-.login {
+.employeepersonal {
 	.navbar {
 		background: #8969eb;
 		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
@@ -188,8 +188,33 @@ body {
 	}
 
 	.margin-top-form {
-		margin-top: 6%;
-		height: calc(65vh - 4rem);
+		width: 70%;
+		margin-top: 12%;
+		height: calc(70vh - 4rem);
+
+		@media screen and (max-width: 1440px) {
+			height: calc(52vh - 4rem);
+			margin-top: 22%;
+			margin-left: 15%;
+		}
+
+		@media screen and (max-width: 1024px) {
+			width: 80%;
+			height: calc(62vh - 4rem);
+			margin-top: 9%;
+			margin-left: 0%;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 96%;
+			height: calc(80vh - 4rem);
+			margin-top: 9%;
+			margin-left: 2%;
+		}
+
+		@media screen and (max-width: 600px) {
+			height: calc(68vh - 4rem);
+		}
 	}
 
 	.title-register {

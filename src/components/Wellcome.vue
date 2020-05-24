@@ -20,7 +20,7 @@ import { Vue, Component } from 'vue-property-decorator';
 export default class WellcomeAdmin extends Vue {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .bg-modal {
 	background: rgba(227, 231, 233, 0.7) !important;
 }

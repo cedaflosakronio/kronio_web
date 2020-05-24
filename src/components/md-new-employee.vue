@@ -124,4 +124,13 @@ export default class MdNewEmployee extends Vue {
 	font-size: 30px;
 	cursor: pointer;
 }
+
+.vm--modal {
+	@media screen and (max-width: 600px) {
+		top: 86px !important;
+		left: 27px !important;
+		width: 376.5px !important;
+		height: 643.2px !important;
+	}
+}
 </style>
