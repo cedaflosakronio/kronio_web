@@ -1,5 +1,5 @@
 <template>
-	<div class="app">
+	<div class="new_publications">
 		<NavBar :menu_start="menu_start" :menu_end="menu_end">
 			<template slot="navbar-brand">
 				<LogoSVG />
@@ -14,7 +14,7 @@
 		<div class="body">
 			<div class="columns is-centered">
 				<div class="column is-10">
-					<div class="card box-height">
+					<div class="card box-height" v-bind:class="{ 'box-max-height': showNewOptions }">
 						<header class="card-header tabs-header">
 							<span @click="exit()" class="close-btn"><i class="far fa-times-circle"></i></span>
 							<p class="title-publications is-fullwidth">Tipo de publicación</p>
@@ -23,8 +23,8 @@
 							<div class="content">
 								<p class="text-info">¿Quieres hacer un comunicado, crear un evento de empresa?</p>
 								<div v-if="!showNewOptions" class="columns is-centered">
-									<div class="column is-3 margin-box">
-										<div @click="show()" class="box">
+									<div class="column is-5 is-centered margin-box">
+										<div @click="show()" class="box box-size">
 											<article class="media">
 												<div class="media-content">
 													<div class="content">
@@ -44,8 +44,8 @@
 											</article>
 										</div>
 									</div>
-									<div class="column is-3 margin-box">
-										<div @click="show()" class="box">
+									<div class="column is-5 is-centered margin-box">
+										<div @click="show()" class="box box-size">
 											<article class="media">
 												<div class="media-content">
 													<div class="content">
@@ -67,8 +67,11 @@
 									</div>
 								</div>
 								<div v-if="showNewOptions" class="columns is-centered">
-									<div class="column is-4 margin-box">
-										<div @click="$modal.show('md-new-publication')" class="box">
+									<div class="column is-5 margin-box">
+										<div
+											@click="$modal.show('md-new-publication')"
+											class="box box-size box-height-title-comunicate"
+										>
 											<article class="media">
 												<div class="media-content">
 													<div class="content">
@@ -98,8 +101,11 @@
 											</article>
 										</div>
 									</div>
-									<div class="column is-4 margin-box">
-										<div @click="$modal.show('md-new-publication')" class="box">
+									<div class="column is-5 margin-box">
+										<div
+											@click="$modal.show('md-new-publication')"
+											class="box box-size box-height-title-event"
+										>
 											<article class="media">
 												<div class="media-content">
 													<div class="content">
@@ -252,8 +258,8 @@ export default class NewPublications extends PageBase {
 }
 </script>
 
-<style lang="scss">
-.app {
+<style lang="scss" scoped>
+.new_publications {
 	.body {
 		margin-top: 4rem;
 		height: calc(120vh - 4rem);
@@ -262,6 +268,40 @@ export default class NewPublications extends PageBase {
 	.box-height {
 		height: calc(95vh - 3rem);
 		margin-top: 2%;
+
+		@media screen and (max-width: 768px) {
+			height: calc(110vh - 3rem);
+		}
+	}
+
+	.box-max-height {
+		@media screen and (max-width: 1024px) {
+			height: calc(100vh - 3rem) !important;
+		}
+
+		@media screen and (max-width: 768px) {
+			height: calc(160vh - 3rem) !important;
+		}
+	}
+
+	.box-height-title-comunicate {
+		@media screen and (max-width: 768px) {
+			height: calc(48vh - 3rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			height: calc(50vh - 3rem) !important;
+		}
+	}
+
+	.box-height-title-event {
+		@media screen and (max-width: 768px) {
+			height: calc(91vh - 3rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			height: calc(90vh - 3rem) !important;
+		}
 	}
 
 	.text-info {
@@ -291,6 +331,11 @@ export default class NewPublications extends PageBase {
 		margin-left: 35%;
 		margin-right: auto;
 		padding-top: 1%;
+
+		@media screen and (max-width: 600px) {
+			padding-top: 4%;
+			margin-left: 15%;
+		}
 	}
 
 	.title-type-publications {
@@ -352,6 +397,24 @@ export default class NewPublications extends PageBase {
 		border: 0px !important;
 		box-shadow: none !important;
 		font-size: 15px;
+	}
+
+	.box-size {
+		width: 70%;
+		margin-left: 15%;
+		@media screen and (max-width: 1440px) {
+			width: 90%;
+			margin-left: 6%;
+		}
+		@media screen and (max-width: 1024px) {
+			width: 90%;
+			margin-left: 6%;
+		}
+		@media screen and (max-width: 768px) {
+			height: calc(40vh - 3rem);
+		}
+		@media screen and (max-width: 600px) {
+		}
 	}
 }
 </style>

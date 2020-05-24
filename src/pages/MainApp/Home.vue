@@ -338,7 +338,7 @@
 			<img class="imgBtnKronio" src="../../assets/iconK.png" alt="" />
 		</button>
 		<div v-if="!isHidden" class="more-option-kronio">
-			<button class="btn-float-Pencil" title="Crear una publicación">
+			<button class="btn-float-Pencil" title="Crear una publicación" @click="goNewPublication()">
 				<img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt="" />
 			</button>
 			<button class="btn-float-User" title="Añadir empleado">
@@ -375,6 +375,11 @@ export default class LogoSVG extends Vue {
 	public async mainCalendar() {
 		this.$destroy();
 		this.$router.push('/main-calendar');
+	}
+
+	public async goNewPublication() {
+		this.$destroy();
+		this.$router.push('/newpublications');
 	}
 }
 </script>
@@ -563,10 +568,59 @@ export default class LogoSVG extends Vue {
 		padding: 20px 30px 20px 30px;
 		text-align: center;
 		cursor: pointer;
+
+		@media screen and (max-width: 768px) {
+			padding: 15px 22px 15px 25px;
+			margin-right: 2%;
+		}
+
+		@media screen and (max-width: 600px) {
+			margin-right: 0%;
+		}
 	}
 
 	.imgBtnKronio {
 		padding-left: 5px;
+	}
+
+	.btn-float-Ask {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin-right: calc(7.4vw - 3rem);
+		margin-bottom: 8%;
+		border-radius: 50%;
+		border: 0px;
+		background: #ffffff;
+		box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
+		padding: 20px 30px 20px 30px;
+		text-align: center;
+		cursor: pointer;
+
+		@media screen and (max-width: 1440px) {
+			margin-bottom: 10%;
+			right: 13px;
+		}
+
+		@media screen and (max-width: 1024px) {
+			margin-bottom: 12%;
+			right: 36px;
+			padding: 12px 20px 12px 20px;
+		}
+
+		@media screen and (max-width: 768px) {
+			margin-bottom: 14%;
+			right: 23px;
+		}
+
+		@media screen and (max-width: 600px) {
+			margin-bottom: 24%;
+			right: 29px;
+		}
+	}
+
+	.imgBtnAsk {
+		padding-left: 2px;
 	}
 
 	.btn-float-User {
@@ -592,6 +646,16 @@ export default class LogoSVG extends Vue {
 			right: 35px;
 			margin-bottom: 18%;
 			padding: 12px 13px 12px 13px;
+		}
+
+		@media screen and (max-width: 768px) {
+			right: 23px;
+			margin-bottom: 22%;
+		}
+
+		@media screen and (max-width: 600px) {
+			right: 27px;
+			margin-bottom: 38%;
 		}
 	}
 
@@ -624,40 +688,20 @@ export default class LogoSVG extends Vue {
 			margin-bottom: 24%;
 			padding: 12px 15px 12px 15px;
 		}
+
+		@media screen and (max-width: 768px) {
+			right: 22px;
+			margin-bottom: 30%;
+		}
+
+		@media screen and (max-width: 600px) {
+			right: 24px;
+			margin-bottom: 52%;
+		}
 	}
 
 	.imgBtnPencil {
 		padding-left: 1px;
-	}
-
-	.btn-float-Ask {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		margin-right: calc(7.4vw - 3rem);
-		margin-bottom: 8%;
-		border-radius: 50%;
-		border: 0px;
-		background: #ffffff;
-		box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.15);
-		padding: 20px 30px 20px 30px;
-		text-align: center;
-		cursor: pointer;
-
-		@media screen and (max-width: 1440px) {
-			margin-bottom: 10%;
-			right: 13px;
-		}
-
-		@media screen and (max-width: 1024px) {
-			margin-bottom: 12%;
-			right: 36px;
-			padding: 12px 20px 12px 20px;
-		}
-	}
-
-	.imgBtnAsk {
-		padding-left: 2px;
 	}
 
 	.btn-main-absolute {
@@ -758,6 +802,10 @@ export default class LogoSVG extends Vue {
 		padding-top: 3%;
 		padding-bottom: 5%;
 		border-bottom: 0.3px solid rgba(122, 121, 121, 0.5);
+
+		@media screen and (max-width: 768px) {
+			padding-bottom: 4%;
+		}
 	}
 
 	.row-post {
@@ -773,7 +821,7 @@ export default class LogoSVG extends Vue {
 
 	.employee-name {
 		font-size: 15px;
-		@media screen {
+		@media screen and (max-width: 768px) {
 			margin-left: 0px;
 		}
 	}
