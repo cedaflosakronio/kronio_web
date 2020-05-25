@@ -1,320 +1,320 @@
 <template>
 	<div class="home">
 		<div class="btn-main-absolute">
-			<button class="button is-fullwidth btn-absolute">
+			<button class="button is-fullwidth btn-absolute" @click="goTo(1)">
 				<span class="icon">
-					<img src="../../assets/main_btn/start.png" alt="" />
+					<img src="../../assets/main_btn/start.png" alt />
 				</span>
 				<span class="label-main-btn">Inicio</span>
 			</button>
-			<button class="button is-fullwidth btn-absolute">
+			<button class="button is-fullwidth btn-absolute" @click="goTo(2)">
 				<span class="icon">
-					<img src="../../assets/main_btn/history.png" alt="" />
+					<img src="../../assets/main_btn/history.png" alt />
 				</span>
 				<span class="label-main-btn">Historial</span>
 			</button>
-			<button class="button is-fullwidth btn-absolute">
+			<button class="button is-fullwidth btn-absolute" @click="goTo(3)">
 				<span class="icon">
-					<img src="../../assets/main_btn/team.png" alt="" />
+					<img src="../../assets/main_btn/team.png" alt />
 				</span>
 				<span class="label-main-btn">Equipo</span>
 			</button>
-			<button class="button is-fullwidth btn-absolute">
+			<button class="button is-fullwidth btn-absolute" @click="goTo(4)">
 				<span class="icon">
-					<img src="../../assets/main_btn/task.png" alt="" />
+					<img src="../../assets/main_btn/task.png" alt />
 				</span>
 				<span class="label-main-btn">Tareas</span>
 			</button>
 		</div>
-		<div class="columns is-centered">
-			<p class="text-hello">¡Hola, Patricia Guillermo! Esto es lo nuevo en KRONIO</p>
-			<div class="column is-3">
-				<div class="card" id="employees">
-					<header class="card-header background-header">
-						<b-dropdown v-model="selectedOptions" multiple aria-role="list" class="filter-employees">
-							<button class="button is-primary" type="button" slot="trigger">
-								<img src="../../assets/filter.png" alt="" />
-								<b-icon icon="menu-down"></b-icon>
-							</button>
+		<div v-if="home">
+			<div class="columns is-centered">
+				<p class="text-hello">¡Hola, Patricia Guillermo! Esto es lo nuevo en KRONIO</p>
+				<div class="column is-3">
+					<div class="card" id="employees">
+						<header class="card-header background-header">
+							<b-dropdown v-model="selectedOptions" multiple aria-role="list" class="filter-employees">
+								<button class="button is-primary" type="button" slot="trigger">
+									<img src="../../assets/filter.png" alt />
+									<b-icon icon="menu-down"></b-icon>
+								</button>
 
-							<b-dropdown-item value="option1" aria-role="listitem">
-								<b-checkbox><span>Todos</span></b-checkbox>
-							</b-dropdown-item>
+								<b-dropdown-item value="option1" aria-role="listitem">
+									<b-checkbox>
+										<span>Todos</span>
+									</b-checkbox>
+								</b-dropdown-item>
 
-							<b-dropdown-item value="option2" aria-role="listitem">
-								<b-checkbox><span>Presentes</span></b-checkbox>
-							</b-dropdown-item>
+								<b-dropdown-item value="option2" aria-role="listitem">
+									<b-checkbox>
+										<span>Presentes</span>
+									</b-checkbox>
+								</b-dropdown-item>
 
-							<b-dropdown-item value="option3" aria-role="listitem">
-								<b-checkbox><span>Ausentes</span></b-checkbox>
-							</b-dropdown-item>
-						</b-dropdown>
-						<p class="card-header-title-inline">
-							Empleados
-						</p>
-					</header>
-					<div class="card-content remove-padding-aside">
-						<div class="content">
-							<!-- <img src="../../assets/employeesEmpty.png" alt="" class="imgEmployeesEmpty">
-						<p class="text-info-Empty">¡Invita a tu equipo de trabajo para poder empezar!</p> -->
-							<div class="row-employee">
-								<div class="columns">
-									<div class="column is-3 inline-tablet">
-										<img
-											class="is-pulled-right"
-											src="../../assets/employees/employee1.png"
-											alt=""
-										/>
-										<div class="status-active"></div>
+								<b-dropdown-item value="option3" aria-role="listitem">
+									<b-checkbox>
+										<span>Ausentes</span>
+									</b-checkbox>
+								</b-dropdown-item>
+							</b-dropdown>
+							<p class="card-header-title-inline">Empleados</p>
+						</header>
+						<div class="card-content remove-padding-aside">
+							<div class="content">
+								<!-- <img src="../../assets/employeesEmpty.png" alt="" class="imgEmployeesEmpty">
+                <p class="text-info-Empty">¡Invita a tu equipo de trabajo para poder empezar!</p>-->
+								<div class="row-employee">
+									<div class="columns">
+										<div class="column is-3 inline-tablet">
+											<img
+												class="is-pulled-right"
+												src="../../assets/employees/employee1.png"
+												alt
+											/>
+											<div class="status-active"></div>
+										</div>
+										<div class="column is-8 inline-tablet">
+											<p class="is-pulled-left employee-name">María Belen Zavala Luque</p>
+										</div>
 									</div>
-									<div class="column is-8 inline-tablet">
-										<p class="is-pulled-left employee-name">María Belen Zavala Luque</p>
+								</div>
+								<div class="row-employee">
+									<div class="columns">
+										<div class="column is-3 inline-tablet">
+											<img
+												class="is-pulled-right"
+												src="../../assets/employees/employee2.png"
+												alt
+											/>
+											<div class="status-active"></div>
+										</div>
+										<div class="column is-8 inline-tablet">
+											<p class="is-pulled-left employee-name">
+												María Cristina Espinoza Molestina
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="row-employee">
+									<div class="columns">
+										<div class="column is-3 inline-tablet">
+											<img
+												class="is-pulled-right"
+												src="../../assets/employees/employee6.png"
+												alt
+											/>
+											<div class="status-suspended"></div>
+										</div>
+										<div class="column is-8 inline-tablet">
+											<p class="is-pulled-left employee-name">Renato Daniel Ruiz Díaz</p>
+										</div>
+									</div>
+								</div>
+								<div class="row-employee">
+									<div class="columns">
+										<div class="column is-3 inline-tablet">
+											<img
+												class="is-pulled-right"
+												src="../../assets/employees/employee4.png"
+												alt
+											/>
+											<div class="status-active"></div>
+										</div>
+										<div class="column is-8 inline-tablet">
+											<p class="is-pulled-left employee-name">Freddy David Vera Quito</p>
+										</div>
+									</div>
+								</div>
+								<div class="row-employee">
+									<div class="columns">
+										<div class="column is-3 inline-tablet">
+											<img
+												class="is-pulled-right"
+												src="../../assets/employees/employee5.png"
+												alt
+											/>
+											<div class="status-suspended"></div>
+										</div>
+										<div class="column is-8 inline-tablet">
+											<p class="is-pulled-left employee-name">María José Alvarado Villacreces</p>
+										</div>
+									</div>
+								</div>
+								<div class="row-employee">
+									<div class="columns">
+										<div class="column is-3 inline-tablet">
+											<img
+												class="is-pulled-right"
+												src="../../assets/employees/employee6.png"
+												alt
+											/>
+											<div class="status-active"></div>
+										</div>
+										<div class="column is-8 inline-tablet">
+											<p class="is-pulled-left employee-name">Sol Gina Torres Fernandez</p>
+										</div>
+									</div>
+								</div>
+								<div class="row-employee">
+									<div class="columns">
+										<div class="column is-3 inline-tablet">
+											<img
+												class="is-pulled-right"
+												src="../../assets/employees/employee6.png"
+												alt
+											/>
+											<div class="status-active"></div>
+										</div>
+										<div class="column is-8 inline-tablet">
+											<p class="is-pulled-left employee-name">Joshua Israel Linch Yang</p>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="row-employee">
-								<div class="columns">
-									<div class="column is-3 inline-tablet">
-										<img
-											class="is-pulled-right"
-											src="../../assets/employees/employee2.png"
-											alt=""
-										/>
-										<div class="status-active"></div>
+						</div>
+						<footer class="card-footer">
+							<a @click="$modal.show('add-employee')" class="card-footer-item">
+								Agregar Empleados
+								<span class="icon">
+									<i class="fas fa-angle-right" aria-hidden="true"></i>
+								</span>
+							</a>
+						</footer>
+					</div>
+				</div>
+				<div class="column is-3">
+					<div class="card" id="notifications">
+						<header class="card-header background-header">
+							<p class="card-header-title">Notificaciones</p>
+						</header>
+						<div class="card-content remove-padding-aside">
+							<div class="content">
+								<!-- <img src="../../assets/notificationsEmpty.png" alt="" class="imgEmployeesEmpty">
+                <p class="text-info-Empty">No tienes aprobaciones, ni notificaciones pendientes.</p>-->
+								<div class="row-employee">
+									<p class="title-notification">HOY</p>
+									<div class="columns is-centered" @click="$modal.show('md-holidays')">
+										<div class="column is-3">
+											<p>23 mar</p>
+										</div>
+										<div class="column is-6">
+											<p class="notification-label">Vacaciones de Danna</p>
+										</div>
+										<div class="column is-3">
+											<img src="../../assets/umbrella.png" alt />
+										</div>
 									</div>
-									<div class="column is-8 inline-tablet">
-										<p class="is-pulled-left employee-name">
-											María Cristina Espinoza Molestina
-										</p>
+									<div class="columns is-centered" @click="$modal.show('md-holidays')">
+										<div class="column is-3">
+											<p>23 mar</p>
+										</div>
+										<div class="column is-6">
+											<p class="notification-label">Vacaciones de Danna</p>
+										</div>
+										<div class="column is-3">
+											<img src="../../assets/umbrella.png" alt />
+										</div>
 									</div>
-								</div>
-							</div>
-							<div class="row-employee">
-								<div class="columns">
-									<div class="column is-3 inline-tablet">
-										<img
-											class="is-pulled-right"
-											src="../../assets/employees/employee6.png"
-											alt=""
-										/>
-										<div class="status-suspended"></div>
+									<div class="columns is-centered" @click="$modal.show('md-holidays')">
+										<div class="column is-3">
+											<p>23 mar</p>
+										</div>
+										<div class="column is-6">
+											<p class="notification-label">Vacaciones de Danna</p>
+										</div>
+										<div class="column is-3">
+											<img src="../../assets/umbrella.png" alt />
+										</div>
 									</div>
-									<div class="column is-8 inline-tablet">
-										<p class="is-pulled-left employee-name">Renato Daniel Ruiz Díaz</p>
-									</div>
-								</div>
-							</div>
-							<div class="row-employee">
-								<div class="columns">
-									<div class="column is-3 inline-tablet">
-										<img
-											class="is-pulled-right"
-											src="../../assets/employees/employee4.png"
-											alt=""
-										/>
-										<div class="status-active"></div>
-									</div>
-									<div class="column is-8 inline-tablet">
-										<p class="is-pulled-left employee-name">Freddy David Vera Quito</p>
-									</div>
-								</div>
-							</div>
-							<div class="row-employee">
-								<div class="columns">
-									<div class="column is-3 inline-tablet">
-										<img
-											class="is-pulled-right"
-											src="../../assets/employees/employee5.png"
-											alt=""
-										/>
-										<div class="status-suspended"></div>
-									</div>
-									<div class="column is-8 inline-tablet">
-										<p class="is-pulled-left employee-name">María José Alvarado Villacreces</p>
-									</div>
-								</div>
-							</div>
-							<div class="row-employee">
-								<div class="columns">
-									<div class="column is-3 inline-tablet">
-										<img
-											class="is-pulled-right"
-											src="../../assets/employees/employee6.png"
-											alt=""
-										/>
-										<div class="status-active"></div>
-									</div>
-									<div class="column is-8 inline-tablet">
-										<p class="is-pulled-left employee-name">Sol Gina Torres Fernandez</p>
+									<div class="columns is-centered" @click="$modal.show('md-postponed-holidays')">
+										<div class="column is-3">
+											<p>23 mar</p>
+										</div>
+										<div class="column is-6">
+											<p class="notification-label">Vacaciones postergadas de Danna</p>
+										</div>
+										<div class="column is-3">
+											<img src="../../assets/umbrella.png" alt />
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row-employee">
-								<div class="columns">
-									<div class="column is-3 inline-tablet">
-										<img
-											class="is-pulled-right"
-											src="../../assets/employees/employee6.png"
-											alt=""
-										/>
-										<div class="status-active"></div>
+								<div class="row-employee">
+									<p class="title-notification">ESTA SEMANA</p>
+									<div class="columns is-centered">
+										<div class="column is-3">
+											<p>23 mar</p>
+										</div>
+										<div class="column is-6">
+											<p class="notification-label">Cumpleaños de Xavier</p>
+										</div>
+										<div class="column is-3">
+											<img src="../../assets/pastel.png" alt />
+										</div>
 									</div>
-									<div class="column is-8 inline-tablet">
-										<p class="is-pulled-left employee-name">Joshua Israel Linch Yang</p>
+								</div>
+								<div class="row-employee">
+									<p class="title-notification">ESTA MES</p>
+									<div class="columns is-centered">
+										<div class="column is-3">
+											<p>23 mar</p>
+										</div>
+										<div class="column is-6">
+											<p class="notification-label">Vencimiento periodo de prueba Joselin</p>
+										</div>
+										<div class="column is-3">
+											<img src="../../assets/alert.png" alt />
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<footer class="card-footer">
-						<a @click="$modal.show('add-employee')" class="card-footer-item">
-							Agregar Empleados
-							<span class="icon">
-								<i class="fas fa-angle-right" aria-hidden="true"></i>
-							</span>
-						</a>
-					</footer>
 				</div>
-			</div>
-			<div class="column is-3">
-				<div class="card" id="notifications">
-					<header class="card-header background-header">
-						<p class="card-header-title">
-							Notificaciones
-						</p>
-					</header>
-					<div class="card-content remove-padding-aside">
-						<div class="content">
-							<!-- <img src="../../assets/notificationsEmpty.png" alt="" class="imgEmployeesEmpty">
-						<p class="text-info-Empty">No tienes aprobaciones, ni notificaciones pendientes.</p> -->
-							<div class="row-employee">
-								<p class="title-notification">HOY</p>
-								<div class="columns is-centered" @click="$modal.show('md-holidays')">
-									<div class="column is-3">
-										<p>23 mar</p>
-									</div>
-									<div class="column is-6">
-										<p class="notification-label">Vacaciones de Danna</p>
-									</div>
-									<div class="column is-3">
-										<img src="../../assets/umbrella.png" alt="" />
-									</div>
-								</div>
-								<div class="columns is-centered" @click="$modal.show('md-holidays')">
-									<div class="column is-3">
-										<p>23 mar</p>
-									</div>
-									<div class="column is-6">
-										<p class="notification-label">Vacaciones de Danna</p>
-									</div>
-									<div class="column is-3">
-										<img src="../../assets/umbrella.png" alt="" />
-									</div>
-								</div>
-								<div class="columns is-centered" @click="$modal.show('md-holidays')">
-									<div class="column is-3">
-										<p>23 mar</p>
-									</div>
-									<div class="column is-6">
-										<p class="notification-label">Vacaciones de Danna</p>
-									</div>
-									<div class="column is-3">
-										<img src="../../assets/umbrella.png" alt="" />
-									</div>
-								</div>
-								<div class="columns is-centered" @click="$modal.show('md-postponed-holidays')">
-									<div class="column is-3">
-										<p>23 mar</p>
-									</div>
-									<div class="column is-6">
-										<p class="notification-label">Vacaciones postergadas de Danna</p>
-									</div>
-									<div class="column is-3">
-										<img src="../../assets/umbrella.png" alt="" />
-									</div>
-								</div>
-							</div>
-							<div class="row-employee">
-								<p class="title-notification">ESTA SEMANA</p>
-								<div class="columns is-centered">
-									<div class="column is-3">
-										<p>23 mar</p>
-									</div>
-									<div class="column is-6">
-										<p class="notification-label">Cumpleaños de Xavier</p>
-									</div>
-									<div class="column is-3">
-										<img src="../../assets/pastel.png" alt="" />
-									</div>
-								</div>
-							</div>
-							<div class="row-employee">
-								<p class="title-notification">ESTA MES</p>
-								<div class="columns is-centered">
-									<div class="column is-3">
-										<p>23 mar</p>
-									</div>
-									<div class="column is-6">
-										<p class="notification-label">Vencimiento periodo de prueba Joselin</p>
-									</div>
-									<div class="column is-3">
-										<img src="../../assets/alert.png" alt="" />
-									</div>
-								</div>
+				<div class="column is-3">
+					<div class="card" id="calendar">
+						<header class="card-header background-header">
+							<p class="card-header-title">Calendario</p>
+							<button @click="mainCalendar()" class="btn-more-calendar">...</button>
+						</header>
+						<div class="card-content calendar-context">
+							<div class="content">
+								<vc-calendar id="calendario" is-expanded locale="es" />
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="column is-3">
-				<div class="card" id="calendar">
-					<header class="card-header background-header">
-						<p class="card-header-title">
-							Calendario
-						</p>
-						<button @click="mainCalendar()" class="btn-more-calendar">...</button>
-					</header>
-					<div class="card-content calendar-context">
-						<div class="content">
-							<vc-calendar id="calendario" is-expanded locale="es" />
-						</div>
-					</div>
-				</div>
-				<div class="card" id="post">
-					<header class="card-header background-header">
-						<p class="card-header-title">
-							Publicaciones
-						</p>
-					</header>
-					<div class="card-content remove-padding-aside">
-						<div class="content">
-							<!-- <img src="../../assets/postEmpty.png" alt="" class="imgPostEmpty">
-						<p class="text-info-Empty">No tienes publicaciones creadas.</p> -->
-							<div class="row-post">
-								<p class="title-post">COMUNICADO</p>
-								<div class="columns is-centered">
-									<div class="column is-12">
-										<div class="item-post"></div>
-										<p class="post-label">
-											Título del comunicado Descripción de la información del comunicado
-										</p>
+					<div class="card" id="post">
+						<header class="card-header background-header">
+							<p class="card-header-title">Publicaciones</p>
+						</header>
+						<div class="card-content remove-padding-aside">
+							<div class="content">
+								<!-- <img src="../../assets/postEmpty.png" alt="" class="imgPostEmpty">
+                <p class="text-info-Empty">No tienes publicaciones creadas.</p>-->
+								<div class="row-post">
+									<p class="title-post">COMUNICADO</p>
+									<div class="columns is-centered">
+										<div class="column is-12">
+											<div class="item-post"></div>
+											<p class="post-label">
+												Título del comunicado Descripción de la información del comunicado
+											</p>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="row-post">
-								<p class="title-post">EVENTO</p>
-								<div class="columns is-centered">
-									<div class="column is-12">
-										<div class="item-post"></div>
-										<p class="post-label">
-											Título del comunicado Descripción de la información del comunicado
-										</p>
-										<div class="columns is-centered">
-											<div class="column is-half">
-												<p class="">25/03/2020</p>
-											</div>
-											<div class="column is-half">
-												<p class="">00:00</p>
+								<div class="row-post">
+									<p class="title-post">EVENTO</p>
+									<div class="columns is-centered">
+										<div class="column is-12">
+											<div class="item-post"></div>
+											<p class="post-label">
+												Título del comunicado Descripción de la información del comunicado
+											</p>
+											<div class="columns is-centered">
+												<div class="column is-half">
+													<p class>25/03/2020</p>
+												</div>
+												<div class="column is-half">
+													<p class>00:00</p>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -324,29 +324,30 @@
 					</div>
 				</div>
 			</div>
+			<WellcomeAdmin />
+			<MdNewEmployee />
+			<MdHolidays />
+			<MdPostponedHolidays />
+
+			<button class="button" @click="$modal.show('wellcome-admin')">Modal de Bienvenida</button>
+
+			<button class="btn-float-kronio" @click="showOptions()">
+				<img class="imgBtnKronio" src="../../assets/iconK.png" alt />
+			</button>
+			<div v-if="!isHidden" class="more-option-kronio">
+				<button class="btn-float-Pencil" title="Crear una publicación">
+					<img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt />
+				</button>
+				<button class="btn-float-User" title="Añadir empleado">
+					<img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt />
+				</button>
+				<button class="btn-float-Ask" title="Ayuda">
+					<img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt />
+				</button>
+			</div>
 		</div>
-		<WellcomeAdmin />
-		<MdNewEmployee />
-		<MdHolidays />
-		<MdPostponedHolidays />
-
-		<button class="button" @click="$modal.show('wellcome-admin')">
-			Modal de Bienvenida
-		</button>
-
-		<button class="btn-float-kronio" @click="showOptions()">
-			<img class="imgBtnKronio" src="../../assets/iconK.png" alt="" />
-		</button>
-		<div v-if="!isHidden" class="more-option-kronio">
-			<button class="btn-float-Pencil" title="Crear una publicación">
-				<img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt="" />
-			</button>
-			<button class="btn-float-User" title="Añadir empleado">
-				<img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt="" />
-			</button>
-			<button class="btn-float-Ask" title="Ayuda">
-				<img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt="" />
-			</button>
+		<div v-if="team">
+			<TeamMain />
 		</div>
 	</div>
 </template>
@@ -358,11 +359,15 @@ import MdNewEmployee from '@/components/md-new-employee.vue';
 import WellcomeAdmin from '@/components/Wellcome.vue';
 import MdHolidays from '@/components/md-holidays.vue';
 import MdPostponedHolidays from '@/components/md-postponed-holidays.vue';
+import TeamMain from '@/pages/Team/TeamMain.vue';
 
 @Component({
-	components: { ErrorSection, WellcomeAdmin, MdNewEmployee, MdHolidays, MdPostponedHolidays },
+	components: { ErrorSection, WellcomeAdmin, MdNewEmployee, MdHolidays, MdPostponedHolidays, TeamMain },
 })
 export default class LogoSVG extends Vue {
+	public home: boolean = true;
+	public team: boolean = false;
+
 	public isHidden: boolean = true;
 	public showOptions() {
 		if (!this.isHidden) {
@@ -375,6 +380,24 @@ export default class LogoSVG extends Vue {
 	public async mainCalendar() {
 		this.$destroy();
 		this.$router.push('/main-calendar');
+	}
+
+	private goTo(option: number) {
+		switch (option) {
+			case 1:
+				this.home = true;
+				this.team = false;
+				break;
+			case 3:
+				this.team = true;
+				this.home = false;
+				break;
+
+			default:
+				this.home = true;
+				this.team = false;
+				break;
+		}
 	}
 }
 </script>

@@ -52,7 +52,7 @@
 									title-position="center"
 									is-expanded
 									locale="es"
-									@dayclick="lol"
+									@dayclick="dayClick"
 									:attributes="attrs"
 									:theme-styles="themeStyles"
 								/>
@@ -117,7 +117,7 @@ export default class MainCalendar extends PageBase {
 		start: new Date(2018, 0, 1),
 		end: new Date(2019, 0, 1),
 	};
-	lol(day) {
+	public dayClick(day) {
 		console.log(day);
 	}
 	private menu_end: INavBarTitle[] = [
