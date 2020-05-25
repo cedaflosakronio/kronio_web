@@ -324,29 +324,18 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<WellcomeAdmin />
-		<MdNewEmployee />
-		<MdHolidays />
-		<MdPostponedHolidays />
+			<WellcomeAdmin />
+			<MdNewEmployee />
+			<MdHolidays />
+			<MdPostponedHolidays />
 
-		<button class="button" @click="$modal.show('wellcome-admin')">Modal de Bienvenida</button>
+			<button class="button" @click="$modal.show('wellcome-admin')">Modal de Bienvenida</button>
 
-		<button class="btn-float-kronio" @click="showOptions()">
-			<img class="imgBtnKronio" src="../../assets/iconK.png" alt />
-		</button>
-		<div v-if="!isHidden" class="more-option-kronio">
-			<button class="btn-float-Pencil" title="Crear una publicación" @click="goNewPublication()">
-				<img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt />
-			</button>
-			<button class="btn-float-User" title="Añadir empleado">
-				<img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt />
-			</button>
-			<button class="btn-float-Ask" title="Ayuda">
-				<img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt />
+			<button class="btn-float-kronio" @click="showOptions()">
+				<img class="imgBtnKronio" src="../../assets/iconK.png" alt />
 			</button>
 			<div v-if="!isHidden" class="more-option-kronio">
-				<button class="btn-float-Pencil" title="Crear una publicación">
+				<button class="btn-float-Pencil" title="Crear una publicación" @click="goNewPublication()">
 					<img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt />
 				</button>
 				<button class="btn-float-User" title="Añadir empleado">
@@ -355,8 +344,20 @@
 				<button class="btn-float-Ask" title="Ayuda">
 					<img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt />
 				</button>
+				<div v-if="!isHidden" class="more-option-kronio">
+					<button class="btn-float-Pencil" title="Crear una publicación">
+						<img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt />
+					</button>
+					<button class="btn-float-User" title="Añadir empleado">
+						<img class="imgBtnUser" src="../../assets/tool_btn/user.png" alt />
+					</button>
+					<button class="btn-float-Ask" title="Ayuda">
+						<img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt />
+					</button>
+				</div>
 			</div>
 		</div>
+
 		<div v-if="team">
 			<TeamMain />
 		</div>
