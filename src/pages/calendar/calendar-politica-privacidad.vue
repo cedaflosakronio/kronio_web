@@ -285,7 +285,7 @@ export default class NewPublications extends PageBase {
 	}
 	public lel() {
 		//this.selectExpiran = false;
-		console.log('chambio', this.selectExpiran);
+		//console.log('chambio', this.selectExpiran);
 	}
 	public async created() {
 		await super.created();
@@ -310,14 +310,14 @@ export default class NewPublications extends PageBase {
 			actionText: 'X',
 			queue: false,
 			onAction: () => {
-				console.log('Accion cerrrar');
+				//console.log('Accion cerrrar');
 			},
 			indefinite: true,
 		});
 	}
 
 	public deshacer() {
-		console.log('Deshacer');
+		//console.log('Deshacer');
 	}
 
 	public async show() {

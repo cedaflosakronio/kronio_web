@@ -65,12 +65,12 @@ export default class CoreWorkStore extends VuexModule {
 					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {
 						data[0].id && (this.set_today_manage_works(data), resolve());
 					} else {
-						console.log(data);
+						//console.log(data);
 						reject();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});
@@ -91,12 +91,12 @@ export default class CoreWorkStore extends VuexModule {
 							resolve();
 						}
 					} else {
-						console.log(data);
+						//console.log(data);
 						reject();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});

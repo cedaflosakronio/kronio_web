@@ -100,12 +100,12 @@ export default class CoreProfileStore extends VuexModule {
 						this.set_profile_id(data);
 						resolve();
 					} else {
-						console.log('create_profile_boss', data);
+						//console.log('create_profile_boss', data);
 						reject();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});
@@ -123,12 +123,12 @@ export default class CoreProfileStore extends VuexModule {
 							resolve();
 						}
 					} else {
-						console.log(data);
+						//console.log(data);
 						reject();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});
@@ -144,12 +144,12 @@ export default class CoreProfileStore extends VuexModule {
 						resolve();
 						this.set_profile_id(data);
 					} else {
-						console.log(data);
+						//console.log(data);
 						reject();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});
@@ -167,12 +167,12 @@ export default class CoreProfileStore extends VuexModule {
 							resolve();
 						}
 					} else {
-						console.log(data);
+						//console.log(data);
 						reject();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});

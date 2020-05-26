@@ -26,10 +26,10 @@ export default class EnterpriseStore extends VuexModule {
 				.post(EnterpriseUrl.create_enterprise, createEnterpriseForm, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
-					data.id ? (this.set_enterprise(data), resolve()) : (console.log(data), reject());
+					data.id ? (this.set_enterprise(data), resolve()) : reject();
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});
@@ -43,10 +43,10 @@ export default class EnterpriseStore extends VuexModule {
 				})
 				.then(response => {
 					const data = response.data;
-					data.id ? (this.set_enterprise(data), resolve()) : (console.log(data), reject());
+					data.id ? (this.set_enterprise(data), resolve()) : reject();
 				})
 				.catch(e => {
-					console.log('Descripción de error: \n' + e);
+					//console.log('Descripción de error: \n' + e);
 					reject();
 				});
 		});

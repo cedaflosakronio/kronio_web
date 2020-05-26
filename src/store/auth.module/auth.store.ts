@@ -9,7 +9,7 @@ import {
 	RegisterPhoneForm,
 	PhoneCodeForm,
 	ChangePasswordForm,
-} from '../types/authObject';
+} from './authObject';
 
 const AuthUrl = {
 	login_telephone_password: config.TaquionAuth + 'public/login/telephone/password',
@@ -77,7 +77,7 @@ export default class AuthStore extends VuexModule {
 	}
 
 	@mutation setUser(data: any) {
-		console.log(data);
+		//console.log(data);
 		if (data.user) {
 			this.token = new Token(data);
 			this.user = new UserData(data.user);
@@ -117,13 +117,13 @@ export default class AuthStore extends VuexModule {
 						this.setUser(response.data);
 						resolve();
 					} else {
-						console.log(response.data);
+						//console.log(response.data);
 						reject();
 					}
 				})
 				.catch(e => {
 					// tslint:disable-next-line: no-console
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});
@@ -139,7 +139,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -151,12 +151,12 @@ export default class AuthStore extends VuexModule {
 			axios
 				.post(AuthUrl.register_email, registerData, { headers: this.headers })
 				.then(response => {
-					console.log(response);
+					//console.log(response);
 					this.setUser(response.data);
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -168,12 +168,12 @@ export default class AuthStore extends VuexModule {
 			axios
 				.post(AuthUrl.register_email, registerData, { headers: this.headers })
 				.then(response => {
-					console.log(response);
+					//console.log(response);
 					this.setToken(response.data);
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -185,12 +185,12 @@ export default class AuthStore extends VuexModule {
 			axios
 				.get(AuthUrl.phone_login_code + phonenumber, { headers: this.headers })
 				.then(response => {
-					console.log(response);
+					//console.log(response);
 					this.setToken(response.data);
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -206,7 +206,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -222,7 +222,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -238,7 +238,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -254,7 +254,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -270,7 +270,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -286,7 +286,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -302,7 +302,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -318,7 +318,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});
@@ -334,7 +334,7 @@ export default class AuthStore extends VuexModule {
 					resolve(true);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject(false);
 				});
 		});

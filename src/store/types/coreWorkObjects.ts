@@ -78,7 +78,7 @@ export class Mark {
 		return mark;
 	}
 
-	static create_2P(datetime: string, type: TypeMarkWork) {
+	static create_2P(datetime: string) {
 		const mark = new Mark();
 		mark.datetime = datetime;
 		mark.markTime = new MarkTime(mark.datetime);
@@ -178,7 +178,7 @@ export class MarkUserInterface {
 		const min = moment.utc(endTime.diff(startTime)).format('mm');
 		const sec = moment.utc(endTime.diff(startTime)).format('ss');
 		const total = [hrs, min, sec].join(':');
-		console.log('hola', total);
+		//console.log('hola', total);
 		return moment(total, format);
 	}
 }

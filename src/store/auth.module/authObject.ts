@@ -1,4 +1,4 @@
-import { IsNotEmpty, Length, IsPhoneNumber, Matches, IsNumberString, IsEmail, Validate } from 'class-validator';
+import { IsNotEmpty, Length, IsPhoneNumber, Matches, IsEmail } from 'class-validator';
 import { BaseValidate } from '@/utils/Validate';
 
 export class LoginBase extends BaseValidate {
@@ -77,11 +77,6 @@ export class UserData extends BaseValidate {
 	telephone?: string;
 	lastname?: string;
 	firstname?: string;
-
-	@Matches(/^[0-9]+$/, { message: 'formatid' })
-	@IsNumberString({ message: 'numberstringid' })
-	@Length(10, 10, { message: 'lengthidempresa' })
-	@IsNotEmpty({ message: 'emptyid' })
 	numid?: string;
 	change_password?: boolean;
 	role?: string;

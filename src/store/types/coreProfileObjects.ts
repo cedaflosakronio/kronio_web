@@ -1,5 +1,5 @@
 import { IsNotEmpty, Length, ValidateIf, Matches, IsEmail } from 'class-validator';
-import { UserData } from './authObject';
+import { UserData } from '../auth.module/authObject';
 import { BaseValidate } from '@/utils/Validate';
 import { PROFILE_ROLE } from '@/utils/enums/Profile';
 

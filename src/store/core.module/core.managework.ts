@@ -80,12 +80,12 @@ export default class CoreManageWorkStore extends VuexModule {
 						this.manager_work_id = data.id;
 						resolve();
 					} else {
-						console.log(data);
+						//console.log(data);
 						reject();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					reject();
 				});
 		});
@@ -103,10 +103,10 @@ export default class CoreManageWorkStore extends VuexModule {
 				.post(url, addRemoveEmployeeToWorkManager, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
-					typeof data === 'boolean' ? resolve(data) : (console.log(data), resolve(false));
+					typeof data === 'boolean' ? resolve(data) : resolve(false);
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					resolve(false);
 				});
 		});
@@ -123,12 +123,12 @@ export default class CoreManageWorkStore extends VuexModule {
 					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {
 						data[0].id && (this.set_all_manage_work(data), reject());
 					} else {
-						console.log(data);
+						//console.log(data);
 						resolve();
 					}
 				})
 				.catch(e => {
-					console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);
 					resolve();
 				});
 		});
