@@ -21,7 +21,7 @@
 			<b-table :data="data">
 				<template slot-scope="props">
 					<b-table-column field="empleado" label="Empleado" centered>
-						<div class="columns">
+						<div class="columns" @click="selectEmployee(props.row.id)">
 							<div class="column data-img">
 								<svg
 									width="26"
@@ -205,9 +205,9 @@
 					</b-table-column>
 				</template>
 			</b-table>
+			<SubirDocumentos />
+			<SubirFirma />
 		</div>
-		<SubirDocumentos />
-		<SubirFirma />
 	</div>
 </template>
 
@@ -285,10 +285,13 @@ export default class ConfigEnterprise extends Vue {
 	public uploadFirm(id: number) {
 		this.$modal.show('md-subir-firma');
 	}
+	public selectEmployee(id: number) {
+		this.$emit('details', id);
+	}
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 //Tabla
 .header-table {
 	text-align: left;

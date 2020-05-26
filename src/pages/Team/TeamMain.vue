@@ -1,6 +1,6 @@
 <template>
 	<div class="app">
-		<div class="body">
+		<div class="body" v-if="main">
 			<div class="columns is-centered">
 				<div class="column is-10">
 					<div class="card box-height">
@@ -40,17 +40,22 @@
 									<TeamEmpleados />
 								</div>
 								<div v-if="documents">
-									<TeamDocuments />
+									<TeamDocuments @details="showDetails" />
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<InvitarEmpleado />
+			<CrearEmpleado />
+			<ImportarEmpleado />
 		</div>
-		<InvitarEmpleado />
-		<CrearEmpleado />
-		<ImportarEmpleado />
+		<transition name="fade">
+			<div class="body" v-if="!main">
+				<AjustesEmpleado @settings="handleSettings" />
+			</div>
+		</transition>
 	</div>
 </template>
 
@@ -65,13 +70,25 @@ import TeamDocuments from '@/components/team/team-documents.vue';
 import InvitarEmpleado from '@/components/team/md-invitar-empleado.vue';
 import CrearEmpleado from '@/components/team/md-crear-empleado.vue';
 import ImportarEmpleado from '@/components/team/md-importar-empleado.vue';
+import AjustesEmpleado from '@/components/team/team-settings-employee.vue';
 
 @Component({
-	components: { NavBar, LogoSVG, TeamEmpleados, TeamDocuments, InvitarEmpleado, CrearEmpleado, ImportarEmpleado },
+	components: {
+		NavBar,
+		LogoSVG,
+		TeamEmpleados,
+		TeamDocuments,
+		InvitarEmpleado,
+		CrearEmpleado,
+		ImportarEmpleado,
+		AjustesEmpleado,
+	},
 })
 export default class ConfigAdmin extends PageBase {
 	public employee: boolean = true;
 	public documents: boolean = false;
+
+	public main: boolean = true;
 
 	private menu_start: INavBarTitle[] = [];
 
@@ -128,6 +145,14 @@ export default class ConfigAdmin extends PageBase {
 
 	public importEmployee() {
 		this.$modal.show('md-importar-empleado');
+	}
+
+	public showDetails(data: any) {
+		this.main = false;
+	}
+
+	public handleSettings(value: boolean) {
+		this.main = value;
 	}
 }
 </script>

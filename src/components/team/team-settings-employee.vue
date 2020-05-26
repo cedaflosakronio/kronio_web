@@ -1,152 +1,180 @@
 <template>
-	<div class="app">
-		<div class="body">
+	<div class="app-setting">
+		<div class="body" id="body-id">
 			<div class="columns is-centered">
 				<div class="column is-10">
 					<div class="box-sombra"></div>
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<span @click="exit()" class="close-btn">
-								<i class="fas fa-arrow-circle-left"></i>
-							</span>
-							<p class="title-publications is-fullwidth">Políticas de vaciones de Nombredelaempresa</p>
+							<div class="columns">
+								<div class="column">
+									<span @click="exit()" class="close-btn">
+										<i class="fas fa-arrow-circle-left"></i>
+									</span>
+								</div>
+								<div class="column is-four-fifths">
+									<p class="title-publications is-fullwidth">Belen Zavala</p>
+								</div>
+								<div class="column">
+									<span class="close-btn" @click="options()">
+										<i class="fas fa-ellipsis-h"></i>
+									</span>
+								</div>
+							</div>
 						</header>
 						<div class="card-content">
-							<div class="content">
-								<div class="columns">
-									<div class="column is-half container-text">
-										<p class="titulo">Información básica</p>
-										<p class="subtitulo">Nombre y descripción de esta política de vacaciones.</p>
-									</div>
-									<div class="column is-half">
-										<div class="tarjeta-container">
-											<div class="field tarjeta">
-												<p class="label-left-descripcion">Nombre</p>
-												<div class="control">
-													<input
-														class="input input-value"
-														type="text"
-														value="shalalala"
-														placeholder="Ingrese nombre"
-													/>
-												</div>
-											</div>
-											<div class="field tarjeta">
-												<p class="label-left-descripcion">Descripción (opcional)</p>
-												<div class="control">
-													<input
-														class="input input-value"
-														type="text"
-														value="shalalala"
-														placeholder="Ingrese nombre"
-													/>
-												</div>
-											</div>
-											<div class="column is-full btn-container" v-if="save">
-												<b-button expanded class="btn-guardar" @click="alerta"
-													>Guardar</b-button
-												>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="contenido"></div>
-							<div class="content">
-								<div class="columns">
-									<div class="column is-half">
-										<div class="container-text">
-											<p class="titulo">Días de vacaciones</p>
-											<p class="subtitulo">
-												Gestiona desde aquí el total de días de vacaciones que tus empleados
-												tendrán disponibles y la cantidad de días que pasarán de un año a otro.
-											</p>
-										</div>
-									</div>
-									<div class="column is-half">
-										<div class="tarjeta-container">
-											<div class="columns">
-												<div class="column">
-													<div class="field tarjeta">
-														<p class="label-left-descripcion">Días de vacaciones</p>
-														<div class="control">
-															<input
-																class="input input-value"
-																type="text"
-																value="15 días"
-																placeholder="Ingrese nombre"
-															/>
-														</div>
-													</div>
-												</div>
-												<div class="column">
-													<div class="tarjeta-select">
-														<p class="label-left-descripcion">Tipo</p>
-														<b-field>
-															<b-select placeholder="seleccione" size="is-small" expanded>
-																<option
-																	v-for="dato in tipos"
-																	:value="dato.value"
-																	:key="dato.id"
-																	class="option-expiran"
-																	>{{ dato.value }}</option
-																>
-															</b-select>
-														</b-field>
-													</div>
-												</div>
-											</div>
-											<div class="columns">
-												<div class="column">
-													<div class="tarjeta-select">
-														<p class="label-left-descripcion">Días acumulables</p>
-														<b-field>
-															<b-select
-																placeholder="seleccione"
-																size="is-small"
-																expanded
-																v-model="dia"
-																@change.native="diaAcumulableSeleccion()"
-															>
-																<option
-																	v-for="dato in diasAcumulables"
-																	:value="dato.id"
-																	:key="dato.id"
-																	class="option-expiran-dia"
-																	>{{ dato.value }}</option
-																>
-															</b-select>
-														</b-field>
-													</div>
-												</div>
-												<div class="column" v-if="mostrarExpiracion">
-													<!-- :class="selectExpiran?'option-expiran':'option-expiran-close'" -->
-													<div class="tarjeta-select">
-														<p class="label-left-descripcion">Expiran a</p>
-														<b-field>
-															<b-select
-																placeholder="seleccione"
-																size="is-small"
-																@click.native="showExpiran"
-																id="expiracion"
-																expanded
-															>
-																<option
-																	v-for="dato in expiracion"
-																	:value="dato.value"
-																	:key="dato.id"
-																	class="option-expiran"
-																	>{{ dato.value }}</option
-																>
-															</b-select>
-														</b-field>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<b-tabs position="is-centered" class="block tab-general">
+								<b-tab-item>
+									<template slot="header">
+										<p class="text-tab">Perfil</p>
+									</template>
+								</b-tab-item>
+								<b-tab-item>
+									<template slot="header">
+										<p class="text-tab">Documentos</p>
+									</template>
+								</b-tab-item>
+								<b-tab-item>
+									<template slot="header">
+										<p class="text-tab">Ausencias</p>
+									</template>
+								</b-tab-item>
+								<b-tab-item>
+									<template slot="header">
+										<p class="text-tab">Tareas</p>
+									</template>
+								</b-tab-item>
+							</b-tabs>
+							<!-- <div class="content">
+                <div class="columns">
+                  <div class="column is-half container-text">
+                    <p class="titulo">Información básica</p>
+                    <p class="subtitulo">Nombre y descripción de esta política de vacaciones.</p>
+                  </div>
+                  <div class="column is-half">
+                    <div class="tarjeta-container">
+                      <div class="field tarjeta">
+                        <p class="label-left-descripcion">Nombre</p>
+                        <div class="control">
+                          <input
+                            class="input input-value"
+                            type="text"
+                            value="shalalala"
+                            placeholder="Ingrese nombre"
+                          />
+                        </div>
+                      </div>
+                      <div class="field tarjeta">
+                        <p class="label-left-descripcion">Descripción (opcional)</p>
+                        <div class="control">
+                          <input
+                            class="input input-value"
+                            type="text"
+                            value="shalalala"
+                            placeholder="Ingrese nombre"
+                          />
+                        </div>
+                      </div>
+                      <div class="column is-full btn-container" v-if="save">
+                        <b-button expanded class="btn-guardar" @click="alerta">Guardar</b-button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="contenido"></div>
+              <div class="content">
+                <div class="columns">
+                  <div class="column is-half">
+                    <div class="container-text">
+                      <p class="titulo">Días de vacaciones</p>
+                      <p class="subtitulo">
+                        Gestiona desde aquí el total de días de vacaciones que tus empleados
+                        tendrán disponibles y la cantidad de días que pasarán de un año a otro.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="column is-half">
+                    <div class="tarjeta-container">
+                      <div class="columns">
+                        <div class="column">
+                          <div class="field tarjeta">
+                            <p class="label-left-descripcion">Días de vacaciones</p>
+                            <div class="control">
+                              <input
+                                class="input input-value"
+                                type="text"
+                                value="15 días"
+                                placeholder="Ingrese nombre"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="column">
+                          <div class="tarjeta-select">
+                            <p class="label-left-descripcion">Tipo</p>
+                            <b-field>
+                              <b-select placeholder="seleccione" size="is-small" expanded>
+                                <option
+                                  v-for="dato in tipos"
+                                  :value="dato.value"
+                                  :key="dato.id"
+                                  class="option-expiran"
+                                >{{ dato.value }}</option>
+                              </b-select>
+                            </b-field>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="columns">
+                        <div class="column">
+                          <div class="tarjeta-select">
+                            <p class="label-left-descripcion">Días acumulables</p>
+                            <b-field>
+                              <b-select
+                                placeholder="seleccione"
+                                size="is-small"
+                                expanded
+                                v-model="dia"
+                                @change.native="diaAcumulableSeleccion()"
+                              >
+                                <option
+                                  v-for="dato in diasAcumulables"
+                                  :value="dato.id"
+                                  :key="dato.id"
+                                  class="option-expiran-dia"
+                                >{{ dato.value }}</option>
+                              </b-select>
+                            </b-field>
+                          </div>
+                        </div>
+                        <div class="column" v-if="mostrarExpiracion">
+                          <div class="tarjeta-select">
+                            <p class="label-left-descripcion">Expiran a</p>
+                            <b-field>
+                              <b-select
+                                placeholder="seleccione"
+                                size="is-small"
+                                @click.native="expiran"
+                                id="expiracion"
+                                @blur="expiranA"
+                                expanded
+                              >
+                                <option
+                                  v-for="dato in expiracion"
+                                  :value="dato.value"
+                                  :key="dato.id"
+                                  class="option-expiran"
+                                >{{ dato.value }}</option>
+                              </b-select>
+                            </b-field>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>-->
 						</div>
 					</div>
 				</div>
@@ -277,8 +305,14 @@ export default class NewPublications extends PageBase {
 		this.mostrarExpiracion = this.diasAcumulables[this.dia].id == 0;
 		this.save = this.diasAcumulables[this.dia].id == 0;
 	}
-	public showExpiran() {
+	public expiran() {
 		this.selectExpiran = !this.selectExpiran;
+		/* const el = document.getElementById('app');
+		console.log('lol', el.remove); */
+	}
+	public expiranA() {
+		//this.selectExpiran = false;
+		//console.log('chambio', this.selectExpiran);
 	}
 	public async created() {
 		await super.created();
@@ -290,8 +324,13 @@ export default class NewPublications extends PageBase {
 	}
 
 	public async exit() {
-		this.$emit('politica', false);
+		const el = document.getElementById('body-id').remove();
+		this.$emit('settings', true);
 		//this.$router.push('/app');
+	}
+
+	public options() {
+		console.log('object');
 	}
 
 	alerta() {
@@ -324,7 +363,33 @@ export default class NewPublications extends PageBase {
 </script>
 
 <style lang="scss" scoped>
+.tab-general {
+	margin: 0;
+	padding: 0;
+	background-color: #8969eb;
+}
 .app {
+	.text-tab {
+		color: #ffffff;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+	}
+	.card-content {
+		/* margin-left: 0;
+        margin-right: 0; */
+		margin: 0;
+		padding-right: 0;
+		padding-left: 0;
+		padding-top: 14px;
+	}
+	.card-header {
+		background-color: transparent;
+		display: block;
+	}
 	.option-expiran {
 		background: #e5e5e5;
 		border-radius: 4px;
@@ -403,7 +468,7 @@ export default class NewPublications extends PageBase {
 		left: 9%;
 		right: auto;
 		top: 68px;
-		background: #eff2fc;
+		background: #7959d9;
 		transform: matrix(1, 0, 0, -1, 0, 0);
 		//border-top: 8px solid;
 		border-radius: 22px;
@@ -523,7 +588,7 @@ export default class NewPublications extends PageBase {
 
 	.close-btn {
 		font-size: 46px;
-		color: #8969eb;
+		color: #ffffff;
 		cursor: pointer;
 		margin-left: 5%;
 		margin-right: 5%;
@@ -571,17 +636,18 @@ export default class NewPublications extends PageBase {
 	}
 
 	.tabs-header {
-		background: #f2f5ff;
+		background: #8969eb;
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
-		box-shadow: #335eea;
+		box-shadow: #8969eb;
+		color: #ffffff;
 	}
 
 	.title-publications {
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 30px;
-		color: #8969eb;
+		color: #ffffff;
 		margin-left: auto;
 		margin-right: auto;
 		padding-top: 1%;
