@@ -1,5 +1,5 @@
 <template>
-	<div class="login">
+	<div class="employeemore">
 		<b-navbar class="is-fixed-top is-paddingless">
 			<template slot="brand">
 				<a class="navbar-item link" href="https://kronio.io">
@@ -12,9 +12,9 @@
 				</div>
 			</template>
 		</b-navbar>
-		<div class="columns margin-top-register">
-			<div class="column is-3"></div>
-			<div class="column is-3 is-mobile is-vcentered margin-top-form">
+		<div class="columns margin-top-register is-centered">
+			<div class="column is-1"></div>
+			<div class="column is-5 is-mobile is-vcentered">
 				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
@@ -135,56 +135,66 @@ export default class RegisterEmployeePerson2 extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scope>
 body {
 	font-family: Poppins !important;
 	font-style: normal !important;
 }
+select,
 .select {
-	width: 100% !important;
-	height: 2.5em !important;
-
-	select {
-		width: 100% !important;
-		padding-left: 12% !important;
-		padding-right: 3% !important;
-		padding-bottom: 0% !important;
-		padding-top: 0% !important;
-		height: 2.5em !important;
+	@media screen and (max-width: 768px) {
+		width: 100%;
 	}
 }
-
-.select .is-empty select {
-	color: hsla(0, 0%, 48%, 0.7);
-}
-
-.select-prefix {
-	margin-top: 9% !important;
-}
-
-@media screen and (max-width: 1772px) {
+.employeemore {
 	.select-prefix {
-		font-size: 13px;
-		padding-top: 6%;
-	}
-}
+		margin-top: 9%;
 
-@media screen and (max-width: 1596px) {
-	.select-prefix {
-		font-size: 10px;
-		padding-top: 10%;
-	}
-}
+		@media screen and (max-width: 1440px) {
+			font-size: 16px;
+			padding-top: 0%;
+		}
 
-.login {
+		@media screen and (max-width: 1024px) {
+			font-size: 16px;
+			padding-top: 0%;
+		}
+
+		@media screen and (max-width: 768px) {
+			font-size: 16px;
+			padding-top: 0%;
+			margin-top: 0%;
+		}
+
+		@media screen and (max-width: 600px) {
+			font-size: 16px;
+			padding-top: 0%;
+		}
+	}
+
 	.line-phone {
 		margin-left: 7%;
 		margin-right: 7%;
+
+		@media screen and (max-width: 768px) {
+			margin-left: 8%;
+			margin-right: 8%;
+		}
+
+		@media screen and (max-width: 600px) {
+			margin-left: 7%;
+			margin-right: 7%;
+		}
 	}
 
 	.form-field-phone {
 		padding-top: 4%;
 		padding-bottom: 4%;
+
+		@media screen and (max-width: 768px) {
+			padding-top: 0%;
+			padding-bottom: 0%;
+		}
 	}
 	.message-float {
 		position: absolute;
@@ -238,8 +248,34 @@ body {
 	}
 
 	.margin-top-form {
-		margin-top: 8%;
-		height: calc(58vh - 4rem);
+		width: 70%;
+		margin-top: 25%;
+		margin-left: 10%;
+		height: calc(65vh - 4rem);
+
+		@media screen and (max-width: 1440px) {
+			height: calc(47vh - 4rem);
+			margin-top: 22%;
+			margin-left: 15%;
+		}
+
+		@media screen and (max-width: 1024px) {
+			width: 100%;
+			height: calc(57vh - 4rem);
+			margin-top: 9%;
+			margin-left: 0%;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 96%;
+			height: calc(95vh - 4rem);
+			margin-top: 9%;
+			margin-left: 2%;
+		}
+
+		@media screen and (max-width: 600px) {
+			height: calc(68vh - 4rem);
+		}
 	}
 
 	.title-register {
@@ -256,6 +292,12 @@ body {
 		// margin-right: 5% !important;
 		background: #335eea;
 		border-radius: 3px;
+
+		@media screen {
+			padding-top: 3% !important;
+			padding-bottom: 8% !important;
+			font-size: 20px;
+		}
 	}
 
 	.form-fields {

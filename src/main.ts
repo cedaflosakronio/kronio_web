@@ -25,6 +25,12 @@ Vue.use(VCalendar, {
 			},
 		},
 	},
+	/* screens:{ //falta analisis de esta funcionalidad
+		sm: '640px',
+		md: '768px',
+		lg: '1024px',
+		xl: '1280px',
+	}, */
 });
 
 Vue.use(vmodal, {

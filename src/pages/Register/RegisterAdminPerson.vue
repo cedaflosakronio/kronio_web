@@ -13,8 +13,8 @@
 			</template>
 		</b-navbar>
 		<div class="columns margin-top-register">
-			<div class="column is-3"></div>
-			<div class="column is-3 is-mobile is-vcentered margin-top-form">
+			<div class="column is-1"></div>
+			<div class="column is-5 is-centered">
 				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
@@ -33,7 +33,7 @@
 												<p class="control has-icons-left has-icons-right">
 													<b-input
 														class="form-fields"
-														v-model="register_form.email_phone"
+														v-model="register_form.firstname"
 														@keyup.enter.native="continuar()"
 														placeholder="Nombres"
 													>
@@ -45,7 +45,7 @@
 												<p class="control has-icons-left has-icons-right">
 													<b-input
 														class="form-fields"
-														v-model="register_form.lastnames"
+														v-model="register_form.lastname"
 														@keyup.enter.native="continuar()"
 														placeholder="Apellidos"
 													>
@@ -59,6 +59,7 @@
 														v-model="register_form.email"
 														@keyup.enter.native="continuar()"
 														placeholder="Email"
+														type="email"
 													>
 													</b-input>
 												</p>
@@ -82,7 +83,7 @@
 												<p class="control has-icons-left has-icons-right">
 													<b-input
 														class="form-fields"
-														v-model="register_form.password_verified"
+														v-model="password_verified"
 														@keyup.enter.native="continuar()"
 														type="password"
 														placeholder="Confirmar contraseña"
@@ -118,20 +119,25 @@
 import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import LogoSVG from '@/components/LogoSVG.vue';
-import { RegisterAdminPersonForm } from '@/store/auth.module/signup.type';
+import { RegisterEmailForm } from '@/store/auth.module/authObject';
 
 @Component({
 	components: { LogoSVG },
 })
 export default class RegisterAdminPerson extends PageBase {
-	public register_form: RegisterAdminPersonForm = new RegisterAdminPersonForm({});
-
+	public register_form: RegisterEmailForm = new RegisterEmailForm({});
+	private password_verified: string = '';
 	public async created() {
 		await super.created();
 	}
 
 	public async continuar() {
-		this.$router.push('/registerAdminenterprise');
+		if (!this.register_form.validate() && this.register_form.password === this.password_verified) {
+			//const responseData = await this.store.auth.register_email(this.register_form);
+			console.log('Datos: ', this.register_form);
+		} else {
+			console.log('Error: ', this.register_form.message_error);
+		}
 	}
 }
 </script>
@@ -140,6 +146,12 @@ export default class RegisterAdminPerson extends PageBase {
 body {
 	font-family: Poppins !important;
 	font-style: normal !important;
+}
+
+.no-is-pulled-right {
+	@media screen and (max-width: 768px) {
+		float: none !important;
+	}
 }
 .login {
 	.navbar {
@@ -187,8 +199,34 @@ body {
 	}
 
 	.margin-top-form {
-		margin-top: 6%;
-		height: calc(65vh - 4rem);
+		margin-top: 12%;
+		width: 70%;
+		margin-left: 10%;
+		height: calc(80vh - 4rem);
+
+		@media screen and (max-width: 1440px) {
+			width: 75%;
+			margin-top: 15%;
+			height: calc(65vh - 4rem);
+		}
+
+		@media screen and (max-width: 1024px) {
+			width: 80%;
+			margin-top: 12%;
+			height: calc(62vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 12%;
+			height: calc(98vh - 4rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 90%;
+			margin-top: 12%;
+			height: calc(68vh - 4rem);
+		}
 	}
 
 	.title-register {

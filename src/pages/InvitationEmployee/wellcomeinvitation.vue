@@ -1,15 +1,14 @@
 <template>
-	<div class="login">
+	<div class="wellcomeinvitation">
 		<div class="columns is-vcentered is-mobile is-centered margin-top-logo">
-			<div class="column is-half">
+			<div class="column is-3">
 				<a class="" href="https://kronio.io">
 					<img class="" src="../../assets/logo_color.png" />
 				</a>
 			</div>
 		</div>
-		<div class="columns">
-			<div class="column is-4"></div>
-			<div class="column is-4 is-mobile is-vcentered margin-top-form">
+		<div class="columns is-centered">
+			<div class="column is-5 is-mobile is-vcentered">
 				<div class="box margin-top-form">
 					<article class="media padding-top-media">
 						<div class="media-content">
@@ -56,7 +55,6 @@
 					</article>
 				</div>
 			</div>
-			<div class="column is-4"></div>
 		</div>
 	</div>
 </template>
@@ -80,7 +78,7 @@ export default class WellcomeInvitation extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
 	font-family: Poppins !important;
 	font-style: normal !important;
@@ -89,9 +87,12 @@ body {
 .margin-top-logo {
 	margin-top: 10%;
 }
-.login {
+.wellcomeinvitation {
 	.padding-top-media {
 		padding: 10% 8% 8% 5%;
+		@media screen and (max-width: 768px) {
+			padding: 10% 8% 5% 5%;
+		}
 	}
 
 	.color-login {
@@ -100,17 +101,62 @@ body {
 
 	.margin-top-form {
 		margin-top: 0%;
-		height: calc(60vh - 4rem);
+		width: 85%;
+		margin-left: 10%;
+		height: calc(70vh - 4rem);
+
+		@media screen and (max-width: 1440px) {
+			width: 75%;
+			margin-top: 15%;
+			margin-left: 13%;
+			height: calc(57vh - 4rem);
+		}
+
+		@media screen and (max-width: 1024px) {
+			width: 100%;
+			margin-top: 3%;
+			margin-left: 0%;
+			height: calc(70vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 3%;
+			margin-left: 5%;
+			height: calc(70vh - 4rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(75vh - 4rem);
+		}
 	}
 
 	.btn-register {
 		width: 40%;
 		display: block;
-		//margin-right: 25% !important;
-		margin-left: 30% !important;
+		margin-right: auto !important;
+		margin-left: auto !important;
 		background: #335eea;
 		border-radius: 3px;
 		font-size: 20px;
+
+		@media screen and (max-width: 1440px) {
+			width: 50%;
+		}
+
+		@media screen and (max-width: 1080px) {
+			width: 50%;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 50%;
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 100%;
+		}
 	}
 
 	.color-p-name {

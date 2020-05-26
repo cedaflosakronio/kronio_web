@@ -31,7 +31,7 @@ import { INavBarTitle } from '@/utils/types.utils';
 	components: { NavBar, LogoSVG },
 })
 export default class MainApp extends PageBase {
-	private isLoading: boolean = true;
+	private isLoading: boolean = false;
 
 	private menu_start: INavBarTitle[] = [
 		// {

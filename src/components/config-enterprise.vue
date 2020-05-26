@@ -95,6 +95,36 @@
 				</div>
 			</div>
 		</div>
+		<br />
+		<br />
+		<hr />
+		<br />
+		<br />
+		<div class="columns is-centered">
+			<div class="columns is-2 img-user-enterprise">
+				<img src="../assets/modal_holidays.png" alt="" />
+			</div>
+		</div>
+		<div class="columns is-centered label-enterprise">
+			<div class="columns is-2">
+				<p class="info-general-espacio">Personaliza tu espacio</p>
+			</div>
+		</div>
+		<div class="columns is-centered">
+			<div class="column is-4">
+				<p class="logo-enterprise">Logo de la empresa</p>
+				<p class="info-logo-enterprise">
+					Sube tu logo de empresa (máx. 1MB). Te recomendamos que utilices una imagen en formato PNG en blanco
+					y fondo transparente y de 260x80px.
+				</p>
+				<button class="button btn-upload is-large">Subir imagen</button>
+				<button class="button btn-delete is-danger is-outlined is-large">Borrar</button>
+			</div>
+			<div class="column is-1"></div>
+			<div class="column is-4">
+				<img src="../assets/configAdmin/theme_kronio.png" alt="" />
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -125,6 +155,12 @@ export default class ConfigEnterprise extends Vue {
 .enterprise {
 	.img-user-enterprise {
 		margin-top: 2%;
+		@media screen and (max-width: 768px) {
+			margin-top: 21%;
+		}
+		@media screen and (max-width: 600px) {
+			margin-top: 0%;
+		}
 	}
 
 	.label-enterprise {
@@ -133,10 +169,28 @@ export default class ConfigEnterprise extends Vue {
 
 	.info-general {
 		font-weight: normal;
-		font-size: 16px;
+		font-size: 20px;
 		line-height: 24px;
 		text-align: center;
 		color: #7a7979;
+		margin-top: 10%;
+		margin-bottom: 40%;
+		@media screen and (max-width: 768px) {
+			margin-bottom: 10%;
+		}
+	}
+
+	.info-general-espacio {
+		font-weight: normal;
+		font-size: 20px;
+		line-height: 24px;
+		text-align: center;
+		color: #7a7979;
+		margin-top: 10%;
+		margin-bottom: 40%;
+		@media screen and (max-width: 768px) {
+			margin-bottom: 10%;
+		}
 	}
 
 	.border-form {
@@ -161,6 +215,52 @@ export default class ConfigEnterprise extends Vue {
 		font-size: 18px;
 		line-height: 18px;
 		color: rgba(122, 121, 121, 0.5) !important;
+	}
+
+	.logo-enterprise {
+		font-weight: normal;
+		font-size: 20px;
+		line-height: 24px;
+		color: #7a7979;
+		margin-top: 10%;
+	}
+
+	.info-logo-enterprise {
+		font-weight: normal;
+		font-size: 16px;
+		line-height: 21px;
+		color: rgba(122, 121, 121, 0.5);
+		padding-right: 35% !important;
+		margin-top: 5%;
+		margin-bottom: 10%;
+		@media screen and (max-width: 1024px) {
+			padding-right: 10% !important;
+			text-align: left;
+		}
+		@media screen and (max-width: 768px) {
+			text-align: center;
+		}
+	}
+
+	.btn-upload {
+		background: #335eea;
+		border-radius: 4px;
+		color: #ffffff;
+		@media screen and (max-width: 1024px) {
+			font-size: 1rem;
+		}
+		@media screen and (max-width: 768px) {
+			width: 32%;
+		}
+	}
+
+	.btn-delete {
+		margin-left: 5%;
+		padding-left: 12% !important;
+		padding-right: 12% !important;
+		@media screen and (max-width: 1024px) {
+			font-size: 1rem;
+		}
 	}
 }
 </style>

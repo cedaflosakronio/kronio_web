@@ -95,7 +95,7 @@ export default class CoreManageWorkStore extends VuexModule {
 		addRemoveEmployeeToWorkManager: AddRemoveEmployeeToWorkManager;
 		type: 'ADD' | 'REMOVE';
 	}): Promise<boolean> {
-		return new Promise((resolve, reject) => {
+		return new Promise(resolve => {
 			const { addRemoveEmployeeToWorkManager, type } = info;
 			const url_type = type === 'ADD' ? 'add_employee' : 'remove_employee';
 			const url = `${CoreManageWorkUrl.manage_work}/${vxm.core_profile.currentProfile.enterprise}/${this.selected_manage_work}/${url_type}`;

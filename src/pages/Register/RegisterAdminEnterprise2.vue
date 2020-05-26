@@ -13,8 +13,8 @@
 			</template>
 		</b-navbar>
 		<div class="columns margin-top-register">
-			<div class="column is-3"></div>
-			<div class="column is-3 is-mobile is-vcentered margin-top-form">
+			<div class="column is-1"></div>
+			<div class="column is-5 is-mobile is-vcentered">
 				<div class="box margin-top-form">
 					<article class="media">
 						<div class="media-content">
@@ -42,7 +42,7 @@
 											</div>
 
 											<div class="columns line-phone">
-												<div class="column is-4">
+												<div class="column is-4 no-padding-right">
 													<b-select
 														class="select-prefix"
 														v-model="register_form.prefix"
@@ -53,7 +53,7 @@
 														</option>
 													</b-select>
 												</div>
-												<div class="column is-8">
+												<div class="column is-8 no-padding-left">
 													<p class="control input-phone has-icons-left has-icons-right">
 														<b-input
 															class="form-field-phone"
@@ -137,7 +137,7 @@ export default class RegisterAdminEnterprise2 extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 body {
 	font-family: Poppins !important;
 	font-style: normal !important;
@@ -158,19 +158,23 @@ body {
 
 .select-prefix {
 	margin-top: 9% !important;
-}
-
-@media screen and (max-width: 1772px) {
-	.select-prefix {
-		font-size: 13px;
-		padding-top: 6%;
+	@media screen and (max-width: 1772px) {
+		font-size: 16px;
+		padding-top: 1%;
 	}
-}
 
-@media screen and (max-width: 1596px) {
-	.select-prefix {
-		font-size: 10px;
-		padding-top: 10%;
+	@media screen and (max-width: 1440px) {
+		font-size: 16px;
+	}
+
+	@media screen and (max-width: 1596px) {
+		margin-top: 7% !important;
+	}
+
+	@media screen and (max-width: 768px) {
+		margin-top: 0% !important;
+		width: 97%;
+		padding-left: 1%;
 	}
 }
 
@@ -183,6 +187,24 @@ body {
 	.form-field-phone {
 		padding-top: 4%;
 		padding-bottom: 4%;
+		@media screen and (max-width: 1596px) {
+			padding-top: 4%;
+			padding-bottom: 4%;
+		}
+
+		@media screen and (max-width: 768px) {
+			padding-top: 0%;
+			padding-bottom: 0%;
+			padding-left: 3%;
+			padding-right: 1%;
+		}
+
+		@media screen and (max-width: 700px) {
+			padding-top: 0%;
+			padding-bottom: 0%;
+			padding-left: 0%;
+			padding-right: 0%;
+		}
 	}
 	.message-float {
 		position: absolute;
@@ -236,8 +258,34 @@ body {
 	}
 
 	.margin-top-form {
-		margin-top: 8%;
-		height: calc(57vh - 4rem);
+		margin-top: 12%;
+		width: 70%;
+		margin-left: 10%;
+		height: calc(80vh - 4rem);
+
+		@media screen and (max-width: 1440px) {
+			width: 75%;
+			margin-top: 15%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 1080px) {
+			width: 70%;
+			margin-top: 3%;
+			height: calc(61vh - 4rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(90vh - 4rem);
+		}
+
+		@media screen and (max-width: 600px) {
+			width: 90%;
+			margin-top: 3%;
+			height: calc(70vh - 4rem);
+		}
 	}
 
 	.title-register {
@@ -275,6 +323,16 @@ body {
 		margin-right: 10% !important;
 		color: #7a7979;
 		font-size: 15px;
+	}
+
+	.no-padding-right {
+		padding-right: 0px !important;
+	}
+	.no-padding-left {
+		padding-left: 0px !important;
+		@media screen and (max-width: 700px) {
+			padding-left: 15px !important;
+		}
 	}
 }
 </style>
