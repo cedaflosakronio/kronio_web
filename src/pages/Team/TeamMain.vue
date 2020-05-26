@@ -125,7 +125,7 @@ export default class ConfigAdmin extends PageBase {
 	}
 
 	public importEmployee() {
-		console.log('import');
+		//console.log('import');
 	}
 }
 </script>

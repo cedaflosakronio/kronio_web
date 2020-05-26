@@ -178,7 +178,7 @@ export class MarkUserInterface {
 		const min = moment.utc(endTime.diff(startTime)).format('mm');
 		const sec = moment.utc(endTime.diff(startTime)).format('ss');
 		const total = [hrs, min, sec].join(':');
-		console.log('hola', total);
+		//console.log('hola', total);
 		return moment(total, format);
 	}
 }

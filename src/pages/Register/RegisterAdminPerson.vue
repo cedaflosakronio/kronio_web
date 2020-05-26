@@ -134,9 +134,9 @@ export default class RegisterAdminPerson extends PageBase {
 	public async continuar() {
 		if (!this.register_form.validate() && this.register_form.password === this.password_verified) {
 			//const responseData = await this.store.auth.register_email(this.register_form);
-			console.log('Datos: ', this.register_form);
+			//console.log('Datos: ', this.register_form);
 		} else {
-			console.log('Error: ', this.register_form.message_error);
+			//console.log('Error: ', this.register_form.message_error);
 		}
 	}
 }

@@ -87,6 +87,7 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component
 export default class ConfigEnterprise extends Vue {
 	public busqueda = '';
+
 	public data = [
 		{
 			empleado: 'Belen Zavala Luque',
@@ -124,6 +125,7 @@ export default class ConfigEnterprise extends Vue {
 			contacto: '0982260792',
 		},
 	];
+
 	public columns = [
 		{
 			field: 'empleado',
@@ -154,9 +156,6 @@ export default class ConfigEnterprise extends Vue {
 			renderHtml: true,
 		},
 	];
-	mounted() {
-		console.log('mounted');
-	}
 }
 </script>
 
