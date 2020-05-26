@@ -72,6 +72,7 @@
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 							v-if="props.row.cv"
+							@click="uploadDocuments(props.row.id)"
 						>
 							<circle cx="10.5" cy="10.5" r="9.5" fill="white" stroke="#7A7979" stroke-width="2" />
 							<path
@@ -204,13 +205,17 @@
 				</template>
 			</b-table>
 		</div>
+		<SubirDocumentos />
 	</div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import SubirDocumentos from '@/components/team/md-subir-documentos.vue';
 
-@Component
+@Component({
+	components: { SubirDocumentos },
+})
 export default class ConfigEnterprise extends Vue {
 	public busqueda = '';
 
@@ -236,34 +241,6 @@ export default class ConfigEnterprise extends Vue {
 			contrato: true,
 			finiquito: false,
 		},
-		/* {
-			empleado: 'Belen Zavala Luque',
-			id: '0922609822',
-			cv: 'Hace 3 meses',
-			contrato: 'TARDE03',
-			finiquito: '0982260792',
-		},
-		{
-			empleado: 'Belen Zavala Luque',
-			id: '0922609822',
-			cv: 'Hace 3 meses',
-			contrato: 'TARDE03',
-			finiquito: '0982260792',
-		},
-		{
-			empleado: 'Belen Zavala Luque',
-			id: '0922609822',
-			cv: 'Hace 3 meses',
-			contrato: 'TARDE03',
-			finiquito: '0982260792',
-		},
-		{
-			empleado: 'Belen Zavala Luque',
-			id: '0922609822',
-			cv: 'Hace 3 meses',
-			contrato: 'TARDE03',
-			finiquito: '0982260792',
-		}, */
 	];
 
 	public columns = [
@@ -296,6 +273,10 @@ export default class ConfigEnterprise extends Vue {
 			renderHtml: true,
 		},
 	];
+
+	public uploadDocuments(id: number) {
+		this.$modal.show('md-subir-documentos');
+	}
 }
 </script>
 
