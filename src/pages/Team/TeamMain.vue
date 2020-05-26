@@ -50,6 +50,7 @@
 		</div>
 		<InvitarEmpleado />
 		<CrearEmpleado />
+		<ImportarEmpleado />
 	</div>
 </template>
 
@@ -63,9 +64,10 @@ import TeamEmpleados from '@/components/team/team-employee.vue';
 import TeamDocuments from '@/components/team/team-documents.vue';
 import InvitarEmpleado from '@/components/team/md-invitar-empleado.vue';
 import CrearEmpleado from '@/components/team/md-crear-empleado.vue';
+import ImportarEmpleado from '@/components/team/md-importar-empleado.vue';
 
 @Component({
-	components: { NavBar, LogoSVG, TeamEmpleados, TeamDocuments, InvitarEmpleado, CrearEmpleado },
+	components: { NavBar, LogoSVG, TeamEmpleados, TeamDocuments, InvitarEmpleado, CrearEmpleado, ImportarEmpleado },
 })
 export default class ConfigAdmin extends PageBase {
 	public employee: boolean = true;
@@ -125,7 +127,7 @@ export default class ConfigAdmin extends PageBase {
 	}
 
 	public importEmployee() {
-		//console.log('import');
+		this.$modal.show('md-importar-empleado');
 	}
 }
 </script>
