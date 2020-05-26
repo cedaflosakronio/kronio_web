@@ -119,6 +119,7 @@
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
 							v-if="props.row.contrato"
+							@click="uploadFirm(props.row.id)"
 						>
 							<circle cx="10.5" cy="10.5" r="9.5" fill="white" stroke="#7A7979" stroke-width="2" />
 							<path
@@ -206,18 +207,22 @@
 			</b-table>
 		</div>
 		<SubirDocumentos />
+		<SubirFirma />
 	</div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import SubirDocumentos from '@/components/team/md-subir-documentos.vue';
+import SubirFirma from '@/components/team/md-subir-firma.vue';
 
 @Component({
-	components: { SubirDocumentos },
+	components: { SubirDocumentos, SubirFirma },
 })
 export default class ConfigEnterprise extends Vue {
 	public busqueda = '';
+
+	public tipoModal: boolean = false;
 
 	public data = [
 		{
@@ -276,6 +281,9 @@ export default class ConfigEnterprise extends Vue {
 
 	public uploadDocuments(id: number) {
 		this.$modal.show('md-subir-documentos');
+	}
+	public uploadFirm(id: number) {
+		this.$modal.show('md-subir-firma');
 	}
 }
 </script>

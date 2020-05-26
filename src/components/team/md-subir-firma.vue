@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-subir-documentos" width="30%" height="80%">
+	<modal name="md-subir-firma" width="30%" height="80%">
 		<div class="example-modal-content">
 			<svg
 				width="100"
@@ -55,7 +55,7 @@
 			<div>
 				<div class="columns">
 					<div class="column">
-						<b-checkbox>
+						<b-checkbox disabled v-model="notificacion">
 							<p>Enviar notificación a Belen</p>
 						</b-checkbox>
 					</div>
@@ -90,7 +90,7 @@
 			</div>
 			<div class="columns is-centered">
 				<div class="column is-10">
-					<button class="button btn-wellcome is-fullwidth">Subir</button>
+					<button class="button btn-wellcome is-fullwidth">Subir 1 doc y pedir firma electrónica</button>
 				</div>
 			</div>
 		</div>
@@ -104,6 +104,7 @@ import { Vue, Component } from 'vue-property-decorator';
 	props: { type: Boolean },
 })
 export default class MdHolidays extends Vue {
+	public notificacion: boolean = true;
 	public hide() {
 		this.$modal.hide('md-holidays');
 	}
