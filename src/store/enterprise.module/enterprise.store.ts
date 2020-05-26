@@ -23,14 +23,10 @@ export default class EnterpriseStore extends VuexModule {
 	@action async create_enterprise(createEnterpriseForm: CreateEnterpriseForm) {
 		return new Promise<boolean>((resolve, reject) => {
 			axios
-				.post(
-					EnterpriseUrl.create_enterprise,
-					createEnterpriseForm,
-					{ headers: vxm.auth.headers })
+				.post(EnterpriseUrl.create_enterprise, createEnterpriseForm, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
-					(data.id) ? (this.set_enterprise(data), resolve())
-						: (console.log(data), reject())
+					data.id ? (this.set_enterprise(data), resolve()) : (console.log(data), reject());
 				})
 				.catch(e => {
 					console.log(' Descripción de error: \n' + e);
@@ -42,14 +38,12 @@ export default class EnterpriseStore extends VuexModule {
 	@action async update_enterprise(enterpriseData: EnterpriseData) {
 		return new Promise<boolean>((resolve, reject) => {
 			axios
-				.patch(
-					`${EnterpriseUrl.update_enterprise}/${this.entepriseData.id}/`,
-					enterpriseData,
-					{ headers: vxm.auth.headers })
+				.patch(`${EnterpriseUrl.update_enterprise}/${this.entepriseData.id}/`, enterpriseData, {
+					headers: vxm.auth.headers,
+				})
 				.then(response => {
 					const data = response.data;
-					(data.id) ? (this.set_enterprise(data), resolve())
-						: (console.log(data), reject())
+					data.id ? (this.set_enterprise(data), resolve()) : (console.log(data), reject());
 				})
 				.catch(e => {
 					console.log('Descripción de error: \n' + e);

@@ -2,7 +2,12 @@ import { createModule, mutation, action } from 'vuex-class-component';
 import axios from 'axios';
 import config from '../config.store';
 import { vxm } from '@/store';
-import { ProfileData, CreateProfileBossForm, CreateProfileEmployeeForm, EmployeelistPage } from '../types/coreProfileObjects';
+import {
+	ProfileData,
+	CreateProfileBossForm,
+	CreateProfileEmployeeForm,
+	EmployeelistPage,
+} from '../types/coreProfileObjects';
 import { EnterpriseData } from '../types/enterpriseObjects';
 
 const CoreUrl = {
@@ -88,11 +93,7 @@ export default class CoreProfileStore extends VuexModule {
 	@action async create_profile_boss(createProfileBossForm: CreateProfileBossForm) {
 		return new Promise<boolean>((resolve, reject) => {
 			axios
-				.post(
-					CoreUrl.create_profile_boss,
-					createProfileBossForm,
-					{ headers: vxm.auth.headers },
-				)
+				.post(CoreUrl.create_profile_boss, createProfileBossForm, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
 					if (data.id) {
@@ -113,9 +114,7 @@ export default class CoreProfileStore extends VuexModule {
 	@action async get_enterprise_with_subscription() {
 		return new Promise<boolean>((resolve, reject) => {
 			axios
-				.get(
-					CoreUrl.enterprise,
-					{ headers: vxm.auth.headers })
+				.get(CoreUrl.enterprise, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
 					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {
@@ -138,11 +137,7 @@ export default class CoreProfileStore extends VuexModule {
 	@action async create_profile_employee(createProfileEmployeeForm: CreateProfileEmployeeForm) {
 		return new Promise<boolean>((resolve, reject) => {
 			axios
-				.post(
-					CoreUrl.create_profile_boss,
-					createProfileEmployeeForm,
-					{ headers: vxm.auth.headers },
-				)
+				.post(CoreUrl.create_profile_boss, createProfileEmployeeForm, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
 					if (data.id) {
@@ -163,10 +158,7 @@ export default class CoreProfileStore extends VuexModule {
 	@action async get_employees_profiles() {
 		return new Promise((resolve, reject) => {
 			axios
-				.get(
-					`${CoreUrl.employee_profiles}/${this.currentProfile.enterprise}/`,
-					{ headers: vxm.auth.headers },
-				)
+				.get(`${CoreUrl.employee_profiles}/${this.currentProfile.enterprise}/`, { headers: vxm.auth.headers })
 				.then(response => {
 					const data = response.data;
 					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {

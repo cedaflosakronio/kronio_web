@@ -19,50 +19,30 @@
 								<div class="field border-form">
 									<label class="label label-form">Nombre de la empresa</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Id de la empresa</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Tamaño del equipo</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Dirección empresarial</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Pais</label>
-									<b-select
-										class="select-prefix"
-										v-model="prefix"
-										placeholder="Prefijo"
-									>
+									<b-select class="select-prefix" v-model="prefix" placeholder="Prefijo">
 										<option v-for="option in data" :value="option" :key="option">
 											{{ option }}
 										</option>
@@ -82,51 +62,31 @@
 								<div class="field border-form">
 									<label class="label label-form">Ciudad</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Tipo de empresa</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Contribuyente especial</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Actividad económica</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 								<div class="field border-form">
 									<label class="label label-form">Correo empresarial</label>
 									<div class="control">
-										<input
-											class="input no-border-form"
-											v-model="email"
-											placeholder=""
-										/>
+										<input class="input no-border-form" v-model="email" placeholder="" />
 									</div>
 								</div>
 							</div>

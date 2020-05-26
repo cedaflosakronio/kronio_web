@@ -2,13 +2,7 @@ import { createModule, mutation, action } from 'vuex-class-component';
 import axios from 'axios';
 import config from '../config.store';
 import { vxm } from '@/store';
-import {
-	TodayManageWork,
-	Mark,
-	MarkUserInterface,
-	MarkUserInterfaceRow,
-} from '../types/coreWorkObjects';
-
+import { TodayManageWork, Mark, MarkUserInterface, MarkUserInterfaceRow } from '../types/coreWorkObjects';
 
 const CoreWorkUrl = {
 	work: config.Kronio + 'public/work',
@@ -69,7 +63,7 @@ export default class CoreWorkStore extends VuexModule {
 				.then(response => {
 					const data = response.data;
 					if (Array.isArray(data) && !(typeof data[0] === 'undefined')) {
-						(data[0].id) && (this.set_today_manage_works(data), resolve());
+						data[0].id && (this.set_today_manage_works(data), resolve());
 					} else {
 						console.log(data);
 						reject();

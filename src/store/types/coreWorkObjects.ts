@@ -78,7 +78,7 @@ export class Mark {
 		return mark;
 	}
 
-	static create_2P(datetime: string, type: TypeMarkWork) {
+	static create_2P(datetime: string) {
 		const mark = new Mark();
 		mark.datetime = datetime;
 		mark.markTime = new MarkTime(mark.datetime);

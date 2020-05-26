@@ -1,4 +1,4 @@
-import { IsNotEmpty, Length, IsPhoneNumber, Matches, IsNumberString, IsEmail } from 'class-validator';
+import { IsNotEmpty, IsPhoneNumber, Matches, IsEmail } from 'class-validator';
 import { BaseValidate } from '@/utils/Validate';
 
 export class LoginBase extends BaseValidate {
