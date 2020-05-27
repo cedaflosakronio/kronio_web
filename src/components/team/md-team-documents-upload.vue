@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-subir-documentos" width="30%" height="auto">
+	<modal name="md-team-documents-upload" width="30%" height="auto">
 		<div class="example-modal-content">
 			<svg
 				width="100"
