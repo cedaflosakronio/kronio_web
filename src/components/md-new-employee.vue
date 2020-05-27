@@ -1,5 +1,5 @@
 <template>
-	<modal name="add-employee" width="30%" height="60%">
+	<modal name="add-employee" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<img class="img-modal" src="../assets/add_employee.png" alt="" />
 			<span @click="hide()" class="close-btn"><i class="fas fa-times"></i></span>

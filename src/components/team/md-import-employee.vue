@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-crear-empleado" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
+	<modal name="md-import-employee" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<svg
 				class="svg-img"
@@ -77,9 +77,9 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component
-export default class MdHolidays extends Vue {
+export default class MdImportEmployee extends Vue {
 	public hide() {
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-import-employee');
 	}
 }
 </script>
