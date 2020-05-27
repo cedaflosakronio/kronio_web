@@ -23,28 +23,44 @@
 							</div>
 						</header>
 						<div class="card-content">
-							<b-tabs position="is-centered" class="block tab-general">
-								<b-tab-item>
-									<template slot="header">
-										<p class="text-tab">Perfil</p>
-									</template>
-								</b-tab-item>
-								<b-tab-item>
-									<template slot="header">
-										<p class="text-tab">Documentos</p>
-									</template>
-								</b-tab-item>
-								<b-tab-item>
-									<template slot="header">
-										<p class="text-tab">Ausencias</p>
-									</template>
-								</b-tab-item>
-								<b-tab-item>
-									<template slot="header">
-										<p class="text-tab">Tareas</p>
-									</template>
-								</b-tab-item>
-							</b-tabs>
+							<div class="tabs is-fullwidth">
+								<ul>
+									<li @click="showTab(1)" v-bind:class="[perfil ? 'is-active' : '']">
+										<a>
+											<span class="tabs-label">Perfil</span>
+										</a>
+									</li>
+									<li @click="showTab(2)" v-bind:class="[documentos ? 'is-active' : '']">
+										<a>
+											<span class="tabs-label">Documentos</span>
+										</a>
+									</li>
+									<li @click="showTab(3)" v-bind:class="[ausencia ? 'is-active' : '']">
+										<a>
+											<span class="tabs-label">Ausencia</span>
+										</a>
+									</li>
+									<li @click="showTab(4)" v-bind:class="[tareas ? 'is-active' : '']">
+										<a>
+											<span class="tabs-label">Tareas</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="content">
+								<div v-if="perfil">
+									<SettingPerfil />
+								</div>
+								<div v-if="documentos">
+									<SettingDocumentos />
+								</div>
+								<div v-if="ausencia">
+									<SettingAusencia />
+								</div>
+								<div v-if="tareas">
+									<SettingTareas />
+								</div>
+							</div>
 							<!-- <div class="content">
                 <div class="columns">
                   <div class="column is-half container-text">
@@ -191,11 +207,20 @@ import NavBar from '@/components/NavBar.vue';
 import LogoSVG from '@/components/LogoSVG.vue';
 import { INavBarTitle } from '@/utils/types.utils';
 import MdNewPublication from '@/components/md-new-publication.vue';
+import SettingAusencia from '@/components/team/team-settings-ausencia.vue';
+import SettingPerfil from '@/components/team/team-settings-perfil.vue';
+import SettingDocumentos from '@/components/team/team-settings-documentos.vue';
+import SettingTareas from '@/components/team/team-settings-tareas.vue';
 
 @Component({
-	components: { NavBar, LogoSVG, MdNewPublication },
+	components: { NavBar, LogoSVG, MdNewPublication, SettingAusencia, SettingPerfil, SettingDocumentos, SettingTareas },
 })
 export default class NewPublications extends PageBase {
+	public perfil: boolean = true;
+	public documentos: boolean = false;
+	public ausencia: boolean = false;
+	public tareas: boolean = false;
+
 	private selectExpiran: boolean = false;
 	private save: boolean = false;
 	public showNewOptions: boolean = false;
@@ -305,6 +330,41 @@ export default class NewPublications extends PageBase {
 		this.mostrarExpiracion = this.diasAcumulables[this.dia].id == 0;
 		this.save = this.diasAcumulables[this.dia].id == 0;
 	}
+	public async showTab(item: number) {
+		switch (item) {
+			case 1:
+				this.perfil = true;
+				this.documentos = false;
+				this.ausencia = false;
+				this.tareas = false;
+				break;
+			case 2:
+				this.perfil = false;
+				this.documentos = true;
+				this.ausencia = false;
+				this.tareas = false;
+				break;
+			case 3:
+				this.perfil = false;
+				this.documentos = false;
+				this.ausencia = true;
+				this.tareas = false;
+				break;
+			case 4:
+				this.perfil = false;
+				this.documentos = false;
+				this.ausencia = false;
+				this.tareas = true;
+				break;
+
+			default:
+				this.perfil = true;
+				this.documentos = false;
+				this.ausencia = false;
+				this.tareas = false;
+				break;
+		}
+	}
 	public expiran() {
 		this.selectExpiran = !this.selectExpiran;
 		/* const el = document.getElementById('app');
@@ -367,6 +427,15 @@ export default class NewPublications extends PageBase {
 	margin: 0;
 	padding: 0;
 	background-color: #8969eb;
+}
+.app .tabs {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	padding-left: 30%;
+	padding-right: 30%;
+	background-color: #8969eb;
+	color: #ffffff;
 }
 .app {
 	.text-tab {
