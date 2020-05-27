@@ -24,6 +24,19 @@
 			</p>
 
 			<div class="columns is-centered"></div>
+			<div class="column box-select">
+				<div class="tarjeta-select">
+					<p class="label-left-descripcion">Fecha de nacimiento</p>
+					<b-field>
+						<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
+							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">{{
+								dato.value
+							}}</option>
+						</b-select>
+					</b-field>
+				</div>
+			</div>
+
 			<div class="box-column">
 				<div class="columns">
 					<div class="column is-full">
@@ -52,10 +65,69 @@
 					</div>
 				</div>
 			</div>
+			<div class="column box-select" v-if="valor != ''">
+				<div class="tarjeta-select">
+					<div class="columns">
+						<div class="column">
+							<svg
+								width="17"
+								height="19"
+								viewBox="0 0 17 19"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M12.7336 8.28681V4.75031C12.7336 4.64812 12.6861 4.55688 12.6204 4.48024L8.65693 0.319657C8.58394 0.243014 8.4781 0.199219 8.37226 0.199219H2.08759C0.927007 0.199219 0 1.14447 0 2.30506V14.1919C0 15.3525 0.927007 16.2832 2.08759 16.2832H7.05109C7.98905 17.8415 9.69708 18.8853 11.6387 18.8853C14.5912 18.8853 17 16.4875 17 13.5313C17.0036 10.9474 15.1496 8.79046 12.7336 8.28681ZM8.76277 1.56783L11.4234 4.3671H9.69708C9.18248 4.3671 8.76277 3.94374 8.76277 3.42914V1.56783ZM2.08759 15.5058C1.35766 15.5058 0.777372 14.9218 0.777372 14.1919V2.30506C0.777372 1.57148 1.35766 0.976591 2.08759 0.976591H7.9854V3.4255C7.9854 4.37075 8.75182 5.14447 9.70073 5.14447H11.9599V8.18462C11.8431 8.18097 11.7482 8.17002 11.6496 8.17002C10.292 8.17002 9.04014 8.69192 8.09854 9.50943H3.14598C2.93066 9.50943 2.75547 9.68462 2.75547 9.89995C2.75547 10.1153 2.93066 10.2905 3.14598 10.2905H7.36861C7.09124 10.681 6.86131 11.0678 6.68248 11.4985H3.14598C2.93066 11.4985 2.75547 11.6737 2.75547 11.889C2.75547 12.1043 2.93066 12.2795 3.14598 12.2795H6.43066C6.33212 12.67 6.28102 13.1007 6.28102 13.535C6.28102 14.2357 6.41606 14.9291 6.66423 15.5131H2.08759V15.5058ZM11.6423 18.1116C9.12044 18.1116 7.06569 16.0605 7.06569 13.535C7.06569 11.0094 9.11314 8.95834 11.6423 8.95834C14.1715 8.95834 16.219 11.0094 16.219 13.535C16.219 16.0605 14.1642 18.1116 11.6423 18.1116Z"
+									fill="#7A7979"
+									fill-opacity="0.5"
+								/>
+								<path
+									d="M3.14832 8.33962H7.09358C7.30891 8.33962 7.48409 8.16443 7.48409 7.9491C7.48409 7.73378 7.30891 7.55859 7.09358 7.55859H3.14832C2.93299 7.55859 2.75781 7.73378 2.75781 7.9491C2.76146 8.16443 2.93664 8.33962 3.14832 8.33962Z"
+									fill="#7A7979"
+									fill-opacity="0.5"
+								/>
+								<path
+									d="M9.63755 13.6413L11.2397 11.915V16.1668C11.2397 16.3821 11.4149 16.5573 11.6302 16.5573C11.8456 16.5573 12.0208 16.3821 12.0208 16.1668V11.915L13.6339 13.6413C13.7835 13.7982 14.0317 13.8091 14.1886 13.6595C14.3456 13.5099 14.3565 13.2653 14.2069 13.1121L11.9295 10.6632C11.8565 10.5865 11.7543 10.5391 11.6448 10.5391C11.5354 10.5391 11.4332 10.5865 11.3602 10.6632L9.07915 13.1121C8.92952 13.269 8.94047 13.5172 9.09375 13.6595C9.24704 13.8055 9.48791 13.7945 9.63755 13.6413Z"
+									fill="#7A7979"
+									fill-opacity="0.5"
+								/>
+							</svg>
+						</div>
+						<div class="column is-four-fifths">
+							<p class="label-left-descripcion">nombre del archivo</p>
+						</div>
+						<div class="column">
+							<svg
+								width="17"
+								height="19"
+								viewBox="0 0 17 19"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M12.7336 8.28681V4.75031C12.7336 4.64812 12.6861 4.55688 12.6204 4.48024L8.65693 0.319657C8.58394 0.243014 8.4781 0.199219 8.37226 0.199219H2.08759C0.927007 0.199219 0 1.14447 0 2.30506V14.1919C0 15.3525 0.927007 16.2832 2.08759 16.2832H7.05109C7.98905 17.8415 9.69708 18.8853 11.6387 18.8853C14.5912 18.8853 17 16.4875 17 13.5313C17.0036 10.9474 15.1496 8.79046 12.7336 8.28681ZM8.76277 1.56783L11.4234 4.3671H9.69708C9.18248 4.3671 8.76277 3.94374 8.76277 3.42914V1.56783ZM2.08759 15.5058C1.35766 15.5058 0.777372 14.9218 0.777372 14.1919V2.30506C0.777372 1.57148 1.35766 0.976591 2.08759 0.976591H7.9854V3.4255C7.9854 4.37075 8.75182 5.14447 9.70073 5.14447H11.9599V8.18462C11.8431 8.18097 11.7482 8.17002 11.6496 8.17002C10.292 8.17002 9.04014 8.69192 8.09854 9.50943H3.14598C2.93066 9.50943 2.75547 9.68462 2.75547 9.89995C2.75547 10.1153 2.93066 10.2905 3.14598 10.2905H7.36861C7.09124 10.681 6.86131 11.0678 6.68248 11.4985H3.14598C2.93066 11.4985 2.75547 11.6737 2.75547 11.889C2.75547 12.1043 2.93066 12.2795 3.14598 12.2795H6.43066C6.33212 12.67 6.28102 13.1007 6.28102 13.535C6.28102 14.2357 6.41606 14.9291 6.66423 15.5131H2.08759V15.5058ZM11.6423 18.1116C9.12044 18.1116 7.06569 16.0605 7.06569 13.535C7.06569 11.0094 9.11314 8.95834 11.6423 8.95834C14.1715 8.95834 16.219 11.0094 16.219 13.535C16.219 16.0605 14.1642 18.1116 11.6423 18.1116Z"
+									fill="#7A7979"
+									fill-opacity="0.5"
+								/>
+								<path
+									d="M3.14832 8.33962H7.09358C7.30891 8.33962 7.48409 8.16443 7.48409 7.9491C7.48409 7.73378 7.30891 7.55859 7.09358 7.55859H3.14832C2.93299 7.55859 2.75781 7.73378 2.75781 7.9491C2.76146 8.16443 2.93664 8.33962 3.14832 8.33962Z"
+									fill="#7A7979"
+									fill-opacity="0.5"
+								/>
+								<path
+									d="M9.63755 13.6413L11.2397 11.915V16.1668C11.2397 16.3821 11.4149 16.5573 11.6302 16.5573C11.8456 16.5573 12.0208 16.3821 12.0208 16.1668V11.915L13.6339 13.6413C13.7835 13.7982 14.0317 13.8091 14.1886 13.6595C14.3456 13.5099 14.3565 13.2653 14.2069 13.1121L11.9295 10.6632C11.8565 10.5865 11.7543 10.5391 11.6448 10.5391C11.5354 10.5391 11.4332 10.5865 11.3602 10.6632L9.07915 13.1121C8.92952 13.269 8.94047 13.5172 9.09375 13.6595C9.24704 13.8055 9.48791 13.7945 9.63755 13.6413Z"
+									fill="#7A7979"
+									fill-opacity="0.5"
+								/>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div>
 				<div class="columns">
 					<div class="column">
-						<b-checkbox>
+						<b-checkbox v-model="notificacion" :disabled="disabledNotificacion">
 							<p>Enviar notificación a Belen</p>
 						</b-checkbox>
 					</div>
@@ -69,7 +141,7 @@
 				</div>
 				<div class="columns">
 					<div class="column">
-						<b-checkbox>
+						<b-checkbox v-model="firma" @input="solicitarFirma">
 							<p>Solicitar firma electrónica</p>
 						</b-checkbox>
 					</div>
@@ -88,9 +160,23 @@
 			<div class="column">
 				<p class="firma-text">Saber más sobre firma electrónica</p>
 			</div>
-			<div class="columns is-centered">
+			<div class="column box-select" v-if="firma">
+				<div class="tarjeta-select">
+					<p class="label-left-descripcion">Firmantes</p>
+					<b-field>
+						<b-select placeholder="seleccione" size="is-small" expanded v-model="firmante">
+							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">{{
+								dato.value
+							}}</option>
+						</b-select>
+					</b-field>
+				</div>
+			</div>
+			<div class="columns is-centered box-botton">
 				<div class="column is-10">
-					<button class="button btn-wellcome is-fullwidth">Subir</button>
+					<button class="button btn-wellcome is-fullwidth" @click="subir" :disabled="disable">
+						{{ buttonText }}
+					</button>
 				</div>
 			</div>
 		</div>
@@ -104,13 +190,63 @@ import { Vue, Component } from 'vue-property-decorator';
 	props: { type: Boolean },
 })
 export default class MdHolidays extends Vue {
+	disable = true;
+	valor = '';
+	buttonText = 'Subir';
+	notificacion = false;
+	disabledNotificacion = false;
+	firma = false;
+	firmante: '';
+	public tipos = [
+		{
+			id: 1,
+			value: 'Contratos',
+		},
+		{
+			id: 2,
+			value: 'Ids',
+		},
+		{
+			id: 3,
+			value: 'Nóminas',
+		},
+		{
+			id: 4,
+			value: 'Ausencias por enfermedad',
+		},
+	];
+
 	public hide() {
+		this.valor = '';
 		this.$modal.hide('md-holidays');
+	}
+
+	public subir() {
+		console.log(this.valor);
+	}
+
+	cambio() {
+		this.buttonText = 'Subir 1 doc';
+		this.disable = false;
+	}
+
+	public solicitarFirma() {
+		console.log('firma', this.firma);
+		if (this.firma) {
+			this.disabledNotificacion = true;
+			this.notificacion = true;
+		} else {
+			this.disabledNotificacion = false;
+			this.notificacion = false;
+		}
 	}
 }
 </script>
 
 <style lang="scss" scoped>
+.box-botton {
+	margin-bottom: 3%;
+}
 .title-employee {
 	font-weight: 500;
 	font-size: 25px;
@@ -217,5 +353,27 @@ export default class MdHolidays extends Vue {
 }
 .caja-consejo {
 	margin-left: 5%;
+}
+
+.tarjeta-select {
+	border: 0.6px solid rgba(122, 121, 121, 0.5);
+	box-sizing: border-box;
+	border-radius: 3px;
+	width: 100%;
+	padding: 4%;
+}
+
+.label-left-descripcion {
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 18px;
+	color: rgba(122, 121, 121, 0.5);
+	text-align: left;
+}
+.box-select {
+	padding-left: 9%;
+	padding-right: 9%;
 }
 </style>
