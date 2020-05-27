@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-subir-firma" width="30%" height="80%">
+	<modal name="md-subir-firma" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<svg
 				width="100"

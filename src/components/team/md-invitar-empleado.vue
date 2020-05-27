@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-invitar-empleado" width="30%" height="80%">
+	<modal name="md-invitar-empleado" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<img class="img-modal" src="../../assets/modal_holidays.png" alt />
 			<span @click="hide()" class="close-btn">

@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-new-publication" width="25%" height="45%">
+	<modal name="md-new-publication" width="25%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<img class="img-modal" src="../assets/documents.png" alt="" />
 			<p class="title-employee">

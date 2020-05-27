@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-add-holiday" width="25%" height="60%">
+	<modal name="md-add-holiday" width="25%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<img class="img-modal" src="../assets/modal_holidays.png" alt />
 			<span @click="hide()" class="close-btn">
