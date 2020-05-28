@@ -76,7 +76,7 @@
 										</b-dropdown-item>
 									</b-dropdown>
 								</div>
-								<div class="column" v-if="perfil">
+								<div class="column" v-if="perfil" style="margin-top:auto; margin-bottom-auto;">
 									<b-dropdown aria-role="list" class="button-options">
 										<span class="button-options" slot="trigger">
 											<i class="fas fa-ellipsis-h"></i>
@@ -112,6 +112,26 @@
 									<span class="button-options" slot="trigger" @click="uploadAusencias()">
 										<b-icon icon="plus"></b-icon>
 									</span>
+								</div>
+								<div class="column" v-if="tareas" style="margin-top:auto; margin-bottom-auto;">
+									<b-dropdown aria-role="list" class="button-options">
+										<span class="button-options" slot="trigger">
+											<i class="fas fa-ellipsis-h"></i>
+										</span>
+
+										<b-dropdown-item aria-role="listitem">
+											<p class="item-title">Importa una plantilla de tareas</p>
+											<p class="item-text">
+												Importa plantilla de tareas para este empleado
+											</p>
+										</b-dropdown-item>
+										<b-dropdown-item aria-role="listitem">
+											<p class="item-title">Crea una tarea</p>
+											<p class="item-text">
+												Crea una tarea para este empleado
+											</p>
+										</b-dropdown-item>
+									</b-dropdown>
 								</div>
 							</div>
 						</header>
