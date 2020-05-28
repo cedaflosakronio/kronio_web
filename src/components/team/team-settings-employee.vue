@@ -121,15 +121,11 @@
 
 										<b-dropdown-item aria-role="listitem">
 											<p class="item-title">Importa una plantilla de tareas</p>
-											<p class="item-text">
-												Importa plantilla de tareas para este empleado
-											</p>
+											<p class="item-text">Importa plantilla de tareas para este empleado</p>
 										</b-dropdown-item>
-										<b-dropdown-item aria-role="listitem">
+										<b-dropdown-item aria-role="listitem" @click="createTask()">
 											<p class="item-title">Crea una tarea</p>
-											<p class="item-text">
-												Crea una tarea para este empleado
-											</p>
+											<p class="item-text">Crea una tarea para este empleado</p>
 										</b-dropdown-item>
 									</b-dropdown>
 								</div>
@@ -182,6 +178,7 @@
 		<MdNewPublication />
 		<MDDocumentUpload />
 		<Ausencia />
+		<CrearTarea />
 	</div>
 </template>
 
@@ -198,6 +195,7 @@ import SettingDocumentos from '@/components/team/team-settings-documentos.vue';
 import SettingTareas from '@/components/team/team-settings-tareas.vue';
 import MDDocumentUpload from '@/components/team/md-team-documents-upload.vue';
 import Ausencia from '@/components/team/md-team-documents-ausencia.vue';
+import CrearTarea from '@/components/team/md-crear-tarea.vue';
 
 @Component({
 	components: {
@@ -210,6 +208,7 @@ import Ausencia from '@/components/team/md-team-documents-ausencia.vue';
 		SettingTareas,
 		MDDocumentUpload,
 		Ausencia,
+		CrearTarea,
 	},
 })
 export default class NewPublications extends PageBase {
@@ -445,6 +444,9 @@ export default class NewPublications extends PageBase {
 	}
 	public uploadAusencias() {
 		this.$modal.show('md-team-documents-ausencia');
+	}
+	public createTask() {
+		this.$modal.show('md-crear-tarea');
 	}
 }
 </script>
