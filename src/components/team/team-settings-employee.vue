@@ -76,7 +76,7 @@
 										</b-dropdown-item>
 									</b-dropdown>
 								</div>
-								<div class="column" v-if="!documentos">
+								<div class="column" v-if="perfil">
 									<b-dropdown aria-role="list" class="button-options">
 										<span class="button-options" slot="trigger">
 											<i class="fas fa-ellipsis-h"></i>
@@ -105,6 +105,11 @@
 								</div>
 								<div class="column" v-if="documentos" style="margin-top:auto; margin-bottom-auto;">
 									<span class="button-options" slot="trigger" @click="uploadDocuments()">
+										<b-icon icon="plus"></b-icon>
+									</span>
+								</div>
+								<div class="column" v-if="ausencia" style="margin-top:auto; margin-bottom-auto;">
+									<span class="button-options" slot="trigger" @click="uploadAusencias()">
 										<b-icon icon="plus"></b-icon>
 									</span>
 								</div>
@@ -156,6 +161,7 @@
 		</div>
 		<MdNewPublication />
 		<MDDocumentUpload />
+		<Ausencia />
 	</div>
 </template>
 
@@ -171,6 +177,7 @@ import SettingPerfil from '@/components/team/team-settings-perfil.vue';
 import SettingDocumentos from '@/components/team/team-settings-documentos.vue';
 import SettingTareas from '@/components/team/team-settings-tareas.vue';
 import MDDocumentUpload from '@/components/team/md-team-documents-upload.vue';
+import Ausencia from '@/components/team/md-team-documents-ausencia.vue';
 
 @Component({
 	components: {
@@ -182,6 +189,7 @@ import MDDocumentUpload from '@/components/team/md-team-documents-upload.vue';
 		SettingDocumentos,
 		SettingTareas,
 		MDDocumentUpload,
+		Ausencia,
 	},
 })
 export default class NewPublications extends PageBase {
@@ -414,6 +422,9 @@ export default class NewPublications extends PageBase {
 
 	public uploadDocuments() {
 		this.$modal.show('md-team-documents-upload');
+	}
+	public uploadAusencias() {
+		this.$modal.show('md-team-documents-ausencia');
 	}
 }
 </script>
