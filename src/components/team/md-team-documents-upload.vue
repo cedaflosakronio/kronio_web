@@ -29,9 +29,9 @@
 					<p class="label-left-descripcion">Fecha de nacimiento</p>
 					<b-field>
 						<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
-							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">{{
-								dato.value
-							}}</option>
+							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">
+								{{ dato.value }}
+							</option>
 						</b-select>
 					</b-field>
 				</div>
@@ -161,15 +161,61 @@
 				<p class="firma-text">Saber más sobre firma electrónica</p>
 			</div>
 			<div class="column box-select" v-if="firma">
-				<div class="tarjeta-select">
-					<p class="label-left-descripcion">Firmantes</p>
-					<b-field>
-						<b-select placeholder="seleccione" size="is-small" expanded v-model="firmante">
-							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">{{
-								dato.value
-							}}</option>
-						</b-select>
-					</b-field>
+				<div class="dropdown is-up" :class="dropSelected ? 'is-active' : ''">
+					<div class="dropdown-trigger">
+						<div class="columns box-dropdown-select">
+							<div class="column is-four-fifths">
+								<p class="label-left-descripcion">Firmantes</p>
+								<p class="text-input-selected">Belen Zavala</p>
+							</div>
+							<div class="column icon-drop-select" @click="dropSelect()">
+								<i class="fas fa-chevron-down" v-if="dropSelected"></i>
+								<i class="fas fa-chevron-up" v-if="!dropSelected"></i>
+							</div>
+						</div>
+					</div>
+					<div class="dropdown-menu box-drop-content" id="dropdown-menu7" role="menu">
+						<div class="dropdown-content">
+							<div class="field dropdown-item-box">
+								<p class="control has-icons-left has-icons-right">
+									<input class="input" type="text" placeholder="Filtrar por nombre" />
+									<span class="icon is-small is-left">
+										<i class="fas fa-search"></i>
+									</span>
+								</p>
+							</div>
+							<div class="columns dropdown-item-menu-box">
+								<div class="column">
+									<p class="text-drop-selection">Seleccionar</p>
+								</div>
+								<div class="column">
+									<p class="text-drop-selection-all">Todo</p>
+								</div>
+								<div class="column">
+									<p class="text-drop-selection">Ninguno</p>
+								</div>
+							</div>
+							<hr class="hr-top" />
+							<div class="columns box-item-dropdown" @click="itemSelect">
+								<div class="column">
+									<i class="fas fa-circle"></i>
+								</div>
+								<div class="column is-four-fifths">
+									<p class="text-input-selected">Belen Zavala Luque</p>
+								</div>
+								<div class="column">
+									<b-checkbox></b-checkbox>
+								</div>
+								<!-- <div class="column icon-color">
+                  <i class="fas fa-circle"></i>
+                </div>
+                <div class="column is-four-fifths box-item-dropdown">
+                  <p class="text-dropdown">Belen Zavala Luque</p>
+                </div>
+                <div class="column"></div>-->
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="columns is-centered box-botton">
@@ -190,13 +236,14 @@ import { Vue, Component } from 'vue-property-decorator';
 	props: { type: Boolean },
 })
 export default class MdHolidays extends Vue {
-	disable = true;
-	valor = '';
-	buttonText = 'Subir';
-	notificacion = false;
-	disabledNotificacion = false;
-	firma = false;
-	firmante: '';
+	public disable = true;
+	public valor = '';
+	public buttonText = 'Subir';
+	public notificacion = false;
+	public disabledNotificacion = false;
+	public firma = false;
+	public firmante: '';
+	public dropSelected: boolean = false;
 	public tipos = [
 		{
 			id: 1,
@@ -223,6 +270,16 @@ export default class MdHolidays extends Vue {
 
 	public subir() {
 		console.log(this.valor);
+	}
+
+	public dropSelect() {
+		console.log('selected after', this.dropSelected);
+		this.dropSelected = !this.dropSelected;
+		console.log('selected before', this.dropSelected);
+	}
+
+	public itemSelect() {
+		this.dropSelected = false;
 	}
 
 	cambio() {
@@ -375,5 +432,60 @@ export default class MdHolidays extends Vue {
 .box-select {
 	padding-left: 9%;
 	padding-right: 9%;
+}
+
+.box-drop-content {
+	right: -3%;
+	left: -3% !important;
+}
+.text-drop-selection {
+	font-size: 14px;
+	line-height: 21px;
+
+	color: rgba(122, 121, 121, 0.5);
+}
+.text-drop-selection-all {
+	font-size: 14px;
+	line-height: 21px;
+
+	color: #335eea;
+}
+.hr-top {
+	margin-top: 0;
+}
+.box-item-dropdown {
+	padding-left: 10%;
+	padding-right: 15%;
+}
+.input-circle {
+	background-color: red;
+}
+.dropdown-item-box {
+	padding-left: 20%;
+	padding-right: 20%;
+}
+.dropdown-item-menu-box {
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-bottom: 4%;
+}
+.box-dropdown-select {
+	border: 0.6px solid rgba(122, 121, 121, 0.5);
+	box-sizing: border-box;
+	border-radius: 3px;
+	width: 464px;
+	margin-bottom: 2%;
+	padding: 4%;
+}
+.icon-drop-select {
+	margin-top: auto;
+	margin-bottom: auto;
+	color: rgba(122, 121, 121, 0.5);
+}
+.text-input-selected {
+	font-size: 12px;
+	line-height: 18px;
+	text-align: left;
+	color: #7a7979;
 }
 </style>
