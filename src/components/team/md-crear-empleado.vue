@@ -110,6 +110,7 @@ export default class MdHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	margin-bottom: 5%;
 }
 
 .close-btn {

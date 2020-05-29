@@ -876,7 +876,7 @@ export default class NewPublications extends PageBase {
 		width: 100%;
 		padding-left: 6%;
 		padding-top: 5%;
-		padding-bottom: 5%;
+		padding-bottom: 7.5%;
 	}
 
 	.tarjeta-container {
@@ -934,6 +934,7 @@ export default class NewPublications extends PageBase {
 		line-height: 18px;
 		color: rgba(122, 121, 121, 0.5);
 		text-align: center;
+		padding-bottom: 3%;
 	}
 }
 .input,

@@ -5,7 +5,7 @@
 				<div class="column is-full">
 					<div class="card box-height">
 						<div class="card-content">
-							<div class="columns box-header">
+							<div class="columns box-header-ausencia">
 								<div class="column"></div>
 								<div class="column is-one-fifth">
 									<div class="columns">
@@ -372,7 +372,7 @@ export default class NewPublications extends PageBase {
 
 	.box-height {
 		width: calc(100vw - 4rem);
-		height: auto;
+		height: calc(100vw - 4rem);
 		border-radius: 8px;
 		//box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
 	}
@@ -382,13 +382,15 @@ export default class NewPublications extends PageBase {
 		height: calc(120vh - 4rem);
 	}
 
-	.box-header {
+	.box-header-ausencia {
 		background-color: #8969eb;
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 30px;
 		text-align: center;
-
+		margin-left: -1.5%;
+		margin-right: -1.5%;
+		margin-top: -4.5%;
 		color: #ffffff;
 	}
 

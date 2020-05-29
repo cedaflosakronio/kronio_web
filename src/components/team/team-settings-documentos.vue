@@ -514,7 +514,7 @@ export default class NewPublications extends PageBase {
 .app {
 	.box-height {
 		width: calc(100vw - 4rem);
-		height: auto;
+		height: calc(100vw - 4rem);
 		border-radius: 8px;
 		//box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
 	}

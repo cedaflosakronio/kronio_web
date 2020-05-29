@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-importar-empleado" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
+	<modal name="md-importar-empleado" width="30%" height="auto" :scrollable="true" :adaptive="true">
 		<div class="example-modal-content">
 			<svg
 				width="100"
@@ -83,6 +83,7 @@
 					<div class="column"></div>
 				</div>
 			</div>
+			<div class="espacio"></div>
 		</div>
 	</modal>
 </template>
@@ -99,6 +100,9 @@ export default class MdHolidays extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.espacio {
+	margin-bottom: 5%;
+}
 .title-employee {
 	font-weight: 500;
 	font-size: 25px;

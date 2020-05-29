@@ -5,34 +5,41 @@
 				<div class="column is-10">
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<div class="tabs is-fullwidth">
-								<ul>
-									<li @click="showTab(1)" v-bind:class="[employee ? 'is-active' : '']">
-										<a>
-											<span class="tabs-label">Empleados</span>
-										</a>
-									</li>
-									<li @click="showTab(2)" v-bind:class="[documents ? 'is-active' : '']">
-										<a>
-											<span class="tabs-label">Documentos</span>
-										</a>
-									</li>
-								</ul>
-							</div>
-							<b-dropdown aria-role="list" class="button-options">
-								<span class="button-options" slot="trigger">
-									<b-icon icon="plus"></b-icon>
-								</span>
+							<div class="columns">
+								<div class="column"></div>
+								<div class="column is-four-fifths">
+									<div class="tabs is-fullwidth">
+										<ul>
+											<li @click="showTab(1)" v-bind:class="[employee ? 'is-active' : '']">
+												<a>
+													<span class="tabs-label">Empleados</span>
+												</a>
+											</li>
+											<li @click="showTab(2)" v-bind:class="[documents ? 'is-active' : '']">
+												<a>
+													<span class="tabs-label">Documentos</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="column">
+									<b-dropdown aria-role="list" class="button-options">
+										<span class="button-options" slot="trigger">
+											<b-icon icon="plus"></b-icon>
+										</span>
 
-								<b-dropdown-item aria-role="listitem" @click="newEmployee">
-									<p class="item-title">Invitar nuevo empleado</p>
-									<p class="item-text">Selecciona lo que desees aplicar.</p>
-								</b-dropdown-item>
-								<b-dropdown-item aria-role="listitem" @click="importEmployee()">
-									<p class="item-title">Importar empleados</p>
-									<p class="item-text">Importa empleados en masa</p>
-								</b-dropdown-item>
-							</b-dropdown>
+										<b-dropdown-item aria-role="listitem" @click="newEmployee">
+											<p class="item-title">Invitar nuevo empleado</p>
+											<p class="item-text">Selecciona lo que desees aplicar.</p>
+										</b-dropdown-item>
+										<b-dropdown-item aria-role="listitem" @click="importEmployee()">
+											<p class="item-title">Importar empleados</p>
+											<p class="item-text">Importa empleados en masa</p>
+										</b-dropdown-item>
+									</b-dropdown>
+								</div>
+							</div>
 						</header>
 						<div class="card-content">
 							<div class="content">
@@ -166,6 +173,7 @@ export default class ConfigAdmin extends PageBase {
 
 	.box-height {
 		height: calc(190vh - 3rem);
+		margin-top: 3%;
 	}
 
 	.content ul {
@@ -219,8 +227,9 @@ export default class ConfigAdmin extends PageBase {
 	//Boton + del tab
 	.button-options {
 		background-color: transparent;
-		margin: auto;
-		padding-top: 1%;
+		margin-top: auto;
+		margin-bottom: auto;
+		padding-top: 4%;
 		font-size: 30px;
 		color: #ffffff;
 	}
@@ -253,6 +262,10 @@ export default class ConfigAdmin extends PageBase {
 		position: absolute;
 		top: 100%;
 		z-index: 20;
+	}
+
+	.card-header {
+		display: block;
 	}
 }
 </style>
