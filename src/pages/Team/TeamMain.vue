@@ -184,6 +184,7 @@ export default class ConfigAdmin extends PageBase {
 
 	.tabs-header {
 		background: #8969eb;
+		display: block;
 	}
 
 	.tab-content {
@@ -262,10 +263,6 @@ export default class ConfigAdmin extends PageBase {
 		position: absolute;
 		top: 100%;
 		z-index: 20;
-	}
-
-	.card-header {
-		display: block;
 	}
 }
 </style>

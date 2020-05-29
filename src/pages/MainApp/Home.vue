@@ -1,23 +1,42 @@
 <template>
 	<div class="home">
-		<div class="btn-main-absolute">
+		<div :class="!showOptionsEmployee ? 'btn-main-absolute' : 'btn-main-absolute-open'">
 			<button class="button is-fullwidth btn-absolute" @click="goTo(1)">
 				<span class="icon">
 					<img src="../../assets/main_btn/start.png" alt />
 				</span>
 				<span class="label-main-btn">Inicio</span>
 			</button>
-			<button class="button is-fullwidth btn-absolute" @click="goTo(2)">
-				<span class="icon">
-					<img src="../../assets/main_btn/history.png" alt />
-				</span>
-				<span class="label-main-btn">Historial</span>
-			</button>
 			<button class="button is-fullwidth btn-absolute" @click="goTo(3)">
 				<span class="icon">
 					<img src="../../assets/main_btn/team.png" alt />
 				</span>
 				<span class="label-main-btn">Equipo</span>
+				<span class="icon label-main-btn-team" @click="optionsEmployee">
+					<i class="fas fa-chevron-down" v-if="!showOptionsEmployee"></i>
+					<i class="fas fa-chevron-up" v-if="showOptionsEmployee"></i>
+				</span>
+			</button>
+			<div class="content-options-employee" v-if="showOptionsEmployee">
+				<div class="columns">
+					<div class="column">
+						<label class="label label-employee">Empleados</label>
+					</div>
+					<div class="column">
+						<i class="fas fa-plus-circle"></i>
+					</div>
+				</div>
+				<div class="columns">
+					<div class="column">
+						<label class="label label-assistance">Asistencia</label>
+					</div>
+				</div>
+			</div>
+			<button class="button is-fullwidth btn-absolute" @click="goTo(2)">
+				<span class="icon">
+					<img src="../../assets/main_btn/history.png" alt />
+				</span>
+				<span class="label-main-btn">Historial</span>
 			</button>
 			<button class="button is-fullwidth btn-absolute" @click="goTo(4)">
 				<span class="icon">
@@ -379,6 +398,7 @@ import TeamMain from '@/pages/Team/TeamMain.vue';
 export default class LogoSVG extends Vue {
 	public home: boolean = true;
 	public team: boolean = false;
+	public showOptionsEmployee: boolean = false;
 
 	public isHidden: boolean = true;
 	public showOptions() {
@@ -389,6 +409,9 @@ export default class LogoSVG extends Vue {
 		}
 	}
 
+	public optionsEmployee() {
+		this.showOptionsEmployee = true;
+	}
 	public async mainCalendar() {
 		this.$destroy();
 		this.$router.push('/main-calendar');
@@ -399,6 +422,7 @@ export default class LogoSVG extends Vue {
 			case 1:
 				this.home = true;
 				this.team = false;
+				this.showOptionsEmployee = false;
 				break;
 			case 3:
 				this.team = true;
@@ -408,6 +432,7 @@ export default class LogoSVG extends Vue {
 			default:
 				this.home = true;
 				this.team = false;
+				this.showOptionsEmployee = false;
 				break;
 		}
 	}
@@ -566,6 +591,24 @@ export default class LogoSVG extends Vue {
 		@media screen and (max-width: 1024px) {
 			padding: 0px;
 		}
+	}
+
+	.content-options-employee {
+		background: #e9e9e9;
+		border-radius: 4px;
+		padding-left: 20%;
+	}
+
+	.label-employee {
+		font-size: 12px;
+		line-height: 18px;
+		color: #7a7979;
+	}
+
+	.label-assistance {
+		font-size: 12px;
+		line-height: 18px;
+		color: rgba(122, 121, 121, 0.5);
 	}
 
 	#employees .card-content {
@@ -769,6 +812,10 @@ export default class LogoSVG extends Vue {
 			display: inline;
 		}
 
+		.label-main-btn-team {
+			display: inline;
+		}
+
 		.btn-absolute {
 			text-align: left !important;
 			padding-left: 12% !important;
@@ -792,8 +839,58 @@ export default class LogoSVG extends Vue {
 		border-bottom-right-radius: 4px;
 	}
 
+	.btn-main-absolute-open {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-top: 5%;
+		margin-left: 0% !important;
+		width: 3%;
+		text-align: left;
+
+		@media screen and (max-width: 1440px) {
+			width: 5%;
+			margin-top: 6%;
+		}
+
+		@media screen and (max-width: 1024px) {
+			margin-top: 8%;
+		}
+
+		@media screen and (max-width: 768px) {
+			margin-top: 20%;
+			width: 14%;
+		}
+		width: 9% !important;
+
+		.label-main-btn {
+			display: inline;
+		}
+
+		.label-main-btn-team {
+			display: inline;
+		}
+
+		.btn-absolute {
+			text-align: left !important;
+			padding-left: 12% !important;
+			justify-content: start !important;
+			margin-top: 2%;
+			margin-bottom: 2%;
+			background: #f2f5ff;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+	}
+
 	.label-main-btn {
 		display: none;
+	}
+
+	.label-main-btn-team {
+		display: none;
+		color: #ffffff;
+		margin-left: 40% !important;
 	}
 
 	.btn-more-calendar {
