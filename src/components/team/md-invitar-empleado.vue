@@ -65,7 +65,7 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component
 export default class MdHolidays extends Vue {
 	public hide() {
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-invitar-empleado');
 	}
 }
 </script>

@@ -86,6 +86,8 @@ export default class MdPostponedHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	margin-top: 5%;
+	margin-bottom: 10%;
 }
 
 .btn-cancel {

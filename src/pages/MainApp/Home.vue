@@ -7,7 +7,7 @@
 				</span>
 				<span class="label-main-btn">Inicio</span>
 			</button>
-			<button class="button is-fullwidth btn-absolute" @click="goTo(3)">
+			<button class="button is-fullwidth btn-absolute">
 				<span class="icon">
 					<img src="../../assets/main_btn/team.png" alt />
 				</span>
@@ -18,7 +18,7 @@
 				</span>
 			</button>
 			<div class="content-options-employee" v-if="showOptionsEmployee">
-				<div class="columns">
+				<div class="columns" @click="goTo(3)">
 					<div class="column">
 						<label class="label label-employee">Empleados</label>
 					</div>
@@ -26,7 +26,7 @@
 						<i class="fas fa-plus-circle"></i>
 					</div>
 				</div>
-				<div class="columns">
+				<div class="columns" @click="goTo(5)">
 					<div class="column">
 						<label class="label label-assistance">Asistencia</label>
 					</div>
@@ -364,7 +364,7 @@
 					<img class="imgBtnAsk" src="../../assets/tool_btn/ask.png" alt />
 				</button>
 				<div v-if="!isHidden" class="more-option-kronio">
-					<button class="btn-float-Pencil" title="Crear una publicación">
+					<button class="btn-float-Pencil" title="Crear una publicación" @click="goNewPublication()">
 						<img class="imgBtnPencil" src="../../assets/tool_btn/pencil.png" alt />
 					</button>
 					<button class="btn-float-User" title="Añadir empleado">
@@ -377,8 +377,11 @@
 			</div>
 		</div>
 
-		<div v-if="team">
+		<div v-if="team_employee">
 			<TeamMain />
+		</div>
+		<div v-if="team_assistance">
+			<TeamAssistance />
 		</div>
 	</div>
 </template>
@@ -391,13 +394,23 @@ import WellcomeAdmin from '@/components/Wellcome.vue';
 import MdHolidays from '@/components/md-holidays.vue';
 import MdPostponedHolidays from '@/components/md-postponed-holidays.vue';
 import TeamMain from '@/pages/Team/TeamMain.vue';
+import TeamAssistance from '@/pages/Team/TeamAssistance.vue';
 
 @Component({
-	components: { ErrorSection, WellcomeAdmin, MdNewEmployee, MdHolidays, MdPostponedHolidays, TeamMain },
+	components: {
+		ErrorSection,
+		WellcomeAdmin,
+		MdNewEmployee,
+		MdHolidays,
+		MdPostponedHolidays,
+		TeamMain,
+		TeamAssistance,
+	},
 })
 export default class LogoSVG extends Vue {
 	public home: boolean = true;
-	public team: boolean = false;
+	public team_employee: boolean = false;
+	public team_assistance: boolean = false;
 	public showOptionsEmployee: boolean = false;
 
 	public isHidden: boolean = true;
@@ -421,17 +434,25 @@ export default class LogoSVG extends Vue {
 		switch (option) {
 			case 1:
 				this.home = true;
-				this.team = false;
+				this.team_employee = false;
+				this.team_assistance = false;
 				this.showOptionsEmployee = false;
 				break;
 			case 3:
-				this.team = true;
+				this.team_employee = true;
+				this.team_assistance = false;
 				this.home = false;
+				break;
+			case 5:
+				this.team_assistance = true;
+				this.home = false;
+				this.team_employee = false;
+				this.showOptionsEmployee = false;
 				break;
 
 			default:
 				this.home = true;
-				this.team = false;
+				this.team_employee = false;
 				this.showOptionsEmployee = false;
 				break;
 		}

@@ -1,5 +1,12 @@
 <template>
-	<modal name="md-team-documents-upload" width="30%" height="auto">
+	<modal
+		name="md-team-documents-upload"
+		width="30%"
+		height="auto"
+		:scrollable="true"
+		:adaptive="true"
+		:min-width="350"
+	>
 		<div class="example-modal-content">
 			<svg
 				width="100"
@@ -265,7 +272,7 @@ export default class MdHolidays extends Vue {
 
 	public hide() {
 		this.valor = '';
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-team-documents-upload');
 	}
 
 	public subir() {

@@ -106,7 +106,7 @@ import { Vue, Component } from 'vue-property-decorator';
 export default class MdHolidays extends Vue {
 	public notificacion: boolean = true;
 	public hide() {
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-subir-firma');
 	}
 }
 </script>

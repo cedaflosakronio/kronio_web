@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-crear-tarea" width="30%" height="auto">
+	<modal name="md-crear-tarea" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<svg
 				width="100"
@@ -105,7 +105,7 @@ export default class MdHolidays extends Vue {
 	];
 
 	public hide() {
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-crear-tarea');
 	}
 
 	public daySelected(value: string) {

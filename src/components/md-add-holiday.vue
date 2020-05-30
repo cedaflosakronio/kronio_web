@@ -33,7 +33,7 @@
 						<p class="label-left-descripcion">Fecha</p>
 						<b-datepicker
 							class="form-fields fecha"
-							v-model="birthday"
+							placeholder="Escoja fecha"
 							icon="calendar-today"
 							editable
 						></b-datepicker>
@@ -70,8 +70,9 @@ export default class MdHolidays extends Vue {
 	public mDay: boolean = true;
 	public day: boolean = false;
 	public radio: string = 'primera';
+
 	public hide() {
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-add-holiday');
 	}
 	changeDay(type: string) {
 		if (type === 'dia') {
@@ -86,141 +87,145 @@ export default class MdHolidays extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.img-modal {
-	padding-top: 5%;
-}
-.close-btn {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin-top: 5%;
-	margin-right: 10%;
-	font-size: 30px;
-	cursor: pointer;
-}
-.title-employee {
-	font-weight: 500;
-	font-size: 25px;
-	line-height: 30px;
-	text-align: center;
-	color: #7a7979;
-}
-.subtitle-employee {
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 15px;
-	line-height: 22px;
-	text-align: center;
-	color: rgba(122, 121, 121, 0.5);
-}
-.btn-wellcome {
-	background: #335eea;
-	border-radius: 4px;
-	color: #ffffff;
-	font-size: 25px;
-}
-.btn-dia {
-	background: #335eea;
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 18px;
-	width: 40%;
-	height: 67px;
-	text-align: center;
+.example-modal-content {
+	.img-modal {
+		padding-top: 5%;
+	}
+	.close-btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin-top: 5%;
+		margin-right: 10%;
+		font-size: 30px;
+		cursor: pointer;
+	}
+	.title-employee {
+		font-weight: 500;
+		font-size: 25px;
+		line-height: 30px;
+		text-align: center;
+		color: #7a7979;
+	}
+	.subtitle-employee {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		line-height: 22px;
+		text-align: center;
+		color: rgba(122, 121, 121, 0.5);
+	}
+	.btn-wellcome {
+		background: #335eea;
+		border-radius: 4px;
+		color: #ffffff;
+		font-size: 25px;
+		margin-top: 5%;
+		margin-bottom: 10%;
+	}
+	.btn-dia {
+		background: #335eea;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 18px;
+		width: 40%;
+		height: 67px;
+		text-align: center;
 
-	color: #ffffff;
-}
-.tarjeta {
-	border: 0.6px solid rgba(122, 121, 121, 0.5);
-	box-sizing: border-box;
-	border-radius: 3px;
-	padding: 5%;
-	margin-left: 10%;
-	margin-right: 10%;
-	//width: 100%;
-}
-.tarjeta-container {
-	width: 90%;
-	height: 100%;
-	background: #ffffff;
-	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-	border-radius: 8px;
-	padding: 50px;
-	margin-right: 25%;
-	margin-top: auto;
-	margin-bottom: auto;
-	border: 0.6px solid rgba(122, 121, 121, 0.5);
-	box-sizing: border-box;
-	border-radius: 3px;
-	align-items: center;
-}
-.label-form {
-	padding-left: 3%;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 18px;
-	color: rgba(122, 121, 121, 0.5) !important;
-	text-align: left;
-}
-.border-form {
-	border: 0.6px solid rgba(122, 121, 121, 0.5);
-	box-sizing: border-box;
-	border-radius: 3px;
-	margin-top: 5%;
-	margin-bottom: 2%;
-}
-.fa-times:before {
-	content: '\f00d';
-	color: #7a7979;
-}
-.label-left-descripcion {
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 18px;
-	/* identical to box height */
+		color: #ffffff;
+	}
+	.tarjeta {
+		border: 0.6px solid rgba(122, 121, 121, 0.5);
+		box-sizing: border-box;
+		border-radius: 3px;
+		padding: 5%;
+		margin-left: 10%;
+		margin-right: 10%;
+		//width: 100%;
+	}
+	.tarjeta-container {
+		width: 90%;
+		height: 100%;
+		background: #ffffff;
+		box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		padding: 50px;
+		margin-right: 25%;
+		margin-top: auto;
+		margin-bottom: auto;
+		border: 0.6px solid rgba(122, 121, 121, 0.5);
+		box-sizing: border-box;
+		border-radius: 3px;
+		align-items: center;
+	}
+	.label-form {
+		padding-left: 3%;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 18px;
+		color: rgba(122, 121, 121, 0.5) !important;
+		text-align: left;
+	}
+	.border-form {
+		border: 0.6px solid rgba(122, 121, 121, 0.5);
+		box-sizing: border-box;
+		border-radius: 3px;
+		margin-top: 5%;
+		margin-bottom: 2%;
+	}
+	.fa-times:before {
+		content: '\f00d';
+		color: #7a7979;
+	}
+	.label-left-descripcion {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 18px;
+		/* identical to box height */
 
-	color: rgba(122, 121, 121, 0.5);
-}
-.input-value {
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 12px;
-	line-height: 18px;
-	/* identical to box height */
+		color: rgba(122, 121, 121, 0.5);
+	}
+	.input-value {
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 18px;
+		/* identical to box height */
 
-	color: #7a7979;
-}
-.fecha {
-	color: #335eea;
-	padding-left: 0 !important;
-}
-.btn-active {
-	background-color: #ffffff;
-	font-family: Poppins;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 18px;
-	text-align: center;
-	color: rgba(122, 121, 121, 0.5);
-}
-.container-medio-dia-fecha {
-	width: 50%;
-	text-align: left;
-	margin-left: 5%;
-}
-.container-medio-dia-jornada {
-	width: 50%;
-	text-align: left;
-	margin-right: 10%;
-}
-.tarjeta-medio-dia-fecha {
-	width: 90%;
+		color: #7a7979;
+	}
+	.has-icons-left > .input {
+		color: #335eea;
+		padding-left: 0 !important;
+	}
+	.btn-active {
+		background-color: #ffffff;
+		font-family: Poppins;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 18px;
+		text-align: center;
+		color: rgba(122, 121, 121, 0.5);
+	}
+	.container-medio-dia-fecha {
+		width: 50%;
+		text-align: left;
+		margin-left: 5%;
+	}
+	.container-medio-dia-jornada {
+		width: 50%;
+		text-align: left;
+		margin-right: 10%;
+	}
+	.tarjeta-medio-dia-fecha {
+		width: 90%;
+	}
 }
 </style>

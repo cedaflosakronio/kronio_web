@@ -68,6 +68,7 @@ export default class MdNewPublication extends Vue {}
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	margin-bottom: 10%;
 }
 
 .texto {

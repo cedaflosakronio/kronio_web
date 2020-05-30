@@ -126,7 +126,7 @@ export default class MdHolidays extends Vue {
 	}
 
 	public hide() {
-		this.$modal.hide('md-holidays');
+		this.$modal.hide('md-import-holiday');
 	}
 }
 </script>
@@ -210,6 +210,8 @@ export default class MdHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	margin-top: 5%;
+	margin-bottom: 10%;
 }
 
 .btn-cancel {
