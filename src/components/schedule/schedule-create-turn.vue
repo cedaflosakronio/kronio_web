@@ -136,8 +136,8 @@
 											<div class="column">
 												<p
 													class="box-days"
-													@click="dayClick('L')"
-													v-bind:class="[lunes ? 'box-days-selected' : '']"
+													@click="sdayClick('L')"
+													v-bind:class="[slunes ? 'box-days-selected' : '']"
 												>
 													L
 												</p>
@@ -145,8 +145,8 @@
 											<div class="column">
 												<p
 													class="box-days"
-													@click="dayClick('MA')"
-													v-bind:class="[martes ? 'box-days-selected' : '']"
+													@click="sdayClick('MA')"
+													v-bind:class="[smartes ? 'box-days-selected' : '']"
 												>
 													M
 												</p>
@@ -154,8 +154,8 @@
 											<div class="column">
 												<p
 													class="box-days"
-													@click="dayClick('MI')"
-													v-bind:class="[miercoles ? 'box-days-selected' : '']"
+													@click="sdayClick('MI')"
+													v-bind:class="[smiercoles ? 'box-days-selected' : '']"
 												>
 													M
 												</p>
@@ -163,8 +163,8 @@
 											<div class="column">
 												<p
 													class="box-days"
-													@click="dayClick('J')"
-													v-bind:class="[jueves ? 'box-days-selected' : '']"
+													@click="sdayClick('J')"
+													v-bind:class="[sjueves ? 'box-days-selected' : '']"
 												>
 													J
 												</p>
@@ -172,8 +172,8 @@
 											<div class="column">
 												<p
 													class="box-days"
-													@click="dayClick('V')"
-													v-bind:class="[viernes ? 'box-days-selected' : '']"
+													@click="sdayClick('V')"
+													v-bind:class="[sviernes ? 'box-days-selected' : '']"
 												>
 													V
 												</p>
@@ -181,8 +181,8 @@
 											<div class="column">
 												<p
 													class="box-days"
-													@click="dayClick('S')"
-													v-bind:class="[sabado ? 'box-days-selected' : '']"
+													@click="sdayClick('S')"
+													v-bind:class="[ssabado ? 'box-days-selected' : '']"
 												>
 													S
 												</p>
@@ -190,8 +190,8 @@
 											<div class="column">
 												<p
 													class="box-days"
-													@click="dayClick('D')"
-													v-bind:class="[domingo ? 'box-days-selected' : '']"
+													@click="sdayClick('D')"
+													v-bind:class="[sdomingo ? 'box-days-selected' : '']"
 												>
 													D
 												</p>
@@ -248,14 +248,22 @@ import MdNewPublication from '@/components/md-new-publication.vue';
 	components: { NavBar, LogoSVG, MdNewPublication },
 })
 export default class NewPublications extends PageBase {
-	lunes = false;
-	martes = false;
-	miercoles = false;
-	jueves = false;
-	viernes = false;
-	sabado = false;
-	domingo = false;
-	diasSemana = '--';
+	public lunes = false;
+	public martes = false;
+	public miercoles = false;
+	public jueves = false;
+	public viernes = false;
+	public sabado = false;
+	public domingo = false;
+	public diasSemana = '--';
+
+	public slunes = false;
+	public smartes = false;
+	public smiercoles = false;
+	public sjueves = false;
+	public sviernes = false;
+	public ssabado = false;
+	public sdomingo = false;
 
 	private selectExpiran: boolean = false;
 	private save: boolean = false;
@@ -401,6 +409,40 @@ export default class NewPublications extends PageBase {
 				break;
 			case 'D':
 				this.domingo = !this.domingo;
+				this.calcularDiasSeleccionados();
+				break;
+			default:
+				break;
+		}
+	}
+	sdayClick(dia: string) {
+		switch (dia) {
+			case 'L':
+				this.slunes = !this.slunes;
+				this.calcularDiasSeleccionados();
+				break;
+			case 'MA':
+				this.smartes = !this.smartes;
+				this.calcularDiasSeleccionados();
+				break;
+			case 'MI':
+				this.smiercoles = !this.smiercoles;
+				this.calcularDiasSeleccionados();
+				break;
+			case 'J':
+				this.sjueves = !this.sjueves;
+				this.calcularDiasSeleccionados();
+				break;
+			case 'V':
+				this.sviernes = !this.sviernes;
+				this.calcularDiasSeleccionados();
+				break;
+			case 'S':
+				this.ssabado = !this.ssabado;
+				this.calcularDiasSeleccionados();
+				break;
+			case 'D':
+				this.sdomingo = !this.sdomingo;
 				this.calcularDiasSeleccionados();
 				break;
 			default:
