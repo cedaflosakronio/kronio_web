@@ -194,7 +194,7 @@ export default class MainMarking extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 //Tabla
 .header-table {
 	text-align: left;

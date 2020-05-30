@@ -2,29 +2,40 @@
 	<div class="enterprise">
 		<div class="column">
 			<div class="columns box-search">
-				<div class="column box-filter">
-					<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M24.7188 2.1875H23.4062V0H21.2188V2.1875H6.78125V0H4.59375V2.1875H3.28125C1.47197 2.1875 0 3.65947 0 5.46875V24.7188C0 26.528 1.47197 28 3.28125 28H24.7188C26.528 28 28 26.528 28 24.7188V5.46875C28 3.65947 26.528 2.1875 24.7188 2.1875ZM3.28125 4.375H4.59375V6.5625H6.78125V4.375H21.2188V6.5625H23.4062V4.375H24.7188C25.3218 4.375 25.8125 4.86566 25.8125 5.46875V8.09375H2.1875V5.46875C2.1875 4.86566 2.67816 4.375 3.28125 4.375ZM24.7188 25.8125H3.28125C2.67816 25.8125 2.1875 25.3218 2.1875 24.7188V10.2812H25.8125V24.7188C25.8125 25.3218 25.3218 25.8125 24.7188 25.8125Z"
-							fill="#8969EB"
-						/>
-						<path d="M6.34375 12.5781H4.15625V14.7656H6.34375V12.5781Z" fill="#8969EB" />
-						<path d="M10.7188 12.5781H8.53125V14.7656H10.7188V12.5781Z" fill="#8969EB" />
-						<path d="M15.0938 12.5781H12.9062V14.7656H15.0938V12.5781Z" fill="#8969EB" />
-						<path d="M19.4688 12.5781H17.2812V14.7656H19.4688V12.5781Z" fill="#8969EB" />
-						<path d="M23.8438 12.5781H21.6562V14.7656H23.8438V12.5781Z" fill="#8969EB" />
-						<path d="M6.34375 16.9531H4.15625V19.1406H6.34375V16.9531Z" fill="#8969EB" />
-						<path d="M10.7188 16.9531H8.53125V19.1406H10.7188V16.9531Z" fill="#8969EB" />
-						<path d="M15.0938 16.9531H12.9062V19.1406H15.0938V16.9531Z" fill="#8969EB" />
-						<path d="M19.4688 16.9531H17.2812V19.1406H19.4688V16.9531Z" fill="#8969EB" />
-						<path d="M6.34375 21.3281H4.15625V23.5156H6.34375V21.3281Z" fill="#8969EB" />
-						<path d="M10.7188 21.3281H8.53125V23.5156H10.7188V21.3281Z" fill="#8969EB" />
-						<path d="M15.0938 21.3281H12.9062V23.5156H15.0938V21.3281Z" fill="#8969EB" />
-						<path d="M19.4688 21.3281H17.2812V23.5156H19.4688V21.3281Z" fill="#8969EB" />
-						<path d="M23.8438 16.9531H21.6562V19.1406H23.8438V16.9531Z" fill="#8969EB" />
-					</svg>
+				<div class="column centered box-header-options">
+					<div class="dropdown box-select-turn" :class="selectTurn ? 'is-active' : ''">
+						<div class="dropdown-trigger">
+							<button
+								class="button boton-select-turn"
+								aria-haspopup="true"
+								aria-controls="dropdown-menu"
+								@click="seleccionarTurno"
+							>
+								<div class="columns">
+									<div class="column">
+										<span>Seleccionar turno</span>
+									</div>
+									<div class="column">
+										<span class="icon is-small">
+											<i class="fas fa-angle-down" aria-hidden="true"></i>
+										</span>
+									</div>
+								</div>
+							</button>
+						</div>
+						<div class="dropdown-menu dropdown-alignment" id="dropdown-menu" role="menu">
+							<div class="dropdown-content">
+								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
+								<a class="dropdown-item" @click="seleccionarTurno">Item 1</a>
+								<a href="#" class="dropdown-item is-active" @click="seleccionarTurno">Item 1</a>
+								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
+								<hr class="dropdown-divider" />
+								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="column is-four-fifths centered">
+				<div class="column centered box-header-options">
 					<b-input
 						v-model="busqueda"
 						placeholder="Filtrar por nombre"
@@ -35,10 +46,23 @@
 						class="input-text"
 					/>
 				</div>
-				<div class="column"></div>
 			</div>
-			<b-table :data="data">
+			<b-table :data="data" centered>
 				<template slot-scope="props">
+					<b-table-column field="selected" label="-" centered>
+						<template slot="header">
+							<b-checkbox v-model="selectAll" @input="seleccionTodos"></b-checkbox>
+							<b-button size="is-small" class="add-employee">
+								<i class="fas fa-plus icon-add-employee"></i>
+							</b-button>
+						</template>
+						<div class="columns">
+							<div class="column">
+								<b-checkbox v-model="props.row.selected"></b-checkbox>
+							</div>
+						</div>
+					</b-table-column>
+
 					<b-table-column field="employee" label="Empleado" centered>
 						<div class="columns">
 							<div class="column data-img">
@@ -79,26 +103,16 @@
 						</div>
 					</b-table-column>
 
-					<b-table-column field="photo" label="Foto" centered>
-						<svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<rect width="32" height="40" fill="#C4C4C4" />
-						</svg>
+					<b-table-column field="cargo" label="Cargo" centered>
+						<p class="data-text-employee">{{ props.row.cargo }}</p>
 					</b-table-column>
 
-					<b-table-column field="location" label="Ubicación" centered>
-						<p class="data-text-employee">{{ props.row.location }}</p>
+					<b-table-column field="sucursal" label="Sucursal" centered>
+						<p class="data-text-employee">{{ props.row.sucursal }}</p>
 					</b-table-column>
 
-					<b-table-column field="date" label="Fecha" centered>
-						<p class="data-text-employee">{{ props.row.date }}</p>
-					</b-table-column>
-
-					<b-table-column field="start" label="Entrada" centered>
-						<p class="data-text-employee">{{ props.row.start }}</p>
-					</b-table-column>
-
-					<b-table-column field="out" label="Salida" centered>
-						<p class="data-text-employee">{{ props.row.out }}</p>
+					<b-table-column field="tolerancia" label="Tolerancia" centered>
+						<p class="data-text-employee">{{ props.row.tolerancia }}</p>
 					</b-table-column>
 				</template>
 			</b-table>
@@ -112,50 +126,47 @@ import { Vue, Component } from 'vue-property-decorator';
 @Component
 export default class MainMarking extends Vue {
 	public busqueda = '';
-
+	public selectAll = false;
+	public selectTurn = false;
 	public data = [
 		{
+			selected: true,
 			employee: 'Belen Zavala Luque',
-			photo: 'Diseñador',
-			location: 'ver mapa',
-			date: '8:00',
-			start: '8:00',
-			out: '8:00',
+			cargo: 'Diseñador',
+			sucursal: 'Centro',
+			tolerancia: '15 min',
 		},
 		{
+			selected: false,
 			employee: 'Belen Zavala Luque',
-			photo: 'Diseñador',
-			location: 'ver mapa',
-			date: '8:00',
-			start: '8:00',
-			out: '8:00',
+			cargo: 'Diseñador',
+			sucursal: 'Centro',
+			tolerancia: '15 min',
 		},
 		{
+			selected: true,
 			employee: 'Belen Zavala Luque',
-			photo: 'Diseñador',
-			location: 'ver mapa',
-			date: '8:00',
-			start: '8:00',
-			out: '8:00',
+			cargo: 'Diseñador',
+			sucursal: 'Centro',
+			tolerancia: '15 min',
 		},
 		{
+			selected: false,
 			employee: 'Belen Zavala Luque',
-			photo: 'Diseñador',
-			location: 'ver mapa',
-			date: '8:00',
-			start: '8:00',
-			out: '8:00',
+			cargo: 'Diseñador',
+			sucursal: 'Centro',
+			tolerancia: '15 min',
 		},
 		{
+			selected: false,
 			employee: 'Belen Zavala Luque',
-			photo: 'Diseñador',
-			location: 'ver mapa',
-			date: '8:00',
-			start: '8:00',
-			out: '8:00',
+			cargo: 'Diseñador',
+			sucursal: 'Centro',
+			tolerancia: '15 min',
 		},
 	];
 
+	public checkedRows = [this.data[0], this.data[1]];
 	public columns = [
 		{
 			field: 'employee',
@@ -191,11 +202,21 @@ export default class MainMarking extends Vue {
 			renderHtml: true,
 		},
 	];
+	public seleccionTodos() {
+		this.data = this.data.map(z => {
+			z.selected = this.selectAll;
+			return z;
+		});
+	}
+	public seleccionarTurno() {
+		this.selectTurn = !this.selectTurn;
+	}
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 //Tabla
+
 .header-table {
 	text-align: left;
 	background-color: #f2f5ff;
@@ -280,5 +301,37 @@ export default class MainMarking extends Vue {
 }
 .icon-filter {
 	color: #8969eb;
+}
+.add-employee {
+	background-color: #8969eb;
+	color: #ffffff;
+	padding: 4px;
+}
+.icon-add-employee {
+	font-size: 15px;
+	padding: 3px;
+	margin: 0;
+}
+.box-select-turn {
+	width: 100%;
+}
+.box-header-options {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+.boton-select-turn {
+	background: #ffffff;
+	border: 1px solid #d1dcfe;
+	box-sizing: border-box;
+	border-radius: 17px;
+	width: 360%;
+	font-size: 14px;
+	line-height: 21px;
+	text-align: center;
+	color: rgba(122, 121, 121, 0.5);
+}
+.dropdown-alignment {
+	left: 2px !important;
+	width: 100%;
 }
 </style>
