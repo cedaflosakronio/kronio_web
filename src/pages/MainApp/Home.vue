@@ -383,6 +383,9 @@
 		<div v-if="team_assistance">
 			<TeamAssistance />
 		</div>
+		<div v-if="schedule">
+			<Schedule />
+		</div>
 	</div>
 </template>
 
@@ -395,6 +398,7 @@ import MdHolidays from '@/components/md-holidays.vue';
 import MdPostponedHolidays from '@/components/md-postponed-holidays.vue';
 import TeamMain from '@/pages/Team/TeamMain.vue';
 import TeamAssistance from '@/pages/Team/TeamAssistance.vue';
+import Schedule from '@/pages/schedule/Schedule.vue';
 
 @Component({
 	components: {
@@ -405,12 +409,14 @@ import TeamAssistance from '@/pages/Team/TeamAssistance.vue';
 		MdPostponedHolidays,
 		TeamMain,
 		TeamAssistance,
+		Schedule,
 	},
 })
 export default class LogoSVG extends Vue {
 	public home: boolean = true;
 	public team_employee: boolean = false;
 	public team_assistance: boolean = false;
+	public schedule: boolean = false;
 	public showOptionsEmployee: boolean = false;
 
 	public isHidden: boolean = true;
@@ -437,23 +443,34 @@ export default class LogoSVG extends Vue {
 				this.team_employee = false;
 				this.team_assistance = false;
 				this.showOptionsEmployee = false;
+				this.schedule = false;
 				break;
 			case 3:
 				this.team_employee = true;
 				this.team_assistance = false;
 				this.home = false;
+				this.schedule = false;
 				break;
 			case 5:
 				this.team_assistance = true;
 				this.home = false;
 				this.team_employee = false;
 				this.showOptionsEmployee = false;
+				this.schedule = false;
+				break;
+			case 2:
+				this.team_assistance = false;
+				this.home = false;
+				this.team_employee = false;
+				this.showOptionsEmployee = false;
+				this.schedule = true;
 				break;
 
 			default:
 				this.home = true;
 				this.team_employee = false;
 				this.showOptionsEmployee = false;
+				this.schedule = false;
 				break;
 		}
 	}
