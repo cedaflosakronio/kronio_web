@@ -393,13 +393,13 @@ export default class NewPublications extends PageBase {
 	}
 
 	public async exit() {
-		const el = document.getElementById('body-id').remove();
+		document.getElementById('body-id').remove();
 		this.$emit('settings', true);
 		//this.$router.push('/app');
 	}
 
 	public options() {
-		console.log('object');
+		//console.log('object');
 	}
 
 	alerta() {

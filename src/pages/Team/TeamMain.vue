@@ -155,6 +155,8 @@ export default class ConfigAdmin extends PageBase {
 	}
 
 	public showDetails(data: any) {
+		// ¿Para qué definieron data?
+		data;
 		this.main = false;
 	}
 

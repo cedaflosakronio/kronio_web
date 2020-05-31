@@ -30,6 +30,7 @@ export default class EnterpriseStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject();
 				});
 		});
@@ -47,6 +48,7 @@ export default class EnterpriseStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log('Descripción de error: \n' + e);
+					e;
 					reject();
 				});
 		});

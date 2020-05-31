@@ -334,7 +334,7 @@ export default class ScheduleEmployee extends PageBase {
 	}
 
 	public async exit() {
-		const el = document.getElementById('body-id').remove();
+		document.getElementById('body-id').remove();
 		this.$emit('settings', true);
 	}
 

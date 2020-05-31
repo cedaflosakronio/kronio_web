@@ -130,7 +130,6 @@ import PageBase from '@/utils/page_base.utils';
 import { Component } from 'vue-property-decorator';
 import NavBar from '@/components/NavBar.vue';
 import LogoSVG from '@/components/LogoSVG.vue';
-import { INavBarTitle } from '@/utils/types.utils';
 import MdNewPublication from '@/components/md-new-publication.vue';
 
 @Component({

@@ -86,6 +86,7 @@ export default class CoreManageWorkStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject();
 				});
 		});
@@ -107,6 +108,7 @@ export default class CoreManageWorkStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					resolve(false);
 				});
 		});
@@ -129,6 +131,7 @@ export default class CoreManageWorkStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					resolve();
 				});
 		});
