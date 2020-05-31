@@ -1,7 +1,7 @@
 <template>
 	<div class="enterprise">
 		<div class="column">
-			<div class="columns box-search">
+			<div class="columns box-search is-mobile">
 				<div class="column box-filter">
 					<i class="fas fa-filter icon-filter"></i>
 				</div>

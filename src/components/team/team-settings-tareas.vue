@@ -62,7 +62,7 @@
 							<div class="column">
 								<p class="info-general">Organiza y agrega tareas</p>
 							</div>
-							<div class="columns box-search">
+							<div class="columns box-search is-mobile">
 								<div class="column box-filter">
 									<i class="fas fa-filter icon-filter"></i>
 								</div>
@@ -182,6 +182,9 @@ export default class NewPublications extends PageBase {
 		height: calc(100vw - 4rem);
 		border-radius: 8px;
 		//box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
+		@media screen and (max-width: 768px) {
+			height: 100%;
+		}
 	}
 
 	.body {

@@ -64,7 +64,7 @@
 							</div>
 							<div class="columns">
 								<div class="column"></div>
-								<div class="column is-one-fifth">
+								<div class="column is-one-fifth box-titulo">
 									<p class="subtitulo">Organiza los documentos de Diana en las siguientes carpetas</p>
 								</div>
 								<div class="column"></div>
@@ -517,6 +517,9 @@ export default class NewPublications extends PageBase {
 		height: calc(100vw - 4rem);
 		border-radius: 8px;
 		//box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
+		@media screen and (max-width: 768px) {
+			height: 100%;
+		}
 	}
 
 	.body {
@@ -575,6 +578,17 @@ export default class NewPublications extends PageBase {
 
 	.box-contenido {
 		padding: 5%;
+	}
+
+	.box-titulo {
+		@media screen and (max-width: 1024px) {
+			width: 40%;
+		}
+		@media screen and (max-width: 768px) {
+			width: 50%;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 }
 </style>

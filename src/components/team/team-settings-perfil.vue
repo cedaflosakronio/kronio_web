@@ -915,12 +915,19 @@ export default class NewPublications extends PageBase {
 		box-sizing: border-box;
 		border-radius: 3px;
 		margin: 2%;
+		@media screen and (max-width: 768px) {
+			display: flex;
+		}
 	}
 	.dia {
 		font-size: 14px;
 		line-height: 21px;
 		text-align: center;
 		color: #7a7979;
+		@media screen and (max-width: 1024px) {
+			font-size: 9px;
+			line-height: 16px;
+		}
 	}
 	.dia-seleccionado {
 		background-color: #8969eb;

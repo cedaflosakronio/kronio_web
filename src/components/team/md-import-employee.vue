@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-import-employee" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
+	<modal name="md-import-employee" width="auto" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
 		<div class="example-modal-content">
 			<svg
 				class="svg-img"
