@@ -151,6 +151,7 @@ export default class MdHolidays extends Vue {
 	@media screen and (max-width: 768px) {
 		display: initial;
 		width: 80%;
+		font-size: 18px;
 	}
 }
 

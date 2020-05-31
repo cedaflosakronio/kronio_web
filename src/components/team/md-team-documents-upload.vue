@@ -191,7 +191,7 @@
 									</span>
 								</p>
 							</div>
-							<div class="columns dropdown-item-menu-box">
+							<div class="columns dropdown-item-menu-box is-mobile">
 								<div class="column">
 									<p class="text-drop-selection">Seleccionar</p>
 								</div>
@@ -203,7 +203,7 @@
 								</div>
 							</div>
 							<hr class="hr-top" />
-							<div class="columns box-item-dropdown" @click="itemSelect">
+							<div class="columns box-item-dropdown is-mobile" @click="itemSelect">
 								<div class="column">
 									<i class="fas fa-circle"></i>
 								</div>
