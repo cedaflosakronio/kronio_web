@@ -135,23 +135,53 @@
 											</b-table-column>
 
 											<b-table-column field="horas_estimadas" label="Turnos trabajados" centered>
-												<input type="text" /> - <input type="text" />
-												<br />
-												<input type="text" /> - <input type="text" />
+												<div
+													class="columns is-centered"
+													v-for="hour in props.row.turns"
+													:key="hour"
+												>
+													<div class="column is-2">
+														<input
+															type="text"
+															class="input has-text-centered"
+															v-model="hour.hour_start"
+														/>
+													</div>
+													<div class="column is-1">-</div>
+													<div class="column is-2">
+														<input
+															type="text"
+															class="input has-text-centered"
+															v-model="hour.hour_end"
+														/>
+													</div>
+													<br />
+												</div>
 											</b-table-column>
 
 											<b-table-column field="ausencias" label="Ausencias" centered>
-												<svg
-													width="11"
-													height="11"
-													viewBox="0 0 11 11"
-													fill="none"
-													xmlns="http://www.w3.org/2000/svg"
-												>
-													<circle cx="5.5" cy="5.5" r="5" fill="#FF2C5C" stroke="#FF2C5C" />
-												</svg>
-
-												<p class="data-text-employee">{{ props.row.ausencias }}</p>
+												<div class="columns is-centered">
+													<div class="column is-1">
+														<svg
+															width="11"
+															height="11"
+															viewBox="0 0 11 11"
+															fill="none"
+															xmlns="http://www.w3.org/2000/svg"
+														>
+															<circle
+																cx="5.5"
+																cy="5.5"
+																r="5"
+																fill="#FF2C5C"
+																stroke="#FF2C5C"
+															/>
+														</svg>
+													</div>
+													<div class="column is-10">
+														<p class="data-text-employee">{{ props.row.ausencias }}</p>
+													</div>
+												</div>
 											</b-table-column>
 
 											<b-table-column field="horas_totales" label="Horals totales" centered>
@@ -203,33 +233,70 @@ export default class ScheduleEmployee extends PageBase {
 		{
 			id: 1,
 			day: '1 mayo - viernes',
+			turns: [
+				{
+					hour_start: '08:00',
+					hour_end: '13:00',
+				},
+				{
+					hour_start: '14:00',
+					hour_end: '17:15',
+				},
+			],
 			ausencias: 'Dia laboral',
 			horas_totales: '8h15min',
 		},
 		{
 			id: 2,
 			day: '3 mayo - domingo',
+			turns: [
+				{
+					hour_start: '08:00',
+					hour_end: '13:00',
+				},
+				{
+					hour_start: '14:00',
+					hour_end: '17:15',
+				},
+			],
 			ausencias: '0h',
 			horas_totales: '0h',
 		},
 		{
 			id: 3,
 			day: '4 mayo - lunes',
+			turns: [
+				{
+					hour_start: '08:00',
+					hour_end: '13:00',
+				},
+			],
 			ausencias: '0h',
 			horas_totales: '0h',
 		},
 		{
 			id: 4,
 			day: '5 mayo- martes',
+			turns: [
+				{
+					hour_start: '08:00',
+					hour_end: '13:00',
+				},
+			],
 			ausencias: '0h',
 			horas_totales: '0h',
 		},
 		{
 			id: 5,
-			employee: '6 mayo - miércoles',
-			horas_estimadas: '0h',
-			horas_trabajadas: '0h',
-			distribucion: [2, 6],
+			day: '5 mayo- martes',
+			turns: [
+				{
+					hour_start: '08:00',
+					hour_end: '13:00',
+				},
+			],
+			ausencias: '0h',
+			horas_totales: '0h',
 		},
 	];
 

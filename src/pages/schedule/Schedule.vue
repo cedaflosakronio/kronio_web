@@ -2,7 +2,7 @@
 	<div class="app">
 		<div class="body" v-if="main">
 			<div class="columns is-centered">
-				<div class="column is-10">
+				<div class="column is-9">
 					<div class="card box-height">
 						<header class="card-header tabs-header">
 							<div class="columns is-centered">
@@ -155,15 +155,15 @@ export default class ConfigAdmin extends PageBase {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app {
 	.body {
 		margin-top: 4rem;
-		height: calc(210vh - 4rem);
+		height: calc(110vh - 4rem);
 	}
 
 	.box-height {
-		height: calc(190vh - 3rem);
+		height: calc(100vh - 3rem);
 		margin-top: 3%;
 	}
 
