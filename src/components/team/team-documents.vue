@@ -280,9 +280,13 @@ export default class ConfigEnterprise extends Vue {
 	];
 
 	public uploadDocuments(id: number) {
+		// ¿Para qué definieron id?
+		id;
 		this.$modal.show('md-subir-documentos');
 	}
 	public uploadFirm(id: number) {
+		// ¿Para qué definieron id?
+		id;
 		this.$modal.show('md-subir-firma');
 	}
 	public selectEmployee(id: number) {

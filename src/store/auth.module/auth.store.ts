@@ -124,6 +124,7 @@ export default class AuthStore extends VuexModule {
 				.catch(e => {
 					// tslint:disable-next-line: no-console
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject();
 				});
 		});
@@ -140,6 +141,7 @@ export default class AuthStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -157,6 +159,7 @@ export default class AuthStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -174,6 +177,7 @@ export default class AuthStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -191,6 +195,7 @@ export default class AuthStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -207,6 +212,7 @@ export default class AuthStore extends VuexModule {
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -219,10 +225,12 @@ export default class AuthStore extends VuexModule {
 				.get(AuthUrl.authenticated_user, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -235,10 +243,12 @@ export default class AuthStore extends VuexModule {
 				.post(AuthUrl.phone_confirm, data, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -251,10 +261,12 @@ export default class AuthStore extends VuexModule {
 				.post(AuthUrl.update_user, data, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
-					//console.log(' Descripción de error: \n' + e);
+					//console.log(' Descripción de error: \n' + e);}
+					e;
 					reject(false);
 				});
 		});
@@ -267,10 +279,12 @@ export default class AuthStore extends VuexModule {
 				.post(AuthUrl.update_email, { email: email }, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -283,10 +297,12 @@ export default class AuthStore extends VuexModule {
 				.post(AuthUrl.update_user_phone, { telephone: telephone }, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -299,10 +315,12 @@ export default class AuthStore extends VuexModule {
 				.post(AuthUrl.confirm_update_user_phone, { code: code }, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -315,10 +333,12 @@ export default class AuthStore extends VuexModule {
 				.post(AuthUrl.change_password, data, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});
@@ -331,10 +351,12 @@ export default class AuthStore extends VuexModule {
 				.post(AuthUrl.validate_email, { email: email }, { headers: this.headers })
 				.then(response => {
 					//this.setToken(response.data);
+					response;
 					resolve(true);
 				})
 				.catch(e => {
 					//console.log(' Descripción de error: \n' + e);
+					e;
 					reject(false);
 				});
 		});

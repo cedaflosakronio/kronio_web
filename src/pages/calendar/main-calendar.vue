@@ -118,7 +118,9 @@ export default class MainCalendar extends PageBase {
 		end: new Date(2019, 0, 1),
 	};
 	public dayClick(day) {
+		// ¿Para qué definieron day?
 		//console.log(day);
+		day;
 	}
 	private menu_end: INavBarTitle[] = [
 		{
