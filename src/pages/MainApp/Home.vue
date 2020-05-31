@@ -634,7 +634,7 @@ export default class LogoSVG extends Vue {
 	.content-options-employee {
 		background: #e9e9e9;
 		border-radius: 4px;
-		padding-left: 20%;
+		padding-left: 5%;
 	}
 
 	.label-employee {
