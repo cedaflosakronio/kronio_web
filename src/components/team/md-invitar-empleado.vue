@@ -10,7 +10,7 @@
 				Estas son algunas de las cosas que tus empleados podrán hacer cuando los invites:
 			</p>
 			<div class="columns is-centered"></div>
-			<div class="columns box-column">
+			<div class="columns box-column is-mobile">
 				<div class="column">
 					<img class="box-img" src="../../assets/modal_holidays.png" alt />
 				</div>
@@ -18,7 +18,7 @@
 					<p class>Rellenar sus datos personales</p>
 				</div>
 			</div>
-			<div class="columns box-column">
+			<div class="columns box-column is-mobile">
 				<div class="column">
 					<img class="box-img" src="../../assets/modal_holidays.png" alt />
 				</div>
@@ -26,7 +26,7 @@
 					<p class>Solicitar vacaciones y ausencias</p>
 				</div>
 			</div>
-			<div class="columns box-column">
+			<div class="columns box-column is-mobile">
 				<div class="column">
 					<img class="box-img" src="../../assets/modal_holidays.png" alt />
 				</div>
@@ -34,7 +34,7 @@
 					<p class>Reflejar su jornada laboral</p>
 				</div>
 			</div>
-			<div class="columns box-column">
+			<div class="columns box-column is-mobile">
 				<div class="column">
 					<img class="box-img" src="../../assets/modal_holidays.png" alt />
 				</div>
@@ -42,7 +42,7 @@
 					<p class>Ver y gestionar documentos</p>
 				</div>
 			</div>
-			<div class="columns box-column">
+			<div class="columns box-column is-mobile">
 				<div class="column">
 					<img class="box-img" src="../../assets/modal_holidays.png" alt />
 				</div>
@@ -104,6 +104,11 @@ export default class MdHolidays extends Vue {
 	color: #ffffff;
 	font-size: 25px;
 	margin-bottom: 5%;
+	@media screen and (max-width: 768px) {
+		width: 84%;
+		display: inline;
+		margin-top: 5%;
+	}
 }
 
 .close-btn {

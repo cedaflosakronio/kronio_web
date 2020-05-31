@@ -5,7 +5,7 @@
 		height="auto"
 		:scrollable="true"
 		:adaptive="true"
-		:min-width="350"
+		:min-width="400"
 	>
 		<div class="example-modal-content">
 			<svg
@@ -36,9 +36,9 @@
 					<p class="label-left-descripcion">Tipo</p>
 					<b-field>
 						<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
-							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">
-								{{ dato.value }}
-							</option>
+							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">{{
+								dato.value
+							}}</option>
 						</b-select>
 					</b-field>
 				</div>
@@ -50,7 +50,7 @@
 				</b-field>
 			</div>
 
-			<div class="columns box-column">
+			<div class="columns box-column is-mobile">
 				<div class="column" @click="daySelected('M')" :class="medioDia ? 'box-selected' : 'box-not-selected'">
 					<p class="text-select">Medio día</p>
 				</div>
@@ -68,9 +68,13 @@
 						<p class="label-left-descripcion">Fecha</p>
 						<b-field>
 							<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
-								<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">
-									{{ dato.value }}
-								</option>
+								<option
+									v-for="dato in tipos"
+									:value="dato.value"
+									:key="dato.id"
+									class="option-expiran"
+									>{{ dato.value }}</option
+								>
 							</b-select>
 						</b-field>
 					</div>
@@ -92,9 +96,13 @@
 						<p class="label-left-descripcion">Fecha</p>
 						<b-field>
 							<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
-								<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">
-									{{ dato.value }}
-								</option>
+								<option
+									v-for="dato in tipos"
+									:value="dato.value"
+									:key="dato.id"
+									class="option-expiran"
+									>{{ dato.value }}</option
+								>
 							</b-select>
 						</b-field>
 					</div>
@@ -106,9 +114,13 @@
 						<p class="label-left-descripcion">Fecha inicio</p>
 						<b-field>
 							<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
-								<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">
-									{{ dato.value }}
-								</option>
+								<option
+									v-for="dato in tipos"
+									:value="dato.value"
+									:key="dato.id"
+									class="option-expiran"
+									>{{ dato.value }}</option
+								>
 							</b-select>
 						</b-field>
 					</div>
@@ -118,9 +130,13 @@
 						<p class="label-left-descripcion">Fecha fin</p>
 						<b-field>
 							<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
-								<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">
-									{{ dato.value }}
-								</option>
+								<option
+									v-for="dato in tipos"
+									:value="dato.value"
+									:key="dato.id"
+									class="option-expiran"
+									>{{ dato.value }}</option
+								>
 							</b-select>
 						</b-field>
 					</div>
@@ -232,6 +248,10 @@ export default class MdHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	@media screen and (max-width: 768px) {
+		display: initial;
+		width: 80%;
+	}
 }
 
 .close-btn {

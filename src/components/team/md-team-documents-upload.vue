@@ -5,7 +5,7 @@
 		height="auto"
 		:scrollable="true"
 		:adaptive="true"
-		:min-width="350"
+		:min-width="400"
 	>
 		<div class="example-modal-content">
 			<svg
@@ -36,9 +36,9 @@
 					<p class="label-left-descripcion">Fecha de nacimiento</p>
 					<b-field>
 						<b-select placeholder="seleccione" size="is-small" expanded v-model="valor" @input="cambio">
-							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">
-								{{ dato.value }}
-							</option>
+							<option v-for="dato in tipos" :value="dato.value" :key="dato.id" class="option-expiran">{{
+								dato.value
+							}}</option>
 						</b-select>
 					</b-field>
 				</div>
@@ -74,7 +74,7 @@
 			</div>
 			<div class="column box-select" v-if="valor != ''">
 				<div class="tarjeta-select">
-					<div class="columns">
+					<div class="columns is-mobile">
 						<div class="column">
 							<svg
 								width="17"
@@ -103,7 +103,7 @@
 						<div class="column is-four-fifths">
 							<p class="label-left-descripcion">nombre del archivo</p>
 						</div>
-						<div class="column">
+						<div class="column box-right-icon">
 							<svg
 								width="17"
 								height="19"
@@ -132,28 +132,28 @@
 				</div>
 			</div>
 			<div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column">
 						<b-checkbox v-model="notificacion" :disabled="disabledNotificacion">
 							<p>Enviar notificación a Belen</p>
 						</b-checkbox>
 					</div>
 				</div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column"></div>
 					<div class="column is-three-fifths">
 						<p class="texto-consejo">Enviaremos un email a Belen para informarle sobre este documento</p>
 					</div>
 					<div class="column"></div>
 				</div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column">
 						<b-checkbox v-model="firma" @input="solicitarFirma">
 							<p>Solicitar firma electrónica</p>
 						</b-checkbox>
 					</div>
 				</div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column"></div>
 					<div class="column is-three-fifths">
 						<p class="texto-consejo">
@@ -170,7 +170,7 @@
 			<div class="column box-select" v-if="firma">
 				<div class="dropdown is-up" :class="dropSelected ? 'is-active' : ''">
 					<div class="dropdown-trigger">
-						<div class="columns box-dropdown-select">
+						<div class="columns box-dropdown-select is-mobile">
 							<div class="column is-four-fifths">
 								<p class="label-left-descripcion">Firmantes</p>
 								<p class="text-input-selected">Belen Zavala</p>
@@ -213,13 +213,6 @@
 								<div class="column">
 									<b-checkbox></b-checkbox>
 								</div>
-								<!-- <div class="column icon-color">
-                  <i class="fas fa-circle"></i>
-                </div>
-                <div class="column is-four-fifths box-item-dropdown">
-                  <p class="text-dropdown">Belen Zavala Luque</p>
-                </div>
-                <div class="column"></div>-->
 							</div>
 						</div>
 					</div>
@@ -295,13 +288,14 @@ export default class MdHolidays extends Vue {
 	}
 
 	public solicitarFirma() {
-		console.log('firma', this.firma);
 		if (this.firma) {
 			this.disabledNotificacion = true;
 			this.notificacion = true;
+			this.buttonText = 'Subir 1 doc y pedir firma electrónica';
 		} else {
 			this.disabledNotificacion = false;
 			this.notificacion = false;
+			this.buttonText = 'Subir 1 doc';
 		}
 	}
 }
@@ -343,6 +337,14 @@ export default class MdHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	@media screen and (max-width: 1440px) {
+		font-size: 20px;
+	}
+	@media screen and (max-width: 768px) {
+		display: initial;
+		width: 80%;
+		font-size: 18px;
+	}
 }
 
 .close-btn {
@@ -365,6 +367,9 @@ export default class MdHolidays extends Vue {
 	line-height: 22px;
 	margin-right: 4.5rem;
 	color: #335eea;
+	@media screen and (max-width: 768px) {
+		margin-right: 0;
+	}
 }
 //Lista de acciones
 .box-column {
@@ -483,6 +488,12 @@ export default class MdHolidays extends Vue {
 	width: 464px;
 	margin-bottom: 2%;
 	padding: 4%;
+	@media screen and (max-width: 1440px) {
+		width: 376px;
+	}
+	@media screen and (max-width: 768px) {
+		width: 322px;
+	}
 }
 .icon-drop-select {
 	margin-top: auto;
@@ -494,5 +505,15 @@ export default class MdHolidays extends Vue {
 	line-height: 18px;
 	text-align: left;
 	color: #7a7979;
+}
+.b-checkbox.checkbox[data-v-3eae1702]:not(.button) {
+	@media screen and (max-width: 768px) {
+		margin-right: 20%;
+	}
+}
+.box-right-icon {
+	@media screen and (max-width: 768px) {
+		padding-right: 20%;
+	}
 }
 </style>

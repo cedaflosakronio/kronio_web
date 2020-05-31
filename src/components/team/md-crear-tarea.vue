@@ -25,12 +25,6 @@
 
 			<div class="column box-select">
 				<input class="input input-text" type="text" placeholder="Nombre de la tarea" />
-				<!-- <b-input
-          maxlength="200"
-          type="textarea"
-          placeholder=""
-          class="input-text"
-        ></b-input>-->
 			</div>
 
 			<div class="column box-select">
@@ -169,6 +163,10 @@ export default class MdHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	@media screen and (max-width: 768px) {
+		display: initial;
+		width: 80%;
+	}
 }
 
 .close-btn {
