@@ -112,7 +112,7 @@
 							</div>
 							<div class="column"></div>
 							<div class="column">
-								<i class="fas fa-chevron-right"></i>
+								<i class="fas fa-chevron-right" @click="selectEmployee(props.row.id)"></i>
 							</div>
 						</div>
 					</b-table-column>
@@ -131,30 +131,35 @@ export default class MainMarking extends Vue {
 	public selectTurn = false;
 	public data = [
 		{
+			id: 1,
 			employee: 'Belen Zavala Luque',
 			horas_estimadas: '0h',
 			horas_trabajadas: '0h',
 			distribucion: [2, 5],
 		},
 		{
+			id: 2,
 			employee: 'Belen Zavala Luque',
 			horas_estimadas: '0h',
 			horas_trabajadas: '0h',
 			distribucion: [2, 7],
 		},
 		{
+			id: 3,
 			employee: 'Belen Zavala Luque',
 			horas_estimadas: '0h',
 			horas_trabajadas: '0h',
 			distribucion: [2, 9],
 		},
 		{
+			id: 4,
 			employee: 'Belen Zavala Luque',
 			horas_estimadas: '0h',
 			horas_trabajadas: '0h',
 			distribucion: [2, 10],
 		},
 		{
+			id: 5,
 			employee: 'Belen Zavala Luque',
 			horas_estimadas: '0h',
 			horas_trabajadas: '0h',
@@ -201,6 +206,10 @@ export default class MainMarking extends Vue {
 	];
 	public seleccionarTurno() {
 		this.selectTurn = !this.selectTurn;
+	}
+
+	public selectEmployee(id: number) {
+		this.$emit('details', id);
 	}
 }
 </script>

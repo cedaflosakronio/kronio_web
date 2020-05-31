@@ -38,7 +38,7 @@
 									<AssignTurn />
 								</div>
 								<div v-if="historial">
-									<History />
+									<History @details="showDetails" />
 								</div>
 							</div>
 						</div>
@@ -46,6 +46,11 @@
 				</div>
 			</div>
 		</div>
+		<transition name="fade">
+			<div class="body" v-if="!main">
+				<ScheduleEmployee @settings="handleSettings" />
+			</div>
+		</transition>
 	</div>
 </template>
 
@@ -60,6 +65,7 @@ import MainInconsistencies from '@/components/team/assistance/team-inconsistanci
 import CreateTurn from '@/components/schedule/schedule-create-turn.vue';
 import AssignTurn from '@/components/schedule/schedule-assign-turn.vue';
 import History from '@/components/schedule/schedule-history.vue';
+import ScheduleEmployee from '@/components/schedule/schedule_employee.vue';
 
 @Component({
 	components: {
@@ -70,6 +76,7 @@ import History from '@/components/schedule/schedule-history.vue';
 		CreateTurn,
 		AssignTurn,
 		History,
+		ScheduleEmployee,
 	},
 })
 export default class ConfigAdmin extends PageBase {
