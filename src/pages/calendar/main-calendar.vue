@@ -16,7 +16,7 @@
 				<div class="column is-10 content-general">
 					<div class="card box-height">
 						<header class="tabs-header">
-							<div class="columns">
+							<div class="columns is-mobile">
 								<div class="column">
 									<span @click="volver()" class="close-btn">
 										<i class="fas fa-arrow-circle-left"></i>
@@ -55,7 +55,72 @@
 									@dayclick="dayClick"
 									:attributes="attrs"
 									:theme-styles="themeStyles"
-								/>
+								>
+									<!-- <a
+                    slot="header-left-button"
+                    slot-scope="{ page }"
+                    @click="page.movePrevMonth()"
+                  >Prev</a>
+                  <a
+                    slot="header-right-button"
+                    slot-scope="{ page }"
+                    @click="page.moveNextMonth()"
+                  >Next</a> -->
+									<div class="columns" slot="header" slot-scope="{ page }">
+										<div class="column">{{ page }}</div>
+										<div class="column is-1">
+											<div class="dropdown" :class="mesActive ? 'is-active' : ''">
+												<div class="dropdown-trigger">
+													<button
+														class="button is-white"
+														aria-haspopup="true"
+														aria-controls="dropdown-menu"
+														@click="openDropdown('M')"
+													>
+														<p class="item-title-modified">Mes</p>
+													</button>
+												</div>
+												<div class="dropdown-menu" id="dropdown-menu" role="menu">
+													<div class="dropdown-content item-mes">
+														<a
+															class="dropdown-item"
+															v-for="mes in meses"
+															v-bind:key="mes.id"
+															@click="closeDropdown('M')"
+															>{{ mes.mes }}</a
+														>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="column is-1">
+											<div class="dropdown" :class="anioActive ? 'is-active' : ''">
+												<div class="dropdown-trigger">
+													<button
+														class="button is-white"
+														aria-haspopup="true"
+														aria-controls="dropdown-menu"
+														@click="openDropdown('A')"
+													>
+														<p class="item-title-modified">Año</p>
+													</button>
+												</div>
+												<div class="dropdown-menu" id="dropdown-menu" role="menu">
+													<div class="dropdown-content item-mes">
+														<a
+															class="dropdown-item"
+															v-for="anio in anios"
+															v-bind:key="anio.id"
+															@click="closeDropdown('A')"
+															>{{ anio.anio }}</a
+														>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="column"></div>
+									</div>
+								</vc-calendar>
 							</div>
 						</div>
 					</div>
@@ -89,6 +154,112 @@ export default class MainCalendar extends PageBase {
 	ausencia = false;
 	politica = false;
 	private menu_start: INavBarTitle[] = [];
+	public mesActive = false;
+	public anioActive = false;
+	public meses = [
+		{
+			id: 0,
+			mes: 'ene.',
+		},
+		{
+			id: 1,
+			mes: 'feb.',
+		},
+		{
+			id: 2,
+			mes: 'mar.',
+		},
+		{
+			id: 3,
+			mes: 'abr.',
+		},
+		{
+			id: 4,
+			mes: 'may.',
+		},
+		{
+			id: 5,
+			mes: 'jun.',
+		},
+		{
+			id: 6,
+			mes: 'jul.',
+		},
+		{
+			id: 7,
+			mes: 'ago.',
+		},
+		{
+			id: 8,
+			mes: 'sep.',
+		},
+		{
+			id: 9,
+			mes: 'oct.',
+		},
+		{
+			id: 10,
+			mes: 'nov.',
+		},
+		{
+			id: 11,
+			mes: 'dic.',
+		},
+	];
+	public anios = [
+		{
+			id: 0,
+			anio: '2008',
+		},
+		{
+			id: 1,
+			anio: '2009',
+		},
+		{
+			id: 2,
+			anio: '2010',
+		},
+		{
+			id: 3,
+			anio: '2011',
+		},
+		{
+			id: 4,
+			anio: '2012',
+		},
+		{
+			id: 5,
+			anio: '2013',
+		},
+		{
+			id: 6,
+			anio: '2014',
+		},
+		{
+			id: 7,
+			anio: '2015',
+		},
+		{
+			id: 8,
+			anio: '2016',
+		},
+		{
+			id: 9,
+			anio: '2017',
+		},
+		{
+			id: 10,
+			anio: '2018',
+		},
+		{
+			id: 11,
+			anio: '2019',
+		},
+		{
+			id: 12,
+			anio: '2020',
+		},
+	];
 	public screens: {
 		tablet: '576px';
 		laptop: '992px';
@@ -111,6 +282,22 @@ export default class MainCalendar extends PageBase {
 			dates: new Date(),
 		},
 	];
+
+	public openDropdown(tipo: string) {
+		if (tipo === 'M') {
+			this.mesActive = !this.mesActive;
+		} else {
+			this.anioActive = !this.anioActive;
+		}
+	}
+
+	public closeDropdown(tipo: string) {
+		if (tipo === 'M') {
+			this.mesActive = false;
+		} else {
+			this.anioActive = false;
+		}
+	}
 
 	fechaMinima: Date = new Date(2018, 0, 1);
 	public dates = {
@@ -352,6 +539,32 @@ export default class MainCalendar extends PageBase {
 	.contenido {
 		padding: 0;
 		margin: 0;
+	}
+
+	.item-mes {
+		background-color: #e5e5e5;
+		font-size: 11px;
+		line-height: 16px;
+		width: 64px;
+		color: #7a7979;
+		left: 24%;
+		position: absolute;
+	}
+
+	a.dropdown-item:hover,
+	.dropdown .dropdown-menu .has-link a:hover,
+	button.dropdown-item:hover {
+		background-color: #335eea;
+		font-size: 11px;
+		line-height: 16px;
+		color: #ffffff;
+	}
+
+	.item-title-modified {
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		color: #8969eb;
 	}
 
 	/* .content ul {
