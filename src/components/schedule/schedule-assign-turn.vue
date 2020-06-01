@@ -1,7 +1,7 @@
 <template>
 	<div class="enterprise">
 		<div class="column">
-			<div class="columns box-search">
+			<div class="columns box-search is-mobile">
 				<div class="column centered box-header-options">
 					<div class="dropdown box-select-turn" :class="selectTurn ? 'is-active' : ''">
 						<div class="dropdown-trigger">
@@ -11,7 +11,7 @@
 								aria-controls="dropdown-menu"
 								@click="seleccionarTurno"
 							>
-								<div class="columns">
+								<div class="columns is-mobile">
 									<div class="column">
 										<span>Seleccionar turno</span>
 									</div>
@@ -51,10 +51,16 @@
 				<template slot-scope="props">
 					<b-table-column field="selected" label="-" centered>
 						<template slot="header">
-							<b-checkbox v-model="selectAll" @input="seleccionTodos"></b-checkbox>
-							<b-button size="is-small" class="add-employee">
-								<i class="fas fa-plus icon-add-employee"></i>
-							</b-button>
+							<div class="columns is-mobile">
+								<div class="column">
+									<b-checkbox v-model="selectAll" @input="seleccionTodos"></b-checkbox>
+								</div>
+								<div class="column">
+									<b-button size="is-small" class="add-employee">
+										<i class="fas fa-plus icon-add-employee"></i>
+									</b-button>
+								</div>
+							</div>
 						</template>
 						<div class="columns">
 							<div class="column">
@@ -306,6 +312,9 @@ export default class MainMarking extends Vue {
 	background-color: #8969eb;
 	color: #ffffff;
 	padding: 4px;
+	@media screen and (max-width: 1024px) {
+		padding: 3px;
+	}
 }
 .icon-add-employee {
 	font-size: 15px;
@@ -329,6 +338,14 @@ export default class MainMarking extends Vue {
 	line-height: 21px;
 	text-align: center;
 	color: rgba(122, 121, 121, 0.5);
+	@media screen and (max-width: 1440px) {
+		width: 274%;
+		height: 105%;
+	}
+	@media screen and (max-width: 1024px) {
+		width: 175%;
+		height: 115%;
+	}
 }
 .dropdown-alignment {
 	left: 2px !important;
