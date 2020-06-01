@@ -7,22 +7,19 @@
 					<div class="card box-height">
 						<header class="card-header tabs-header">
 							<div class="columns">
-								<div class="column">
+								<div class="column is-2">
 									<span @click="exit()" class="close-btn">
 										<i class="fas fa-arrow-circle-left"></i>
 									</span>
 								</div>
-								<div class="column is-four-fifths">
+								<div class="column is-10">
 									<div class="dropdown" :class="dropSelected ? 'is-active' : ''">
 										<div class="dropdown-trigger" @click="dropSelect">
-											<div class="columns">
-												<div
-													class="column is-four-fifths"
-													style="margin-top:auto; margin-bottom:auto;"
-												>
+											<div class="columns is-centered is-mobile">
+												<div class="column is-7">
 													<p class="title-publications is-fullwidth">Belen Zavala</p>
 												</div>
-												<div class="column">
+												<div class="column is-1">
 													<i class="fas fa-chevron-up"></i>
 													<i class="fas fa-chevron-down"></i>
 												</div>
@@ -126,32 +123,37 @@
 									</div>
 									<b-table :data="data" centered>
 										<template slot-scope="props">
-											<b-table-column field="day" label="Dias" centered>
-												<div class="columns">
-													<div class="column is-three-fifths">
+											<b-table-column field="day" label="Dias" centered width="20%">
+												<div class="columns is-centered">
+													<div class="column is-fullwidth has-text-centered">
 														<p class="data-text">{{ props.row.day }}</p>
 													</div>
 												</div>
 											</b-table-column>
 
-											<b-table-column field="horas_estimadas" label="Turnos trabajados" centered>
+											<b-table-column
+												field="horas_estimadas"
+												label="Turnos trabajados"
+												centered
+												width="50%"
+											>
 												<div
 													class="columns is-centered"
 													v-for="hour in props.row.turns"
 													:key="hour"
 												>
-													<div class="column is-2">
+													<div class="column is-3">
 														<input
 															type="text"
-															class="input has-text-centered"
+															class="input has-text-centered is-mobile"
 															v-model="hour.hour_start"
 														/>
 													</div>
 													<div class="column is-1">-</div>
-													<div class="column is-2">
+													<div class="column is-3">
 														<input
 															type="text"
-															class="input has-text-centered"
+															class="input has-text-centered is-mobile"
 															v-model="hour.hour_end"
 														/>
 													</div>
@@ -159,7 +161,7 @@
 												</div>
 											</b-table-column>
 
-											<b-table-column field="ausencias" label="Ausencias" centered>
+											<b-table-column field="ausencias" label="Ausencias" centered width="15%">
 												<div class="columns is-centered">
 													<div class="column is-1">
 														<svg
@@ -184,7 +186,12 @@
 												</div>
 											</b-table-column>
 
-											<b-table-column field="horas_totales" label="Horals totales" centered>
+											<b-table-column
+												field="horas_totales"
+												label="Horals totales"
+												centered
+												width="15%"
+											>
 												<p class="data-text-employee">{{ props.row.horas_totales }}</p>
 											</b-table-column>
 										</template>
@@ -635,9 +642,7 @@ export default class ScheduleEmployee extends PageBase {
 		font-size: 20px;
 		line-height: 30px;
 		color: #ffffff;
-		margin-left: auto;
-		margin-right: auto;
-		padding-top: 1%;
+		padding-top: 6%;
 	}
 
 	.title-type-publications {
