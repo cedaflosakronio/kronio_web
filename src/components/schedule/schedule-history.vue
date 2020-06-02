@@ -99,7 +99,7 @@
 
 					<b-table-column field="distribucion" label="Distribución de horas" centered>
 						<div class="columns is-mobile">
-							<div class="column is-four-fifths">
+							<div class="column is-8">
 								<b-field>
 									<b-slider
 										v-model="props.row.distribucion"
@@ -110,10 +110,10 @@
 									></b-slider>
 								</b-field>
 							</div>
-							<div class="column">
+							<div class="column is-1" style="margin-top:auto; margin-bottom: auto;">
 								<i class="fas fa-chevron-right" @click="selectEmployee(props.row.id)"></i>
 							</div>
-							<div class="column"></div>
+							<div class="column i-1"></div>
 						</div>
 					</b-table-column>
 				</template>

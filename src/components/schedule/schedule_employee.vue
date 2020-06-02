@@ -6,20 +6,20 @@
 					<div class="box-sombra"></div>
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<div class="columns">
+							<div class="columns is-mobile">
 								<div class="column is-2">
 									<span @click="exit()" class="close-btn">
 										<i class="fas fa-arrow-circle-left"></i>
 									</span>
 								</div>
-								<div class="column is-10">
+								<div class="column is-8">
 									<div class="dropdown" :class="dropSelected ? 'is-active' : ''">
 										<div class="dropdown-trigger" @click="dropSelect">
 											<div class="columns is-centered is-mobile">
 												<div class="column is-7">
 													<p class="title-publications is-fullwidth">Belen Zavala</p>
 												</div>
-												<div class="column is-1">
+												<div class="column is-1" style="margin-top:auto; margin-bottom:auto;">
 													<i class="fas fa-chevron-up"></i>
 													<i class="fas fa-chevron-down"></i>
 												</div>
@@ -39,7 +39,7 @@
 														</span>
 													</p>
 												</div>
-												<div class="columns" @click="itemSelect">
+												<div class="columns is-mobile" @click="itemSelect">
 													<div class="column icon-color">
 														<i class="fas fa-circle"></i>
 													</div>
@@ -52,12 +52,13 @@
 										</div>
 									</div>
 								</div>
+								<div class="column is-2"></div>
 							</div>
 						</header>
 						<div class="card-content">
 							<div class="content">
 								<div class="container-history-employee">
-									<div class="columns box-search">
+									<div class="columns box-search is-mobile">
 										<div class="column centered box-header-options">
 											<div
 												class="dropdown box-select-turn"
@@ -70,7 +71,7 @@
 														aria-controls="dropdown-menu"
 														@click="seleccionarTurno"
 													>
-														<div class="columns">
+														<div class="columns is-mobile">
 															<div class="column">
 																<span>Seleccionar turno</span>
 															</div>
@@ -452,6 +453,9 @@ export default class ScheduleEmployee extends PageBase {
 		height: 97%;
 		margin-top: 2%;
 		border-radius: 8px;
+		@media screen and (max-width: 768px) {
+			width: auto;
+		}
 		//box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
 	}
 
@@ -780,6 +784,18 @@ export default class ScheduleEmployee extends PageBase {
 		line-height: 21px;
 		text-align: center;
 		color: rgba(122, 121, 121, 0.5);
+		@media screen and (max-width: 768px) {
+			width: 173%;
+			height: 108%;
+		}
+		@media screen and (max-width: 1024px) {
+			height: 100% !important;
+			width: 200% !important;
+		}
+		@media screen and (max-width: 1440px) {
+			height: 110%;
+			width: 300%;
+		}
 	}
 }
 </style>

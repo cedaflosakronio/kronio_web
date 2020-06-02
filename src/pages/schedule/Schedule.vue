@@ -162,11 +162,17 @@ export default class ConfigAdmin extends PageBase {
 	.body {
 		margin-top: 4rem;
 		height: calc(110vh - 4rem);
+		@media screen and (max-width: 768px) {
+			height: 100%;
+		}
 	}
 
 	.box-height {
 		height: calc(100vh - 3rem);
 		margin-top: 3%;
+		@media screen and (max-width: 768px) {
+			height: 165vh;
+		}
 	}
 
 	.content ul {

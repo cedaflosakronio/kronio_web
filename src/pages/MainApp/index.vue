@@ -127,7 +127,7 @@ export default class MainApp extends PageBase {
 .app {
 	.body {
 		margin-top: 4rem;
-		height: calc(100vh - 4rem);
+		height: auto;
 	}
 }
 </style>

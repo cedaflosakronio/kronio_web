@@ -21,7 +21,7 @@
 									</div>
 									<div class="column">
 										<div class="columns is-mobile box-dia">
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="dayClick('L')"
@@ -30,7 +30,7 @@
 													L
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="dayClick('MA')"
@@ -39,7 +39,7 @@
 													M
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="dayClick('MI')"
@@ -48,7 +48,7 @@
 													M
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="dayClick('J')"
@@ -57,7 +57,7 @@
 													J
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="dayClick('V')"
@@ -66,7 +66,7 @@
 													V
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="dayClick('S')"
@@ -75,7 +75,7 @@
 													S
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="dayClick('D')"
@@ -117,7 +117,7 @@
 							</div>
 						</div>
 						<div class="column is-half box-general">
-							<div class="columns box-inputs">
+							<div class="columns box-inputs is-mobile">
 								<div class="column is-full">
 									<div class="column">
 										<p class="box-title">Horario Flexible</p>
@@ -133,7 +133,7 @@
 									</div>
 									<div class="column">
 										<div class="columns is-mobile box-dia">
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="sdayClick('L')"
@@ -142,7 +142,7 @@
 													L
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="sdayClick('MA')"
@@ -151,7 +151,7 @@
 													M
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="sdayClick('MI')"
@@ -160,7 +160,7 @@
 													M
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="sdayClick('J')"
@@ -169,7 +169,7 @@
 													J
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="sdayClick('V')"
@@ -178,7 +178,7 @@
 													V
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="sdayClick('S')"
@@ -187,7 +187,7 @@
 													S
 												</p>
 											</div>
-											<div class="column">
+											<div class="column box-label-dia">
 												<p
 													class="box-days"
 													@click="sdayClick('D')"
@@ -569,9 +569,13 @@ export default class NewPublications extends PageBase {
 		color: rgba(122, 121, 121, 0.5);
 		height: 115%;
 		@media screen and (max-width: 768px) {
-			height: 40px;
-			width: 40px;
+			height: 10%;
+			width: 10%;
 			padding-top: 18%;
+		}
+		@media screen and (max-width: 1024px) {
+			height: 25px;
+			width: 25px;
 		}
 	}
 	.box-days-selected {
@@ -582,15 +586,28 @@ export default class NewPublications extends PageBase {
 		color: #ffffff;
 		height: 115%;
 		@media screen and (max-width: 768px) {
-			height: 40px;
-			width: 40px;
+			height: 10%;
+			width: 10%;
 			padding-top: 18%;
+		}
+		@media screen and (max-width: 1024px) {
+			height: 25px;
+			width: 25px;
 		}
 	}
 
 	.box-dia {
 		@media screen and (max-width: 768px) {
 			display: flex;
+		}
+		@media screen and (max-width: 1024px) {
+			display: flex;
+		}
+	}
+
+	.box-label-dia {
+		@media screen and (max-width: 1024px) {
+			padding: 1%;
 		}
 	}
 }

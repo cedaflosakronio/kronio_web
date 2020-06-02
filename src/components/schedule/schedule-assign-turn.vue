@@ -52,14 +52,16 @@
 					<b-table-column field="selected" label="-" centered>
 						<template slot="header">
 							<div class="columns is-mobile">
-								<div class="column">
+								<div class="column is-3"></div>
+								<div class="column box-table-select">
 									<b-checkbox v-model="selectAll" @input="seleccionTodos"></b-checkbox>
-								</div>
-								<div class="column">
 									<b-button size="is-small" class="add-employee">
 										<i class="fas fa-plus icon-add-employee"></i>
 									</b-button>
 								</div>
+								<!-- <div class="column">
+									
+								</div> -->
 							</div>
 						</template>
 						<div class="columns">
@@ -350,5 +352,9 @@ export default class MainMarking extends Vue {
 .dropdown-alignment {
 	left: 2px !important;
 	width: 100%;
+}
+
+.box-table-select {
+	display: flex;
 }
 </style>
