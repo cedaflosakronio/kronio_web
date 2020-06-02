@@ -11,7 +11,7 @@
 			</p>
 
 			<div class="columns is-centered">
-				<div class="column is-9 border-form">
+				<div class="column is-9 border-form margin-mobile-email">
 					<div class="field">
 						<label class="label is-pulled-left label-form">Correo Electrónico</label>
 						<div class="control">
@@ -33,7 +33,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="column is-1"></div>
+				<div class="column is-1 hidden-tablet-mobile"></div>
 				<div class="column is-4 border-form">
 					<div class="field">
 						<label class="label is-pulled-left label-form">Apellidos</label>
@@ -65,72 +65,100 @@ export default class MdNewEmployee extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.title-employee {
-	font-weight: 500;
-	font-size: 25px;
-	line-height: 30px;
-	text-align: center;
-	color: #7a7979;
-}
+.example-modal-content {
+	.title-employee {
+		font-weight: 500;
+		font-size: 25px;
+		line-height: 30px;
+		text-align: center;
+		color: #7a7979;
+	}
 
-.subtitle-employee {
-	font-weight: normal;
-	font-size: 20px;
-	line-height: 22px;
-	text-align: center;
-	color: rgba(122, 121, 121, 0.5);
-	margin: 5% 8% 5% 8%;
-}
+	.subtitle-employee {
+		font-weight: normal;
+		font-size: 20px;
+		line-height: 22px;
+		text-align: center;
+		color: rgba(122, 121, 121, 0.5);
+		margin: 5% 8% 5% 8%;
+	}
 
-.img-modal {
-	padding-top: 5%;
-}
+	.img-modal {
+		padding-top: 5%;
+	}
 
-.border-form {
-	border: 0.6px solid rgba(122, 121, 121, 0.5);
-	box-sizing: border-box;
-	border-radius: 3px;
-	margin-top: 5%;
-	margin-bottom: 2%;
-}
+	.border-form {
+		border: 0.6px solid rgba(122, 121, 121, 0.5);
+		box-sizing: border-box;
+		border-radius: 3px;
+		margin-top: 5%;
+		margin-bottom: 2%;
 
-.label-form {
-	padding-left: 3%;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 18px;
-	color: rgba(122, 121, 121, 0.5) !important;
-}
+		@media screen and (max-width: 768px) {
+			margin-left: 5%;
+			margin-right: 5%;
+		}
+	}
 
-.no-border-form {
-	border: 0px !important;
-	box-shadow: none !important;
-	font-size: 15px;
-}
+	.hidden-tablet-mobile {
+		display: block;
+		@media screen and (max-width: 768px) {
+			display: none;
+		}
+	}
 
-.btn-wellcome {
-	background: #335eea;
-	border-radius: 4px;
-	color: #ffffff;
-	font-size: 25px;
-}
+	.margin-mobile-email {
+		@media screen and (max-width: 768px) {
+			margin-bottom: 8%;
+		}
+	}
 
-.close-btn {
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin-top: 5%;
-	margin-right: 10%;
-	font-size: 30px;
-	cursor: pointer;
-}
+	.label-form {
+		padding-left: 3%;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 18px;
+		color: rgba(122, 121, 121, 0.5) !important;
+	}
 
-.vm--modal {
-	@media screen and (max-width: 600px) {
-		top: 86px !important;
-		left: 27px !important;
-		width: 376.5px !important;
-		height: 643.2px !important;
+	.no-border-form {
+		border: 0px !important;
+		box-shadow: none !important;
+		font-size: 15px;
+	}
+
+	.btn-wellcome {
+		background: #335eea;
+		border-radius: 4px;
+		color: #ffffff;
+		font-size: 25px;
+		margin-top: 5%;
+		margin-bottom: 10%;
+
+		@media screen and (max-width: 768px) {
+			margin-left: 1%;
+			margin-right: 1%;
+			width: 97% !important;
+		}
+	}
+
+	.close-btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin-top: 5%;
+		margin-right: 10%;
+		font-size: 30px;
+		cursor: pointer;
+	}
+
+	.vm--modal {
+		@media screen and (max-width: 600px) {
+			top: 86px !important;
+			left: 27px !important;
+			width: 376.5px !important;
+			height: 643.2px !important;
+		}
 	}
 }
 </style>

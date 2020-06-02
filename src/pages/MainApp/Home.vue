@@ -292,7 +292,7 @@
 					<div class="card" id="calendar">
 						<header class="card-header background-header">
 							<p class="card-header-title">Calendario</p>
-							<button @click="mainCalendar()" class="btn-more-calendar">...</button>
+							<button @click="mainCalendar()" class="button is-rounded btn-more-calendar">...</button>
 						</header>
 						<div class="card-content calendar-context">
 							<div class="content">
@@ -307,7 +307,7 @@
 						<div class="card-content remove-padding-aside">
 							<div class="content">
 								<!-- <img src="../../assets/postEmpty.png" alt="" class="imgPostEmpty">
-                <p class="text-info-Empty">No tienes publicaciones creadas.</p>-->
+								<p class="text-info-Empty">No tienes publicaciones creadas.</p>-->
 								<div class="row-post">
 									<p class="title-post">COMUNICADO</p>
 									<div class="columns is-centered">
@@ -635,6 +635,8 @@ export default class LogoSVG extends Vue {
 		background: #e9e9e9;
 		border-radius: 4px;
 		padding-left: 5%;
+		margin-top: 10%;
+		margin-bottom: 8%;
 	}
 
 	.label-employee {
@@ -929,42 +931,21 @@ export default class LogoSVG extends Vue {
 		display: none;
 		color: #ffffff;
 		margin-left: 40% !important;
+
+		@media screen and (max-width: 1440px) {
+			margin-left: 15% !important;
+		}
 	}
 
 	.btn-more-calendar {
 		background: transparent !important;
-		border-radius: 50%;
-		padding-top: 0px !important;
-		padding-bottom: 2% !important;
 		color: #ffffff !important;
 		border: 1px solid !important;
-		margin-top: 0% !important;
-		margin-bottom: 2% !important;
-		margin-right: 5% !important;
-		cursor: pointer;
-		padding-left: 3%;
-		padding-right: 3%;
+		padding-left: 14px;
+		padding-right: 14px;
 		font-size: 18px;
-
-		@media screen and (max-width: 1440px) {
-			padding-top: 0px !important;
-			padding-bottom: 3% !important;
-			margin-top: 1% !important;
-			margin-bottom: 3% !important;
-			margin-right: 5% !important;
-			padding-left: 3%;
-			padding-right: 3%;
-		}
-
-		@media screen and (max-width: 1024px) {
-			padding-left: 4%;
-			padding-right: 4%;
-		}
-
-		@media screen and (max-width: 768px) {
-			padding-left: 3%;
-			padding-right: 3%;
-		}
+		margin-right: 2%;
+		margin-bottom: 4%;
 	}
 
 	.row-employee {
