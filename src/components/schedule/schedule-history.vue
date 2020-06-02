@@ -119,13 +119,21 @@
 				</template>
 			</b-table>
 		</div>
+		<!-- <div class="column">
+      <PruebaBar :data="chardata" :chartType="'bar'"/>
+    </div> -->
 	</div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import { Bar } from 'vue-chartjs';
+import PruebaBar from '@/components/schedule/PruebaBar.vue';
 
-@Component
+@Component({
+	extends: Bar,
+	components: { PruebaBar },
+})
 export default class MainMarking extends Vue {
 	public busqueda = '';
 	public selectTurn = false;
@@ -166,7 +174,6 @@ export default class MainMarking extends Vue {
 			distribucion: [2, 6],
 		},
 	];
-
 	public numbers = [2, 5];
 	public checkedRows = [this.data[0], this.data[1]];
 	public columns = [
@@ -204,6 +211,50 @@ export default class MainMarking extends Vue {
 			renderHtml: true,
 		},
 	];
+	chartdata = {
+		labels: ['January', 'February'],
+		datasets: [
+			{
+				label: 'Data One',
+				backgroundColor: '#f87979',
+				data: [40, 20],
+			},
+		],
+	};
+	options = {
+		responsive: true,
+		maintainAspectRatio: false,
+	};
+	_chart;
+	//Life cycle
+	/* public renderChart!: (chartData: any, options: any) => void; */
+	mounted() {
+		/* this.renderChart(this.chartdata, this.options); */
+	}
+	private chardata = {
+		labels: [
+			'January',
+			'February',
+			'March',
+			'April',
+			'May',
+			'June',
+			'July',
+			'August',
+			'September',
+			'October',
+			'November',
+			'December',
+		],
+		datasets: [
+			{
+				label: 'GitHub Commits',
+				backgroundColor: '#f87979',
+				data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+			},
+		],
+	};
+	//Funciones
 	public seleccionarTurno() {
 		this.selectTurn = !this.selectTurn;
 	}
