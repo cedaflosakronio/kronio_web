@@ -2,13 +2,13 @@
 	<div class="app">
 		<div class="body">
 			<div class="columns is-centered">
-				<div class="column is-full">
+				<div class="column is-full box-general">
 					<div class="card box-height">
 						<div class="card-content">
-							<div class="columns box-header-ausencia">
+							<div class="columns box-header-ausencia is-mobile">
 								<div class="column"></div>
 								<div class="column is-one-fifth">
-									<div class="columns">
+									<div class="columns is-mobile">
 										<div class="column">
 											<i class="fas fa-chevron-left"></i>
 										</div>
@@ -22,7 +22,7 @@
 								</div>
 								<div class="column"></div>
 							</div>
-							<div class="columns">
+							<div class="columns box-contenido">
 								<div class="column box-left">
 									<svg
 										width="60"
@@ -83,7 +83,7 @@
 									</p>
 								</div>
 								<div class="column box-right">
-									<div class="columns box-days">
+									<div class="columns box-days is-mobile">
 										<div class="column">
 											<p class="text-days-number">15</p>
 											<p class="text-days">Días totales</p>
@@ -97,9 +97,9 @@
 											<p class="text-days">Días usados</p>
 										</div>
 									</div>
-									<div class="columns">
+									<div class="columns is-mobile">
 										<div class="column">
-											<div class="columns">
+											<div class="columns is-mobile">
 												<div class="column is-one-fifth"></div>
 												<div class="column is-one-fifth">
 													<svg
@@ -118,7 +118,7 @@
 											</div>
 										</div>
 										<div class="column">
-											<div class="columns">
+											<div class="columns is-mobile">
 												<div class="column is-one-fifth"></div>
 												<div class="column is-one-fifth">
 													<i class="fas fa-circle circle-vacaciones"></i>
@@ -129,7 +129,7 @@
 											</div>
 										</div>
 										<div class="column">
-											<div class="columns">
+											<div class="columns is-mobile">
 												<div class="column is-one-fifth"></div>
 												<div class="column is-one-fifth">
 													<i class="fas fa-circle circle-enf"></i>
@@ -140,9 +140,9 @@
 											</div>
 										</div>
 									</div>
-									<div class="columns">
+									<div class="columns is-mobile">
 										<div class="column">
-											<div class="columns">
+											<div class="columns is-mobile">
 												<div class="column is-one-fifth"></div>
 												<div class="column is-one-fifth">
 													<i class="fas fa-circle circle-enf-familiar"></i>
@@ -153,7 +153,7 @@
 											</div>
 										</div>
 										<div class="column">
-											<div class="columns">
+											<div class="columns is-mobile">
 												<div class="column is-one-fifth"></div>
 												<div class="column is-one-fifth">
 													<i class="fas fa-circle circle-maternidad"></i>
@@ -164,7 +164,7 @@
 											</div>
 										</div>
 										<div class="column">
-											<div class="columns">
+											<div class="columns is-mobile">
 												<div class="column is-one-fifth"></div>
 												<div class="column is-one-fifth">
 													<i class="fas fa-circle circle-otro"></i>
@@ -178,7 +178,12 @@
 									<br />
 									<hr />
 									<br />
-									<vc-calendar :rows="4" :columns="3" />
+									<div class="columns is-mobile centered">
+										<div class="column">
+											<vc-calendar :rows="4" :columns="3" />
+										</div>
+									</div>
+
 									<br />
 									<hr />
 									<br />
@@ -375,6 +380,9 @@ export default class NewPublications extends PageBase {
 		height: calc(100vw - 4rem);
 		border-radius: 8px;
 		//box-shadow: 0px 10px 5px #888, 0px -10px 5px #888;
+		@media screen and (max-width: 1440px) {
+			height: 100%;
+		}
 	}
 
 	.body {
@@ -409,6 +417,14 @@ export default class NewPublications extends PageBase {
 		margin-right: auto;
 		padding-left: 15%;
 		padding-right: 15%;
+		@media screen and (max-width: 1440px) {
+			padding-top: 25%;
+			padding-left: 5%;
+			padding-right: 5%;
+		}
+		@media screen and (max-width: 1024px) {
+			padding-top: 10%;
+		}
 	}
 
 	.text-title {
@@ -503,6 +519,11 @@ export default class NewPublications extends PageBase {
 		border: 1px solid #335eea;
 		box-sizing: border-box;
 		border-radius: 4px;
+	}
+	.box-contenido {
+		@media screen and (max-width: 1024px) {
+			display: block;
+		}
 	}
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
 	<div class="enterprise">
 		<div class="column">
-			<div class="columns box-search">
+			<div class="columns box-search is-mobile">
 				<div class="column centered box-header-options">
 					<div class="dropdown box-select-turn" :class="selectTurn ? 'is-active' : ''">
 						<div class="dropdown-trigger">
@@ -11,7 +11,7 @@
 								aria-controls="dropdown-menu"
 								@click="seleccionarTurno"
 							>
-								<div class="columns">
+								<div class="columns is-mobile">
 									<div class="column">
 										<span>Seleccionar turno</span>
 									</div>
@@ -98,7 +98,7 @@
 					</b-table-column>
 
 					<b-table-column field="distribucion" label="Distribución de horas" centered>
-						<div class="columns">
+						<div class="columns is-mobile">
 							<div class="column is-four-fifths">
 								<b-field>
 									<b-slider
@@ -110,10 +110,10 @@
 									></b-slider>
 								</b-field>
 							</div>
-							<div class="column"></div>
 							<div class="column">
 								<i class="fas fa-chevron-right" @click="selectEmployee(props.row.id)"></i>
 							</div>
+							<div class="column"></div>
 						</div>
 					</b-table-column>
 				</template>
@@ -329,6 +329,14 @@ export default class MainMarking extends Vue {
 	line-height: 21px;
 	text-align: center;
 	color: rgba(122, 121, 121, 0.5);
+	@media screen and (max-width: 1440px) {
+		width: 274%;
+		height: 105%;
+	}
+	@media screen and (max-width: 1024px) {
+		width: 175%;
+		height: 115%;
+	}
 }
 .dropdown-alignment {
 	left: 2px !important;

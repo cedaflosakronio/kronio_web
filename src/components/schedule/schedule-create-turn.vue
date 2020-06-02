@@ -20,7 +20,7 @@
 										<p class="box-subtitle">Seleccione los días</p>
 									</div>
 									<div class="column">
-										<div class="columns">
+										<div class="columns is-mobile box-dia">
 											<div class="column">
 												<p
 													class="box-days"
@@ -132,7 +132,7 @@
 										<p class="box-subtitle">Seleccione los días</p>
 									</div>
 									<div class="column">
-										<div class="columns">
+										<div class="columns is-mobile box-dia">
 											<div class="column">
 												<p
 													class="box-days"
@@ -505,6 +505,10 @@ export default class NewPublications extends PageBase {
 		padding-right: 10%;
 		padding-left: 10%;
 		margin-top: 5%;
+		@media screen and (max-width: 1440px) {
+			padding-right: 5%;
+			padding-left: 5%;
+		}
 	}
 
 	.box-inputs {
@@ -564,6 +568,11 @@ export default class NewPublications extends PageBase {
 		text-align: center;
 		color: rgba(122, 121, 121, 0.5);
 		height: 115%;
+		@media screen and (max-width: 768px) {
+			height: 40px;
+			width: 40px;
+			padding-top: 18%;
+		}
 	}
 	.box-days-selected {
 		background: #335eea;
@@ -572,6 +581,17 @@ export default class NewPublications extends PageBase {
 		text-align: center;
 		color: #ffffff;
 		height: 115%;
+		@media screen and (max-width: 768px) {
+			height: 40px;
+			width: 40px;
+			padding-top: 18%;
+		}
+	}
+
+	.box-dia {
+		@media screen and (max-width: 768px) {
+			display: flex;
+		}
 	}
 }
 </style>

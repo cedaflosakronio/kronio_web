@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-subir-documentos" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="350">
+	<modal name="md-subir-documentos" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="400">
 		<div class="example-modal-content">
 			<svg
 				width="100"
@@ -53,28 +53,28 @@
 				</div>
 			</div>
 			<div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column">
 						<b-checkbox>
 							<p>Enviar notificación a Belen</p>
 						</b-checkbox>
 					</div>
 				</div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column"></div>
 					<div class="column is-three-fifths">
 						<p class="texto-consejo">Enviaremos un email a Belen para informarle sobre este documento</p>
 					</div>
 					<div class="column"></div>
 				</div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column">
 						<b-checkbox>
 							<p>Solicitar firma electrónica</p>
 						</b-checkbox>
 					</div>
 				</div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column"></div>
 					<div class="column is-three-fifths">
 						<p class="texto-consejo">
@@ -144,6 +144,10 @@ export default class MdHolidays extends Vue {
 	color: #ffffff;
 	font-size: 25px;
 	margin-bottom: 5%;
+	@media screen and (max-width: 768px) {
+		display: initial;
+		width: 80%;
+	}
 }
 
 .close-btn {
@@ -166,6 +170,9 @@ export default class MdHolidays extends Vue {
 	line-height: 22px;
 	margin-right: 4.5rem;
 	color: #335eea;
+	@media screen and (max-width: 768px) {
+		margin-right: 0;
+	}
 }
 //Lista de acciones
 .box-column {
@@ -218,5 +225,10 @@ export default class MdHolidays extends Vue {
 }
 .caja-consejo {
 	margin-left: 5%;
+}
+.b-checkbox.checkbox[data-v-1bfe8077]:not(.button) {
+	@media screen and (max-width: 768px) {
+		margin-right: 20%;
+	}
 }
 </style>

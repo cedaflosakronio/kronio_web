@@ -18,7 +18,7 @@
 				</span>
 			</button>
 			<div class="content-options-employee" v-if="showOptionsEmployee">
-				<div class="columns" @click="goTo(3)">
+				<div class="columns is-mobile" @click="goTo(3)">
 					<div class="column">
 						<label class="label label-employee">Empleados</label>
 					</div>
@@ -26,7 +26,7 @@
 						<i class="fas fa-plus-circle"></i>
 					</div>
 				</div>
-				<div class="columns" @click="goTo(5)">
+				<div class="columns is-mobile" @click="goTo(5)">
 					<div class="column">
 						<label class="label label-assistance">Asistencia</label>
 					</div>
@@ -634,7 +634,7 @@ export default class LogoSVG extends Vue {
 	.content-options-employee {
 		background: #e9e9e9;
 		border-radius: 4px;
-		padding-left: 20%;
+		padding-left: 5%;
 	}
 
 	.label-employee {

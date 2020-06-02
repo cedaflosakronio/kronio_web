@@ -5,9 +5,9 @@
 				<div class="column is-9">
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<div class="columns">
+							<div class="columns is-mobile">
 								<div class="column"></div>
-								<div class="column is-four-fifths">
+								<div class="column is-four-fifths box-header-central">
 									<div class="tabs is-fullwidth">
 										<ul>
 											<li @click="showTab(1)" v-bind:class="[employee ? 'is-active' : '']">

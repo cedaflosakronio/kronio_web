@@ -1,21 +1,21 @@
 <template>
 	<div class="app-setting">
 		<div class="body" id="body-id">
-			<div class="columns is-centered">
+			<div class="columns is-centered box-top-general">
 				<div class="column is-10">
 					<div class="box-sombra"></div>
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<div class="columns">
+							<div class="columns is-mobile">
 								<div class="column">
 									<span @click="exit()" class="close-btn">
 										<i class="fas fa-arrow-circle-left"></i>
 									</span>
 								</div>
-								<div class="column is-four-fifths">
+								<div class="column is-four-fifths icon-right-tab">
 									<div class="dropdown" :class="dropSelected ? 'is-active' : ''">
 										<div class="dropdown-trigger" @click="dropSelect">
-											<div class="columns">
+											<div class="columns is-mobile">
 												<div
 													class="column is-four-fifths"
 													style="margin-top:auto; margin-bottom:auto;"
@@ -55,7 +55,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="column" v-if="perfil" style="margin-top:auto; margin-bottom-auto;">
+								<div class="column icon-right-tab" v-if="perfil">
 									<b-dropdown aria-role="list" class="button-options">
 										<span class="button-options" slot="trigger">
 											<i class="fas fa-ellipsis-h"></i>
@@ -82,17 +82,17 @@
 										</b-dropdown-item>
 									</b-dropdown>
 								</div>
-								<div class="column" v-if="documentos" style="margin-top:auto; margin-bottom-auto;">
+								<div class="column icon-right-tab" v-if="documentos">
 									<span class="button-options" slot="trigger" @click="uploadDocuments()">
 										<b-icon icon="plus"></b-icon>
 									</span>
 								</div>
-								<div class="column" v-if="ausencia" style="margin-top:auto; margin-bottom-auto;">
+								<div class="column icon-right-tab" v-if="ausencia">
 									<span class="button-options" slot="trigger" @click="uploadAusencias()">
 										<b-icon icon="plus"></b-icon>
 									</span>
 								</div>
-								<div class="column" v-if="tareas" style="margin-top:auto; margin-bottom-auto;">
+								<div class="column icon-right-tab" v-if="tareas">
 									<b-dropdown aria-role="list" class="button-options">
 										<span class="button-options" slot="trigger">
 											<i class="fas fa-ellipsis-h"></i>
@@ -111,7 +111,7 @@
 							</div>
 						</header>
 						<div class="card-content">
-							<div class="tabs is-fullwidth">
+							<div class="tabs is-fullwidth is-mobile tab-general-datos">
 								<ul>
 									<li @click="showTab(1)" v-bind:class="[perfil ? 'is-active' : '']">
 										<a>
@@ -810,6 +810,11 @@ export default class NewPublications extends PageBase {
 		color: #ffffff;
 	}
 
+	.icon-right-tab {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
 	.item-title {
 		font-family: Poppins;
 		font-style: normal;
@@ -858,6 +863,18 @@ export default class NewPublications extends PageBase {
 	.icon-color {
 		color: #8969eb;
 		margin-left: 5%;
+	}
+
+	.box-top-general {
+		@media screen and (max-width: 768px) {
+			margin-left: 1.25rem;
+		}
+	}
+
+	.tab-general-datos {
+		@media screen and (max-width: 768px) {
+			padding-left: 19%;
+		}
 	}
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<modal name="md-importar-empleado" width="30%" height="auto" :scrollable="true" :adaptive="true">
+	<modal name="md-importar-empleado" width="30%" height="auto" :scrollable="true" :adaptive="true" :min-width="400">
 		<div class="example-modal-content">
 			<svg
 				width="100"
@@ -59,7 +59,7 @@
 			</div>
 			<div>
 				<p class="consejo">Consejos</p>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column icon-consejo">
 						<i class="far fa-circle"></i>
 					</div>
@@ -70,7 +70,7 @@
 					</div>
 					<div class="column"></div>
 				</div>
-				<div class="columns">
+				<div class="columns is-mobile">
 					<div class="column icon-consejo">
 						<i class="far fa-circle"></i>
 					</div>
@@ -135,6 +135,11 @@ export default class MdHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
+	@media screen and (max-width: 768px) {
+		width: 84%;
+		display: inline;
+		margin-top: 5%;
+	}
 }
 
 .close-btn {

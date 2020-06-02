@@ -5,9 +5,9 @@
 				<div class="column is-9">
 					<div class="card box-height">
 						<header class="card-header tabs-header">
-							<div class="columns is-centered">
-								<div class="column is-half">
-									<div class="tabs is-fullwidth">
+							<div class="columns is-centered is-mobile">
+								<div class="column is-half header-column-tab-container">
+									<div class="tabs is-fullwidth tab-container-header">
 										<ul>
 											<li @click="showTab(1)" v-bind:class="[turno ? 'is-active' : '']">
 												<a>
@@ -178,6 +178,18 @@ export default class ConfigAdmin extends PageBase {
 	.tabs-header {
 		background: #8969eb;
 		display: block;
+	}
+
+	.tab-container-header {
+		@media screen and (max-width: 1440px) {
+			width: 100% !important;
+		}
+	}
+
+	.header-column-tab-container {
+		@media screen and (max-width: 1024px) {
+			width: 65% !important;
+		}
 	}
 
 	.tab-content {
