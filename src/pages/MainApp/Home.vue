@@ -974,6 +974,7 @@ export default class LogoSVG extends Vue {
 
 		@media screen and (max-width: 1024px) {
 			margin-top: 9%;
+			width: 12%;
 		}
 
 		@media screen and (max-width: 768px) {
