@@ -104,6 +104,7 @@ export default class MainApp extends PageBase {
 					title: 'Configuraciones',
 					icon: 'cog',
 					description: 'Puede configurar un poco y dejar KiteBlue mucho más comodo para usted',
+					path: '/configAdmin',
 				},
 			],
 		},
