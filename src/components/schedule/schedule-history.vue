@@ -99,17 +99,16 @@
 
 					<b-table-column field="distribucion" label="Distribución de horas" centered>
 						<div class="columns is-mobile">
-							<div class="column is-8">
-								<b-field>
-									<b-slider
-										v-model="props.row.distribucion"
-										:min="1"
-										:max="15"
-										:step="0.5"
-										ticks
-									></b-slider>
-								</b-field>
-							</div>
+							<!-- <b-field>
+                  <b-slider v-model="props.row.distribucion" :min="1" :max="15" :step="0.5" ticks></b-slider>
+              </b-field>-->
+							<PruebaBar
+								:data="chardata"
+								:chartType="'bar'"
+								:options="options"
+								:cssClasses="'column is-8'"
+								:height="80"
+							/>
 							<div class="column is-1" style="margin-top:auto; margin-bottom: auto;">
 								<i class="fas fa-chevron-right" @click="selectEmployee(props.row.id)"></i>
 							</div>
@@ -119,16 +118,13 @@
 				</template>
 			</b-table>
 		</div>
-		<!-- <div class="column">
-      <PruebaBar :data="chardata" :chartType="'bar'"/>
-    </div> -->
 	</div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { Bar } from 'vue-chartjs';
-import PruebaBar from '@/components/schedule/PruebaBar.vue';
+import PruebaBar from '@/components/schedule/Grafico.vue';
 
 @Component({
 	extends: Bar,
@@ -211,48 +207,72 @@ export default class MainMarking extends Vue {
 			renderHtml: true,
 		},
 	];
-	chartdata = {
-		labels: ['January', 'February'],
-		datasets: [
-			{
-				label: 'Data One',
-				backgroundColor: '#f87979',
-				data: [40, 20],
-			},
-		],
-	};
-	options = {
-		responsive: true,
-		maintainAspectRatio: false,
-	};
-	_chart;
-	//Life cycle
-	/* public renderChart!: (chartData: any, options: any) => void; */
-	mounted() {
-		/* this.renderChart(this.chartdata, this.options); */
-	}
 	private chardata = {
 		labels: [
-			'January',
-			'February',
-			'March',
-			'April',
-			'May',
-			'June',
-			'July',
-			'August',
-			'September',
-			'October',
-			'November',
-			'December',
+			'1 de mayo',
+			'2 de mayo',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'-',
+			'27 de mayo',
+			'-',
+			'-',
 		],
 		datasets: [
 			{
-				label: 'GitHub Commits',
-				backgroundColor: '#f87979',
-				data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+				backgroundColor: '#CAD6FF',
+				data: [8.25, 8.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 			},
 		],
+	};
+	private options = {
+		legend: {
+			display: false,
+		},
+		scales: {
+			xAxes: [
+				{
+					display: false,
+					categoryPercentage: 1.0,
+				},
+			],
+			yAxes: [
+				{
+					display: false,
+				},
+			],
+		},
+		tooltips: {
+			callbacks: {
+				label: function(tooltipItem, data) {
+					let label = data.datasets[tooltipItem.datasetIndex].label || '';
+					if (label) {
+						label += ': ';
+					}
+					const hora = Math.trunc(tooltipItem.yLabel);
+					const tmpmin = tooltipItem.yLabel % 1;
+					const min = tmpmin * 60;
+					label += hora + 'h:' + min + 'min';
+					return label;
+				},
+			},
+		},
 	};
 	//Funciones
 	public seleccionarTurno() {
@@ -261,6 +281,16 @@ export default class MainMarking extends Vue {
 
 	public selectEmployee(id: number) {
 		this.$emit('details', id);
+	}
+	public minToHour(minutos: number) {
+		const hora = Math.trunc(minutos / 60);
+		const tmpmin = (minutos / 60) % 1;
+		const min = tmpmin * 60;
+		return hora + 'h:' + min + 'min';
+	}
+
+	mounted() {
+		console.log(this.minToHour(495));
 	}
 }
 </script>

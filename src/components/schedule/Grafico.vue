@@ -21,7 +21,7 @@ import Chart, { ChartData, ChartOptions } from 'chart.js';
 		options: Object,
 	},
 })
-export default class PruebaBar extends Vue {
+export default class Grafico extends Vue {
 	chartId: string;
 	width: number;
 	height: number;
