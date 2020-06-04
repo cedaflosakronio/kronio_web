@@ -367,7 +367,11 @@
 						</header>
 						<div class="card-content calendar-context">
 							<div class="content">
-								<vc-calendar id="calendario" is-expanded locale="es" />
+								<vc-calendar
+									id="calendario"
+									:is-expanded="$screens({ default: true, lg: true })"
+									locale="es"
+								/>
 							</div>
 						</div>
 					</div>
@@ -560,6 +564,12 @@ export default class LogoSVG extends Vue {
 		padding-top: 4%;
 	}
 
+	.vc-container {
+		@media screen and (min-width: 768px) and (max-width: 1024px) {
+			width: 100%;
+		}
+	}
+
 	.calendar-context {
 		padding: 0px !important;
 	}
@@ -625,11 +635,16 @@ export default class LogoSVG extends Vue {
 			height: calc(76.3vh - 3rem);
 		}
 
+		@media screen and (max-width: 901px) {
+			height: calc(79vh - 3rem);
+		}
+
 		@media screen and (max-width: 768px) {
 			width: 70%;
 			height: calc(79vh - 3rem);
 		}
 	}
+
 	#notifications {
 		height: calc(77.5vh - 3rem);
 		@media screen and (max-width: 1440px) {
@@ -640,6 +655,10 @@ export default class LogoSVG extends Vue {
 			height: calc(76.3vh - 3rem);
 		}
 
+		@media screen and (max-width: 839px) {
+			height: calc(79vh - 3rem);
+		}
+
 		@media screen and (max-width: 768px) {
 			width: 70%;
 			height: calc(135vh - 3rem);
@@ -648,11 +667,30 @@ export default class LogoSVG extends Vue {
 
 	#post .card-content {
 		height: calc(43vh - 3rem);
+		@media screen and (max-width: 1440px) {
+			margin-top: -7%;
+			font-size: 14px;
+			height: calc(32vh - 3rem);
+		}
+
+		@media screen and (max-width: 1024px) {
+			margin-top: 3%;
+			height: calc(32vh - 3rem);
+		}
+
+		@media screen and (max-width: 768px) {
+			font-size: 16px;
+		}
 	}
 
 	#post {
 		margin-top: 11%;
 		height: calc(40vh - 3rem);
+
+		@media screen and (max-width: 1440px) {
+			margin-top: 5%;
+			height: calc(41vh - 3rem);
+		}
 
 		@media screen and (max-width: 768px) {
 			margin-top: 5%;
@@ -1123,6 +1161,12 @@ export default class LogoSVG extends Vue {
 		padding-top: 0%;
 		margin-right: 4%;
 		padding-bottom: 3%;
+		@media screen and (max-width: 1024px) and (min-width: 768px) {
+			margin-left: 3%;
+			padding-top: 0%;
+			margin-right: 0%;
+			padding-bottom: 3%;
+		}
 	}
 
 	.title-notification {
