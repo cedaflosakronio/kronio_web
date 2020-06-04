@@ -2,40 +2,16 @@
 	<div class="enterprise">
 		<div class="column">
 			<div class="columns box-search is-mobile">
-				<div class="column centered box-header-options">
-					<div class="dropdown box-select-turn" :class="selectTurn ? 'is-active' : ''">
-						<div class="dropdown-trigger">
-							<button
-								class="button boton-select-turn"
-								aria-haspopup="true"
-								aria-controls="dropdown-menu"
-								@click="seleccionarTurno"
-							>
-								<div class="columns is-mobile">
-									<div class="column">
-										<span>Seleccionar turno</span>
-									</div>
-									<div class="column">
-										<span class="icon is-small">
-											<i class="fas fa-angle-down" aria-hidden="true"></i>
-										</span>
-									</div>
-								</div>
-							</button>
-						</div>
-						<div class="dropdown-menu dropdown-alignment" id="dropdown-menu" role="menu">
-							<div class="dropdown-content">
-								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-								<a class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-								<a href="#" class="dropdown-item is-active" @click="seleccionarTurno">Item 1</a>
-								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-								<hr class="dropdown-divider" />
-								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-							</div>
-						</div>
+				<div class="column centered">
+					<div class="select is-rounded box-select-header">
+						<select class="select-header">
+							<option>Turno 1</option>
+							<option>Turno 2</option>
+						</select>
 					</div>
 				</div>
-				<div class="column centered box-header-options">
+
+				<div class="column centered">
 					<b-input
 						v-model="busqueda"
 						placeholder="Filtrar por nombre"
@@ -97,22 +73,16 @@
 						<p class="data-text-employee">{{ props.row.horas_trabajadas }}</p>
 					</b-table-column>
 
-					<b-table-column field="distribucion" label="Distribución de horas" centered>
+					<b-table-column field="distribucion" label="Distribución de horas" class="columna-grafico" centered>
 						<div class="columns is-mobile">
-							<!-- <b-field>
-                  <b-slider v-model="props.row.distribucion" :min="1" :max="15" :step="0.5" ticks></b-slider>
-              </b-field>-->
-							<PruebaBar
-								:data="chardata"
-								:chartType="'bar'"
-								:options="options"
-								:cssClasses="'column is-8'"
-								:height="80"
-							/>
-							<div class="column is-1" style="margin-top:auto; margin-bottom: auto;">
-								<i class="fas fa-chevron-right" @click="selectEmployee(props.row.id)"></i>
+							<div class="column-is-10 box-grafico">
+								<Grafico :data="chardata" :chartType="'bar'" :options="options" :height="60" />
 							</div>
 							<div class="column i-1"></div>
+
+							<div class="column is-1 box-grafico-icon">
+								<i class="fas fa-chevron-right" @click="selectEmployee(props.row.id)"></i>
+							</div>
 						</div>
 					</b-table-column>
 				</template>
@@ -124,11 +94,11 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { Bar } from 'vue-chartjs';
-import PruebaBar from '@/components/schedule/Grafico.vue';
+import Grafico from '@/components/schedule/Grafico.vue';
 
 @Component({
 	extends: Bar,
-	components: { PruebaBar },
+	components: { Grafico },
 })
 export default class MainMarking extends Vue {
 	public busqueda = '';
@@ -237,7 +207,7 @@ export default class MainMarking extends Vue {
 		datasets: [
 			{
 				backgroundColor: '#CAD6FF',
-				data: [8.25, 8.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+				data: [8.25, 8.25, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 			},
 		],
 	};
@@ -259,8 +229,15 @@ export default class MainMarking extends Vue {
 			],
 		},
 		tooltips: {
+			enabled: true,
+			mode: 'single',
+			displayColors: false,
 			callbacks: {
+				title: function(tooltipItem, data) {
+					return '';
+				},
 				label: function(tooltipItem, data) {
+					console.log(tooltipItem);
 					let label = data.datasets[tooltipItem.datasetIndex].label || '';
 					if (label) {
 						label += ': ';
@@ -268,12 +245,15 @@ export default class MainMarking extends Vue {
 					const hora = Math.trunc(tooltipItem.yLabel);
 					const tmpmin = tooltipItem.yLabel % 1;
 					const min = tmpmin * 60;
-					label += hora + 'h:' + min + 'min';
+					label += tooltipItem.xLabel + ' - ' + hora + 'h:' + min + 'min';
 					return label;
 				},
 			},
 		},
 	};
+	/* private estilos = {
+		height: '60px',
+	}; */
 	//Funciones
 	public seleccionarTurno() {
 		this.selectTurn = !this.selectTurn;
@@ -288,9 +268,8 @@ export default class MainMarking extends Vue {
 		const min = tmpmin * 60;
 		return hora + 'h:' + min + 'min';
 	}
-
 	mounted() {
-		console.log(this.minToHour(495));
+		console.log(this.$el.clientHeight);
 	}
 }
 </script>
@@ -405,22 +384,45 @@ export default class MainMarking extends Vue {
 	border: 1px solid #d1dcfe;
 	box-sizing: border-box;
 	border-radius: 17px;
-	width: 360%;
+	//width: 360%;
 	font-size: 14px;
 	line-height: 21px;
 	text-align: center;
 	color: rgba(122, 121, 121, 0.5);
-	@media screen and (max-width: 1440px) {
+	/* @media screen and (max-width: 1440px) {
 		width: 274%;
 		height: 105%;
 	}
 	@media screen and (max-width: 1024px) {
 		width: 175%;
 		height: 115%;
-	}
+	} */
 }
 .dropdown-alignment {
 	left: 2px !important;
 	width: 100%;
+}
+.columna-grafico {
+	@media screen and (max-width: 768px) {
+		height: 100px;
+	}
+}
+.box-select-header {
+	width: 100%;
+}
+.select-header {
+	width: 100%;
+}
+.box-grafico {
+	@media screen and (max-width: 1024px) {
+		width: 73%;
+	}
+	@media screen and (max-width: 768px) {
+		width: auto;
+	}
+}
+.box-grafico-icon {
+	margin-top: auto;
+	margin-bottom: auto;
 }
 </style>

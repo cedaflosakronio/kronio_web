@@ -3,36 +3,11 @@
 		<div class="column">
 			<div class="columns box-search is-mobile">
 				<div class="column centered box-header-options">
-					<div class="dropdown box-select-turn" :class="selectTurn ? 'is-active' : ''">
-						<div class="dropdown-trigger">
-							<button
-								class="button boton-select-turn"
-								aria-haspopup="true"
-								aria-controls="dropdown-menu"
-								@click="seleccionarTurno"
-							>
-								<div class="columns is-mobile">
-									<div class="column">
-										<span>Seleccionar turno</span>
-									</div>
-									<div class="column">
-										<span class="icon is-small">
-											<i class="fas fa-angle-down" aria-hidden="true"></i>
-										</span>
-									</div>
-								</div>
-							</button>
-						</div>
-						<div class="dropdown-menu dropdown-alignment" id="dropdown-menu" role="menu">
-							<div class="dropdown-content">
-								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-								<a class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-								<a href="#" class="dropdown-item is-active" @click="seleccionarTurno">Item 1</a>
-								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-								<hr class="dropdown-divider" />
-								<a href="#" class="dropdown-item" @click="seleccionarTurno">Item 1</a>
-							</div>
-						</div>
+					<div class="select is-rounded box-select-header">
+						<select class="select-header">
+							<option>Turno 1</option>
+							<option>Turno 2</option>
+						</select>
 					</div>
 				</div>
 				<div class="column centered box-header-options">
@@ -59,9 +34,6 @@
 										<i class="fas fa-plus icon-add-employee"></i>
 									</b-button>
 								</div>
-								<!-- <div class="column">
-									
-								</div> -->
 							</div>
 						</template>
 						<div class="columns">
@@ -356,5 +328,11 @@ export default class MainMarking extends Vue {
 
 .box-table-select {
 	display: flex;
+}
+.box-select-header {
+	width: 100%;
+}
+.select-header {
+	width: 100%;
 }
 </style>
