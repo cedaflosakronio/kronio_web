@@ -571,7 +571,6 @@ export default class NewPublications extends PageBase {
 		@media screen and (max-width: 768px) {
 			height: 10%;
 			width: 10%;
-			padding-top: 18%;
 		}
 		@media screen and (max-width: 1024px) {
 			height: 25px;
@@ -586,9 +585,7 @@ export default class NewPublications extends PageBase {
 		color: #ffffff;
 		height: 115%;
 		@media screen and (max-width: 768px) {
-			height: 10%;
-			width: 10%;
-			padding-top: 18%;
+			padding-top: 0;
 		}
 		@media screen and (max-width: 1024px) {
 			height: 25px;
@@ -608,6 +605,9 @@ export default class NewPublications extends PageBase {
 	.box-label-dia {
 		@media screen and (max-width: 1024px) {
 			padding: 1%;
+		}
+		@media screen and (max-width: 768px) {
+			padding: 0;
 		}
 	}
 }

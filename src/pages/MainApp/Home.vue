@@ -136,8 +136,6 @@
 						</header>
 						<div class="card-content remove-padding-aside">
 							<div class="content">
-								<!-- <img src="../../assets/employeesEmpty.png" alt="" class="imgEmployeesEmpty">
-                <p class="text-info-Empty">¡Invita a tu equipo de trabajo para poder empezar!</p>-->
 								<div class="row-employee">
 									<div class="columns">
 										<div class="column is-3 inline-tablet">
@@ -264,8 +262,6 @@
 						</header>
 						<div class="card-content remove-padding-aside">
 							<div class="content">
-								<!-- <img src="../../assets/notificationsEmpty.png" alt="" class="imgEmployeesEmpty">
-                <p class="text-info-Empty">No tienes aprobaciones, ni notificaciones pendientes.</p>-->
 								<div class="row-employee">
 									<p class="title-notification">HOY</p>
 									<div class="columns is-centered" @click="$modal.show('md-holidays')">
@@ -346,68 +342,80 @@
 					</div>
 				</div>
 				<div class="column is-3">
-					<div class="card" id="calendar">
-						<header class="card-header background-header">
-							<p class="card-header-title">Calendario</p>
-							<button @click="mainCalendar()" class="button is-rounded btn-more-calendar">...</button>
-							<a class="arrow_calendar">
-								<svg
-									width="12"
-									height="12"
-									viewBox="0 0 6 6"
-									fill="none"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										d="M0.808593 0.85547L3.49172 3.00197L0.808594 5.14847L1.69234 5.85547L5.25922 3.00197L1.69234 0.148469L0.808593 0.85547Z"
-										fill="white"
-									/>
-								</svg>
-							</a>
-						</header>
-						<div class="card-content calendar-context">
-							<div class="content">
-								<vc-calendar
-									id="calendario"
-									:is-expanded="$screens({ default: true, lg: true })"
-									locale="es"
-								/>
+					<div class="columns">
+						<div class="column is-full">
+							<div class="card" id="calendar">
+								<header class="card-header background-header">
+									<p class="card-header-title">Calendario</p>
+									<button @click="mainCalendar()" class="button is-rounded btn-more-calendar">
+										...
+									</button>
+									<a class="arrow_calendar">
+										<svg
+											width="12"
+											height="12"
+											viewBox="0 0 6 6"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M0.808593 0.85547L3.49172 3.00197L0.808594 5.14847L1.69234 5.85547L5.25922 3.00197L1.69234 0.148469L0.808593 0.85547Z"
+												fill="white"
+											/>
+										</svg>
+									</a>
+								</header>
+								<div class="card-content calendar-context">
+									<div class="content">
+										<vc-calendar
+											id="calendario"
+											:is-expanded="$screens({ default: true, lg: true })"
+											locale="es"
+										/>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="card" id="post">
-						<header class="card-header background-header">
-							<p class="card-header-title">Publicaciones</p>
-						</header>
-						<div class="card-content remove-padding-aside">
-							<div class="content">
-								<!-- <img src="../../assets/postEmpty.png" alt="" class="imgPostEmpty">
-								<p class="text-info-Empty">No tienes publicaciones creadas.</p>-->
-								<div class="row-post">
-									<p class="title-post">COMUNICADO</p>
-									<div class="columns is-centered">
-										<div class="column is-12">
-											<div class="item-post"></div>
-											<p class="post-label">
-												Título del comunicado Descripción de la información del comunicado
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="row-post">
-									<p class="title-post">EVENTO</p>
-									<div class="columns is-centered">
-										<div class="column is-12">
-											<div class="item-post"></div>
-											<p class="post-label">
-												Título del comunicado Descripción de la información del comunicado
-											</p>
-											<div class="columns is-centered">
-												<div class="column is-half">
-													<p class>25/03/2020</p>
+					<div class="columns">
+						<div class="column-is-full">
+							<div class="column is-full">
+								<div class="card" id="post">
+									<header class="card-header background-header">
+										<p class="card-header-title">Publicaciones</p>
+									</header>
+									<div class="card-content remove-padding-aside">
+										<div class="content">
+											<div class="row-post">
+												<p class="title-post">COMUNICADO</p>
+												<div class="columns is-centered">
+													<div class="column is-12">
+														<div class="item-post"></div>
+														<p class="post-label">
+															Título del comunicado Descripción de la información del
+															comunicado
+														</p>
+													</div>
 												</div>
-												<div class="column is-half">
-													<p class>00:00</p>
+											</div>
+											<div class="row-post">
+												<p class="title-post">EVENTO</p>
+												<div class="columns is-centered">
+													<div class="column is-12">
+														<div class="item-post"></div>
+														<p class="post-label">
+															Título del comunicado Descripción de la información del
+															comunicado
+														</p>
+														<div class="columns is-centered">
+															<div class="column is-half">
+																<p class>25/03/2020</p>
+															</div>
+															<div class="column is-half">
+																<p class>00:00</p>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -557,6 +565,10 @@ export default class LogoSVG extends Vue {
 
 <style lang="scss" scoped>
 .home {
+	/* background-color: red;
+	width: unset;
+	height: 100%;
+	padding: 0; */
 	.background-header {
 		background: #8969eb;
 		border-top-left-radius: 12px !important;
@@ -626,17 +638,17 @@ export default class LogoSVG extends Vue {
 	}
 
 	#employees {
-		height: calc(77.5vh - 3rem);
+		height: auto; // calc(77.5vh - 3rem);
 		@media screen and (max-width: 1440px) {
-			height: calc(76.3vh - 3rem);
+			//height: calc(76.3vh - 3rem);
 		}
 
 		@media screen and (max-width: 1440px) {
-			height: calc(76.3vh - 3rem);
+			//height: calc(76.3vh - 3rem);
 		}
 
 		@media screen and (max-width: 901px) {
-			height: calc(79vh - 3rem);
+			//height: calc(79vh - 3rem);
 		}
 
 		@media screen and (max-width: 768px) {
@@ -646,17 +658,17 @@ export default class LogoSVG extends Vue {
 	}
 
 	#notifications {
-		height: calc(77.5vh - 3rem);
+		height: auto; //calc(77.5vh - 3rem);
 		@media screen and (max-width: 1440px) {
-			height: calc(76.3vh - 3rem);
+			//height: calc(76.3vh - 3rem);
 		}
 
 		@media screen and (max-width: 1440px) {
-			height: calc(76.3vh - 3rem);
+			//height: calc(76.3vh - 3rem);
 		}
 
 		@media screen and (max-width: 839px) {
-			height: calc(79vh - 3rem);
+			//height: calc(79vh - 3rem);
 		}
 
 		@media screen and (max-width: 768px) {
@@ -666,16 +678,16 @@ export default class LogoSVG extends Vue {
 	}
 
 	#post .card-content {
-		height: calc(43vh - 3rem);
+		height: auto;
 		@media screen and (max-width: 1440px) {
 			margin-top: -7%;
 			font-size: 14px;
-			height: calc(32vh - 3rem);
+			//height: calc(32vh - 3rem);
 		}
 
 		@media screen and (max-width: 1024px) {
 			margin-top: 3%;
-			height: calc(32vh - 3rem);
+			//height: calc(32vh - 3rem);
 		}
 
 		@media screen and (max-width: 768px) {
@@ -685,17 +697,17 @@ export default class LogoSVG extends Vue {
 
 	#post {
 		margin-top: 11%;
-		height: calc(40vh - 3rem);
+		height: auto;
 
 		@media screen and (max-width: 1440px) {
 			margin-top: 5%;
-			height: calc(41vh - 3rem);
+			//height: calc(41vh - 3rem);
 		}
 
 		@media screen and (max-width: 768px) {
 			margin-top: 5%;
 			width: 70%;
-			height: calc(42vh - 3rem);
+			//height: calc(42vh - 3rem);
 		}
 	}
 

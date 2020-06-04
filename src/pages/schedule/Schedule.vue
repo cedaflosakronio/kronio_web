@@ -168,7 +168,7 @@ export default class ConfigAdmin extends PageBase {
 	}
 
 	.box-height {
-		height: calc(100vh - 3rem);
+		height: 95%;
 		margin-top: 3%;
 		@media screen and (max-width: 768px) {
 			height: 165vh;
