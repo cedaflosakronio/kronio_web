@@ -103,11 +103,12 @@ export default class MdHolidays extends Vue {
 	border-radius: 4px;
 	color: #ffffff;
 	font-size: 25px;
-	margin-bottom: 5%;
+	margin-top: 5%;
+	margin-bottom: 10%;
 	@media screen and (max-width: 768px) {
 		width: 84%;
 		display: inline;
-		margin-top: 5%;
+		margin-top: 10%;
 	}
 }
 

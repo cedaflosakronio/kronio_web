@@ -2,14 +2,33 @@
 	<div class="app-setting">
 		<div class="body" id="body-id">
 			<div class="columns is-centered box-top-general">
-				<div class="column is-10">
+				<div class="column is-9">
 					<div class="box-sombra"></div>
 					<div class="card box-height">
 						<header class="card-header tabs-header">
 							<div class="columns is-mobile">
 								<div class="column">
 									<span @click="exit()" class="close-btn">
-										<i class="fas fa-arrow-circle-left"></i>
+										<svg
+											width="46"
+											height="46"
+											viewBox="0 0 46 46"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<circle
+												cx="23"
+												cy="23"
+												r="21.5"
+												fill="#8969EB"
+												stroke="white"
+												stroke-width="3"
+											/>
+											<path
+												d="M36.6568 22.1475C36.4323 21.9175 36.1353 21.7889 35.8185 21.7889L13.066 21.7754L19.6271 15.0704C20.0891 14.5968 20.0891 13.8254 19.6271 13.3518C19.396 13.1286 19.099 13 18.7822 13C18.4653 13 18.1683 13.1286 17.9439 13.3518L9.34984 22.1407C9.12541 22.364 9 22.682 9 23C9 23.3248 9.12541 23.6292 9.34984 23.8593L17.9439 32.6482C18.1683 32.8782 18.4653 33 18.7822 33C19.099 33 19.396 32.8714 19.6205 32.6414C19.8449 32.4114 19.9703 32.1069 19.9703 31.7821C19.9703 31.4574 19.8449 31.1529 19.6205 30.9229L13.0528 24.2111L35.8119 24.2246C36.4653 24.2246 37 23.6766 37 23.0068C37 22.6888 36.8812 22.3775 36.6568 22.1475Z"
+												fill="white"
+											/>
+										</svg>
 									</span>
 								</div>
 								<div class="column is-four-fifths icon-right-tab">
@@ -58,7 +77,25 @@
 								<div class="column icon-right-tab" v-if="perfil">
 									<b-dropdown aria-role="list" class="button-options">
 										<span class="button-options" slot="trigger">
-											<i class="fas fa-ellipsis-h"></i>
+											<svg
+												width="33"
+												height="33"
+												viewBox="0 0 33 33"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<circle
+													cx="16.5"
+													cy="16.5"
+													r="15"
+													fill="#8969EB"
+													stroke="white"
+													stroke-width="3"
+												/>
+												<circle cx="9" cy="17" r="3" fill="white" />
+												<circle cx="17" cy="17" r="3" fill="white" />
+												<circle cx="25" cy="17" r="3" fill="white" />
+											</svg>
 										</span>
 
 										<b-dropdown-item aria-role="listitem">
@@ -84,18 +121,87 @@
 								</div>
 								<div class="column icon-right-tab" v-if="documentos">
 									<span class="button-options" slot="trigger" @click="uploadDocuments()">
-										<b-icon icon="plus"></b-icon>
+										<svg
+											width="33"
+											height="33"
+											viewBox="0 0 33 33"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<circle
+												cx="16.5"
+												cy="16.5"
+												r="15"
+												fill="#8969EB"
+												stroke="white"
+												stroke-width="3"
+											/>
+											<path
+												d="M16.5 26.0063C17.3534 26.0063 18.0442 25.3155 18.0408 24.4655L18.0408 8.84095C18.0408 7.9876 17.35 7.29679 16.5 7.30017C15.6466 7.30017 14.9558 7.99098 14.9592 8.84095L14.9592 24.4655C14.9558 25.3155 15.6466 26.0063 16.5 26.0063Z"
+												fill="white"
+											/>
+											<path
+												d="M7.14695 16.3485C7.14695 17.2019 7.83776 17.8927 8.68773 17.8893H24.3123C25.1656 17.8893 25.8564 17.1985 25.853 16.3485C25.853 15.4952 25.1622 14.8044 24.3123 14.8078L8.69112 14.8044C7.83776 14.8044 7.14695 15.4952 7.14695 16.3485Z"
+												fill="white"
+											/>
+										</svg>
 									</span>
 								</div>
 								<div class="column icon-right-tab" v-if="ausencia">
 									<span class="button-options" slot="trigger" @click="uploadAusencias()">
-										<b-icon icon="plus"></b-icon>
+										<svg
+											width="33"
+											height="33"
+											viewBox="0 0 33 33"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<circle
+												cx="16.5"
+												cy="16.5"
+												r="15"
+												fill="#8969EB"
+												stroke="white"
+												stroke-width="3"
+											/>
+											<path
+												d="M16.5 26.0063C17.3534 26.0063 18.0442 25.3155 18.0408 24.4655L18.0408 8.84095C18.0408 7.9876 17.35 7.29679 16.5 7.30017C15.6466 7.30017 14.9558 7.99098 14.9592 8.84095L14.9592 24.4655C14.9558 25.3155 15.6466 26.0063 16.5 26.0063Z"
+												fill="white"
+											/>
+											<path
+												d="M7.14695 16.3485C7.14695 17.2019 7.83776 17.8927 8.68773 17.8893H24.3123C25.1656 17.8893 25.8564 17.1985 25.853 16.3485C25.853 15.4952 25.1622 14.8044 24.3123 14.8078L8.69112 14.8044C7.83776 14.8044 7.14695 15.4952 7.14695 16.3485Z"
+												fill="white"
+											/>
+										</svg>
 									</span>
 								</div>
 								<div class="column icon-right-tab" v-if="tareas">
 									<b-dropdown aria-role="list" class="button-options">
 										<span class="button-options" slot="trigger">
-											<i class="fas fa-ellipsis-h"></i>
+											<svg
+												width="33"
+												height="33"
+												viewBox="0 0 33 33"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<circle
+													cx="16.5"
+													cy="16.5"
+													r="15"
+													fill="#8969EB"
+													stroke="white"
+													stroke-width="3"
+												/>
+												<path
+													d="M16.5 26.0063C17.3534 26.0063 18.0442 25.3155 18.0408 24.4655L18.0408 8.84095C18.0408 7.9876 17.35 7.29679 16.5 7.30017C15.6466 7.30017 14.9558 7.99098 14.9592 8.84095L14.9592 24.4655C14.9558 25.3155 15.6466 26.0063 16.5 26.0063Z"
+													fill="white"
+												/>
+												<path
+													d="M7.14695 16.3485C7.14695 17.2019 7.83776 17.8927 8.68773 17.8893H24.3123C25.1656 17.8893 25.8564 17.1985 25.853 16.3485C25.853 15.4952 25.1622 14.8044 24.3123 14.8078L8.69112 14.8044C7.83776 14.8044 7.14695 15.4952 7.14695 16.3485Z"
+													fill="white"
+												/>
+											</svg>
 										</span>
 
 										<b-dropdown-item aria-role="listitem">
@@ -551,9 +657,9 @@ export default class NewPublications extends PageBase {
 
 	.box-sombra {
 		position: absolute;
-		width: 82%;
+		width: 70%;
 		height: 100px;
-		left: 9%;
+		left: 15%;
 		right: auto;
 		top: 68px;
 		background: #7959d9;
